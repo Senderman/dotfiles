@@ -1,0 +1,18 @@
+[user]
+	name = Fyodor Doletov
+	email = doletov.fyodor@yandex.ru
+[alias]
+	br = branch
+	co = checkout
+	st = status
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --date=short
+	ci = commit -S -m
+	lch = rev-parse --short HEAD
+[credential]
+	helper = store
+[commit]
+	gpgsign = true
+[core]
+	autocrlf = input
+[init]
+	defaultBranch = master
