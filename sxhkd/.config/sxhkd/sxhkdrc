@@ -1,0 +1,41 @@
+super + space
+    refbar.sh
+
+super + z
+    pavucontrol
+
+super + t
+    telegram-desktop
+
+super + r
+    rofi -show drun
+
+super + b
+    firefox
+
+super + shift + e
+    translate.sh
+
+super + e
+    thunar
+
+Print
+    flameshot gui
+
+super + shift + Return
+    xterm
+
+XF86AudioMute
+    amixer set Master toggle; refbar.sh
+
+XF86AudioRaiseVolume
+    amixer -D pulse sset Master 5%+ unmute; refbar.sh
+
+XF86AudioLowerVolume
+    amixer -D pulse sset Master 5%- unmute; refbar.sh
+
+XF86MonBrightnessDown
+    xbacklight -dec 10; refbar.sh
+
+XF86MonBrightnessUp
+    xbacklight -inc 10; refbar.sh;
