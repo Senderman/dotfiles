@@ -12,6 +12,13 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit 
 wmname LG3D
 
+# GTK settings
+export GTK_THEME=Sweet-Dark
+
+# Unlock keyring
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+
 # Enable touchpad tap
 xinput set-prop 13 371 1
 
@@ -22,15 +29,10 @@ xinput set-prop 13 349 1
 setxkbmap -layout us,ru -option "grp:win_space_toggle"
 
 # Set wallpaper
-feh --bg-scale ~/Pictures/Wallpapers/ev.png
+feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 
-# GTK settings
-export GTK_THEME=Sweet-Dark
-
-# Unlock keyring
-eval $(gnome-keyring-daemon --start)
-export SSH_AUTH_SOCK
-
+picom --experimental-backends &
+killbar.sh
 bar.sh &
 flameshot &
 sxhkd &

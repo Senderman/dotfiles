@@ -17,10 +17,13 @@ super + shift + e
     translate.sh
 
 super + e
-    thunar
+    pcmanfm
 
 Print
     flameshot gui
+
+super + l
+    bslock
 
 super + shift + Return
     xterm
