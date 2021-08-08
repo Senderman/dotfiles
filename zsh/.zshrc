@@ -1,7 +1,5 @@
 . /usr/share/zsh/share/antigen.zsh
 
-alias df='df -h'
-alias free='free -h'
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -28,3 +26,11 @@ antigen theme fox
 
 # Tell Antigen that you're done.
 antigen apply
+
+. /usr/share/fzf/key-bindings.zsh
+. /usr/share/fzf/completion.zsh
+
+alias df='df -h'
+alias free='free -h'
+alias pacstore='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
+alias aurstore='yay -Salq | fzf --multi --preview "yay -Sai {1}" | xargs -ro yay -S'
