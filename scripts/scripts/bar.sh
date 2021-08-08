@@ -56,12 +56,6 @@ generate_content(){
 	echo "📶$(fnet)|☀️$(light)%|🔈$(volume)|🔋$(bat)%|$(layout)|$(fdate)"
 }
 
-# Kill previous instance of bar.sh
-pid=$(pstree -lp | grep -- -bar.sh)
-pid=${pid##*bar.sh\(}
-pid=${pid%%\)*}
-kill $pid
-
 while true; do
     xsetroot -name "$(generate_content)"
     sleep 1m
