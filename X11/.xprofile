@@ -2,7 +2,7 @@
 
 xrdb ~/.Xresources
 
-PATH=$PATH:/home/$USER/scripts
+PATH=$PATH:$HOME/scripts
 export PATH
 XDG_CONFIG_HOME=~/.config
 export XDG_CONFIG_HOME
