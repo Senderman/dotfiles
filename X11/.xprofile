@@ -15,6 +15,9 @@ wmname LG3D
 # Enable touchpad tap
 xinput set-prop 13 371 1
 
+# Enable natural touchpad scrolling
+xinput set-prop 13 349 1
+
 # Set layout switch to Win+Space
 setxkbmap -layout us,ru -option "grp:win_space_toggle"
 
