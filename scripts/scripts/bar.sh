@@ -22,7 +22,14 @@ bat(){
 }
 
 volume(){
-    awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master)
+    full_str=$(amixer sget Master | grep Left: )
+    state=${full_str##*\[}
+    if [[ $state == "off]" ]]; then
+	    echo off
+    else
+	    state=${full_str#*\[}
+	    echo ${state%%\]*}
+    fi
 }
 
 light(){
@@ -48,6 +55,12 @@ fnet(){
 generate_content(){
 	echo "📶$(fnet)|☀️$(light)%|🔈$(volume)|🔋$(bat)%|$(layout)|$(fdate)"
 }
+
+# Kill previous instance of bar.sh
+pid=$(pstree -lp | grep -- -bar.sh)
+pid=${pid##*bar.sh\(}
+pid=${pid%%\)*}
+kill $pid
 
 while true; do
     xsetroot -name "$(generate_content)"
