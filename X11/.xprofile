@@ -19,11 +19,11 @@ export GTK_THEME=Sweet-Dark
 eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 
+touchpad="DELL09E1:00 04F3:30CB Touchpad"
 # Enable touchpad tap
-xinput set-prop 13 371 1
-
+xinput set-prop "$touchpad" "libinput Tapping Enabled" 1
 # Enable natural touchpad scrolling
-xinput set-prop 13 349 1
+xinput set-prop "$touchpad" "libinput Natural Scrolling Enabled" 1
 
 # Set layout switch to Win+Space
 setxkbmap -layout us,ru -option "grp:win_space_toggle"
