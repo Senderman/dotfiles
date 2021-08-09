@@ -22,7 +22,7 @@ super + e
 Print
     flameshot gui
 
-super + l
+super + s
     bslock
 
 super + shift + Return
