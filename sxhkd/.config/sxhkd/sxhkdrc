@@ -4,7 +4,7 @@ super + space
 super + z
     pavucontrol
 
-super + t
+super + x
     telegram-desktop
 
 super + r
@@ -26,7 +26,7 @@ super + s
     bslock
 
 super + shift + Return
-    xterm
+    st
 
 XF86AudioMute
     amixer set Master toggle; refbar.sh
