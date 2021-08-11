@@ -13,11 +13,11 @@ super + r
 super + b
     firefox
 
-super + shift + e
+super + shift + t
     translate.sh
 
 super + e
-    pcmanfm
+    st ranger
 
 Print
     flameshot gui
