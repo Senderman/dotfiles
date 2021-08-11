@@ -22,14 +22,8 @@ bat(){
 }
 
 volume(){
-    full_str=$(amixer sget Master | grep Left: )
-    state=${full_str##*\[}
-    if [[ $state == "off]" ]]; then
-	    echo off
-    else
-	    state=${full_str#*\[}
-	    echo ${state%%\]*}
-    fi
+    v=$(pamixer --get-volume-human)
+    [[ $v == "muted" ]] && echo OFF || echo $v
 }
 
 light(){
@@ -53,7 +47,7 @@ fnet(){
 }
 
 generate_content(){
-	echo "📶$(fnet)|☀️$(light)%|🔈$(volume)|🔋$(bat)%|$(layout)|$(fdate)"
+	echo "📶$(fnet)|💡$(light)%|🔈$(volume)|🔋$(bat)%|$(layout)|$(fdate)"
 }
 
 while true; do
