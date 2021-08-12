@@ -13,7 +13,7 @@ wmname LG3D
 
 # GTK settings
 export GTK_THEME=Sweet-Dark
-export GTK2_RC_FILES="$HOME/.themes/Sweet-Dark/gtk-2.0/gtkrc"
+export GTK2_RC_FILES="/usr/share/themes/Sweet-Dark/gtk-2.0/gtkrc"
 
 # Unlock keyring
 eval $(gnome-keyring-daemon --start)
@@ -31,9 +31,13 @@ setxkbmap -layout us,ru -option "grp:win_space_toggle"
 # Set wallpaper
 feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 
+# Additional programs and daemons
 picom --experimental-backends &
+dunst &
+sxhkd &
+
+# Background scripts
 killbar.sh
 bar.sh &
-flameshot &
-sxhkd &
+battery.sh &
 
