@@ -4,7 +4,7 @@ super + space
 super + z
     pavucontrol
 
-super + x
+super + t
     telegram-desktop
 
 super + r
@@ -42,3 +42,12 @@ XF86MonBrightnessDown
 
 XF86MonBrightnessUp
     xbacklight -inc 10; refbar.sh;
+
+XF86AudioNext
+    playerctl next
+
+XF86AudioPrev
+    playerctl previous
+
+Xf86AudioPlay
+    playerctl play-pause
