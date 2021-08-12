@@ -6,9 +6,9 @@ layout(){
     t=$(xset -q | grep LED)
     code=${t##*mask:  }
     if [[ $code -eq "00000000" ]]; then
-	    result="🇺🇸"
+	    result=EN
     else
-	    result="🇷🇺"
+	    result=RU
     fi
     echo $result
 }
@@ -47,7 +47,7 @@ fnet(){
 }
 
 generate_content(){
-	echo "📶$(fnet)|💡$(light)%|🔈$(volume)|🔋$(bat)%|$(layout)|$(fdate)"
+	echo "📶$(fnet)|🔆$(light)%|🔈$(volume)|🔋$(bat)%|🏳️$(layout)|$(fdate)"
 }
 
 while true; do
