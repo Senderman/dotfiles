@@ -1,16 +1,10 @@
-#!/usr/bin/bash
+#!/usr/bin/zsh
 
 # Script to show system info (battery, volume, date, kb layout, etc) in DWM bar
 
 layout(){
     t=$(xset -q | grep LED)
-    code=${t##*mask:  }
-    if [[ $code -eq "00000000" ]]; then
-	    result=EN
-    else
-	    result=RU
-    fi
-    echo $result
+    [[ "${t##*mask:  }" == "00000000" ]] && echo EN || echo RU
 }
 
 fdate(){
@@ -46,8 +40,17 @@ fnet(){
 	echo $act_conn
 }
 
+nowplaying(){
+	v=$(playerctl metadata)
+	art=$(echo "$v" | grep "xesam:artist")
+	art=$(echo ${art#*xesam:artist} | xargs)
+	title=$(echo $v | grep "xesam:title")
+	title=$(echo ${title#*xesam:title} | xargs)
+	echo "$art - $title"
+}
+
 generate_content(){
-	echo "📶$(fnet)|🔆$(light)%|🔈$(volume)|🔋$(bat)%|🏳️$(layout)|$(fdate)"
+	echo "▶️$(nowplaying)|📶$(fnet)|🔆$(light)%|🔈$(volume)|🔋$(bat)%|🏳️$(layout)|$(fdate)"
 }
 
 while true; do
