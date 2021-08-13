@@ -17,7 +17,7 @@ bat(){
 
 volume(){
     v=$(pamixer --get-volume-human)
-    [[ $v == "muted" ]] && echo OFF || echo $v
+    [[ "$v" == "muted" ]] && echo OFF || echo $v
 }
 
 light(){
@@ -26,11 +26,11 @@ light(){
 
 fnet(){
 	nmout=$(nmcli -t -f NAME,TYPE con show --active)
-	conn=$( echo "$nmout" | grep ethernet)
+	conn=$(echo "$nmout" | grep ethernet)
 	if [[ "$conn" != "" ]]; then
 		act_conn="Eth"
 	else
-		conn=$( echo "$nmout" | grep wireless)
+		conn=$(echo "$nmout" | grep wireless)
 		if [[ "$conn" != "" ]]; then
 			act_conn="${conn%:*}"
 		else
@@ -43,9 +43,9 @@ fnet(){
 nowplaying(){
 	v=$(playerctl metadata)
 	art=$(echo "$v" | grep "xesam:artist")
-	art=$(echo ${art#*xesam:artist} | xargs)
-	title=$(echo $v | grep "xesam:title")
-	title=$(echo ${title#*xesam:title} | xargs)
+	art=$(echo "${art#*xesam:artist}" | xargs)
+	title=$(echo "$v" | grep "xesam:title")
+	title=$(echo "${title#*xesam:title}" | xargs)
 	echo "$art - $title"
 }
 
