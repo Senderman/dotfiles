@@ -1,12 +1,16 @@
 #!/usr/bin/bash
 
 bat_device=BAT0
+ac_device=AC
 crit_lvl=30
-bat_capacity_file=/sys/class/power_supply/$bat_device/capacity
+power_supply=/sys/class/power_supply
+bat_capacity_file=$power_supply/$bat_device/capacity
+ac_online_file=$power_supply/$ac_device/online
 
 while true; do
-	cpc=$(cat $bat_capacity_file)
-	if [[ $cpc -le $crit_lvl ]]; then
+	bat_lvl=$(cat $bat_capacity_file)
+	ac_on=$(cat $ac_online_file)
+	if [[ $ac_on == "0" ]] && [[ $bat_lvl -le $crit_lvl ]]; then
 		notify-send -u critical "Низкий заряд батареи" "Подключите зарядное устройство"
 	fi
 	sleep 5m
