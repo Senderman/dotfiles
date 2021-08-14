@@ -29,19 +29,19 @@ super + shift + Return
     st
 
 XF86AudioMute
-    amixer set Master toggle; refbar.sh
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 XF86AudioRaiseVolume
-    amixer -D pulse sset Master 5%+ unmute; refbar.sh
+    pactl set-sink-volume @DEFAULT_SINK@ +5%; refbar.sh
 
 XF86AudioLowerVolume
-    amixer -D pulse sset Master 5%- unmute; refbar.sh
+    pactl set-sink-volume @DEFAULT_SINK@ -5%; refbar.sh
 
 XF86MonBrightnessDown
-    xbacklight -dec 10; refbar.sh
+    brightnessctl set -10%; refbar.sh
 
 XF86MonBrightnessUp
-    xbacklight -inc 10; refbar.sh;
+    brightnessctl set +10%; refbar.sh;
 
 XF86AudioNext
     playerctl next
