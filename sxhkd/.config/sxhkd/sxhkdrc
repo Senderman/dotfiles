@@ -37,11 +37,11 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
     pactl set-sink-volume @DEFAULT_SINK@ -5%; refbar.sh
 
-XF86MonBrightnessDown
-    brightnessctl set -10%; refbar.sh
-
 XF86MonBrightnessUp
-    brightnessctl set +10%; refbar.sh;
+    xbacklight -inc 10; refbar.sh
+
+XF86MonBrightnessDown
+    xbacklight -dec 10; refbar.sh
 
 XF86AudioNext
     playerctl next
