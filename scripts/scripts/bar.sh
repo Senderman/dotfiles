@@ -51,7 +51,7 @@ nowplaying(){
 }
 
 generate_content(){
-	echo "|▶️$(nowplaying)|📶$(fnet)|🔆$(light)%|🔈$(volume)|🔋$(bat)%|🏳️$(layout)|$(fdate)"
+	echo "|📶$(fnet)|🔆$(light)%|🔈$(volume)|🔋$(bat)%|🏳️$(layout)|$(fdate)"
 }
 
 while true; do
