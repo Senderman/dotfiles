@@ -37,7 +37,7 @@ dunst &
 sxhkd &
 
 # Background scripts
-killbar.sh
+pkill bar.sh
 bar.sh &
 battery.sh &
 
