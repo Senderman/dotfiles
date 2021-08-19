@@ -8,7 +8,7 @@ layout(){
 }
 
 fdate(){
-    date +"%x %a %H:%M"
+    date +"%x %H:%M"
 }
 
 bat(){
@@ -25,17 +25,16 @@ light(){
 }
 
 fnet(){
-	wlan_dev=wlan0
-	connmanctl services | grep -E '\*A.*?\sWired' > /dev/null
-	if [[ $? == 0 ]]; then
-		act_conn=Eth
+	nmout=$(nmcli -t -f NAME,TYPE con show --active)
+	conn=$(echo "$nmout" | grep ethernet)
+	if [[ "$conn" != "" ]]; then
+		act_conn="Eth"
 	else
-		conn=$(iwctl station $wlan_dev show | grep 'Connected network')
-		conn=$(echo ${conn#*Connected network} | xargs)
-		if [[ $conn != '' ]]; then
-			act_conn=$conn
+		conn=$(echo "$nmout" | grep wireless)
+		if [[ "$conn" != "" ]]; then
+			act_conn="${conn%:*}"
 		else
-			act_conn=No conn
+			act_conn="No conn"
 		fi
 	fi
 	echo $act_conn
