@@ -32,12 +32,14 @@ setxkbmap -layout us,ru -option "grp:win_space_toggle"
 feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 
 # Additional programs and daemons
-picom --experimental-backends &
+picom &
 dunst &
 sxhkd &
 
 # Background scripts
 pkill bar.sh
 bar.sh &
+pkill battery.sh
 battery.sh &
+$HOME/Projects/python/ranger-dbus/run.sh &
 
