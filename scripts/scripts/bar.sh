@@ -4,7 +4,9 @@
 
 layout(){
     t=$(xset -q | grep LED)
-    [[ "${t##*mask:  }" == "00000000" ]] && echo EN || echo RU
+    mask="0b${t##*mask:  }"
+    not_en_mask="0b00001000"
+    [[ $((mask & not_en_mask)) == 0 ]] && echo EN || echo RU
 }
 
 fdate(){
