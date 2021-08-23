@@ -10,7 +10,7 @@ layout(){
 }
 
 fdate(){
-    date +"%x %H:%M"
+    date +"%d.%m %I:%M %p"
 }
 
 bat(){
