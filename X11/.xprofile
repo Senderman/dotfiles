@@ -35,7 +35,7 @@ feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 picom &
 dunst &
 sxhkd &
-CM_MAX_CLIPS=15 clipmenud &
+CM_MAX_CLIPS=15 CM_SELECTIONS=clipboard clipmenud &
 
 # Background scripts
 pkill bar.sh
