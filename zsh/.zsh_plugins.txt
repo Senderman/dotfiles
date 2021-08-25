@@ -1,14 +1,25 @@
 ohmyzsh/ohmyzsh
-ohmyzsh/ohmyzsh path:plugins/command-not-found
+ohmyzsh/ohmyzsh path:plugins/adb
 ohmyzsh/ohmyzsh path:plugins/archlinux
-ohmyzsh/ohmyzsh path:plugins/extract
-ohmyzsh/ohmyzsh path:plugins/sudo
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 ohmyzsh/ohmyzsh path:plugins/colorize
+ohmyzsh/ohmyzsh path:plugins/command-not-found
+ohmyzsh/ohmyzsh path:plugins/extract
+ohmyzsh/ohmyzsh path:plugins/sudo
 ohmyzsh/ohmyzsh path:plugins/systemd
-ohmyzsh/ohmyzsh path:themes/fox.zsh-theme
+ohmyzsh/ohmyzsh path:plugins/copyfile
+ohmyzsh/ohmyzsh path:plugins/copydir
+ohmyzsh/ohmyzsh path:plugins/copybuffer
+ohmyzsh/ohmyzsh path:plugins/bgnotify
+ohmyzsh/ohmyzsh path:plugins/zsh-interactive-cd
+ohmyzsh/ohmyzsh path:plugins/dircycle
+ohmyzsh/ohmyzsh path:plugins/gitfast
+ohmyzsh/ohmyzsh path:plugins/safe-paste
+
 
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
+
+djui/alias-tips
