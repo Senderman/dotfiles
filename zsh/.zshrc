@@ -20,7 +20,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-history-substring-search
 
 # Load the theme.
-antigen theme fox
+#antigen theme re5et
+antigen theme simonoff
 
 # Tell Antigen that you're done.
 antigen apply
@@ -33,6 +34,7 @@ alias df='df -h'
 alias free='free -h'
 alias g='git'
 alias pacstore='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
+alias udi='udisksctl info -b'
 alias udm='udisksctl mount -b'
 alias udp='udisksctl power-off -b'
 alias udu='udisksctl unmount -b'
