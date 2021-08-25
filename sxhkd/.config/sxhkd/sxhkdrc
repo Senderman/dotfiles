@@ -8,7 +8,7 @@ super + t
     telegram-desktop
 
 super + r
-    rofi -show drun
+    j4-dmenu-desktop
 
 super + b
     firefox
@@ -26,7 +26,7 @@ super + s
     bslock
 
 super + v
-    CM_LAUNCHER=rofi clipmenu
+    clipmenu
 
 super + shift + v
     clipdel -d ".*"
