@@ -25,6 +25,9 @@ Print
 super + s
     bslock
 
+super + shift + w
+    feh --bg-scale --randomize ~/Pictures/Wallpapers
+
 super + shift + Return
     st
 
