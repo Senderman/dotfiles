@@ -11,10 +11,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit 
 wmname LG3D
 
-# GTK settings
-export GTK_THEME=Sweet-Dark
-export GTK2_RC_FILES="/usr/share/themes/Sweet-Dark/gtk-2.0/gtkrc"
-
 # Unlock keyring
 eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
