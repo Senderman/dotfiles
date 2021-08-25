@@ -25,6 +25,12 @@ Print
 super + s
     bslock
 
+super + v
+    CM_LAUNCHER=rofi clipmenu
+
+super + shift + v
+    clipdel -d ".*"
+
 super + shift + w
     feh --bg-scale --randomize ~/Pictures/Wallpapers
 
