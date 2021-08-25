@@ -1,31 +1,10 @@
-. /usr/share/zsh/share/antigen.zsh
+regen-plugins(){
+    antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+}
 
+[[ ! -e ~/.zsh_plugins.sh ]] && regen-plugins
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle command-not-found
-antigen bundle archlinux
-antigen bundle extract
-antigen bundle sudo
-antigen bundle colored-man-pages
-antigen bundle colorize
-antigen bundle systemd
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-history-substring-search
-
-# Load the theme.
-#antigen theme re5et
-antigen theme simonoff
-
-# Tell Antigen that you're done.
-antigen apply
-
+. ~/.zsh_plugins.sh
 . /usr/share/fzf/key-bindings.zsh
 . /usr/share/fzf/completion.zsh
 
