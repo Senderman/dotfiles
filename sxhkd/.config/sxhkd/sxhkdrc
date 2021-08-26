@@ -23,7 +23,7 @@ Print
     flameshot gui
 
 super + s
-    bslock
+    slock
 
 super + v
     clipmenu
