@@ -28,6 +28,7 @@ setxkbmap -layout us,ru -option "grp:win_space_toggle"
 feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 
 # Additional programs and daemons
+pulseaudio -D
 picom &
 dunst &
 sxhkd &
