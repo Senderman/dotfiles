@@ -2,7 +2,7 @@ super + space
     refbar.sh
 
 super + z
-    pavucontrol
+    pulsemixer
 
 super + t
     telegram-desktop
