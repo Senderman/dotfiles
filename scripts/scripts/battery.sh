@@ -11,7 +11,7 @@ while true; do
 	bat_lvl=$(cat $bat_capacity_file)
 	ac_on=$(cat $ac_online_file)
 	if [[ $ac_on == "0" ]] && [[ $bat_lvl -le $crit_lvl ]]; then
-		notify-send -u critical "Низкий заряд батареи" "Подключите зарядное устройство"
+		notify-send -u critical "Low battery!" "Please, plug in the charger!"
 	fi
 	sleep 5m
 done
