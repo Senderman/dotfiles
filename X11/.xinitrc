@@ -45,4 +45,6 @@ battery.sh &
 $HOME/Projects/python/ranger-dbus/run.sh &
 
 # Run WM
-dbus-launch --exit-with-session dwm
+while true; do
+    dwm
+done
