@@ -40,23 +40,12 @@ super + shift + Return
 XF86AudioMute
     amixer -D pulse sset Master toggle; refbar.sh
 
-XF86AudioRaiseVolume
-    amixer -D pulse sset Master 5%+ unmute; refbar.sh
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+    amixer -D pulse sset Master 5%{+,-} unmute; refbar.sh
 
-XF86AudioLowerVolume
-    amixer -D pulse sset Master 5%- unmute; refbar.sh
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+    xbacklight {-inc,-dec} 10; refbar.sh
 
-XF86MonBrightnessUp
-    xbacklight -inc 10; refbar.sh
+{XF86AudioNext,XF86AudioPrev,XF86AudioPlay}
+    playerctl {next,previous,play-pause}
 
-XF86MonBrightnessDown
-    xbacklight -dec 10; refbar.sh
-
-XF86AudioNext
-    playerctl next
-
-XF86AudioPrev
-    playerctl previous
-
-XF86AudioPlay
-    playerctl play-pause
