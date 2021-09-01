@@ -52,7 +52,7 @@ nowplaying(){
 }
 
 generate_content(){
-	echo "|📶$(fnet)|🔆$(light)%|🔈$(volume)|🔋$(bat)%|🏳️$(layout)|$(fdate)"
+	echo "| 📶 $(fnet) | 🔆 $(light)% | 🔊 $(volume) | 🔋 $(bat)% | $(layout) |$(fdate)"
 }
 
 while true; do
