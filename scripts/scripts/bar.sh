@@ -6,7 +6,7 @@ layout(){
     t=$(xset -q | grep LED)
     mask="0b${t##*mask:  }"
     not_en_mask="0b00001000"
-    [[ $((mask & not_en_mask)) == 0 ]] && echo EN || echo RU
+    [[ $((mask & not_en_mask)) -eq 0 ]] && echo EN || echo RU
 }
 
 fdate(){
@@ -27,19 +27,16 @@ light(){
 }
 
 fnet(){
-	nmout=$(nmcli -t -f NAME,TYPE con show --active)
-	conn=$(echo "$nmout" | grep ethernet)
-	if [[ "$conn" != "" ]]; then
-		act_conn="Eth"
-	else
-		conn=$(echo "$nmout" | grep wireless)
-		if [[ "$conn" != "" ]]; then
-			act_conn="${conn%:*}"
-		else
-			act_conn="No conn"
-		fi
-	fi
-	echo $act_conn
+    wlan_dev="wlan0"
+
+    cm_out=$(connmanctl technologies | grep ethernet -A 2 | grep Connected | xargs)
+    eth_state="${cm_out#*Connected = }"
+    if [[ "$eth_state" == "True" ]] ; then
+        echo "Eth"
+    else
+        iw_out="$(iwctl station $wlan_dev show | grep 'Connected network' | xargs)"
+        [[ ! -z "$iw_out" ]] && echo "${iw_out#Connected network }" || echo "No conn"
+    fi
 }
 
 nowplaying(){
@@ -52,7 +49,7 @@ nowplaying(){
 }
 
 generate_content(){
-	echo "| 📶 $(fnet) | 🔆 $(light)% | 🔊 $(volume) | 🔋 $(bat)% | $(layout) |$(fdate)"
+	echo "| 📶 $(fnet) | 🔆 $(light)% | 🔊 $(volume) | 🔋 $(bat)% | $(layout) | $(fdate)"
 }
 
 while true; do

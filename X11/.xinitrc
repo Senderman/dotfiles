@@ -15,7 +15,7 @@ wmname LG3D
 eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 
-# Workaround for udisksctl on Runit
+# Enable dbus
 eval $(dbus-launch --sh-syntax --exit-with-session)
 
 touchpad="DELL09E1:00 04F3:30CB Touchpad"
