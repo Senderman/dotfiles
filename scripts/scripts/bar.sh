@@ -29,13 +29,12 @@ light(){
 fnet(){
     wlan_dev="wlan0"
 
-    cm_out=$(connmanctl technologies | grep ethernet -A 2 | grep Connected | xargs)
-    eth_state="${cm_out#*Connected = }"
-    if [[ "$eth_state" == "True" ]] ; then
-        echo "Eth"
+    iw_out="$(iwctl station $wlan_dev show | grep 'Connected network' | xargs)"
+    if [[ ! -z "$iw_out" ]]; then
+        echo "${iw_out#Connected network }"
     else
-        iw_out="$(iwctl station $wlan_dev show | grep 'Connected network' | xargs)"
-        [[ ! -z "$iw_out" ]] && echo "${iw_out#Connected network }" || echo "No conn"
+        cm_out=$(connmanctl technologies | grep ethernet -A 2 | grep Connected | xargs)
+        [[ "${cm_out#*Connected = }" == "True" ]] && echo "Eth" || echo "No conn"
     fi
 }
 
