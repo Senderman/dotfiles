@@ -32,6 +32,7 @@ feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 
 # Additional programs and daemons
 pulseaudio -D
+pulseaudio-smdev-reload &
 picom &
 dunst &
 sxhkd &
