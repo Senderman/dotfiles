@@ -30,12 +30,7 @@ fnet(){
     wlan_dev="wlan0"
 
     iw_out="$(iwctl station $wlan_dev show | grep 'Connected network' | xargs)"
-    if [[ ! -z "$iw_out" ]]; then
-        echo "${iw_out#Connected network }"
-    else
-        cm_out=$(connmanctl technologies | grep ethernet -A 2 | grep Connected | xargs)
-        [[ "${cm_out#*Connected = }" == "True" ]] && echo "Eth" || echo "No conn"
-    fi
+    [[ ! -z "$iw_out" ]] && echo "${iw_out#Connected network }" || echo "No Wi-Fi"
 }
 
 nowplaying(){
