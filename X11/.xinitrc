@@ -2,21 +2,10 @@
 
 xrdb ~/.Xresources
 
-export PATH=$PATH:$HOME/scripts
-export XDG_CONFIG_HOME=$HOME/.config
-export EDITOR=nvim
-
 # Fix for java applications
 export _JAVA_AWT_WM_NONREPARENTING=1 
 export AWT_TOOLKIT=MToolkit 
 wmname LG3D
-
-# Unlock keyring
-eval $(gnome-keyring-daemon --start)
-export SSH_AUTH_SOCK
-
-# Enable dbus
-eval $(dbus-launch --sh-syntax --exit-with-session)
 
 touchpad="DELL09E1:00 04F3:30CB Touchpad"
 # Enable touchpad tap
