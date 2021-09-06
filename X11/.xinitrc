@@ -26,6 +26,7 @@ pipewire-media-session &
 picom &
 dunst &
 sxhkd &
+flameshot &
 CM_MAX_CLIPS=15 CM_SELECTIONS=clipboard clipmenud &
 
 # Background scripts
