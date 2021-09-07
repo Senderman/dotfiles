@@ -48,6 +48,17 @@ fnet_nm(){
 	echo "$act_conn"
 }
 
+fnet() {
+    if pgrep iwd > /dev/null; then
+        fnet_iwd
+    else if pgrep NetworkManager > /dev/null; then
+            fnet_nm
+        else
+            echo "N/A"
+        fi
+    fi
+}
+
 nowplaying(){
 	v=$(playerctl metadata)
 	art=$(echo "$v" | grep 'xesam:artist')
@@ -58,7 +69,7 @@ nowplaying(){
 }
 
 generate_content(){
-	echo "| 📶 $(fnet_iwd) | 🔆 $(light)% | 🔊 $(volume) | 🔋 $(bat)% | $(layout) | $(fdate)"
+	echo "| 📶 $(fnet) | 🔆 $(light)% | 🔊 $(volume) | 🔋 $(bat)% | $(layout) | $(fdate)"
 }
 
 while true; do
