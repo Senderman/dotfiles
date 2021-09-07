@@ -37,6 +37,9 @@ super + shift + w
 super + shift + Return
     st
 
+XF86PowerOff
+    powermenu.sh
+
 XF86AudioMute
     amixer -D pulse sset Master toggle; refbar.sh
 
