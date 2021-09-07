@@ -20,6 +20,7 @@ setxkbmap -layout us,ru -option "grp:win_space_toggle"
 feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 
 # Additional programs and daemons
+redshift -P -O 4500
 pipewire &
 pipewire-pulse &
 pipewire-media-session &
