@@ -665,6 +665,29 @@
 </menu>
 
 <applications>
+    <application class="firefox">
+        <desktop>1</desktop>
+    </application>
+    <application class="firefox" title="Picture-in-Picture">
+        <desktop>all</desktop>
+        <layer>above</layer>
+    </application>
+    <application class="TelegramDesktop">
+        <desktop>2</desktop>
+    </application>
+    <application class="Virt-manager">
+        <desktop>7</desktop>
+    </application>
+    <application class="Steam">
+        <desktop>9</desktop>
+    </application>
+    <application class="jetbrains-idea-ce">
+        <desktop>4</desktop>
+    </application>
+    <application class="jetbrains-pycharm-ce">
+        <desktop>4</desktop>
+    </application>
+
 <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
