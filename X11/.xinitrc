@@ -6,7 +6,6 @@ xrdb ~/.Xresources
 export _JAVA_AWT_WM_NONREPARENTING=1 
 export AWT_TOOLKIT=MToolkit 
 wmname LG3D
-
 touchpad="DELL09E1:00 04F3:30CB Touchpad"
 # Enable touchpad tap
 xinput set-prop "$touchpad" "libinput Tapping Enabled" 1
@@ -20,24 +19,31 @@ setxkbmap -layout us,ru -option "grp:win_space_toggle"
 feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 
 # Additional programs and daemons
-redshift -P -O 4500
-pipewire &
-pipewire-pulse &
-pipewire-media-session &
+redshift -P -O 4000
 picom &
 dunst &
 sxhkd &
-flameshot &
 CM_MAX_CLIPS=15 CM_SELECTIONS=clipboard clipmenud &
 
+# start pipewire if not started
+if [ -z "$(pgrep pipewire)" ]; then
+    pipewire &
+    pipewire-pulse &
+    pipewire-media-session &
+fi
+
+session="$2"
 # Background scripts
-pkill bar.sh
-bar.sh &
 pkill battery.sh
 battery.sh &
 $HOME/Projects/python/ranger-dbus/run.sh &
 
+if [ "$session" = "dwm" ]; then
+    pkill bar.sh
+    bar.sh &
+fi
+
 # Run WM
 while true; do
-    dwm
+    $session
 done
