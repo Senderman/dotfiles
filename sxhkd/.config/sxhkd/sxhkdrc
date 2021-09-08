@@ -5,7 +5,7 @@ super + z
     st pulsemixer
 
 super + t
-    telegram-desktop
+    ~/Telegram/Telegram
 
 super + r
     j4-dmenu-desktop
@@ -20,7 +20,7 @@ super + e
     st ranger
 
 Print
-    flameshot gui
+    maim -s -u | xclip -selection clipboard -t image/png -i
 
 super + s
     slock
