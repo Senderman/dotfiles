@@ -38,10 +38,15 @@ pkill battery.sh
 battery.sh &
 $HOME/Projects/python/ranger-dbus/run.sh &
 
-if [ "$session" = "dwm" ]; then
-    pkill bar.sh
-    bar.sh &
-fi
+case "$session" in
+    dwm)
+        pkill bar.sh
+        bar.sh &
+        ;;
+    openbox)
+        polybar openbox &
+        ;;
+esac
 
 # Run WM
 while true; do
