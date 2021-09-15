@@ -25,6 +25,11 @@ dunst &
 sxhkd &
 CM_MAX_CLIPS=15 CM_SELECTIONS=clipboard clipmenud &
 
+# Configure screen locker
+xss-lock slock &
+xset s on
+xset s 600 # lock screen after 10 minutes of incactivity
+
 # start pipewire if not started
 if [ -z "$(pgrep pipewire)" ]; then
     pipewire &
