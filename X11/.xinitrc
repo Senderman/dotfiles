@@ -18,6 +18,9 @@ setxkbmap -layout us,ru -option "grp:win_space_toggle"
 # Set wallpaper
 feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 
+# Enable dbus
+eval $(dbus-launch --sh-syntax --exit-with-session)
+
 # Additional programs and daemons
 redshift -P -O 4000
 picom &
@@ -37,23 +40,15 @@ if [ -z "$(pgrep pipewire)" ]; then
     pipewire-media-session &
 fi
 
-session="$1"
 # Background scripts
 pkill battery.sh
 battery.sh &
 $HOME/Projects/python/ranger-dbus/run.sh &
 
-case "$session" in
-    dwm)
-        pkill bar.sh
-        bar.sh &
-        ;;
-    openbox)
-        polybar openbox &
-        ;;
-esac
+pkill bar.sh
+bar.sh &
 
 # Run WM
 while true; do
-    $session
+    dwm
 done
