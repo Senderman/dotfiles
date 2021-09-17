@@ -37,7 +37,7 @@ if [ -z "$(pgrep pipewire)" ]; then
     pipewire-media-session &
 fi
 
-session="$2"
+session="$1"
 # Background scripts
 pkill battery.sh
 battery.sh &
