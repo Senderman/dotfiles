@@ -1,23 +1,23 @@
 ohmyzsh/ohmyzsh
-ohmyzsh/ohmyzsh path:plugins/adb
-ohmyzsh/ohmyzsh path:plugins/colored-man-pages
-ohmyzsh/ohmyzsh path:plugins/colorize
-ohmyzsh/ohmyzsh path:plugins/command-not-found
-ohmyzsh/ohmyzsh path:plugins/extract
-ohmyzsh/ohmyzsh path:plugins/copyfile
-ohmyzsh/ohmyzsh path:plugins/copydir
-ohmyzsh/ohmyzsh path:plugins/copybuffer
-ohmyzsh/ohmyzsh path:plugins/bgnotify
-ohmyzsh/ohmyzsh path:plugins/zsh-interactive-cd
-ohmyzsh/ohmyzsh path:plugins/dircycle
-ohmyzsh/ohmyzsh path:plugins/gitfast
-ohmyzsh/ohmyzsh path:plugins/safe-paste
+ohmyzsh/ohmyzsh path:plugins/adb # adb completion
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages # adds colors to man pages
+ohmyzsh/ohmyzsh path:plugins/colorize # 'ccat' and 'cless' to cat/less with color
+ohmyzsh/ohmyzsh path:plugins/command-not-found # provide suggested packages to be installed if a command cannot be found
+ohmyzsh/ohmyzsh path:plugins/extract # 'x' command to extract any archive
+ohmyzsh/ohmyzsh path:plugins/copyfile # 'copyfile' command to copy file contents to the clipboard
+ohmyzsh/ohmyzsh path:plugins/copydir # 'copydir' command to copy current directory to the clipboard
+ohmyzsh/ohmyzsh path:plugins/copybuffer # press ctrl+O to copy current command to the clipboard
+ohmyzsh/ohmyzsh path:plugins/bgnotify # background notifications for long running commands 
+ohmyzsh/ohmyzsh path:plugins/zsh-interactive-cd # use fzf to autocomplete cd
+ohmyzsh/ohmyzsh path:plugins/dircycle # ctrl+shift+left/right to cycle through directory history
+ohmyzsh/ohmyzsh path:plugins/gitfast # git completion
+ohmyzsh/ohmyzsh path:plugins/safe-paste # prevent any code from actually running while pasting
 
 
-zsh-users/zsh-syntax-highlighting
-zsh-users/zsh-completions
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-history-substring-search
+zsh-users/zsh-syntax-highlighting # Fish shell like syntax highlighting for Zsh
+zsh-users/zsh-completions # Additional completion definitions for Zsh
+zsh-users/zsh-autosuggestions # Fish-like autosuggestions for zsh 
+zsh-users/zsh-history-substring-search # ZSH port of Fish history search
 
-djui/alias-tips
-Senderman/doas-zsh-plugin
+djui/alias-tips # show alias if 
+Senderman/doas-zsh-plugin # insert doas by pressing double ESC
