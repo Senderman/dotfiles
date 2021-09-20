@@ -1,4 +1,6 @@
 ohmyzsh/ohmyzsh
+ohmyzsh/ohmyzsh path:themes/fox.zsh-theme # fox theme
+
 ohmyzsh/ohmyzsh path:plugins/adb # adb completion
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages # adds colors to man pages
 ohmyzsh/ohmyzsh path:plugins/colorize # 'ccat' and 'cless' to cat/less with color

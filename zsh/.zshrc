@@ -1,5 +1,3 @@
-ZSH_THEME="fox" # set by `omz`
-
 regen-plugins(){
     antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 }
