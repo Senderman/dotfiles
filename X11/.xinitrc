@@ -29,6 +29,7 @@ redshift -l '55.752222:37.615556' & # red screen filter
 picom & # compositor
 dunst & # notification daemon
 sxhkd & # hotkey daemon
+flameshot &
 CM_MAX_CLIPS=15 CM_SELECTIONS=clipboard clipmenud & # clipboard manager
 
 # Background scripts

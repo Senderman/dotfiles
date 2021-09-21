@@ -20,7 +20,7 @@ super + e
     st ranger
 
 Print
-    maim -s -u | xclip -selection clipboard -t image/png -i
+    flameshot gui
 
 super + s
     slock
