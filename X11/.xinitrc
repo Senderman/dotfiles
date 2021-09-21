@@ -17,9 +17,6 @@ setxkbmap -layout us,ru -option "grp:win_space_toggle"
 # Set wallpaper
 feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 
-# Enable dbus
-eval $(dbus-launch --sh-syntax --exit-with-session)
-
 # Start pipewire if not started
 if [ -z "$(pgrep pipewire)" ]; then
     pipewire &
@@ -28,7 +25,7 @@ if [ -z "$(pgrep pipewire)" ]; then
 fi
 
 # Programs and daemons
-redshift -P -O 4000 # red screen filter
+redshift -l '55.752222:37.615556' & # red screen filter
 picom & # compositor
 dunst & # notification daemon
 sxhkd & # hotkey daemon
