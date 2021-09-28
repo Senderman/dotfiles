@@ -10,4 +10,5 @@ eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 
 # start Xorg on tty1
-[ -z "$DISPLAY"] && [ "$XDG_VTNR = 1" ] && sx sh ~/.xinitrc
+[ -z "$DISPLAY"] && [ "$XDG_VTNR" = 1 ] && sx sh ~/.xinitrc
+
