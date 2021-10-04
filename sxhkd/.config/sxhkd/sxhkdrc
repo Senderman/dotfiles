@@ -2,7 +2,7 @@ super + space
     refbar.sh
 
 super + z
-    st pulsemixer
+    alacritty -e pulsemixer
 
 super + t
     ~/Telegram/Telegram
@@ -17,7 +17,7 @@ super + shift + t
     translate.sh
 
 super + e
-    st ranger
+    alacritty -e ranger
 
 Print
     flameshot gui
@@ -35,7 +35,7 @@ super + shift + w
     feh --bg-scale --randomize ~/Pictures/Wallpapers
 
 super + shift + Return
-    st
+    alacritty
 
 XF86PowerOff
     powermenu.sh
