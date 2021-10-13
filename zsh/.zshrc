@@ -24,5 +24,7 @@ alias yaupg='yay -Sau'
 alias df='df -h -x tmpfs -x devtmpfs'
 alias free='free -h'
 
+alias e=$EDITOR
 alias g='git'
+alias f='ranger'
 alias trr='transmission-remote'
