@@ -8,7 +8,7 @@ super + t
     ~/Telegram/Telegram
 
 super + r
-    j4-dmenu-desktop
+    j4-dmenu-desktop --no-generic
 
 super + b
     firefox
