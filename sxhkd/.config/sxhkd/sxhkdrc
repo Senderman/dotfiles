@@ -37,6 +37,9 @@ super + shift + w
 super + shift + Return
     alacritty
 
+super + p
+    xrandr.sh
+
 XF86PowerOff
     powermenu.sh
 
