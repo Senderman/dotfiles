@@ -38,9 +38,6 @@ CM_MAX_CLIPS=15 CM_SELECTIONS=clipboard clipmenud & # clipboard manager
 pkill battery.sh
 battery.sh &
 
-pkill bar.sh
-bar.sh &
-
 # Ranger as default file manager
 $HOME/Projects/python/ranger-dbus/run.sh &
 

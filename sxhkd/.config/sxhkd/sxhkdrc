@@ -1,19 +1,19 @@
 super + space
     refbar.sh
 
-super + z
-    alacritty -e pulsemixer
+super + shift + z
+    pavucontrol
 
-super + t
+super + shift + t
     ~/Telegram/Telegram
 
 super + r
     j4-dmenu-desktop --no-generic
 
-super + b
+super + shift + b
     firefox
 
-super + shift + t
+super + t
     translate.sh
 
 super + e
@@ -22,16 +22,16 @@ super + e
 Print
     flameshot gui
 
-super + s
+super + shift + s
     slock
 
 super + v
     clipmenu
 
 super + shift + v
-    clipdel -d ".*"
+    clipdel -d ".*"; notify-send "Clipboard cleaned up"
 
-super + shift + w
+super + w
     feh --bg-scale --randomize ~/Pictures/Wallpapers
 
 super + shift + Return
