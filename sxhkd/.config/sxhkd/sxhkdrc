@@ -19,7 +19,7 @@ super + e
 Print
     flameshot gui
 
-super + shift + s
+super + s
     slock
 
 super + v
