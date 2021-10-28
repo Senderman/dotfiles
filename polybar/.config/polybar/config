@@ -7,15 +7,15 @@ wifi = #e362c5
 backlight = #e3e90a
 pulseaudio = #6fa8dc
 battery = #ffb52a
-xkeyboard = #00ff00
-date = #0a6cf5
+xkeyboard = #6ddc90
+date = #90619e
 
 label-layout-foreground = #90619e
 
 tag-empty-foreground = #afa8ff
 tag-focused-foreground = #6fa8dc
-tag-focused-background = #444
-tag-occupied-foreground = #6fdc90
+tag-focused-underline = #6fa8dc
+tag-occupied-foreground = #6fa8dc
 tag-urgent-foreground = #bd2c40
 
 [settings]
@@ -234,7 +234,7 @@ label-layout-foreground = ${colors.label-layout-foreground}
 ;label-layout-background = ${colors.background}
 
 ; Text to show when currently focused window is floating
-label-floating = F
+label-floating = 󰖲
 
 ; States: focused, unfocused, visible, urgent, empty
 ; Available tokens:
@@ -243,7 +243,7 @@ label-floating = F
 ; focused = Selected tag on focused monitor
 label-focused = %name%
 label-focused-foreground = ${colors.tag-focused-foreground}
-label-focused-background = ${colors.tag-focused-background}
+label-focused-underline = ${colors.tag-focused-underline}
 label-focused-padding = 2
 
 ; unfocused = Unselected tag on unselected monitor
