@@ -15,13 +15,14 @@ xinput set-prop "$touchpad" "libinput Natural Scrolling Enabled" 1
 setxkbmap -layout us,ru -option "grp:win_space_toggle"
 
 # Set wallpaper
-feh --bg-scale Pictures/Wallpapers/Artix.png
+feh --bg-scale ~/Pictures/Wallpapers/Artix.png
 
 # Start pipewire if not started
 if [ -z "$(pgrep pipewire)" ]; then
     pipewire &
     pipewire-pulse &
-    pipewire-media-session &
+    # pipewire-media-session &
+    wireplumber &
 fi
 
 # Enable dbus
