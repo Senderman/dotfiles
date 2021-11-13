@@ -1,0 +1,17 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+importas home HOME
+define touchpad "DELL09E1:00 04F3:30CB Touchpad"
+
+foreground { xrdb ${home}/.Xresources }
+
+foreground { xinput set-prop "$touchpad" "libinput Tapping Enabled" 1           }
+foreground { xinput set-prop "$touchpad" "libinput Natural Scrolling Enabled" 1 }
+
+# Set layout switch to Win+Space
+foreground { setxkbmap -layout us,ru -option "grp:win_space_toggle" }
+
+# Configure screen locker
+foreground { xset s on }
+xset s 600 # lock screen after 10 minutes of inactivity

@@ -1,0 +1,19 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+multisubstitute {
+    define bat_device BAT0
+    define ac_device AC
+    define crit_lvl 30
+    define power_supply "/sys/class/power_supply"
+}
+define bat_capacity_file ${power_supply}/${bat_device}/capacity
+define ac_online_file ${power_supply}/${ac_device}/online
+
+loopwhilex
+    backtick -E bat_lvl { cat $bat_capacity_file }
+    backtick -E ac_on { cat $ac_online_file }
+    foreground { if { test $ac_on -eq 0 } if { test $bat_lvl -le $crit_lvl }
+        notify-send -u critical "Low battery!" "Please, plug in the charger!"
+    }
+    sleep 5m
