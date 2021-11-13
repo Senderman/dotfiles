@@ -1,0 +1,8 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+multisubstitute {
+  importas ADDR DBUS_SESSION_BUS_ADDRESS
+  importas HOME HOME
+}
+dbus-daemon --session --address=${ADDR} 

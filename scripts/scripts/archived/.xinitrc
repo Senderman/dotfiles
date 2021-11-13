@@ -1,0 +1,1 @@
+dotfiles/X11/.xinitrc
