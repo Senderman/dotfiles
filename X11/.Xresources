@@ -6,5 +6,5 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-Sxiv.background: #000000
+Sxiv.background: #242757
 Sxiv.foreground: #007799
