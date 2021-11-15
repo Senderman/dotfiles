@@ -1,7 +1,7 @@
 export PATH=$PATH:$HOME/scripts
 export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR=nvim
-ramdir="/tmp/$(id -u)"
+ramdir="/run/user/$(id -u)"
 mkdir -p "$ramdir"
 export DBUS_SESSION_BUS_ADDRESS="unix:abstract=$ramdir/dbus"
 
