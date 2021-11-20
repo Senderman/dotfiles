@@ -13,6 +13,9 @@ super + shift + b
 super + t
     translate.sh
 
+super + shift + Return
+    alacritty
+
 super + e
     alacritty -e ranger
 
@@ -31,8 +34,8 @@ super + shift + v
 super + w
     feh --bg-scale --randomize ~/Pictures/Wallpapers
 
-super + shift + Return
-    alacritty
+ctrl + space
+    dunstctl close
 
 super + p
     xrandr.sh

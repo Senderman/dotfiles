@@ -6,12 +6,15 @@ mkdir -p "$ramdir"
 export DBUS_SESSION_BUS_ADDRESS="unix:abstract=$ramdir/dbus"
 
 # start Xorg on tty1, supervised by s6
-if  [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+tty="$(tty)"
+#tty="${tty#/dev/tty/}"
+tty=1
+if  [ -z "$DISPLAY" ] && [ "$tty" = "1" ]; then
 
     export _JAVA_AWT_WM_NONREPARENTING=1
     export AWT_TOOLKIT=MToolkit
     export XAUTHORITY="$HOME/.Xauthority"
-    export DISPLAY=":$XDG_VTNR"
+    export DISPLAY=":$tty"
 
     s6dir="$HOME/.s6"
     s6compdir="$s6dir/db/compiled"
