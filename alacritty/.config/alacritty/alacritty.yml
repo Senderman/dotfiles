@@ -179,7 +179,7 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#1d1f21'
+    background: '#192333'
     foreground: '#c5c8c6'
 
     # Bright and dim foreground colors
@@ -268,21 +268,21 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#717171'
-    red:     '#cc6666'
-    green:   '#6fdc90'
+    black:   '#c5c8c6'
+    red:     '#b93228'
+    green:   '#2da150'
     yellow:  '#e362c5'
     blue:    '#6fa8dc'
     magenta: '#90619e'
-    cyan:    '#afa8ff'
+    cyan:    '#7e61c8'
     white:   '#c5c8c6'
 
   # Bright colors
-  #bright:
-  #  black:   '#666666'
+  bright:
+    black:   '#858585'
   #  red:     '#d54e53'
   #  green:   '#b9ca4a'
-  #  yellow:  '#e7c547'
+    yellow:  '#a62889'
   #  blue:    '#7aa6da'
   #  magenta: '#c397d8'
   #  cyan:    '#70c0b1'
