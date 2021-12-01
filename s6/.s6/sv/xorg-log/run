@@ -1,0 +1,10 @@
+#!/bin/execlineb -P
+
+importas home HOME
+envfile ${home}/.s6/conf/logger.conf
+importas -sCuD "n3 s2000000 T" DIRECTIVES DIRECTIVES
+importas runtime_dir XDG_RUNTIME_DIR
+define log_dir ${runtime_dir}/s6/log/xorg
+
+foreground { install -d $log_dir }
+s6-log -b -d3 -- ${DIRECTIVES} $log_dir
