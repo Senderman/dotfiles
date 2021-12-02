@@ -1,7 +1,8 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
-importas home HOME
-envfile ${home}/.s6/conf/polybar
-importas bar BAR
-polybar $bar
+importas HOME HOME
+envfile ${HOME}/.s6/config/polybar.conf
+importas BAR BAR
+
+polybar $BAR

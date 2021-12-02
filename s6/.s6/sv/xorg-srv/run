@@ -1,17 +1,13 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
-multisubstitute {
-    importas home HOME
-    importas xauthority XAUTHORITY
-}
+importas XAUTHORITY XAUTHORITY
 
 backtick -E tty { pipeline { tty } tr -d '/dev/tty/' }
 
-foreground { touch $xauthority }
-foreground { stty sane }
+foreground { touch $XAUTHORITY }
 foreground { xauth remove :$tty }
 
 backtick -E cookie { pipeline { od -An -N16 -tx /dev/urandom } tr -d " " }
 foreground { xauth add :$tty MIT-MAGIC-COOKIE-1 $cookie }
-Xorg :$tty -keeptty vt$tty -noreset -auth $xauthority -displayfd 4 
+Xorg :$tty -keeptty vt$tty -noreset -auth $XAUTHORITY -displayfd 4
