@@ -7,8 +7,11 @@ multisubstitute {
     define crit_lvl 30
     define power_supply "/sys/class/power_supply"
 }
-define bat_capacity_file ${power_supply}/${bat_device}/capacity
-define ac_online_file ${power_supply}/${ac_device}/online
+
+multisubstitute {
+    define bat_capacity_file ${power_supply}/${bat_device}/capacity
+    define ac_online_file ${power_supply}/${ac_device}/online
+}
 
 loopwhilex
     backtick -E bat_lvl { cat $bat_capacity_file }

@@ -1,14 +1,6 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
-importas home HOME
-envfile ${home}/.s6/conf/feh
-multisubstitute {
-    importas wp_path WP_PATH
-    importas is_home IS_HOME
-    importas -s args ARGS
-}
+importas HOME HOME
 
-ifelse { test $is_home = true }
-    { feh $args ${home}/${wp_path} }
-    feh $args /${wp_path} 
+sh ${HOME}/.s6/sv/feh/shell_up
