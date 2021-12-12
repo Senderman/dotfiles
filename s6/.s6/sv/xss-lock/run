@@ -5,4 +5,4 @@ importas HOME HOME
 envfile ${HOME}/.s6/config/xss-lock.conf
 importas SCREENSAVER SCREENSAVER
 
-xss-lock $screensaver
+xss-lock $SCREENSAVER
