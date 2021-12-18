@@ -184,7 +184,7 @@ label-foreground = ${colors.foreground}
 
 [module/dwm]
 type = internal/dwm
-format = <label-tags> <label-layout> <label-floating> <label-title>
+format = <label-tags> <label-layout> <label-floating>
 ; Path to dwm socket (default: /tmp/dwm.sock)
 ; socket-path = /tmp/dwm.sock
 
