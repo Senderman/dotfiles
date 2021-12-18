@@ -6,8 +6,7 @@ mkdir -p "$ramdir"
 
 # start Xorg on tty1, supervised by s6
 tty="$(tty)"
-#tty="${tty#/dev/tty/}"
-tty=1
+tty="${tty#/dev/tty}"
 if  [ -z "$DISPLAY" ] && [ "$tty" = "1" ]; then
 
     export _JAVA_AWT_WM_NONREPARENTING=1
