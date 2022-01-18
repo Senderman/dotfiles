@@ -2,7 +2,7 @@
 
 TS="$(date +%s)"
 DEFAULT_DB_PATH="${HOME}/.s6/rc/compiled"
-LIVE_DIR="/run/user/$(id -u)/s6/live"
+LIVE_DIR="/run/user/$(id -u)/s6/s6-rc"
 NEW_DB="${HOME}/.s6/rc/compiled-$TS"
 SOURCES="${HOME}/.s6/sv"
 

@@ -2,12 +2,13 @@
 
 fdmove -c 2 1
 importas XAUTHORITY XAUTHORITY
+importas DISPLAY DISPLAY
 
-backtick -E tty { pipeline { tty } tr -d '/dev/tty/' }
+backtick -E tty { pipeline { echo $DISPLAY } tr -d ':' }
 
 foreground { touch $XAUTHORITY }
 foreground { xauth remove :$tty }
 
 backtick -E cookie { pipeline { od -An -N16 -tx /dev/urandom } tr -d " " }
 foreground { xauth add :$tty MIT-MAGIC-COOKIE-1 $cookie }
-Xorg :$tty -keeptty vt$tty -noreset -auth $XAUTHORITY -displayfd 4
+Xorg $DISPLAY -keeptty vt$tty -noreset -auth $XAUTHORITY -displayfd 4
