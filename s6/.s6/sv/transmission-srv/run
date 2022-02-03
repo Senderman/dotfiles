@@ -1,4 +1,4 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
-pipewire
+transmission-daemon -f
