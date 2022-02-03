@@ -5,4 +5,5 @@ multisubstitute {
   importas ADDR DBUS_SESSION_BUS_ADDRESS
   importas HOME HOME
 }
+
 dbus-daemon --session --address=${ADDR} 

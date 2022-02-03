@@ -11,4 +11,5 @@ foreground { xauth remove :$tty }
 
 backtick -E cookie { pipeline { od -An -N16 -tx /dev/urandom } tr -d " " }
 foreground { xauth add :$tty MIT-MAGIC-COOKIE-1 $cookie }
+
 Xorg $DISPLAY -keeptty vt$tty -noreset -auth $XAUTHORITY -displayfd 4
