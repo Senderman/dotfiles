@@ -6,4 +6,4 @@ multisubstitute {
   importas HOME HOME
 }
 
-dbus-daemon --session --address=${ADDR} 
+dbus-daemon --nofork --session --print-pid 4 --address=${ADDR} 

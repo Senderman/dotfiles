@@ -8,6 +8,12 @@ SOURCES="${HOME}/.s6/sv"
 
 echo "Compiling new database to ${NEW_DB}..."
 s6-rc-compile "$NEW_DB" "$SOURCES"
+result=$?
+if [ "$result" -ne 0 ]; then
+    echo "Failed to compile database!"
+    exit 1
+fi
+
 echo "Switching to the new database..."
 s6-rc-update -l "$LIVE_DIR" "$NEW_DB"
 rm "$DEFAULT_DB" 2>/dev/null
