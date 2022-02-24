@@ -1,0 +1,6 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+importas HOME HOME
+
+${HOME}/Projects/python/ranger-dbus/run.sh
