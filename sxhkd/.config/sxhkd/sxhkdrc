@@ -13,6 +13,9 @@ super + shift + b
 super + t
     translate.sh
 
+super + shift + y
+    youtube-mpv.sh
+
 super + shift + Return
     alacritty
 

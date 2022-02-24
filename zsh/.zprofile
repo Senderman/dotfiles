@@ -24,7 +24,7 @@ if  [ -z "$DISPLAY" ] && [ "$tty" = "1" ]; then
     cp -r "$HOME/.s6/s6-svscan-log" "$s6_scandir"
     mkfifo "$s6_logger_fifo" 
 
-    redirfd -wnb 1 "$s6_logger_fifo" fdmove -c 2 1 s6-svscan "$s6_scandir" &
+    setsid -f redirfd -wnb 1 "$s6_logger_fifo" fdmove -c 2 1 s6-svscan "$s6_scandir"
     s6-rc-init -c "$s6_compdir" -l "$s6_livedir" "$s6_scandir"
     s6-rc -l "$s6_livedir" -u change default
 fi
