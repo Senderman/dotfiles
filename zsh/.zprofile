@@ -21,7 +21,7 @@ if  [ -z "$DISPLAY" ] && [ "$tty" = "1" ]; then
 
     mkdir -p "$s6_scandir"
     mkdir -p "$s6_dir/log"
-    cp -r "$HOME/.s6/s6-svscan-log" "$s6_scandir"
+    cp -rL "$HOME/.s6/s6-svscan-log" "$s6_scandir"
     mkfifo "$s6_logger_fifo" 
 
     setsid -f redirfd -wnb 1 "$s6_logger_fifo" fdmove -c 2 1 s6-svscan "$s6_scandir"
