@@ -1,5 +1,4 @@
 #!/bin/sh
 text=$(xclip -o --selection-primary)
 translated=$(trans -b :ru "$text")
-#notify-send 'Перевод' "$translated"
-zenity --info --text="$translated" --title='Перевод' --width=350
+exec zenity --info --text="$translated" --title='Перевод' --width=350
