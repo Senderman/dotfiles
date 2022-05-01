@@ -33,7 +33,7 @@ if [ "$TYPE" = "best" ]; then
 fi
 
 H="${TYPE%p}"
-mpv --ytdl-format="bestvideo[ext=mp4][height<=$H]+bestaudio
+exec mpv --ytdl-format="bestvideo[ext=mp4][height<=$H]+bestaudio
   /bestvideo[height<=$H]+bestaudio
   /best[ext=mp4][height<=$H]
   /best[height<=$H]
