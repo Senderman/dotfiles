@@ -7,7 +7,7 @@ ohmyzsh/ohmyzsh path:plugins/colorize # 'ccat' and 'cless' to cat/less with colo
 ohmyzsh/ohmyzsh path:plugins/command-not-found # provide suggested packages to be installed if a command cannot be found
 ohmyzsh/ohmyzsh path:plugins/extract # 'x' command to extract any archive
 ohmyzsh/ohmyzsh path:plugins/copyfile # 'copyfile' command to copy file contents to the clipboard
-ohmyzsh/ohmyzsh path:plugins/copydir # 'copydir' command to copy current directory to the clipboard
+ohmyzsh/ohmyzsh path:plugins/copypath # 'copypath' command to copy current directory to the clipboard
 ohmyzsh/ohmyzsh path:plugins/copybuffer # press ctrl+O to copy current command to the clipboard
 ohmyzsh/ohmyzsh path:plugins/bgnotify # background notifications for long running commands 
 ohmyzsh/ohmyzsh path:plugins/zsh-interactive-cd # use fzf to autocomplete cd
@@ -22,4 +22,3 @@ zsh-users/zsh-autosuggestions # Fish-like autosuggestions for zsh
 zsh-users/zsh-history-substring-search # ZSH port of Fish history search
 
 djui/alias-tips # show alias if 
-Senderman/doas-zsh-plugin # insert doas by pressing double ESC
