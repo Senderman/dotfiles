@@ -102,16 +102,16 @@
   #multiplier: 3
 
 # Font configuration
-#font:
+font:
   # Normal (roman) font face
-  #normal:
+  normal:
     # Font family
     #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    #family: monospace
+    family: mono
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -179,7 +179,7 @@
 colors:
   # Default colors
   primary:
-    background: '#1d1f21'
+    background: '#192333'
     foreground: '#c5c8c6'
 
     # Bright and dim foreground colors
@@ -268,21 +268,21 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#1d1f21'
-    red:     '#cc6666'
-    green:   '#70bb4f'
-    yellow:  '#c0a554'
+    black:   '#c5c8c6'
+    red:     '#b93228'
+    green:   '#2da150'
+    yellow:  '#e362c5'
     blue:    '#6fa8dc'
     magenta: '#90619e'
-    cyan:    '#afa8ff'
+    cyan:    '#7e61c8'
     white:   '#c5c8c6'
 
   # Bright colors
-  #bright:
-  #  black:   '#666666'
+  bright:
+    black:   '#858585'
   #  red:     '#d54e53'
   #  green:   '#b9ca4a'
-  #  yellow:  '#e7c547'
+    yellow:  '#a62889'
   #  blue:    '#7aa6da'
   #  magenta: '#c397d8'
   #  cyan:    '#70c0b1'
@@ -357,7 +357,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.95
+windows.opacity: 0.95
 
 #selection:
   # This string contains all characters that are used as separators for
@@ -719,7 +719,7 @@ background_opacity: 0.95
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-#key_bindings:
+key_bindings:
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -798,6 +798,7 @@ background_opacity: 0.95
   #- { key: B,              mods: Control|Shift, mode: ~Search,    action: SearchBackward   }
   #- { key: C,              mods: Control|Shift, mode: Vi|~Search, action: ClearSelection   }
   #- { key: Insert,         mods: Shift,                           action: PasteSelection   }
+   - { key: Insert,         mods: Control,                         action: Copy             }
   #- { key: Key0,           mods: Control,                         action: ResetFontSize    }
   #- { key: Equals,         mods: Control,                         action: IncreaseFontSize }
   #- { key: Plus,           mods: Control,                         action: IncreaseFontSize }

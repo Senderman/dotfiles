@@ -1,3 +1,3 @@
 #!/bin/sh
-selection=$(printf "%s\n" poweroff reboot hibernate suspend | dmenu -l 4)
+selection=$(printf "%s\n" poweroff reboot hibernate suspend | dmenu)
 [ -n "$selection" ] && loginctl "$selection"

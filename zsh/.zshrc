@@ -45,4 +45,3 @@ cbr() {
     rm -rf bugrep*
     rm -rf sm-pics/*
 }
-

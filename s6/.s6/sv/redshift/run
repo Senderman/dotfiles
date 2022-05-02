@@ -1,0 +1,8 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+importas HOME HOME
+envfile ${HOME}/.s6/config/redshift.conf
+importas -s ARGS ARGS
+
+redshift ${ARGS}

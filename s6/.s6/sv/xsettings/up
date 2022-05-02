@@ -1,0 +1,6 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+importas HOME HOME
+
+sh ${HOME}/.s6/sv/xsettings/shell_up

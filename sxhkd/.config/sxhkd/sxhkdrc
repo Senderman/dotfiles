@@ -1,20 +1,23 @@
-super + space
-    refbar.sh
+super + shift + z
+    pavucontrol
 
-super + z
-    alacritty -e pulsemixer
-
-super + t
+super + shift + t
     ~/Telegram/Telegram
 
 super + r
-    j4-dmenu-desktop
+    j4-dmenu-desktop --no-generic
 
-super + b
+super + shift + b
     firefox
 
-super + shift + t
+super + t
     translate.sh
+
+super + shift + y
+    youtube-mpv.sh
+
+super + shift + Return
+    alacritty
 
 super + e
     alacritty -e ranger
@@ -29,25 +32,28 @@ super + v
     clipmenu
 
 super + shift + v
-    clipdel -d ".*"
+    clipdel -d ".*"; notify-send "Clipboard cleaned up"
 
-super + shift + w
+super + w
     feh --bg-scale --randomize ~/Pictures/Wallpapers
 
-super + shift + Return
-    alacritty
+ctrl + space
+    dunstctl close
+
+super + p
+    xrandr.sh
 
 XF86PowerOff
     powermenu.sh
 
 XF86AudioMute
-    amixer -D pulse sset Master toggle; refbar.sh
+    amixer -D pulse sset Master toggle
 
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
-    amixer -D pulse sset Master 5%{+,-} unmute; refbar.sh
+    amixer -D pulse sset Master 5%{+,-} unmute
 
 {XF86MonBrightnessUp,XF86MonBrightnessDown}
-    xbacklight {-inc,-dec} 10; refbar.sh
+    xbacklight {-inc,-dec} 10
 
 {XF86AudioNext,XF86AudioPrev,XF86AudioPlay}
     playerctl {next,previous,play-pause}
