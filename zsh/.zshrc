@@ -4,6 +4,8 @@ regen-plugins(){
 
 [[ ! -e ~/.zsh_plugins.sh ]] && regen-plugins
 
+zstyle ':omz:update' mode disabled
+
 . ~/.zsh_plugins.sh
 . /usr/share/fzf/key-bindings.zsh
 . /usr/share/fzf/completion.zsh
