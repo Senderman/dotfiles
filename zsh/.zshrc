@@ -1,5 +1,5 @@
 regen-plugins(){
-    antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+    ~/.antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 }
 
 [[ ! -e ~/.zsh_plugins.sh ]] && regen-plugins
@@ -7,27 +7,43 @@ regen-plugins(){
 zstyle ':omz:update' mode disabled
 
 . ~/.zsh_plugins.sh
-. /usr/share/fzf/key-bindings.zsh
-. /usr/share/fzf/completion.zsh
 
 autoload -Uz compinit
 compinit
-
-alias pacstore='doas pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro doas pacman -S'
-alias pacin='doas pacman -S'
-alias pacrem='doas pacman -Rns'
-alias pacrmdeps='doas pacman -Rns $(pacman -Qdtq)'
-alias pacupg='doas pacman -Syu'
-
-alias aurstore='yay -Salq | fzf --multi --preview "yay -Sai {1}" | xargs -ro yay -S'
-alias yain='yay -S'
-alias yaupg='yay -Sau'
-
-alias df='df -h -x tmpfs -x devtmpfs'
+EDITOR=~/progs/nvim/bin/nvim
+alias df='df -h'
 alias free='free -h'
 
-alias e=$EDITOR
 alias g='git'
-alias f='ranger'
-alias trr='transmission-remote'
-alias s6-rc-user="s6-rc -l $XDG_RUNTIME_DIR/s6/s6-rc"
+alias nvim=~/progs/nvim/bin/nvim
+alias ranger=~/progs/ranger/ranger.py
+alias adb=~/progs/adb/adb
+alias e=nvim
+alias f=ranger
+
+VIMCMD=~/progs/nvim/bin/nvim
+DOWNLOAD_DIR=~/Downloads
+
+afixlogfile(){
+    [ -e "$1" ] && iconv -c -t UTF-8 "$1" > "$2"
+} 
+
+ebr() {
+    cd $DOWNLOAD_DIR
+    mkdir bugrep
+    unzip bugreport-* -d bugrep/
+    cd bugrep
+    cd bugreport-*
+    for i in service_logcat.log*; do
+        n="${i##*.log}" # обрезаем все до .log включительно
+        n="${n%.}" # убираем точку в конце если есть
+        afixlogfile "$i" "logcat$n.alog"
+    done
+    $VIMCMD logcat*.alog
+}
+
+cbr() {
+    cd $DOWNLOAD_DIR
+    rm -rf bugrep*
+    rm -rf sm-pics/*
+}

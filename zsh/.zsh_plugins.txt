@@ -21,5 +21,4 @@ zsh-users/zsh-completions # Additional completion definitions for Zsh
 zsh-users/zsh-autosuggestions # Fish-like autosuggestions for zsh 
 zsh-users/zsh-history-substring-search # ZSH port of Fish history search
 
-djui/alias-tips # show alias if full command was entered
-Senderman/doas-zsh-plugin # insert doas by pressing double ESC
+djui/alias-tips # show alias if 
