@@ -1,4 +1,4 @@
-export PATH=$PATH:$HOME/scripts
+export PATH=$PATH:$HOME/bin
 export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR=nvim
 
