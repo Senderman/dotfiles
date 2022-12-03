@@ -9,6 +9,7 @@ pulseaudio = #6fa8dc
 battery = #ffb52a
 xkeyboard = #6ddc90
 date = #90619e
+vpn = #38761d
 
 label-layout-foreground = #90619e
 
@@ -32,7 +33,7 @@ margin-bottom = 0
 
 [bar/mybar]
 modules-left = dwm
-modules-right = wlan eth backlight-acpi pulseaudio battery xkeyboard date
+modules-right = vpn wlan eth backlight-acpi pulseaudio battery xkeyboard date
 override-redirect = false
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
@@ -181,6 +182,15 @@ format-underline = ${colors.date}
 
 label = %date% %time%
 label-foreground = ${colors.foreground}
+
+[module/vpn]
+type = custom/script
+exec = echo VPN
+exec-if = pgrep -x openvpn
+interval = 5
+format-underline = ${colors.vpn}
+format-prefix = "󰖂 "
+format-prefix-foreground = ${colors.vpn}
 
 [module/dwm]
 type = internal/dwm
