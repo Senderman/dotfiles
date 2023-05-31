@@ -41,7 +41,7 @@ ctrl + space
     dunstctl close
 
 super + p
-    xrandr.sh
+    arandr
 
 XF86PowerOff
     powermenu.sh
