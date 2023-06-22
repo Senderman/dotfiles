@@ -1,13 +1,16 @@
+zsh_plugins=~/.zsh_plugins.zsh
+
 regen-plugins(){
-    antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+    antidote bundle < ~/.zsh_plugins.txt > $zsh_plugins
 }
 
-[[ ! -e ~/.zsh_plugins.sh ]] && regen-plugins
+. /usr/share/zsh-antidote/antidote.zsh
+[[ ! -e ~/.zsh_plugins.zsh ]] && regen-plugins
 
 zstyle ':omz:update' mode disabled
 
-. ~/.zsh_plugins.sh
-. ~/.zsh_aliases.sh
+. $zsh_plugins
+. ~/.zsh_aliases.zsh
 . /usr/share/fzf/key-bindings.zsh
 . /usr/share/fzf/completion.zsh
 
