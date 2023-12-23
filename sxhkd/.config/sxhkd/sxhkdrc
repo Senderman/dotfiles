@@ -5,7 +5,10 @@ super + shift + t
     ~/Telegram/Telegram
 
 super + r
-    j4-dmenu-desktop --no-generic
+    rofi -show drun
+
+super + shift + s
+    rofi -show ssh
 
 super + shift + b
     firefox

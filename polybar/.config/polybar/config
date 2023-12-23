@@ -3,7 +3,7 @@ background = #242757
 foreground = #c5c8c6
 alert = #bd2c40
 
-wifi = #e362c5
+network = #e362c5
 backlight = #e3e90a
 pulseaudio = #6fa8dc
 battery = #ffb52a
@@ -33,7 +33,7 @@ margin-bottom = 0
 
 [bar/mybar]
 modules-left = dwm
-modules-right = vpn wlan eth backlight-acpi pulseaudio battery xkeyboard date
+modules-right = vpn rndis eth wlan backlight-acpi pulseaudio battery xkeyboard date
 override-redirect = false
 monitor = ${env:MONITOR}
 width = 100%
@@ -71,36 +71,36 @@ interface = wlan0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = ${colors.wifi}
+format-connected-underline = ${colors.network}
 label-connected = %essid%
 
 format-disconnected = 
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground}
 
 ramp-signal-0 = 󰤯
 ramp-signal-1 = 󰤟
 ramp-signal-2 = 󰤢
 ramp-signal-3 = 󰤥
 ramp-signal-4 = 󰤨
-ramp-signal-foreground = ${colors.wifi}
+ramp-signal-foreground = ${colors.network}
+
+[module/rndis]
+type = internal/network
+interface = usb0
+interface-type = wired
+interval = 3.0
+format-connected-underline = ${colors.network}
+format-connected-prefix = "󰈀"
+format-connected-prefix-foreground = ${colors.foreground}
+label-connected = "usb0"
 
 [module/eth]
 type = internal/network
 interface = eth0
-interval = 3.0format-connected-underline = {colors.wifi}
+interval = 3.0
+format-connected-underline = ${colors.network}
 format-connected-prefix = "󰈀"
 format-connected-prefix-foreground = ${colors.foreground}
-label-connected = ""
-;label-connected = %local_ip%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground}
+label-connected = "eth0"
 
 [module/xbacklight]
 type = internal/xbacklight
