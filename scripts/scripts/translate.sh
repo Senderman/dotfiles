@@ -1,4 +1,6 @@
 #!/bin/sh
-text=$(xclip -o --selection-primary)
+text=$(xsel -o)
 translated=$(trans -b :ru "$text")
-exec zenity --info --text="$translated" --title='Перевод' --width=350
+printf "$translated" | xsel -ib
+notify-send "Translation was copied to the clipboard"
+exec zenity --info --text="$translated" --title='Translation' --width=350
