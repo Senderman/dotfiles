@@ -16,3 +16,5 @@ zstyle ':omz:update' mode disabled
 
 autoload -Uz compinit
 compinit
+
+. <(git lfs completion zsh)
