@@ -1,0 +1,38 @@
+---
+version: "3.8"
+services:
+  dashy:
+
+    image: lissy93/dashy:2.1.1
+    container_name: dashy
+    restart: always
+
+    environment:
+      - NODE_ENV=production
+      - UID=1000
+      - GID=1000
+    
+    networks:
+      dashy:
+        ipv4_address: 10.5.0.2
+
+    ports:
+      - "127.0.0.1:9092:80"
+
+    volumes:
+      - ./dashy.yml:/app/public/conf.yml
+
+    healthcheck:
+      test: ['CMD', 'node', '/app/services/healthcheck']
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+
+networks:
+  dashy:
+    ipam:
+      config:
+        - subnet: 10.5.0.0/30
+          gateway: 10.5.0.1
