@@ -173,7 +173,7 @@ label-indicator-margin = 1
 type = internal/date
 interval = 5
 
-date = %d.%m
+date = %a %d.%m
 time = %I:%M %p
 
 format = 󰨲 <label>
