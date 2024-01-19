@@ -1,0 +1,37 @@
+[colors.bright]
+black = "#858585"
+yellow = "#a62889"
+
+[colors.normal]
+black = "#c5c8c6"
+blue = "#6fa8dc"
+cyan = "#7e61c8"
+green = "#2da150"
+magenta = "#90619e"
+red = "#b93228"
+white = "#c5c8c6"
+yellow = "#e362c5"
+
+[colors.primary]
+background = "#192333"
+foreground = "#c5c8c6"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Insert"
+mods = "Control"
+
+[window]
+opacity = 0.9
+
+[env]
+TERM = "xterm-256color"
