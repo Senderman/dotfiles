@@ -7,8 +7,11 @@ super + shift + t
 super + r
     rofi -show drun
 
-super + shift + s
+super + shift + r
     rofi -show ssh
+
+super + shift + s
+    ~/scripts/screen-menu.sh
 
 super + shift + b
     firefox
