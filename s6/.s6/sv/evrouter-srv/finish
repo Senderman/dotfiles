@@ -1,4 +1,0 @@
-#!/usr/bin/execlineb -P
-
-importas DISPLAY DISPLAY
-rm /tmp/.evrouter${DISPLAY}

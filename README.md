@@ -20,6 +20,6 @@ This will symlink `~/dotfiles/openbox/*` to `$HOME` . Since you probably have `~
   ../dotfiles/openbox/.config/openbox
 ```
 
-if you want to uninstall symlink, run `stow -d openbox`
+if you want to uninstall symlink, run `stow -D openbox`
 
 You're welcome to fork this repo, edit the dotfiles and add your own and create PR :)
