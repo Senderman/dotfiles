@@ -1,10 +1,11 @@
+
 zsh_plugins=~/.zsh_plugins.zsh
 
 regen-plugins(){
     antidote bundle < ~/.zsh_plugins.txt > $zsh_plugins
 }
 
-. /usr/share/zsh-antidote/antidote.zsh
+. ${ZDOTDIR:-~}/.antidote/antidote.zsh
 [[ ! -e ~/.zsh_plugins.zsh ]] && regen-plugins
 
 zstyle ':omz:update' mode disabled
