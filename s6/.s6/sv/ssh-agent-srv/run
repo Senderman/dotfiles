@@ -1,0 +1,7 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+importas SSH_AUTH_SOCK SSH_AUTH_SOCK
+
+ssh-agent -D -a ${SSH_AUTH_SOCK}
+

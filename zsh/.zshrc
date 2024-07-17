@@ -1,4 +1,3 @@
-
 zsh_plugins=~/.zsh_plugins.zsh
 
 regen-plugins(){
@@ -11,9 +10,16 @@ regen-plugins(){
 zstyle ':omz:update' mode disabled
 
 . $zsh_plugins
-. ~/.zsh_aliases.zsh
+if [ -e ~/.zsh_aliases.zsh ]; then
+  . ~/.zsh_aliases.zsh
+fi
+if [ -e ~/.zsh_aliases-nogit.zsh ]; then
+  . ~/.zsh_aliases-nogit.zsh
+fi
+if [ -d /usr/share/fzf ]; then
 . /usr/share/fzf/key-bindings.zsh
 . /usr/share/fzf/completion.zsh
+fi
 
 autoload -Uz compinit
 compinit
