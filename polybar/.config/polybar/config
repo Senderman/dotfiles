@@ -1,5 +1,6 @@
 [commands]
 vpn = sh -c 'ip l | printf "%s " $(grep -oE "tun.|wg.")'
+vpn_check = sh -c 'ip l | grep -oE "tun.|wg."'
 
 [colors]
 background = #242757
@@ -199,7 +200,7 @@ label-foreground = ${colors.foreground}
 [module/vpn]
 type = custom/script
 exec = ${commands.vpn}
-exec-if = ${commands.vpn}
+exec-if = ${commands.vpn_check}
 interval = 5
 format-underline = ${colors.vpn}
 format-prefix = "󰖂 "
