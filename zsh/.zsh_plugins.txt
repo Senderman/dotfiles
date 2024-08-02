@@ -14,6 +14,7 @@ ohmyzsh/ohmyzsh path:plugins/zsh-interactive-cd # use fzf to autocomplete cd
 ohmyzsh/ohmyzsh path:plugins/dircycle # ctrl+shift+left/right to cycle through directory history
 ohmyzsh/ohmyzsh path:plugins/gitfast # git completion
 ohmyzsh/ohmyzsh path:plugins/safe-paste # prevent any code from actually running while pasting
+ohmyzsh/ohmyzsh path:plugins/terraform #  terraform completion and aliases
 
 zsh-users/zsh-completions # Additional completion definitions for Zsh
 zsh-users/zsh-autosuggestions # Fish-like autosuggestions for zsh 
