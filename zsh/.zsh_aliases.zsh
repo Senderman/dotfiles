@@ -13,6 +13,8 @@ alias free='free -h'
 
 alias e=$EDITOR
 alias g='git'
+alias git-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
+alias git-find-deleted-log='git log --oneline --follow --'
 alias f='ranger'
 alias trr='transmission-remote'
 alias s6-rc-user="s6-rc -l $XDG_RUNTIME_DIR/s6/s6-rc"

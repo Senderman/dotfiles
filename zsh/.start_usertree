@@ -7,6 +7,9 @@ if  [ -z "$DISPLAY" ] && [ "$tty" = "1" ]; then
     export XAUTHORITY="$HOME/.Xauthority"
     export DISPLAY=":$tty"
 
+    ~/.s6/sv/xorg-srv/run &
+    sleep 6
+
     s6_compdir="$HOME/.s6/rc/compiled" # compiled database directory
     s6_dir="$XDG_RUNTIME_DIR/s6" # s6 data folder (scandir, livedir, logs, etc)
     s6_scandir="$s6_dir/service" # s6 scandir
