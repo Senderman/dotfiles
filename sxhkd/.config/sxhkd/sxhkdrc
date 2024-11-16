@@ -40,6 +40,12 @@ super + v
 super + shift + v
     clipdel -d ".*"; notify-send "Clipboard cleaned up"
 
+super + shift + p
+    passmenu --type
+
+super + shift + o
+    passmenu --type otp
+
 super + w
     feh --bg-scale --randomize ~/Pictures/Wallpapers
 
