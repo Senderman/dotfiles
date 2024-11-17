@@ -2,15 +2,26 @@
 
 shopt -s nullglob globstar
 
+menu_name="Get password"
+
 typeit=0
 if [[ $1 == "--type" ]]; then
 	typeit=1
 	shift
 fi
+
 passcmd="pass"
 if [[ $1 == "otp" ]]; then
+  menu_name="Get OTP code"
   passcmd="pass otp"
 fi
+
+extraction_cmd="cat"
+if [[ $1 == "user" ]]; then
+  menu_name="Get username"
+  extraction_cmd='sed 2p;d'
+fi
+echo "${extraction_cmd}"
 
 if [[ -n $WAYLAND_DISPLAY ]]; then
 	xdotool="ydotool type --file -"
@@ -26,12 +37,12 @@ password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu "$@")
+password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu -p "${menu_name}")
 
 [[ -n $password ]] || exit
 
 if [[ $typeit -eq 0 ]]; then
 	$passcmd show -c "$password" 2>/dev/null
 else
-	$passcmd show "$password" | { IFS= read -r pass; printf %s "$pass"; } | $xdotool
+	$passcmd show "$password" | $extraction_cmd | { IFS= read -r pass; printf %s "$pass"; } | $xdotool
 fi
