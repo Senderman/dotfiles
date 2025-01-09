@@ -5,7 +5,7 @@
 	br = branch
 	co = checkout
 	st = status
-	hist = log --pretty=format:'%h %ad | %s%d [%an]' --date=short
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --date=short --graph
 	ci = commit -S -m
 	lch = rev-parse --short HEAD
 [credential]
