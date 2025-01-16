@@ -1,5 +1,5 @@
 ohmyzsh/ohmyzsh
-Senderman/fox-theme-fixed path:fox.zsh-theme # theme
+Senderman/fox-theme-fixed # theme
 
 # ohmyzsh/ohmyzsh path:plugins/adb # adb completion
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages # adds colors to man pages
