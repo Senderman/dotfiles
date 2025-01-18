@@ -1,0 +1,20 @@
+# Global properties
+title-text: ""
+desktop-image: "background.png"
+terminal-font: "Fixedsys Regular 32"
+terminal-box: "terminal_box_*.png"
+
+# Boot menu
++ boot_menu {
+  left = 40%
+  top = 40%
+  width = 20%
+  height = 60%
+  item_font = "Droid Sans Bold 32"
+  item_color = "#9b93ff"
+  selected_item_color = "#90619e"
+  item_height = 35
+  item_spacing = 6
+  item_icon_space = 8
+  selected_item_pixmap_style = "selected_item_pixmap_*.png"
+}
