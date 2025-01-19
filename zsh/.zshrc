@@ -1,14 +1,14 @@
 zsh_plugins=~/.zsh_plugins.zsh
 zsh_plugins_src=~/.zsh_plugins.txt
 
-regen-plugins(){
+regen_plugins(){
     antidote bundle < $zsh_plugins_src > $zsh_plugins
     echo "Antidote plugins file was updated"
 }
 
 . ${ZDOTDIR:-~}/.antidote/antidote.zsh
-[ ! -e $zsh_plugins_src ] && regen-plugins
-[ $zsh_plugins_src -nt $zsh_plugins ] && regen-plugins
+[ ! -e $zsh_plugins_src ] && regen_plugins
+[ $zsh_plugins_src -nt $zsh_plugins ] && regen_plugins
 
 zstyle ':omz:update' mode disabled
 
