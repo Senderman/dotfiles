@@ -1,4 +1,5 @@
-ohmyzsh/ohmyzsh
+getantidote/use-omz        # handle OMZ dependencies
+ohmyzsh/ohmyzsh path:lib   # load OMZ's library
 Senderman/fox-theme-fixed # theme
 
 ohmyzsh/ohmyzsh path:plugins/adb kind:fpath # adb completion
