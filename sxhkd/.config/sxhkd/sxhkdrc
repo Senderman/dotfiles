@@ -2,7 +2,7 @@ super + shift + z
     pavucontrol
 
 super + shift + t
-    ~/Telegram/Telegram
+    Telegram
 
 super + r
     rofi -show drun
