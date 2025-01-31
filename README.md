@@ -23,3 +23,12 @@ This will symlink `~/dotfiles/openbox/*` to `$HOME` . Since you probably have `~
 if you want to uninstall symlink, run `stow -D openbox`
 
 You're welcome to fork this repo, edit the dotfiles and add your own and create PR :)
+
+## Move your config files to the dotfiles repository
+
+This repository contains a script called [stowlink](scripts/scripts/stowlink) which helps to move your configuration files to the dotfiles repository in one command.
+
+E.g. if you want to move and symlink your polybar config to the dotfiles repository, all you need to do is simply run `stowlink .config/polybar polybar`
+
+Many thanks to [Vezono](https://github.com/vezono) for this script!
+
