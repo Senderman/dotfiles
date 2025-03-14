@@ -29,11 +29,13 @@ start_tree() {
         redirfd -wnb 1 "$s6_logger_fifo" \
         fdmove -c 2 1 \
         envfile ~/.s6/config/env.conf \
-        s6-svscan -d 4 "$s6_scandir" | read s6_ready
+        s6-svscan -d 4 "$s6_scandir" | read -r s6_ready
+    unset s6_ready
     
     s6-rc-init -c "$s6_compdir" -l "$s6_livedir" "$s6_scandir"
     
-    (/usr/lib/Xorg "${DISPLAY}" -keeptty "vt${tty}" -noreset -auth "${XAUTHORITY}" -displayfd 4 4>&1 1>/dev/null &) | read xorg_ready
+    (/usr/lib/Xorg "${DISPLAY}" -keeptty "vt${tty}" -noreset -auth "${XAUTHORITY}" -displayfd 4 4>&1 1>/dev/null &) | read -r xorg_ready
+    unset xorg_ready
     
     s6-rc -l "$s6_livedir" start default
 }
@@ -43,7 +45,7 @@ stop_tree(){
   s6-svc -h "$s6_logger_dir"
   s6-svscanctl -t "$s6_scandir"
   rm -rf "$s6_dir"
-  kill $(pidof Xorg)
+  kill "$(pidof Xorg)"
 
 }
 
@@ -56,7 +58,7 @@ case "$1" in
         stop_tree
     ;;
     *)
-        printf "Usage: ${0} start_tree|stop_tree\n"
+        printf "Usage: %s start_tree|stop_tree\n" "${0}"
     ;;
 esac
 
