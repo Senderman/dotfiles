@@ -2,5 +2,12 @@
 
 fdmove -c 2 1
 importas -S HOME
+envfile ${HOME}/.s6/config/feh.conf
 
-sh ${HOME}/.s6/sv/feh/shell_up
+multisubstitute {
+  importas -Ssu ARGS
+  importas -Su WP_PATH
+}
+
+feh ${ARGS} ${HOME}/${WP_PATH}
+
