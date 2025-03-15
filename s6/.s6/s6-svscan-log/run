@@ -2,6 +2,6 @@
 
 fdmove -c 1 2
 redirfd -rnb 0 fifo
-importas XDG_RUNTIME_DIR XDG_RUNTIME_DIR
+importas -S XDG_RUNTIME_DIR
 
 s6-log -bpd3 -- n3 s2000000 T ${XDG_RUNTIME_DIR}/s6/log/uncaught-logs
