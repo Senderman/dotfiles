@@ -2,8 +2,8 @@
 
 fdmove -c 2 1
 multisubstitute {
-  importas ADDR DBUS_SESSION_BUS_ADDRESS
-  importas HOME HOME
+  importas -S DBUS_SESSION_BUS_ADDRESS
+  importas -S HOME
 }
 
-dbus-daemon --nofork --session --print-pid 4 --address=${ADDR} 
+dbus-daemon --nofork --session --print-pid 4 --address=${DBUS_SESSION_BUS_ADDRESS} 

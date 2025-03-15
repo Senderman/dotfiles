@@ -4,7 +4,7 @@ importas -S HOME
 envfile ${HOME}/.s6/config/logger.conf
 
 multisubstitute {
-  define svc polybar # change this to the name of the pipeline
+  define svc ssh-agent # change this to the name of the pipeline
   importas -S XDG_RUNTIME_DIR
   importas -SsCuD "n3 s2000000 T" DIRECTIVES
 }

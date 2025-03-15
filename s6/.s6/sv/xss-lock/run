@@ -1,8 +1,8 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
-importas HOME HOME
+importas -S HOME
 envfile ${HOME}/.s6/config/xss-lock.conf
-importas SCREENSAVER SCREENSAVER
+importas -Su SCREENSAVER
 
 xss-lock $SCREENSAVER
