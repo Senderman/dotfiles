@@ -49,6 +49,28 @@ stop_tree(){
 
 }
 
+recompile(){
+    TS="$(date +%s)"
+    NEW_DB="${HOME}/.s6/rc/compiled-$TS"
+    SOURCES="${HOME}/.s6/sv"
+    
+    echo "Compiling new database to ${NEW_DB}..."
+    s6-rc-compile "$NEW_DB" "$SOURCES"
+    result=$?
+    if [ "$result" -ne 0 ]; then
+        echo "Failed to compile database!"
+        exit 1
+    fi
+    
+    echo "Switching to the new database..."
+    if [ -d "$s6_livedir" ]; then
+        s6-rc-update -l "$s6_livedir" "$NEW_DB"
+    fi
+    rm "$s6_compdir" 2>/dev/null
+    ln -s "$NEW_DB" "$s6_compdir"
+    echo "Switched to the new database!"
+}
+
 
 case "$1" in
     start)
@@ -57,8 +79,11 @@ case "$1" in
     stop)
         stop_tree
     ;;
+    recompile)
+        recompile
+    ;;
     *)
-        printf "Usage: %s start_tree|stop_tree\n" "${0}"
+        printf "Usage: %s start|stop|recompile\n" "${0}"
     ;;
 esac
 
