@@ -35,18 +35,19 @@ start_tree() {
     
     s6-rc-init -c "$s6_compdir" -l "$s6_livedir" "$s6_scandir"
     
-    (/usr/lib/Xorg "${DISPLAY}" -keeptty "vt${tty}" -noreset -auth "${XAUTHORITY}" -displayfd 4 4>&1 1>/dev/null &) | read -r xorg_ready
+    (fdmove -c 4 1 \
+        redirfd -wn 1 "$s6_logger_fifo" \
+        fdmove -c 2 1 \
+        /usr/lib/Xorg "${DISPLAY}" -keeptty "vt${tty}" -noreset -auth "${XAUTHORITY}" -displayfd 4 &) | read -r xorg_ready
     unset xorg_ready
     
     s6-rc -l "$s6_livedir" start default
 }
 
 stop_tree(){
-
   s6-svc -d "$s6_logger_dir"
   s6-svscanctl -t "$s6_scandir"
   kill "$(pidof Xorg)"
-
 }
 
 recompile(){

@@ -3,6 +3,6 @@
 fdmove -c 2 1
 importas -S HOME
 envfile ${HOME}/.s6/config/redshift.conf
-importas -Ssu ARGS ARGS
+importas -Ssu ARGS
 
 redshift ${ARGS}
