@@ -1,5 +1,0 @@
-#!/bin/sh
-
-source ~/.s6/config/feh.conf
-
-feh $ARGS "$WP_PATH"
