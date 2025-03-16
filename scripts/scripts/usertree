@@ -56,21 +56,27 @@ recompile(){
     SOURCES="${HOME}/.s6/sv"
     
     echo "Compiling new database to ${NEW_DB}..."
+    set -x
     s6-rc-compile "$NEW_DB" "$SOURCES"
+    set +x
     result=$?
     if [ "$result" -ne 0 ]; then
         echo "Failed to compile database!"
         exit 1
     fi
     
-    echo "Switching to the new database..."
     if [ -d "$s6_livedir" ]; then
         echo "Displaying what services will be stopped, and what services will be started"
         s6-rc-update -n -l "$s6_livedir" "$NEW_DB"
+        echo "Switching to the new database"
+        set -x
         s6-rc-update -l "$s6_livedir" "$NEW_DB"
+        set +x
     fi
-    rm "$s6_compdir" 2>/dev/null
-    ln -s "$NEW_DB" "$s6_compdir"
+    echo "Updating symlink to the newly compiled database"
+    set -x
+    s6-ln -nsf "$NEW_DB" "$s6_compdir"
+    set +x
     echo "Switched to the new database!"
 }
 
