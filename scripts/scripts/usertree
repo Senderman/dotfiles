@@ -65,6 +65,8 @@ recompile(){
     
     echo "Switching to the new database..."
     if [ -d "$s6_livedir" ]; then
+        echo "Displaying what services will be stopped, and what services will be started"
+        s6-rc-update -n -l "$s6_livedir" "$NEW_DB"
         s6-rc-update -l "$s6_livedir" "$NEW_DB"
     fi
     rm "$s6_compdir" 2>/dev/null
