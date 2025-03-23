@@ -4,7 +4,6 @@ Senderman/fox-theme-fixed # theme
 
 ohmyzsh/ohmyzsh path:plugins/adb kind:fpath # adb completion
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages # adds colors to man pages
-ohmyzsh/ohmyzsh path:plugins/colorize # 'ccat' and 'cless' to cat/less with color
 ohmyzsh/ohmyzsh path:plugins/command-not-found # provide suggested packages to be installed if a command cannot be found
 ohmyzsh/ohmyzsh path:plugins/extract # 'x' command to extract any archive
 ohmyzsh/ohmyzsh path:plugins/copyfile # 'copyfile' command to copy file contents to the clipboard
