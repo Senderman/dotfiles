@@ -92,7 +92,7 @@ case "$1" in
         recompile
     ;;
     *)
-        printf "Usage: %s start|stop|recompile\n" "${0}"
+      printf "Usage: %s start|stop|recompile\n" "$(basename ${0})"
     ;;
 esac
 
