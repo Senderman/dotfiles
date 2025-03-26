@@ -54,10 +54,12 @@ recompile(){
     TS="$(date +%s)"
     NEW_DB="${HOME}/.s6/rc/compiled-$TS"
     SOURCES="${HOME}/.s6/sv"
+    SOURCES_NO_GIT="${HOME}/.s6/svnogit"
+    mkdir -p "${SOURCES_NO_GIT}" || true
     
     echo "Compiling new database to ${NEW_DB}..."
     set -x
-    s6-rc-compile "$NEW_DB" "$SOURCES"
+    s6-rc-compile "$NEW_DB" "$SOURCES" "${SOURCES_NO_GIT}"
     set +x
     result=$?
     if [ "$result" -ne 0 ]; then
