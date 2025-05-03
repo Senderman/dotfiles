@@ -27,5 +27,4 @@ fi
 autoload -Uz compinit
 compinit
 
-eval "$(starship init zsh)"
 # . <(git lfs completion zsh)
