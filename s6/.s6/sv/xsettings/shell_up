@@ -8,7 +8,7 @@ xinput set-prop "$touchpad" "libinput Tapping Enabled" 1
 xinput set-prop "$touchpad" "libinput Natural Scrolling Enabled" 1
 
 # Set layout switch to Win+Space
-setxkbmap -layout us,ru -option "grp:win_space_toggle"
+#setxkbmap -layout us,ru -option "grp:win_space_toggle"
 
 # Configure screen locker
 xset s on

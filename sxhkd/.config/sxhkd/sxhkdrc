@@ -52,7 +52,7 @@ super + shift + u
 super + w
     feh --bg-scale --randomize ~/Pictures/Wallpapers
 
-ctrl + space
+super + n
     dunstctl close
 
 super + p
