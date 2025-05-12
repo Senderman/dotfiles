@@ -1,22 +1,26 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
+importas -S HOME
+envfile ${HOME}/.s6/config/battery.conf
+
 multisubstitute {
-    define bat_device BAT0
-    define ac_device AC
-    define crit_lvl 30
+    importas -Su BAT_DEVICE
+    importas -Su AC_DEVICE
+    importas -Su CRIT_LEVEL
     define power_supply "/sys/class/power_supply"
 }
 
 multisubstitute {
-    define bat_capacity_file ${power_supply}/${bat_device}/capacity
-    define ac_online_file ${power_supply}/${ac_device}/online
+    define bat_capacity_file ${power_supply}/${BAT_DEVICE}/capacity
+    define ac_online_file ${power_supply}/${AC_DEVICE}/online
 }
 
 loopwhilex
     backtick -E bat_lvl { cat $bat_capacity_file }
     backtick -E ac_on { cat $ac_online_file }
-    foreground { if { test $ac_on -eq 0 } if { test $bat_lvl -le $crit_lvl }
+    foreground { echo $bat_lvl }
+    foreground { if { test $ac_on -eq 0 } if { test $bat_lvl -le $CRIT_LEVEL }
         notify-send -u critical "MAYDAY! MAYDAY!" "Low battery! Please, plug in the charger!"
     }
     sleep 5m
