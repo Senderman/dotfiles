@@ -23,7 +23,7 @@ super + shift + y
     youtube-mpv.sh
 
 super + shift + Return
-    alacritty
+    alacritty -e zellij
 
 super + e
     alacritty -e ranger
@@ -52,7 +52,7 @@ super + shift + u
 super + w
     feh --bg-scale --randomize ~/Pictures/Wallpapers
 
-super + n
+ctrl + space
     dunstctl close
 
 super + p

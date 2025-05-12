@@ -1,11 +1,11 @@
 #!/bin/sh
 
-touchpad="DELL09E1:00 04F3:30CB Touchpad"
-
 xrdb ${HOME}/.Xresources
 
-xinput set-prop "$touchpad" "libinput Tapping Enabled" 1
-xinput set-prop "$touchpad" "libinput Natural Scrolling Enabled" 1
+if [ -n "${TOUCHPAD}" ]; then
+    xinput set-prop "${TOUCHPAD}" "libinput Tapping Enabled" 1
+    xinput set-prop "${TOUCHPAD}" "libinput Natural Scrolling Enabled" 1
+fi
 
 # Set layout switch to Win+Space
 #setxkbmap -layout us,ru -option "grp:win_space_toggle"
