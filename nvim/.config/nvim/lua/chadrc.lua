@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-	theme = "eldritch",
+	theme = "material-deep-ocean",
   transparency = true
 
 	-- hl_override = {
