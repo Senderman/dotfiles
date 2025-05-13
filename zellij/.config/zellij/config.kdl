@@ -143,7 +143,12 @@ keybinds clear-defaults=true {
         bind "Alt =" { Resize "Increase"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
-        bind "Alt f" { ToggleFloatingPanes; }
+//        bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt f" {
+          LaunchPlugin "filepicker" {
+            close_on_selection true
+          }
+        }
         bind "Ctrl g" { SwitchToMode "locked"; }
         bind "Alt i" { MoveTab "left"; }
         bind "Alt n" { NewPane; }
