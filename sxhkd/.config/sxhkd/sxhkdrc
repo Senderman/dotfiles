@@ -11,7 +11,7 @@ super + shift + r
     rofi -show ssh
 
 super + shift + s
-    ~/scripts/screen-menu.sh
+    ~/scripts/zellijmenu
 
 super + shift + b
     firefox
