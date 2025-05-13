@@ -17,10 +17,10 @@ super + shift + b
     firefox
 
 super + t
-    translate.sh
+    translate
 
 super + shift + y
-    youtube-mpv.sh
+    youtube-mpv
 
 super + shift + Return
     alacritty -e zellij
@@ -59,7 +59,7 @@ super + p
     arandr
 
 XF86PowerOff
-    powermenu.sh
+    powermenu
 
 XF86AudioMute
     amixer -D pulse sset Master toggle
