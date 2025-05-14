@@ -23,3 +23,5 @@ alias gen_psw="od -An -N16 -tx /dev/urandom | tr -d ' '"
 which doas 1>/dev/null 2>/dev/null && alias sudo='doas'
 which kubecolor 1>/dev/null 2>/dev/null && alias kubectl='kubecolor' && compdef kubecolor=kubectl
 alias genpass='od -An -N16 -tx /dev/urandom | xargs | tr " " "-"'
+alias hl='highlight'
+
