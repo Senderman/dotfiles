@@ -1,25 +1,27 @@
 [user]
-	name = Fyodor Doletov
-	email = doletov.fyodor@yandex.ru
+  name = Fyodor Doletov
+  email = doletov.fyodor@yandex.ru
 [alias]
-	br = branch
-	co = checkout
-	st = status
-	hist = log --pretty=format:'%h %ad | %s%d [%an]' --date=short --graph
-	ci = commit -S -m
-	lch = rev-parse --short HEAD
+  br = branch
+  co = checkout
+  st = status
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --date=short --graph
+  ci = commit -S -m
+  lch = rev-parse --short HEAD
+  dsfs = dsf --staged
 [credential]
-	helper = store
+  helper = store
 [commit]
-	gpgsign = true
+  gpgsign = true
 [core]
-	autocrlf = input
+  autocrlf = input
 [init]
-	defaultBranch = master
+  defaultBranch = master
 [pull]
-	rebase = false
+  rebase = false
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
