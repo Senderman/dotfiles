@@ -31,6 +31,9 @@ super + e
 Print
     flameshot gui
 
+shift + Print
+    flameshot launcher
+
 super + s
     slock
 
@@ -50,7 +53,7 @@ super + shift + u
     passmenu_ng --type user
 
 super + w
-    feh --bg-scale --randomize ~/Pictures/Wallpapers
+    feh -z --bg-scale --no-fehbg ~/Pictures/Wallpapers
 
 ctrl + space
     dunstctl close
