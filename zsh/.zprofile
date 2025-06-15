@@ -1,3 +1,4 @@
+export HISTSIZE=1000
 export PATH=$PATH:$HOME/scripts:$HOME/bin
 export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR=nvim
