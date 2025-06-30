@@ -8,7 +8,7 @@ alias aurstore='yay -Salq | fzf --multi --preview "yay -Sai {1}" | xargs -ro yay
 alias yain='yay -S'
 alias yaupg='yay -Sau'
 
-alias df='df -h -x tmpfs -x devtmpfs'
+alias df='df -h -x tmpfs -x devtmpfs -x efivarfs'
 alias free='free -h'
 
 alias e=$EDITOR

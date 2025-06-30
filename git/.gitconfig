@@ -4,6 +4,7 @@
 [alias]
   br = branch
   co = checkout
+  sw = switch
   st = status
   hist = log --pretty=format:'%h %ad | %s%d [%an]' --date=short --graph
   ci = commit -S -m
