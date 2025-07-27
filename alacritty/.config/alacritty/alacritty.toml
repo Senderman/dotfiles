@@ -3,7 +3,7 @@ black = "#858585"
 yellow = "#a62889"
 
 [colors.normal]
-black = "#c5c8c6"
+black = "#222222"
 blue = "#6fa8dc"
 cyan = "#7e61c8"
 green = "#2da150"

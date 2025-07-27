@@ -16,6 +16,6 @@ while [ "$#" -gt 0 ]; do
   printf '\n' >> "${tempfile}"
   shift
 done
-yq < "${tempfile}" | jq "{\"${varname}\": .}" > "${varname}.auto.tfvars.json"
+yq -o json "{\"${varname}\": .}" < "${tempfile}" > "${varname}.auto.tfvars.json"
 rm "${tempfile}"
 
