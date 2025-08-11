@@ -1,5 +1,5 @@
 export SAVEHIST=1000
-export PATH=$PATH:$HOME/scripts:$HOME/bin
+export PATH=$PATH:$HOME/scripts:$HOME/.local/bin/
 export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR=nvim
 export LANG=en_US.UTF-8
