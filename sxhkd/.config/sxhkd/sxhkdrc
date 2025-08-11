@@ -11,7 +11,7 @@ super + shift + r
     rofi -show ssh
 
 super + shift + s
-    ~/scripts/zellijmenu
+    ~/scripts/screenmenu
 
 super + shift + b
     firefox
@@ -23,7 +23,7 @@ super + shift + y
     youtube-mpv
 
 super + shift + Return
-    alacritty -e zellij
+    alacritty
 
 super + e
     alacritty -e ranger
