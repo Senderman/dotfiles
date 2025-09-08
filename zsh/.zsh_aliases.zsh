@@ -21,7 +21,6 @@ alias s6-rc-user="s6-rc -l $XDG_RUNTIME_DIR/s6/s6-rc -v 2"
 alias gen_psw="od -An -N16 -tx /dev/urandom | tr -d ' '"
 alias feh='feh --no-fehbg'
 
-which doas 1>/dev/null 2>/dev/null && alias sudo='doas'
 which kubecolor 1>/dev/null 2>/dev/null && alias kubectl='kubecolor' && compdef kubecolor=kubectl
 alias genpass='od -An -N16 -tx /dev/urandom | xargs | tr " " "-"'
 alias hl='highlight --style nord'
