@@ -10,9 +10,5 @@ fi
 # Set layout switch to Win+Space
 #setxkbmap -layout us,ru -option "grp:win_space_toggle"
 
-# Configure screen locker
-xset s on
-xset s 600 # lock screen after 10 minutes of inactivity
-
 # fix problems with JDK versions and other broken programs assuming a reparenting window manager for instance.
 wmname LG3D
