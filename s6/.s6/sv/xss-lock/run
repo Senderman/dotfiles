@@ -4,5 +4,7 @@ fdmove -c 2 1
 importas -S HOME
 envfile ${HOME}/.s6/config/xss-lock.conf
 importas -Su SCREENSAVER
-
+importas -Su SCREENSAVER_TIMEOUT
+foreground { xset s on }
+foreground { xset s $SCREENSAVER_TIMEOUT }
 xss-lock $SCREENSAVER
