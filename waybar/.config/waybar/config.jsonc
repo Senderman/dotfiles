@@ -1,0 +1,119 @@
+// -*- mode: jsonc -*-
+{
+    "height": 28,
+    "spacing": 4,
+    "modules-left": [
+        "ext/workspaces",
+        "dwl/window#layout",
+        "mpris"
+    ],
+    "modules-center": [
+        "dwl/window"
+    ],
+    "modules-right": [
+        "network#vpn",
+        "network",
+        "cpu",
+        "memory",
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "clock",
+        "tray"
+    ],
+    "ext/workspaces": {
+        "format": "{icon}",
+        "ignore-hidden": true,
+        "on-click": "activate",
+        "sort-by-id": true,
+        "format-icons": {
+            "1": "󰈹",
+            "2": "󰍡",
+            "3": "󰞷",
+            "4": "󰌠",
+            "5": "󰊗",
+            "6": "󰅆",
+            "7": "󰖳",
+            "8": "󱅃",
+            "9": "󰜡",
+            "urgent": "!!",
+            "active": "X"
+        }
+    },
+    "dwl/window": {
+      "format": "{title}"
+    },
+    "dwl/window#layout": {
+      "format": "[{layout}]"
+    },
+    "tray": {
+        "spacing": 5
+    },
+    "clock": {
+        "format": "{:%a %d.%m %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "cpu": {
+        "format": "  {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "R {percentage}% / S {swapPercentage}"
+    },
+    "backlight": {
+        "format": "󰖨  {percent}%"
+    },
+    "battery": {
+        "states": {
+            "warning": 40,
+            "critical": 30
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": "   {ifname} ({signalStrength}%)",
+        "format-ethernet": " {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
+        "format-linked": " {ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "on-click": "alacritty -e iwctl"
+    },
+    "network#vpn": {
+        "interface": "tun0",
+        "format-ethernet": "󰖂  TUN0",
+        "tooltip-format": "{ipaddr}/{cidr}",
+        "format-disconnected": ""
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "󰸈 MUTED",
+        "format-muted": "󰸈 MUTED",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "mpris": {
+      "format": "{player_icon} {artist} - {title}",
+      "format-paused": "{status_icon} <i>{artist} - {title}</i>",
+      "player-icons": {
+          "default": "▶"
+      },
+      "status-icons": {
+          "paused": "⏸"
+       }
+    }
+}
+
