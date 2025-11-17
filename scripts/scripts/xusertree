@@ -10,69 +10,50 @@ s6_scandir="$s6_dir/service" # s6 scandir
 s6_livedir="$s6_dir/s6-rc" # s6-rc livedir
 s6_logger_dir="$s6_scandir/s6-svscan-log" # servicedir of catch-all logger
 s6_logger_fifo="$s6_logger_dir/fifo" # fifo where all uncaught logs will go
+xorg_logger_dir="$s6_scandir/s6-xorg-log" # servicedir of unsupervised xorg logger
+xorg_logger_fifo="$xorg_logger_dir/fifo" # fifo where unsupervised xorg logs will go
 
 start_tree() {
+    export XAUTHORITY="$HOME/.Xauthority"
+    export DISPLAY=":$tty"
+    
+    touch "${XAUTHORITY}"
+    xauth remove "${DISPLAY}"
+    cookie="$(od -An -N16 -tx /dev/urandom | tr -d ' ')"
+    xauth add "${DISPLAY}" 'MIT-MAGIC-COOKIE-1' "${cookie}"
+    
     rm -rf "$s6_dir"
     mkdir -p "$s6_scandir"
     mkdir -p "$s6_dir/log"
     cp -rL "$s6_homedir/s6-svscan-log" "$s6_scandir"
     mkfifo "$s6_logger_fifo"
+    cp -rL "$s6_homedir/s6-xorg-log" "$s6_scandir"
+    mkfifo "$xorg_logger_fifo"
     
     setsid -f \
     fdmove -c 4 1 \
     redirfd -wnb 1 "$s6_logger_fifo" \
     fdmove -c 2 1 \
     envfile ~/.s6/config/global.conf \
+    unexport WAYLAND_DISPLAY \
     s6-svscan -d 4 "$s6_scandir" | read -r
 
     s6-rc-init -c "$s6_compdir" -l "$s6_livedir" "$s6_scandir"
     
-    s6-rc -l "$s6_livedir" start default
+    (fdmove -c 4 1 \
+        redirfd -wn 1 "$xorg_logger_fifo" \
+        fdmove -c 2 1 \
+        /usr/lib/Xorg "${DISPLAY}" -keeptty "vt${tty}" -noreset -auth "${XAUTHORITY}" -displayfd 4 &) | read -r
+    
+    s6-rc -l "$s6_livedir" start default xorg-bundle
 }
 
 stop_tree(){
   s6-svc -d "$s6_logger_dir" # stop the catch-all logger first, or else it will ignore s6 shutdown and continue to run
+  s6-svc -d "$xorg_logger_dir" # same for xorg
   s6-svscanctl -t "$s6_scandir" # shut down the s6 tree
+  kill "$(pidof Xorg)" # stop unsupervised Xorg
 }
-
-recompile(){
-    TS="$(date +%s)"
-    NEW_DB="${HOME}/.s6/rc/compiled-$TS"
-    SOURCES="${HOME}/.s6/sv"
-    SOURCES_NO_GIT="${HOME}/.s6/svnogit"
-    mkdir -p "${SOURCES_NO_GIT}"
-    
-    echo "Compiling new database to ${NEW_DB}..."
-    set -x
-    s6-rc-compile "$NEW_DB" "$SOURCES" "${SOURCES_NO_GIT}"
-    set +x
-    result=$?
-    if [ "$result" -ne 0 ]; then
-        echo "Failed to compile database!"
-        exit 1
-    fi
-    
-    if [ -d "$s6_livedir" ]; then
-        echo "Displaying what services will be stopped, and what services will be started"
-        s6-rc-update -n -l "$s6_livedir" "$NEW_DB"
-        echo "Enter n to decline, enter anything else to proceed"
-        read -r apply
-        if [ "${apply}" = "n" ]; then
-          echo "Database is saved and compiled, but system is not switched to it"
-          exit 1
-        fi
-        echo "Switching to the new database"
-        set -x
-        s6-rc-update -l "$s6_livedir" "$NEW_DB"
-        set +x
-    fi
-    echo "Updating symlink to the newly compiled database"
-    set -x
-    s6-ln -nsf "$NEW_DB" "$s6_compdir"
-    set +x
-    echo "Switched to the new database!"
-}
-
 
 case "$1" in
     start)
@@ -80,9 +61,6 @@ case "$1" in
     ;;
     stop)
         stop_tree
-    ;;
-    recompile)
-        recompile
     ;;
     *)
       printf "Usage: %s start|stop|recompile\n" "$(basename ${0})"
