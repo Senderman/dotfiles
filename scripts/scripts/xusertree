@@ -45,7 +45,7 @@ start_tree() {
         fdmove -c 2 1 \
         /usr/lib/Xorg "${DISPLAY}" -keeptty "vt${tty}" -noreset -auth "${XAUTHORITY}" -displayfd 4 &) | read -r
     
-    s6-rc -l "$s6_livedir" start default xorg-bundle
+    s6-rc -l "$s6_livedir" start xorg-bundle
 }
 
 stop_tree(){
