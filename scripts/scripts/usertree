@@ -27,7 +27,7 @@ start_tree() {
 
     s6-rc-init -c "$s6_compdir" -l "$s6_livedir" "$s6_scandir"
     
-    s6-rc -l "$s6_livedir" start default
+    s6-rc -l "$s6_livedir" start mangowc
 }
 
 stop_tree(){
