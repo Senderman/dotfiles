@@ -25,9 +25,11 @@ echo "${extraction_cmd}"
 
 if [[ -n $WAYLAND_DISPLAY ]]; then
 	xdotool="wtype -"
+  dmenu="fuzzel -d"
 elif [[ -n $DISPLAY ]]; then
 	xdotool="xdotool type --clearmodifiers --file -"
 else
+  dmenu="rofi -dmenu"
 	echo "Error: No Wayland or X11 display detected" >&2
 	exit 1
 fi
@@ -37,7 +39,7 @@ password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu -p "${menu_name}")
+password=$(printf '%s\n' "${password_files[@]}" | $dmenu -p "${menu_name}: ")
 
 [[ -n $password ]] || exit
 
