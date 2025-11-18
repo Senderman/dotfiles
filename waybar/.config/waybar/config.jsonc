@@ -93,7 +93,7 @@
         "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
-        "on-click": "alacritty -e iwctl"
+        "on-click": "foot iwctl"
     },
     "network#vpn": {
         "interface": "tun0",
