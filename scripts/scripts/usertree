@@ -20,7 +20,8 @@ start_tree() {
     redirfd -wnb 1 "$s6_logger_fifo" \
     fdmove -c 2 1 \
     envfile ~/.s6/config/global.conf \
-    s6-svscan -d 4 "$s6_scandir" | read -r
+    s6-svscan -d 4 "$s6_scandir" | read -r s6ready
+    unset s6ready
 
     s6-rc-init -c "$s6_compdir" -l "$s6_livedir" "$s6_scandir"
     
@@ -82,7 +83,7 @@ case "$1" in
         recompile
     ;;
     *)
-      printf "Usage: %s start|stop|recompile\n" "$(basename ${0})"
+      printf "Usage: %s start|stop|recompile\n" "$(basename "${0}")"
     ;;
 esac
 

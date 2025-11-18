@@ -7,10 +7,10 @@ elif [ -n "$DISPLAY" ]; then
   text="$(xsel -o)"
   copycmd="xsel -ib"
 else
-  echo "Error: No Wayland or X11 display detected"
+  echo "Error: No Wayland or X11 display detected" 1>&2
 fi
 translated="$(trans -b :ru "$text")"
 zenity --info --title "Translation" --text "$translated" &
-printf "$translated" | $copycmd
+printf "%s" "$translated" | $copycmd
 notify-send "Translation was copied to the clipboard"
 

@@ -6,5 +6,5 @@ find ~/Pictures/Wallpapers/ -type f \
 	  done \
   | sort -n | cut -d':' -f2- \
   | head -n1 \
-  | xargs swww img
+  | xargs swww img -t random
 

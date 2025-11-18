@@ -2,10 +2,20 @@
 
 SCREEN_DIR="${HOME}/.screen"
 
+if [ -n "$WAYLAND_DISPLAY" ]; then
+  dmenu="fuzzel -d"
+elif [ -n "$DISPLAY" ]; then
+  dmenu="rofi -dmenu"
+else
+	echo "Error: No Wayland or X11 display detected" 1>&2
+	exit 1
+fi
+
 if [ ! -d "${SCREEN_DIR}" ]; then
   notify-send "No screen session directory found!"
   exit 0
 fi
 
-selection="$(ls "${SCREEN_DIR}" | rofi -dmenu -p screens)"
+selection="$(ls "${SCREEN_DIR}" | $dmenu -p screens)"
 [ -n "$selection" ] && alacritty -e screen -r "$selection"
+

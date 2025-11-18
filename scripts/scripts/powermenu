@@ -1,3 +1,13 @@
 #!/bin/sh
-selection=$(printf "%s\n" poweroff reboot hibernate suspend | rofi -dmenu -p "Shutdown menu")
+
+if [ -n "$WAYLAND_DISPLAY" ]; then
+  dmenu="fuzzel -d"
+elif [ -n "$DISPLAY" ]; then
+  dmenu="rofi -dmenu"
+else
+  echo "Error: No Wayland or X11 display detected" 1>&2
+  exit 1
+fi
+selection=$(printf "%s\n" poweroff reboot hibernate suspend | $dmenu -p "Shutdown menu")
 [ -n "$selection" ] && sync && loginctl "$selection"
+

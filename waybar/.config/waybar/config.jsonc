@@ -36,23 +36,6 @@
         "󰜡"
       ]
     },
-    "ext/workspaces": {
-        "format": "{icon}",
-        "ignore-hidden": false,
-        "on-click": "activate",
-        "sort-by-id": true,
-        "format-icons": {
-            "1": "󰈹",
-            "2": "󰍡",
-            "3": "󰞷",
-            "4": "󰌠",
-            "5": "󰊗",
-            "6": "󰅆",
-            "7": "󰖳",
-            "8": "󱅃",
-            "9": "󰜡"
-        }
-    },
     "dwl/window": {
       "format": "{title}"
     },
@@ -68,10 +51,12 @@
     },
     "cpu": {
         "format": "  {usage}%",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "foot htop"
     },
     "memory": {
-        "format": "R {percentage}% / S {swapPercentage}%"
+        "format": "R {percentage}% / S {swapPercentage}%",
+        "on-click": "foot htop"
     },
     "backlight": {
         "format": "󰖨  {percent}%"
