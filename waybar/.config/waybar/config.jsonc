@@ -3,7 +3,7 @@
     "height": 28,
     "spacing": 4,
     "modules-left": [
-        "ext/workspaces",
+        "dwl/tags",
         "dwl/window#layout",
         "mpris"
     ],
@@ -21,9 +21,24 @@
         "clock",
         "tray"
     ],
+    "dwl/tags": {
+      "format": "{icon}",
+      "num-tags": 9,
+      "tag-labels": [
+        "󰈹",
+        "󰍡",
+        "󰞷",
+        "󰌠",
+        "󰊗",
+        "󰅆",
+        "󰖳",
+        "󱅃",
+        "󰜡"
+      ]
+    },
     "ext/workspaces": {
         "format": "{icon}",
-        "ignore-hidden": true,
+        "ignore-hidden": false,
         "on-click": "activate",
         "sort-by-id": true,
         "format-icons": {
@@ -35,9 +50,7 @@
             "6": "󰅆",
             "7": "󰖳",
             "8": "󱅃",
-            "9": "󰜡",
-            "urgent": "!!",
-            "active": "X"
+            "9": "󰜡"
         }
     },
     "dwl/window": {
@@ -50,7 +63,7 @@
         "spacing": 5
     },
     "clock": {
-        "format": "{:%a %d.%m %H:%M}",
+        "format": "{:%a %d.%m %I:%M %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
@@ -58,7 +71,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": "R {percentage}% / S {swapPercentage}"
+        "format": "R {percentage}% / S {swapPercentage}%"
     },
     "backlight": {
         "format": "󰖨  {percent}%"

@@ -3,6 +3,5 @@
 fdmove -c 2 1
 unexport WAYLAND_DISPLAY
 importas -S HOME
-importas -S UID
 cd $HOME
 mango

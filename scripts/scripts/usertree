@@ -1,8 +1,5 @@
 #!/bin/sh
 
-tty="$(tty)"
-tty="${tty#/dev/tty}"
-
 s6_homedir="$HOME/.s6" # directory with inital s6 configs, svcs, and databases
 s6_compdir="$s6_homedir/rc/compiled" # compiled database directory
 s6_dir="$XDG_RUNTIME_DIR/s6" # s6 data folder (scandir, livedir, logs, etc)

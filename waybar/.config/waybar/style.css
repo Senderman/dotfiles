@@ -1,0 +1,126 @@
+/* backgound */
+@define-color base00 #242757;
+/* foreground */
+@define-color base01 #c5c8c6;
+/* network */
+@define-color base02 #e362c5;
+/* backlight */
+@define-color base03 #e3e90a;
+/* pulseaudio */
+@define-color base04 #6fa8dc;
+/* battery */
+@define-color base05 #ffb52a;
+/* clock */
+@define-color base06 #90619e;
+/* cpu */
+@define-color base07 #38761d;
+/* memory */
+@define-color base08 #aa6ed4;
+/* tag empty */
+@define-color base09 #afa8ff;
+/* tag focused */
+@define-color base0A #6fa8dc;
+/* tag occupied */
+@define-color base0B #6fa8dc;
+/* tag urgent */
+@define-color base0C #bd2c40;
+
+* {
+  font-family: Droid Sans, Material Design Icons;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+window#waybar {
+  background-color: @base00;
+  color: @base01;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+}
+
+#tags {
+  margin: 0 4px;
+}
+
+#tags button {
+  padding: 0 5px;
+  color: @base09;
+}
+
+#tags button:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+#tags button.focused {
+  color: @base0A;
+  box-shadow: inset 0 3px @base0A;
+}
+
+#tags button.occupied {
+  color: @base0B;
+}
+
+#tags button.urgent {
+  color: @base0C;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#mpris {
+  margin: 0 4px;
+  font-weight: bold;
+}
+
+/* If tags is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #tags {
+  margin-left: 0;
+}
+
+#network {
+  box-shadow: inset 0 3px @base02, inset 0 -3px @base02;
+}
+
+#cpu {
+  box-shadow: inset 0 3px @base07, inset 0 -3px @base07;
+}
+
+#memory {
+  box-shadow: inset 0 3px @base08, inset 0 -3px @base08;
+}
+
+#backlight {
+  box-shadow: inset 0 3px @base03, inset 0 -3px @base03;
+}
+
+#pulseaudio {
+  box-shadow: inset 0 3px @base04, inset 0 -3px @base04;
+}
+
+#battery {
+  box-shadow: inset 0 3px @base05, inset 0 -3px @base05;
+}
+
+#clock {
+  box-shadow: inset 0 3px @base06, inset 0 -3px @base06;
+}
+

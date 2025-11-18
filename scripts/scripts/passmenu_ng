@@ -24,7 +24,7 @@ fi
 echo "${extraction_cmd}"
 
 if [[ -n $WAYLAND_DISPLAY ]]; then
-	xdotool="ydotool type --file -"
+	xdotool="wtype -"
 elif [[ -n $DISPLAY ]]; then
 	xdotool="xdotool type --clearmodifiers --file -"
 else
