@@ -1,0 +1,8 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+importas -S HOME
+envfile ${HOME}/.s6/config/night.conf
+importas -Ssu ARGS
+
+redshift ${ARGS}

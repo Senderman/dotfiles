@@ -1,5 +1,16 @@
 #!/bin/sh
-text=$(xsel -o)
-translated=$(trans -b :ru "$text")
-printf "$translated" | xsel -ib
+
+if [ -n "$WAYLAND_DISPLAY" ]; then
+  text="$(wl-paste -p)"
+  copycmd="wl-copy"
+elif [ -n "$DISPLAY" ]; then
+  text="$(xsel -o)"
+  copycmd="xsel -ib"
+else
+  echo "Error: No Wayland or X11 display detected"
+fi
+translated="$(trans -b :ru "$text")"
+zenity --info --title "Translation" --text "$translated" &
+printf "$translated" | $copycmd
 notify-send "Translation was copied to the clipboard"
+
