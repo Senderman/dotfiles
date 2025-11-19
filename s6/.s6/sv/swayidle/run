@@ -6,4 +6,6 @@ envfile ${HOME}/.s6/config/swayidle.conf
 importas -Su SCREENSAVER
 importas -Su SCREENSAVER_TIMEOUT
 foreground { xset s $SCREENSAVER_TIMEOUT }
-swayidle timeout $SCREENSAVER_TIMEOUT $SCREENSAVER lock $SCREENSAVER
+swayidle -w
+timeout $SCREENSAVER_TIMEOUT "${SCREENSAVER}"
+lock "${SCREENSAVER}"
