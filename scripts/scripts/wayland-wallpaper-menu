@@ -1,6 +1,0 @@
-#!/bin/sh
-
-WP_DIR="${HOME}/Pictures/Wallpapers/"
-selection=$(ls "$WP_DIR" | fuzzel -d -p "Select wallpaper: ")
-[ -n "$selection" ] && swww img -t random "${WP_DIR}/${selection}"
-
