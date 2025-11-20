@@ -3,9 +3,17 @@
 fdmove -c 2 1
 importas -S HOME
 envfile ${HOME}/.s6/config/swayidle.conf
-importas -Su SCREENSAVER
-importas -Su SCREENSAVER_TIMEOUT
-foreground { xset s $SCREENSAVER_TIMEOUT }
+
+multisubstitute {
+    importas -Su SCREENSAVER
+    importas -Su SCREENSAVER_TIMEOUT
+    importas -Su DPMS_TIMEOUT
+    importas -Su DPMS_OFF
+    importas -Su DPMS_ON
+}
+
 swayidle -w
-timeout $SCREENSAVER_TIMEOUT "${SCREENSAVER}"
 lock "${SCREENSAVER}"
+timeout $SCREENSAVER_TIMEOUT "${SCREENSAVER}"
+timeout $DPMS_TIMEOUT "${DPMS_OFF}"
+resume "${DPMS_ON}"
