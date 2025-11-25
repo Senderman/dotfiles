@@ -24,6 +24,8 @@
     "dwl/tags": {
       "format": "{icon}",
       "num-tags": 9,
+      "on-scroll-up": "mmsg -d viewtoleft",
+      "on-scroll-down": "mmsg -d viewtoright",
       "tag-labels": [
         "󰈹",
         "󰍡",
@@ -40,7 +42,8 @@
       "format": "{title}"
     },
     "dwl/window#layout": {
-      "format": "[{layout}]"
+      "format": "[{layout}]",
+      "on-click": "mango-layout-menu"
     },
     "tray": {
         "spacing": 5
