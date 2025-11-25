@@ -1,5 +1,5 @@
 [Hotkey]
-# Enumerate when press trigger key repeatedly
+# Enumerate when holding modifier of Toggle key
 EnumerateWithTriggerKeys=True
 # Enumerate Input Method Forward
 EnumerateForwardKeys=
@@ -7,28 +7,27 @@ EnumerateForwardKeys=
 EnumerateBackwardKeys=
 # Skip first input method while enumerating
 EnumerateSkipFirst=True
+# Enumerate Input Method Group Backward
+EnumerateGroupBackwardKeys=
 # Time limit in milliseconds for triggering modifier key shortcuts
 ModifierOnlyKeyTimeout=250
 
 [Hotkey/TriggerKeys]
-0=Super+space
+0=Control+Shift+Shift_L
 1=Zenkaku_Hankaku
 2=Hangul
-
-[Hotkey/AltTriggerKeys]
-0=Shift_L
-
-[Hotkey/EnumerateGroupForwardKeys]
-0=Super+space
-
-[Hotkey/EnumerateGroupBackwardKeys]
-0=Shift+Super+space
 
 [Hotkey/ActivateKeys]
 0=Hangul_Hanja
 
 [Hotkey/DeactivateKeys]
 0=Hangul_Romaja
+
+[Hotkey/AltTriggerKeys]
+0=Shift_L
+
+[Hotkey/EnumerateGroupForwardKeys]
+0=Control+Shift+Shift_L
 
 [Hotkey/PrevPage]
 0=Up
@@ -64,9 +63,9 @@ CompactInputMethodInformation=True
 ShowFirstInputMethodInformation=True
 # Default page size
 DefaultPageSize=4
-# Override Xkb Option
+# Override XKB Option
 OverrideXkbOption=True
-# Custom Xkb Option
+# Custom XKB Option
 CustomXkbOption=
 # Force Enabled Addons
 EnabledAddons=
