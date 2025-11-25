@@ -8,6 +8,6 @@ else
   echo "Error: No Wayland or X11 display detected" 1>&2
   exit 1
 fi
-selection=$(printf "%s\n" poweroff reboot hibernate suspend | $dmenu -p "Shutdown menu")
+selection=$(printf "%s\n" poweroff reboot hibernate suspend | $dmenu -p "Shutdown menu: ")
 [ -n "$selection" ] && sync && loginctl "$selection"
 

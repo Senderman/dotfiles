@@ -16,6 +16,6 @@ if [ ! -d "${SCREEN_DIR}" ]; then
   exit 0
 fi
 
-selection="$(ls "${SCREEN_DIR}" | $dmenu -p screens)"
+selection="$(ls "${SCREEN_DIR}" | $dmenu -p "screens: ")"
 [ -n "$selection" ] && foot screen -r "$selection"
 
