@@ -17,7 +17,6 @@ alias git-find-deleted-paths='git log --diff-filter=D --summary | grep delete | 
 alias git-find-deleted-log='git log --oneline --follow --'
 alias f='yazi'
 alias trr='transmission-remote'
-alias s6-rc-user="setsid -f s6-rc -l $XDG_RUNTIME_DIR/s6/s6-rc -v 2"
 alias gen_psw="od -An -N16 -tx /dev/urandom | tr -d ' '"
 alias feh='feh --no-fehbg'
 
