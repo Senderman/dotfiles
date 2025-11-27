@@ -110,10 +110,10 @@
       "format": "{player_icon} {artist} - {title}",
       "format-paused": "{status_icon} <i>{artist} - {title}</i>",
       "player-icons": {
-          "default": "▶"
+          "default": "⏸"
       },
       "status-icons": {
-          "paused": "⏸"
+          "paused": "▶"
        }
     }
 }
