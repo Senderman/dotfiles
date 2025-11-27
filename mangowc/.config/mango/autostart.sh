@@ -1,4 +1,6 @@
 #!/bin/sh
 
-s6-rc -l /run/user/$(id -u)/s6/s6-rc start wayland-bundle
+/usr/lib/xdg-desktop-portal -r &
+/usr/lib/xdg-desktop-portal-gtk -r &
+/usr/lib/xdg-desktop-portal-wlr -r &
 

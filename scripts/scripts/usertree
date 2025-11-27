@@ -25,12 +25,13 @@ boot_tree() {
 
     s6-rc-init -c "$s6_compdir" -l "$s6_livedir" "$s6_scandir"
     
-    s6-rc -l "$s6_livedir" start mangowc
+    s6-rc -l "$s6_livedir" start default
 }
 
 tear_tree(){
   s6-svc -d "$s6_logger_dir" # stop the catch-all logger first, or else it will ignore s6 shutdown and continue to run
   s6-svscanctl -t "$s6_scandir" # shut down the s6 tree
+  rm -rf "${s6_livedir}"
 }
 
 recompile(){
