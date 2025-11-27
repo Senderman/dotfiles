@@ -8,7 +8,7 @@ s6_livedir="$s6_dir/s6-rc" # s6-rc livedir
 s6_logger_dir="$s6_scandir/s6-svscan-log" # servicedir of catch-all logger
 s6_logger_fifo="$s6_logger_dir/fifo" # fifo where all uncaught logs will go
 
-start_tree() {
+boot_tree() {
     rm -rf "$s6_dir"
     mkdir -p "$s6_scandir"
     mkdir -p "$s6_dir/log"
@@ -28,7 +28,7 @@ start_tree() {
     s6-rc -l "$s6_livedir" start mangowc
 }
 
-stop_tree(){
+tear_tree(){
   s6-svc -d "$s6_logger_dir" # stop the catch-all logger first, or else it will ignore s6 shutdown and continue to run
   s6-svscanctl -t "$s6_scandir" # shut down the s6 tree
 }
@@ -71,19 +71,34 @@ recompile(){
     echo "Switched to the new database!"
 }
 
+service_up(){
+    s6-rc -l $s6_livedir -v 2 start $@
+}
+
+service_down(){
+    s6-rc -l $s6_livedir -v 2 stop $@
+}
 
 case "$1" in
-    start)
-        start_tree
+    b)
+       boot_tree 
     ;;
-    stop)
-        stop_tree
+    t)
+        tear_tree
     ;;
-    recompile)
+    r)
         recompile
     ;;
+    u)
+        shift
+        service_up $@
+    ;;
+    d)
+        shift
+        service_down $@
+    ;;
     *)
-      printf "Usage: %s start|stop|recompile\n" "$(basename "${0}")"
+      printf "Usage: %s u[p] | d[own] | b[oot] | t[ear] | r[recompile]\n" "$(basename "${0}")"
     ;;
 esac
 
