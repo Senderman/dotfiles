@@ -19,7 +19,6 @@ multisubstitute {
 loopwhilex
     backtick -E bat_lvl { cat $bat_capacity_file }
     backtick -E ac_on { cat $ac_online_file }
-    foreground { echo $bat_lvl }
     foreground { if { test $ac_on -eq 0 } if { test $bat_lvl -le $CRIT_LEVEL }
         notify-send -u critical "MAYDAY! MAYDAY!" "Low battery! Please, plug in the charger!"
     }
