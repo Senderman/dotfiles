@@ -9,7 +9,9 @@ s6_logger_dir="$s6_scandir/s6-svscan-log" # servicedir of catch-all logger
 s6_logger_fifo="$s6_logger_dir/fifo" # fifo where all uncaught logs will go
 
 boot_tree() {
-    rm -rf "$s6_dir"
+    rm -rf "${s6_livedir}"
+    rm -rf "${s6_scandir}"
+
     mkdir -p "$s6_scandir"
     mkdir -p "$s6_dir/log"
     cp -rL "$s6_homedir/s6-svscan-log" "$s6_scandir"
@@ -32,6 +34,7 @@ tear_tree(){
   s6-svc -d "$s6_logger_dir" # stop the catch-all logger first, or else it will ignore s6 shutdown and continue to run
   s6-svscanctl -t "$s6_scandir" # shut down the s6 tree
   rm -rf "${s6_livedir}"
+  rm -rf "${s6_scandir}"
 }
 
 recompile(){
