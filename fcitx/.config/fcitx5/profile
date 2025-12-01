@@ -4,17 +4,17 @@ Name="Group 1"
 # Layout
 Default Layout=us
 # Default Input Method
-DefaultIM=keyboard-us
+DefaultIM=keyboard-ru
 
 [Groups/0/Items/0]
 # Name
-Name=keyboard-ru
+Name=keyboard-us
 # Layout
 Layout=
 
 [Groups/0/Items/1]
 # Name
-Name=keyboard-us
+Name=keyboard-ru
 # Layout
 Layout=
 
