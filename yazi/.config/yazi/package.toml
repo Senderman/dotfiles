@@ -18,6 +18,11 @@ use = "yazi-rs/plugins:mime-ext"
 rev = "eaf6920"
 hash = "4c49c446328c4553a4ccab7facc10b21"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "eaf6920"
+hash = "4fccaaf10c36dc2466e2438a386ff017"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:dracula"
 rev = "3edeb49"
