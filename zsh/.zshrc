@@ -27,4 +27,5 @@ fi
 autoload -Uz compinit
 compinit
 
+eval "$(zoxide init zsh)"
 # . <(git lfs completion zsh)
