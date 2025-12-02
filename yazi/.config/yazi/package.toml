@@ -1,0 +1,24 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "eaf6920"
+hash = "27ca02f49fd236b5cc7bf03c243859fe"
+
+[[plugin.deps]]
+use = "dedukun/bookmarks"
+rev = "9ef1254"
+hash = "92fbb5483657fa7976cdf4e0104e18e0"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "eaf6920"
+hash = "5b2eb0cc2050cec1e4de83cfa51a5b90"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mime-ext"
+rev = "eaf6920"
+hash = "4c49c446328c4553a4ccab7facc10b21"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:dracula"
+rev = "3edeb49"
+hash = "c5e49b9e877ca29a3622ec2e35af0b2a"
