@@ -155,6 +155,9 @@ keymap = [
 	# Help
 	{ on = "~",    run = "help", desc = "Open help" },
 	{ on = "<F1>", run = "help", desc = "Open help" },
+
+  # Edit
+  { on = "E", run = 'shell --block -- $EDITOR "$0"', desc= "Open in $EDITOR"}
 ]
 
 [tasks]
