@@ -1,6 +1,5 @@
 #!/bin/sh
+sleep 3
 
-/usr/lib/xdg-desktop-portal -r &
-/usr/lib/xdg-desktop-portal-gtk -r &
-/usr/lib/xdg-desktop-portal-wlr -r &
+usertree u xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-wlr fcitx
 

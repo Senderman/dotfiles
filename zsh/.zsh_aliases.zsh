@@ -1,4 +1,4 @@
-alias pacstore='doas pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro doas pacman -S'
+alias pacstore='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro doas pacman -S'
 alias pacin='doas pacman -S'
 alias pacrem='doas pacman -Rns'
 alias pacrmdeps='doas pacman -Rns $(pacman -Qdtq)'
@@ -21,6 +21,5 @@ alias gen_psw="od -An -N16 -tx /dev/urandom | tr -d ' '"
 alias feh='feh --no-fehbg'
 
 which kubecolor 1>/dev/null 2>/dev/null && alias kubectl='kubecolor' && compdef kubecolor=kubectl
-alias genpass='od -An -N16 -tx /dev/urandom | xargs | tr " " "-"'
 alias hl='highlight --style nord'
 
