@@ -21,7 +21,7 @@ boot_tree() {
     fdmove -c 4 1 \
     redirfd -wnb 1 "$s6_logger_fifo" \
     fdmove -c 2 1 \
-    envfile ~/.s6/config/global.conf \
+    envfile -I "$s6_homedir/config/global.conf" \
     s6-svscan -d 4 "$s6_scandir" | read -r s6ready
     unset s6ready
 
@@ -89,7 +89,7 @@ service_down(){
 
 case "$1" in
     b)
-       boot_tree 
+        boot_tree 
     ;;
     t)
         tear_tree
