@@ -12,7 +12,7 @@ alias df='df -h -x tmpfs -x devtmpfs -x efivarfs'
 alias free='free -h'
 
 alias e=$EDITOR
-alias g='git'
+alias g='lazygit'
 alias git-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
 alias git-find-deleted-log='git log --oneline --follow --'
 alias f='yazi'
@@ -22,4 +22,4 @@ alias feh='feh --no-fehbg'
 
 which kubecolor 1>/dev/null 2>/dev/null && alias kubectl='kubecolor' && compdef kubecolor=kubectl
 alias hl='highlight --style nord'
-
+alias ip='ip -c'

@@ -4,7 +4,8 @@ find ~/Pictures/Wallpapers/ -type f \
   | while read -r img; do
 	  echo "$(</dev/urandom tr -dc a-zA-Z0-9 | head -c 8):$img"
 	  done \
-  | sort -n | cut -d':' -f2- \
+  | sort -n \
+  | cut -d':' -f2- \
   | head -n1 \
-  | xargs swww img -t random
+  | xargs swww img
 
