@@ -160,7 +160,10 @@ keymap = [
   { on = "E", run = 'shell --block -- $EDITOR "$0"', desc = "Open in $EDITOR" },
 
   # Open terminal
-  { on = "T", run = 'shell --orphan -- foot', desc = "Open foot terminal in CWD" }
+  { on = "<C-t>", run = 'shell --orphan -- foot', desc = "Open foot terminal in CWD" },
+
+  # Open lazygit
+  { on = "<C-g>", run = 'shell --orphan -- foot lazygit', desc = "Open lazygit in CWD" }
 ]
 
 [tasks]
