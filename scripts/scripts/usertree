@@ -9,6 +9,10 @@ s6_logger_dir="$s6_scandir/s6-svscan-log" # servicedir of catch-all logger
 s6_logger_fifo="$s6_logger_dir/fifo" # fifo where all uncaught logs will go
 
 boot_tree() {
+    if s6-svscanctl -z "${s6_scandir}" 2>/dev/null; then
+        echo "s6-svscan is already running on ${s6_scandir}, doing nothing"
+        exit 1;
+    fi
     rm -rf "${s6_livedir}"
     rm -rf "${s6_scandir}"
 
