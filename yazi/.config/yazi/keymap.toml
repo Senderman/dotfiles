@@ -377,23 +377,23 @@ keymap = [
 ]
 
 [[mgr.prepend_keymap]]
-on = [ "m" ]
-run = "plugin bookmarks save"
+on   = [ "m" ]
+run  = "plugin bookmarks save"
 desc = "Save current position as a bookmark"
 
 [[mgr.prepend_keymap]]
-on = [ "'" ]
-run = "plugin bookmarks jump"
+on   = [ "'" ]
+run  = "plugin bookmarks jump"
 desc = "Jump to a bookmark"
 
 [[mgr.prepend_keymap]]
-on = [ "b", "d" ]
-run = "plugin bookmarks delete"
+on   = [ "b", "d" ]
+run  = "plugin bookmarks delete"
 desc = "Delete a bookmark"
 
 [[mgr.prepend_keymap]]
-on = [ "b", "D" ]
-run = "plugin bookmarks delete_all"
+on   = [ "b", "D" ]
+run  = "plugin bookmarks delete_all"
 desc = "Delete all bookmarks"
 
 [[mgr.prepend_keymap]]
@@ -402,6 +402,12 @@ run  = "plugin chmod"
 desc = "Chmod on selected files"
 
 [[mgr.prepend_keymap]]
-on  = "M"
-run = "plugin mount"
+on   = "M"
+run  = "plugin mount"
+desc = "Mount menu" 
+
+[[mgr.prepend_keymap]]
+on   = "<C-y>"
+run  = "plugin clipboard"
+desc = "Copy file content to clipboard"
 
