@@ -14,11 +14,6 @@ rev = "eaf6920"
 hash = "5b2eb0cc2050cec1e4de83cfa51a5b90"
 
 [[plugin.deps]]
-use = "yazi-rs/plugins:mime-ext"
-rev = "eaf6920"
-hash = "4c49c446328c4553a4ccab7facc10b21"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:mount"
 rev = "eaf6920"
 hash = "4fccaaf10c36dc2466e2438a386ff017"
