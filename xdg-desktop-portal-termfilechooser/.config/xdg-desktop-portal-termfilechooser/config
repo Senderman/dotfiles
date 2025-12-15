@@ -1,0 +1,8 @@
+[filechooser]
+cmd=yazi-wrapper.sh
+default_dir=$HOME
+create_help_file=0
+env=TERMCMD=foot
+open_mode=suggested
+save_mode=suggested
+
