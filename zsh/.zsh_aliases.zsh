@@ -15,7 +15,6 @@ alias e=$EDITOR
 alias g='lazygit'
 alias git-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
 alias git-find-deleted-log='git log --oneline --follow --'
-alias f='yazi'
 alias trr='transmission-remote'
 alias gen_psw="od -An -N16 -tx /dev/urandom | tr -d ' '"
 alias feh='feh --no-fehbg'
@@ -23,3 +22,13 @@ alias feh='feh --no-fehbg'
 which kubecolor 1>/dev/null 2>/dev/null && alias kubectl='kubecolor' && compdef kubecolor=kubectl
 alias hl='highlight --style nord'
 alias ip='ip -c'
+
+function f() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
