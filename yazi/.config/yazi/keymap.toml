@@ -157,13 +157,13 @@ keymap = [
 	{ on = "<F1>", run = "help", desc = "Open help" },
 
   # Edit
-  { on = "E", run = 'shell --orphan -- foot $EDITOR "$0"', desc = "Open in $EDITOR" },
+  { on = "E", run = 'shell --orphan -- ${TERMCMD:-foot} $EDITOR "$0"', desc = "Open in $EDITOR" },
 
   # Open terminal
-  { on = "!", run = 'shell --orphan -- foot', desc = "Open foot terminal in CWD" },
+  { on = "!", run = 'shell --orphan -- ${TERMCMD:-foot}', desc = "Open $TERMCMD terminal in CWD" },
 
   # Open lazygit
-  { on = "<C-g>", run = 'shell --orphan -- foot lazygit', desc = "Open lazygit in CWD" }
+  { on = "<C-g>", run = 'shell --orphan -- ${TERMCMD:-foot} lazygit', desc = "Open lazygit in CWD" }
 ]
 
 [tasks]

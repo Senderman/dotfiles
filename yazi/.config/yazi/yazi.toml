@@ -30,7 +30,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = 'foot ${EDITOR:-vi} "$@"', desc = "$EDITOR", block = false, for = "unix" },
+	{ run = '${TERMCMD:-foot} ${EDITOR:-vi} "$@"', desc = "$EDITOR", block = false, for = "unix" },
 ]
 open = [
 	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
