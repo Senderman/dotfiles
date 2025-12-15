@@ -160,7 +160,7 @@ keymap = [
   { on = "E", run = 'shell --orphan -- foot $EDITOR "$0"', desc = "Open in $EDITOR" },
 
   # Open terminal
-  { on = "<C-t>", run = 'shell --orphan -- foot', desc = "Open foot terminal in CWD" },
+  { on = "!", run = 'shell --orphan -- foot', desc = "Open foot terminal in CWD" },
 
   # Open lazygit
   { on = "<C-g>", run = 'shell --orphan -- foot lazygit', desc = "Open lazygit in CWD" }
@@ -410,4 +410,14 @@ desc = "Mount menu"
 on   = "<C-y>"
 run  = "plugin clipboard"
 desc = "Copy file content to clipboard"
+
+[[mgr.prepend_keymap]]
+on   = "<C-n>"
+run  = 'shell -- dragon-drop -x -i -T "$0"'
+desc = "Dragon: Drag and drop selected file"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "r" ]
+run  = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"'
+desc = "Go to the root of current git repo"
 
