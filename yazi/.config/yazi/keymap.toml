@@ -211,8 +211,10 @@ keymap = [
 	{ on = "<C-E>", run = [ "move bol", "visual", "move eol" ], desc = "Select from BOL to EOL" },
 
 	# Character-wise movement
-	{ on = "h",       run = "move -1", desc = "Move back a character" },
+	{ on = "h",       run = "move -1", desc = "Move back a character"    },
 	{ on = "l",       run = "move 1",  desc = "Move forward a character" },
+	{ on = "<Left>",  run = "move -1", desc = "Move back a character"    },
+	{ on = "<Right>", run = "move 1",  desc = "Move forward a character" },
 
 	# Word-wise movement
 	{ on = "b",     run = "backward",                    desc = "Move back to the start of the current or previous word" },
