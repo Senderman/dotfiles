@@ -15,6 +15,7 @@ alias e=$EDITOR
 alias g='lazygit'
 alias git-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
 alias git-find-deleted-log='git log --oneline --follow --'
+alias git-br-cleanup='git branch | rg -v "master|main" | cut -c 3- | gum choose --no-limit | xargs git branch -D'
 alias trr='transmission-remote'
 alias gen_psw="od -An -N16 -tx /dev/urandom | tr -d ' '"
 alias feh='feh --no-fehbg'
