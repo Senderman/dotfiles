@@ -17,5 +17,5 @@ if [ ! -d "${SCREEN_DIR}" ]; then
 fi
 
 selection="$(ls "${SCREEN_DIR}" | $dmenu -p "screens: ")"
-[ -n "$selection" ] && foot screen -r "$selection"
+[ -n "$selection" ] && footclient screen -r "$selection"
 
