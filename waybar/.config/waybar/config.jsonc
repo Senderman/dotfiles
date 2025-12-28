@@ -55,11 +55,11 @@
     "cpu": {
         "format": "  {usage}%",
         "tooltip": false,
-        "on-click": "foot htop"
+        "on-click": "footclient htop"
     },
     "memory": {
         "format": "R {percentage}% / S {swapPercentage}%",
-        "on-click": "foot htop"
+        "on-click": "footclient htop"
     },
     "backlight": {
         "format": "󰖨  {percent}%"
@@ -81,7 +81,7 @@
         "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
-        "on-click": "foot iwctl"
+        "on-click": "footclient iwctl"
     },
     "network#vpn": {
         "interface": "tun0",
