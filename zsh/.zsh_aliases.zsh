@@ -17,12 +17,9 @@ alias git-find-deleted-paths='git log --diff-filter=D --summary | grep delete | 
 alias git-find-deleted-log='git log --oneline --follow --'
 alias git-br-cleanup='git branch | rg -v "master|main" | cut -c 3- | gum choose --no-limit | xargs git branch -D'
 alias trr='transmission-remote'
-alias gen_psw="od -An -N16 -tx /dev/urandom | tr -d ' '"
-alias feh='feh --no-fehbg'
 
 which kubecolor 1>/dev/null 2>/dev/null && alias kubectl='kubecolor' && compdef kubecolor=kubectl
 alias hl='highlight --style nord'
-alias ip='ip -c'
 
 function f() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
