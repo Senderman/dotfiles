@@ -10,6 +10,10 @@ else
   echo "Error: No Wayland or X11 display detected" 1>&2
 fi
 translated="$(trans -b :ru "$text")"
-footclient -a footfloating -T Translation -W 70x15 sh -c "gum confirm --prompt.foreground='#FFFFFF'  --affirmative='Copy to clipboard' --negative='Dismiss' \"${translated}\" && printf '%s' \"${translated}\" | \"${copycmd}\" "
-#zenity --info --title "Translation" --text "$translated" &
+
+action="$(notify-send -a 'translation' -A dismiss=Dismiss -A copy='Copy to clipboard' 'Translation' "${translated}")"
+
+if [ "$action" = "copy" ]; then
+    printf "%s" "${translated}" | $copycmd
+fi
 
