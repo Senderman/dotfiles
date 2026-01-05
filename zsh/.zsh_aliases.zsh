@@ -12,7 +12,7 @@ alias df='df -h -x tmpfs -x devtmpfs -x efivarfs'
 alias free='free -h'
 
 alias e=$EDITOR
-alias g='lazygit'
+alias g='gitui'
 alias git-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
 alias git-find-deleted-log='git log --oneline --follow --'
 alias git-br-cleanup='git branch | rg -v "master|main" | cut -c 3- | gum choose --no-limit | xargs git branch -D'
