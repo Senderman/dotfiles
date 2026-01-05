@@ -139,8 +139,8 @@ keymap = [
   # Open terminal
   { on = "!", run = 'shell --orphan -- ${TERMCMD:-foot}', desc = "Open $TERMCMD terminal in CWD" },
 
-  # Open lazygit
-  { on = "<C-g>", run = 'shell --orphan -- ${TERMCMD:-foot} lazygit', desc = "Open lazygit in CWD" }
+  # Open gitui 
+  { on = "<C-g>", run = 'shell --orphan -- ${TERMCMD:-foot} gitui', desc = "Open gitui in CWD" }
 ]
 
 [tasks]
