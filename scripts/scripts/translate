@@ -11,7 +11,7 @@ else
 fi
 translated="$(trans -b :ru "$text")"
 
-action="$(notify-send -a 'translation' -A dismiss=Dismiss -A copy='Copy to clipboard' 'Translation' "${translated}")"
+action="$(notify-send -t 0 -a 'translation' -A dismiss=Dismiss -A copy='Copy to clipboard' 'Translation' "${translated}")"
 
 if [ "$action" = "copy" ]; then
     printf "%s" "${translated}" | $copycmd
