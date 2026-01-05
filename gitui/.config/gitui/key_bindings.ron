@@ -15,18 +15,7 @@
     shift_up: Some(( code: Char('K'), modifiers: "SHIFT")),
     shift_down: Some(( code: Char('J'), modifiers: "SHIFT")),
 
-    edit_file: Some(( code: Char('I'), modifiers: "SHIFT")),
-
-    status_reset_item: Some(( code: Char('U'), modifiers: "SHIFT")),
-
-    diff_reset_lines: Some(( code: Char('u'), modifiers: "")),
-    diff_stage_lines: Some(( code: Char('s'), modifiers: "")),
-
-    stashing_save: Some(( code: Char('w'), modifiers: "")),
-    stashing_toggle_index: Some(( code: Char('m'), modifiers: "")),
-
+    edit_file: Some(( code: Char('E'), modifiers: "SHIFT")),
     stash_open: Some(( code: Char('l'), modifiers: "")),
-
-    abort_merge: Some(( code: Char('M'), modifiers: "SHIFT")),
 )
 
