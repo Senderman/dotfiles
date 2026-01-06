@@ -1,9 +1,25 @@
 [general]
-early-exit = true
 annotation-size-factor = 0.6
 initial-tool = "brush"
 copy-command = "wl-copy"
 output-filename = "/tmp/satty-%Y-%m-%d_%H:%M:%S.png"
+
+[keybinds]
+pointer = "p"
+crop = "c"
+brush = "b"
+line = "l"
+arrow = "a"
+rectangle = "r"
+ellipse = "e"
+text = "t"
+marker = "m"
+blur = "u"
+highlight = "h"
+
+[font]
+family="Droid Sans"
+style="Regular"
 
 [color-palette]
 palette = [
