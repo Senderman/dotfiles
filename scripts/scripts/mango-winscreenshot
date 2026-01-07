@@ -1,0 +1,11 @@
+#!/bin/sh
+
+data="$(mmsg -g -x)"
+
+x="$(printf %s "${data}" | grep x      | cut -d' ' -f3)"
+y="$(printf %s "${data}" | grep y      | cut -d' ' -f3)"
+w="$(printf %s "${data}" | grep width  | cut -d' ' -f3)"
+h="$(printf %s "${data}" | grep height | cut -d' ' -f3)"
+geometry="$(printf '%d,%d %dx%d' "$x" "$y" "$w" "$h")"
+grim -g "${geometry}" -t ppm - | satty -f -
+
