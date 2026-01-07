@@ -5,7 +5,7 @@ export LANG=en_US.UTF-8
 export SSH_AUTH_SOCK="/run/user/$(id -u)/ssh-agent"
 export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt # for python
 export XCURSOR_PATH=~/.local/share/icons
-export SAVEHIST=1000 # for clipmenu
+export SAVEHIST=1000
 # terraform
 export AWS_REQUEST_CHECKSUM_CALCULATION=when_required
 export AWS_RESPONSE_CHECKSUM_VALIDATION=when_required
