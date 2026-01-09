@@ -6,20 +6,29 @@
 ratio          = [ 2, 4, 3 ]
 linemode       = "size"
 
-
 [opener]
 edit = [
-	{ run = '${TERMCMD:-foot} ${EDITOR:-vi} "$@"', desc = "$EDITOR", block = false, for = "unix" },
+	{ run = '${TERMCMD:-foot} ${EDITOR:-vi} "$@"', desc = "Open in $EDITOR", for = "linux" },
 ]
 open = [
-	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
-]
-extract = [
-	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
+	{ run = 'xdg-open "$1"', orphan = true, desc = "Open", for = "linux" },
 ]
 play = [
-	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
-	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+	{ run = 'mpv --force-window "$@"', orphan = true, for = "linux" },
+	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "linux" },
+]
+reveal = [
+    { run = '${TERMCMD:-foot} yazi "$1"', orphan = true, desc = "Open location in new window", for = "linux" },
+    { run = 'firefox "%d1"', orphan = true, desc = "Open location in firefox", for = "linux" }
+]
+torrent = [
+    { run = 'transmission-remote -a "$1"', desc = "Download via transmission", for = "linux" },
+    { run = 'transmission-remote -a --start-paused "$1"', desc = "Add torrent to transmission, do not start", for = "linux" },
+]
+
+[open]
+prepend_rules = [
+    { mime = "application/bittorrent", use = [ "torrent", "reveal" ] }
 ]
 
 [[plugin.prepend_fetchers]]
@@ -31,4 +40,8 @@ run  = "git"
 id   = "git"
 url  = "*/"
 run  = "git"
+
+[[plugin.prepend_previewers]]
+mime = "application/bittorrent"
+run = "torrent-preview"
 
