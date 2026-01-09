@@ -1,0 +1,30 @@
+[Added Associations]
+
+[Removed Associations]
+
+[Default Applications]
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+text/html=firefox.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
+x-scheme-handler/tg=org.telegram.desktop._bd78da50ed0976f115183c437aaf0e0c.desktop
+x-scheme-handler/tonsite=org.telegram.desktop._bd78da50ed0976f115183c437aaf0e0c.desktop
+text/plain=nvim.desktop
+x-scheme-handler/bruno=bruno.desktop
+image/png=swayimg.desktop;
+image/gif=swayimg.desktop
+image/jpeg=swayimg.desktop;
+image/svg+xml=swayimg.desktop;
+application/pdf=org.pwmt.zathura.desktop;
+audio/ac3=mpv.desktop;
+audio/x-matroska=mpv.desktop;
+video/quicktime=mpv.desktop;
+video/mp4=mpv.desktop;
+video/x-matroska=mpv.desktop;
+
