@@ -10,6 +10,7 @@ alias yaupg='yay -Sau'
 
 alias df='df -h -x tmpfs -x devtmpfs -x efivarfs'
 alias free='free -h'
+alias wget="wget --hsts-file="${XDG_CACHE_HOME}/wget-hsts""
 
 alias e=$EDITOR
 alias g='gitui'
