@@ -5,24 +5,26 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_CACHE_HOME="${HOME}/.cache"
 
+export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
+export GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"
+export LESSKEY="${XDG_CONFIG_HOME}/less/lesskey"
+
 export ANDROID_USER_HOME="${XDG_DATA_HOME}/android"
 export ANSIBLE_HOME="${XDG_DATA_HOME}/ansible"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
-export CUDA_CACHE_PATH="${XDG_CACHE_HOME}/nv"
-export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
-export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
-export GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"
 export LESSHISTFILE="${XDG_DATA_HOME}/less/history"
-export LESSKEY="${XDG_CONFIG_HOME}/less/lesskey"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 export PSQL_HISTORY="${XDG_DATA_HOME}/psql_history"
 export XCURSOR_PATH="${XDG_DATA_HOME}/icons"
 
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent"
 export SCREENDIR="${XDG_RUNTIME_DIR}/screens"
+
+export CUDA_CACHE_PATH="${XDG_CACHE_HOME}/nv"
+export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
 
 export EDITOR=nvim
 export LANG=en_US.UTF-8
