@@ -1,3 +1,7 @@
 s6/.s6/rc/*
 s6/.s6/svnogit/*
 zellij/.config/zellij/config.kdl.bak*
+zsh/.config/zsh/.zcompdump
+zsh/.config/zsh/aliases-nogit.zsh
+zsh/.config/zsh/plugins.zsh
+

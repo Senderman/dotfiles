@@ -21,9 +21,11 @@ export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 export PSQL_HISTORY="${XDG_DATA_HOME}/psql_history"
 export XCURSOR_PATH="${XDG_DATA_HOME}/icons"
 
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent"
+export SCREENDIR="${XDG_RUNTIME_DIR}/screens"
+
 export EDITOR=nvim
 export LANG=en_US.UTF-8
-export SSH_AUTH_SOCK="/run/user/$(id -u)/ssh-agent"
 export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt # for python
 
 # zsh

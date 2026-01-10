@@ -11,6 +11,7 @@ alias yaupg='yay -Sau'
 alias df='df -h -x tmpfs -x devtmpfs -x efivarfs'
 alias free='free -h'
 alias wget="wget --hsts-file="${XDG_CACHE_HOME}/wget-hsts""
+alias s3cmd="s3cmd -c "${XDG_CONFIG_HOME}/s3/s3cfg""
 
 alias e=$EDITOR
 alias g='gitui'
