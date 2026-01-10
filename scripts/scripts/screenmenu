@@ -1,6 +1,9 @@
 #!/bin/sh
 
-SCREEN_DIR="${HOME}/.screen"
+if [ -z "${SCREENDIR}" ]; then
+    echo '$SCREENDIR environment variable is not specified' 1>&2
+    exit 1
+fi
 
 if [ -n "$WAYLAND_DISPLAY" ]; then
   dmenu="fuzzel -d"
@@ -11,11 +14,11 @@ else
 	exit 1
 fi
 
-if [ ! -d "${SCREEN_DIR}" ]; then
+if [ ! -d "${SCREENDIR}" ]; then
   notify-send "No screen session directory found!"
   exit 0
 fi
 
-selection="$(ls "${SCREEN_DIR}" | $dmenu -p "screens: ")"
+selection="$(ls "${SCREENDIR}" | $dmenu -p "screens: ")"
 [ -n "$selection" ] && footclient screen -r "$selection"
 
