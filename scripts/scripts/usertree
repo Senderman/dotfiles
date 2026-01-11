@@ -26,8 +26,7 @@ boot_tree() {
     redirfd -wnb 1 "$s6_logger_fifo" \
     fdmove -c 2 1 \
     envfile -I "$s6_homedir/config/global.conf" \
-    s6-svscan -d 4 "$s6_scandir" | read -r s6ready
-    unset s6ready
+    s6-svscan -d 4 "$s6_scandir" | read -r _
 
     s6-rc-init -c "$s6_compdir" -l "$s6_livedir" "$s6_scandir"
     
@@ -50,9 +49,9 @@ recompile(){
     echo "Compiling new database to ${NEW_DB}..."
     set -x
     s6-rc-compile "$NEW_DB" "$SOURCES_SV" "$SOURCES_BUNDLES"
+    result=$?
     set +x
     echo
-    result=$?
     if [ "$result" -ne 0 ]; then
         echo "Failed to compile database!"
         exit 1
@@ -84,11 +83,11 @@ recompile(){
 }
 
 service_up(){
-    s6-rc -l $s6_livedir -v 2 start $@
+    s6-rc -l "$s6_livedir" -v 2 start "$@"
 }
 
 service_down(){
-    s6-rc -l $s6_livedir -v 2 stop $@
+    s6-rc -l "$s6_livedir" -v 2 stop "$@"
 }
 
 case "$1" in
@@ -103,11 +102,11 @@ case "$1" in
     ;;
     u)
         shift
-        service_up $@
+        service_up "$@"
     ;;
     d)
         shift
-        service_down $@
+        service_down "$@"
     ;;
     *)
       printf "Usage: %s u[p] | d[own] | b[oot] | t[ear] | r[recompile]\n" "$(basename "${0}")"

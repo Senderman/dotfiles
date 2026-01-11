@@ -9,7 +9,7 @@ else
   exit 1
 fi
 selection=$(printf "%s\n" "teardown usertree" poweroff reboot hibernate suspend | $dmenu -p "Shutdown menu: ")
-if [ "${selection}" == "teardown usertree" ]; then
+if [ "${selection}" = "teardown usertree" ]; then
   sync
   usertree t
 elif [ -n "${selection}" ]; then

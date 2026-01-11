@@ -22,8 +22,8 @@ TYPE=$(zenity --list \
         --column=Type \
         "Audio only" "best" "480p" "720p" "1080p")
 
-if [ "$TYPE" == "Audio only" ]; then
-    mpv --player-operation-mode=pseudo-gui --no-video --ytdl-format="bestaudio/best[height<=720]/best" $URL
+if [ "$TYPE" = "Audio only" ]; then
+    mpv --player-operation-mode=pseudo-gui --no-video --ytdl-format="bestaudio/best[height<=720]/best" "$URL"
     exit 0
 fi
 
