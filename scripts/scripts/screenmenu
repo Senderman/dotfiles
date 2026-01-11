@@ -16,6 +16,6 @@ if [ ! -d "${screendir}" ]; then
   exit 0
 fi
 
-selection="$(ls "${screendir}" | $dmenu -p "screens: ")"
+selection="$(fd . --base-directory "${screendir}" | $dmenu -p "screens: ")"
 [ -n "$selection" ] && "${TERMCMD:-footclient}" screen -r "$selection"
 
