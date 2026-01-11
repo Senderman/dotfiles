@@ -1,1 +1,7 @@
-image=~/Pictures/Wallpapers/rkn.jpg
+image=~/.config/swaylock/adhde_screenlock.png
+ring-clear-color=#FFB52A
+ring-caps-lock-color=#8a6ede
+ring-color=#34b45a
+ring-ver-color=#6FA8DC
+ring-wrong-color=#ff6b6b
+
