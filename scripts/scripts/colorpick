@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -z "$WAYLAND_DISPLAY" ]; then
+  echo "Error: No Wayland display detected" 1>&2
+  exit 1
+fi
+
+grim -g "$(slurp -b '#00000000' -p)" -t ppm - | magick - -format "%[pixel:p{0,0}]" txt:- | rg -o "#\w+" | wl-copy
+notify-send "Selected color copied to clipboard!"
+
