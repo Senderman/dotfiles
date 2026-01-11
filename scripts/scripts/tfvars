@@ -3,7 +3,7 @@
 # Generate terraform variables from yaml files
 
 if [ "$#" -lt 2 ]; then
-  printf "Usage: %s variable_name FILE..." "$(basename ${0})"
+  printf "Usage: %s variable_name FILE..." "$(basename "${0}")"
   exit 1
 fi
 

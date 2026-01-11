@@ -165,8 +165,6 @@ usage() {
     exit "$1"
 }
 
-OPTS="$*"
-
 DEPS=0
 
 RUNPATH="/run/user/$(id -u)/s6/s6-rc"
