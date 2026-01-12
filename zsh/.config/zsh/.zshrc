@@ -1,6 +1,4 @@
-if [ "$TTY" '=~' "/dev/tty" ];then
-    tput cnorm
-fi
+tput cnorm
 
 zsh_config_dir="${XDG_CONFIG_HOME}/zsh"
 zsh_plugins="${zsh_config_dir}/plugins.zsh"
