@@ -13,6 +13,9 @@ edit = [
 open = [
 	{ run = 'xdg-open "$1"', orphan = true, desc = "Open", for = "linux" },
 ]
+image = [
+    { run = 'swayimg "$1" "%d1"', orphan = true, desc = "Open in swayimg", for = "linux" },
+]
 play = [
 	{ run = 'mpv --force-window "$@"', orphan = true, for = "linux" },
     { run = 'ffprobe -i "$1"; printf "\n\nPress ENTER to continue...\n"; read _', block = true, desc = "Show ffprobe info", for = "linux" },
@@ -31,7 +34,8 @@ torrent = [
 
 [open]
 prepend_rules = [
-    { mime = "application/bittorrent", use = [ "torrent", "reveal" ] }
+    { mime = "application/bittorrent", use = [ "torrent", "reveal" ] },
+    { mime = "image/*", use = [ "image", "reveal" ] }
 ]
 
 [[plugin.prepend_fetchers]]
