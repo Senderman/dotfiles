@@ -1,7 +1,14 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
-importas -S SSH_AUTH_SOCK
+importas -S HOME
 
-ssh-agent -D -a ${SSH_AUTH_SOCK}
+envfile ${HOME}/.s6/config/ssh-agent.conf
+
+multisubstitute {
+    importas -S SSH_AUTH_SOCK
+    importas -Su SSH_AGENT_TIMEOUT
+}
+
+ssh-agent -D -t ${SSH_AGENT_TIMEOUT} -a ${SSH_AUTH_SOCK}
 
