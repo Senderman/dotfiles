@@ -22,6 +22,7 @@ image/gif=swayimg.desktop
 image/jpeg=swayimg.desktop;
 image/svg+xml=swayimg.desktop;
 application/pdf=org.pwmt.zathura.desktop;
+application/epub+zip=org.pwmt.zathura.desktop;
 audio/ac3=mpv.desktop;
 audio/x-matroska=mpv.desktop;
 video/quicktime=mpv.desktop;
