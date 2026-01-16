@@ -7,5 +7,5 @@ else
   exit 1
 fi
 selection=$(printf "%s\n" tgmix tile vertical_tile right_tile center_tile deck vertical_deck grid vertical_grid scroller vertical_scroller monocle | $dmenu -p "Select layout: ")
-[ -n "$selection" ] && sync && mmsg -d "setlayout,$selection"
+[ -n "$selection" ] && mmsg -d "setlayout,$selection"
 
