@@ -1,6 +1,6 @@
 tput cnorm
 
-zsh_config_dir="${XDG_CONFIG_HOME}/zsh"
+zsh_config_dir="${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}"
 zsh_plugins="${zsh_config_dir}/plugins.zsh"
 zsh_plugins_src="${zsh_config_dir}/plugins.txt"
 
