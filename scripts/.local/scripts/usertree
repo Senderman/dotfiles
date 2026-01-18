@@ -1,7 +1,8 @@
 #!/bin/sh
 
-s6_homedir="$HOME/.s6" # directory with inital s6 configs, svcs, and databases
-s6_compdir="$s6_homedir/rc/compiled" # compiled database directory
+xdg_data="${XDG_DATA_HOME:-${HOME}/.local/share}"
+s6_srcdir="$xdg_data/s6" # directory with inital s6 configs, svcs, and databases
+s6_compdir="$s6_srcdir/rc/compiled" # compiled database directory
 s6_dir="$XDG_RUNTIME_DIR/s6" # s6 data folder (scandir, livedir, logs, etc)
 s6_scandir="$s6_dir/service" # s6 scandir
 s6_livedir="$s6_dir/s6-rc" # s6-rc livedir
@@ -18,14 +19,14 @@ boot_tree() {
 
     mkdir -p "$s6_scandir"
     mkdir -p "$s6_dir/log"
-    cp -rL "$s6_homedir/s6-svscan-log" "$s6_scandir"
+    cp -rL "$s6_srcdir/s6-svscan-log" "$s6_scandir"
     mkfifo "$s6_logger_fifo"
     
     setsid -f \
     fdmove -c 4 1 \
     redirfd -wnb 1 "$s6_logger_fifo" \
     fdmove -c 2 1 \
-    envfile -I "$s6_homedir/config/global.conf" \
+    envfile -I "$s6_srcdir/config/global.conf" \
     s6-svscan -d 4 "$s6_scandir" | read -r _
 
     s6-rc-init -c "$s6_compdir" -l "$s6_livedir" "$s6_scandir"
@@ -42,9 +43,9 @@ tear_tree(){
 
 recompile(){
     TS="$(date +%s)"
-    NEW_DB="${s6_homedir}/rc/compiled-$TS"
-    SOURCES_SV="${s6_homedir}/sv"
-    SOURCES_BUNDLES="${s6_homedir}/bundles"
+    NEW_DB="${s6_srcdir}/rc/compiled-$TS"
+    SOURCES_SV="${s6_srcdir}/sv"
+    SOURCES_BUNDLES="${s6_srcdir}/bundles"
     
     echo "Compiling new database to ${NEW_DB}..."
     set -x
@@ -62,9 +63,9 @@ recompile(){
         echo
         s6-rc-update -n -l "$s6_livedir" "$NEW_DB"
         echo
-        echo "Enter n to decline, enter anything else to proceed"
+        echo "Enter YES in uppercase to confirm, enter anything else to decline"
         read -r apply
-        if [ "${apply}" = "n" ]; then
+        if [ "${apply}" != "YES" ]; then
           echo "Database is saved and compiled, but system is not switched to it"
           exit 1
         fi

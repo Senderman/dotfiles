@@ -1,0 +1,21 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+importas -S HOME
+importas -SD ${HOME}/.local/share XDG_DATA_HOME
+envfile ${XDG_DATA_HOME}/s6/config/swayidle.conf
+
+multisubstitute {
+    importas -Su SCREENSAVER
+    importas -Su SCREENSAVER_TIMEOUT
+    importas -Su DPMS_TIMEOUT
+    importas -Su DPMS_OFF
+    importas -Su DPMS_ON
+}
+
+swayidle -w
+lock "${SCREENSAVER}"
+timeout $SCREENSAVER_TIMEOUT "${SCREENSAVER}"
+timeout $DPMS_TIMEOUT "${DPMS_OFF}"
+resume "${DPMS_ON}"
+before-sleep "${SCREENSAVER}"
