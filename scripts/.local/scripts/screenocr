@@ -1,5 +1,5 @@
 #!/bin/sh
-ocr_lang="$(printf '%s\n' eng rus jpn jpn_vert | fuzzel -d -p "Select OCR language")"
+ocr_lang="$(tesseract --list-langs | tail -n +2 | fuzzel -d -p "Select OCR language")"
 grim -g "$(slurp -c '#9b98ff')" -t ppm - | tesseract -l "${ocr_lang}" - - | wl-copy
 notify-send "Selected text was copied to clipboard!"
 

@@ -1,0 +1,17 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+importas -S HOME
+importas -SD ${HOME}/.local/share XDG_DATA_HOME
+envfile ${XDG_DATA_HOME}/s6/config/wshowkeys.conf
+
+multisubstitute {
+  importas -Su FONT
+  importas -Su SPECIAL
+  importas -Su FOREGROUND
+  importas -Su BACKGROUND
+  importas -Su POS1
+  importas -Su POS2
+}
+
+wshowkeys -F $FONT -a $POS1 -a $POS2 -s $SPECIAL -f $FOREGROUND -b $BACKGROUND

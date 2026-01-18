@@ -1,0 +1,9 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+importas -S HOME
+importas -SD ${HOME}/.local/share XDG_DATA_HOME
+envfile ${XDG_DATA_HOME}/s6/config/night.conf
+importas -Ssu ARGS
+
+gammastep ${ARGS}
