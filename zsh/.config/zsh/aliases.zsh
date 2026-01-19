@@ -18,6 +18,7 @@ alias e=$EDITOR
 alias g='gitui'
 alias git-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
 alias git-find-deleted-log='git log --oneline --follow --'
+alias git-copybranch='git branch --show-current | wl-copy'
 alias trr='transmission-remote'
 
 which kubecolor 1>/dev/null 2>/dev/null && alias kubectl='kubecolor' && compdef kubecolor=kubectl
