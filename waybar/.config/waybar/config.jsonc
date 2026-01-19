@@ -77,7 +77,7 @@
     },
     "network": {
         "format-wifi": "   {ifname} ({signalStrength}%)",
-        "format-ethernet": " {ipaddr}/{cidr}",
+        "format-ethernet": " {ifname}",
         "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
