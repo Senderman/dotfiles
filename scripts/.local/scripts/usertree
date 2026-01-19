@@ -14,7 +14,7 @@ boot_tree() {
         echo "s6-svscan is already running on ${s6_scandir}, doing nothing"
         exit 1;
     fi
-    rm -rf "${s6_livedir}"
+    rm -f "${s6_livedir}"
     rm -rf "${s6_scandir}"
 
     mkdir -p "$s6_scandir"
@@ -37,7 +37,7 @@ boot_tree() {
 tear_tree(){
   s6-svc -d "$s6_logger_dir" # stop the catch-all logger first, or else it will ignore s6 shutdown and continue to run
   s6-svscanctl -t "$s6_scandir" # shut down the s6 tree
-  rm -rf "${s6_livedir}"
+  rm -f "${s6_livedir}"
   rm -rf "${s6_scandir}"
 }
 
@@ -58,7 +58,7 @@ recompile(){
         exit 1
     fi
     
-    if [ -d "$s6_livedir" ]; then
+    if s6-svscanctl -z "${s6_scandir}" 2>/dev/null; then
         echo "Displaying what services will be stopped, and what services will be started"
         echo
         s6-rc-update -n -l "$s6_livedir" "$NEW_DB"
@@ -73,6 +73,9 @@ recompile(){
         set -x
         s6-rc-update -l "$s6_livedir" "$NEW_DB"
         set +x
+        echo
+    else
+        echo "s6-svscan is not running on ${s6_scandir}, skipping online database switching"
         echo
     fi
     echo "Updating symlink to the newly compiled database"
@@ -110,7 +113,7 @@ case "$1" in
         service_down "$@"
     ;;
     *)
-      printf "Usage: %s u[p] | d[own] | b[oot] | t[ear] | r[recompile]\n" "$(basename "${0}")"
+        printf "Usage: %s [command] <args>\n\n  u <svc1> <svc2> <svc3> - start service(s)\n  d <svc1> <svc2> <svc3> - stop service(s)\n  b - boot usertree\n  t - teardown usertree\n  r - recompile database and switch to it if usertree is running\n\n" "$(basename "${0}")"
     ;;
 esac
 
