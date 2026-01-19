@@ -2,7 +2,7 @@
 annotation-size-factor = 0.6
 initial-tool = "brush"
 copy-command = "wl-copy"
-output-filename = "/tmp/satty-%Y-%m-%d_%H:%M:%S.png"
+output-filename = "~/Pictures/Screenshots/satty-%Y-%m-%d_%H:%M:%S.png"
 early-exit = true
 disable-notifications = true
 
