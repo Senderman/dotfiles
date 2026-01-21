@@ -32,7 +32,7 @@ export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt # for python
 
 # zsh
 export HISTFILE="${XDG_STATE_HOME}/zsh/history"
-export SAVEHIST=1000
+export SAVEHIST=10000
 
 
 # openssl
