@@ -1,4 +1,5 @@
 s6/.local/share/s6/rc/*
+!s6/.local/share/s6/rc/.gitkeep
 s6/.local/share/s6/svnogit/*
 zellij/.config/zellij/config.kdl.bak*
 zsh/.config/zsh/.zcompdump
