@@ -10,7 +10,7 @@ border-color=#9b93ffff
 layer=overlay
 
 [urgency=low]
-background-color=#38761dff
+background-color=#171925ff
 
 [urgency=normal]
 background-color=#382db0
