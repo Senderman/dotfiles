@@ -1,4 +1,4 @@
-font=DroidSans 12
+font=Noto Sans 12
 text-alignment=center
 width=300
 height=300
@@ -20,7 +20,7 @@ background-color=#bb0000ff
 border-color=#ff0000ff
 
 [app-name="translation" actionable]
-font=DroidSans 14
+font=Noto Sans 14
 width=500
 height=500
 on-notify=exec makoctl menu -n "$id" fuzzel -- --dmenu -p 'Select action'
