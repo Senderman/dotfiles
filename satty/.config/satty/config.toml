@@ -20,7 +20,7 @@ blur = "u"
 highlight = "h"
 
 [font]
-family="Droid Sans"
+family="Noto Sans"
 style="Regular"
 
 [color-palette]
