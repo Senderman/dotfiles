@@ -1,0 +1,10 @@
+[flags]
+hide_avg_cpu = true
+dot_marker = true
+disable_click = true
+process_memory_as_value = true
+battery = true
+process_command = true
+hide_k_threads = true
+get_threads = true
+
