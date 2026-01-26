@@ -14,15 +14,22 @@ alias wget="wget --hsts-file="${XDG_CACHE_HOME}/wget-hsts""
 alias s3cmd="s3cmd -c "${XDG_CONFIG_HOME}/s3/s3cfg""
 alias fuseiso='fuseiso -n'
 
+alias ls='lsd'
+alias l='lsd -l'
+alias la='lsd -a'
+alias lla='lsd -la'
+alias lg='lsd -lg'
+alias lt='lsd --tree'
+
 alias e=$EDITOR
 alias g='gitui'
 alias git-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
 alias git-find-deleted-log='git log --oneline --follow --'
 alias git-copybranch='git branch --show-current | wl-copy'
 alias trr='transmission-remote'
+alias bat='bat --theme=base16'
 
 which kubecolor 1>/dev/null 2>/dev/null && alias kubectl='kubecolor' && compdef kubecolor=kubectl
-alias hl='highlight --style nord'
 
 function f() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

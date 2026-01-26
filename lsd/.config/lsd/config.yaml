@@ -1,0 +1,13 @@
+color:
+  theme: custom
+
+icons:
+  when: auto
+
+layout: oneline
+
+sorting:
+  dir-grouping: first
+
+hyperlink: auto
+

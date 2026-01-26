@@ -21,5 +21,5 @@ zsh-users/zsh-history-substring-search # ZSH port of Fish history search
 djui/alias-tips # show alias if full command was entered
 Senderman/doas-zsh-plugin # insert doas by pressing double ESC
 
-zdharma-continuum/zsh-diff-so-fancy # git dsf + diff command output improvement
 zdharma-continuum/fast-syntax-highlighting
+
