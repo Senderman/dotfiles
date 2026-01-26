@@ -55,11 +55,11 @@
     "cpu": {
         "format": "  {usage}%",
         "tooltip": false,
-        "on-click": "footclient htop"
+        "on-click": "footclient btm"
     },
     "memory": {
         "format": "R {percentage}% / S {swapPercentage}%",
-        "on-click": "footclient htop"
+        "on-click": "footclient btm"
     },
     "backlight": {
         "format": "󰖨  {percent}%"
