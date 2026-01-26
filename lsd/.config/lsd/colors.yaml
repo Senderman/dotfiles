@@ -1,0 +1,22 @@
+user: dark_magenta
+group: dark_magenta
+
+permission:
+  read: dark_green
+  write: dark_yellow
+  exec: dark_red
+  exec-sticky: dark_cyan
+  acl: magenta
+  context: blue
+
+date:
+  hour-old: dark_green
+  day-old: dark_green
+  older: dark_green
+
+size:
+  none: dark_cyan
+  small: dark_cyan
+  medium: dark_cyan
+  large: dark_cyan
+
