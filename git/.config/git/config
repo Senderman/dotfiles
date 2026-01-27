@@ -8,6 +8,8 @@
     sw = switch
     st = status
     ci = commit -S -m
+    d = diff
+    ds = diff --staged
 
 [credential]
     helper = store
