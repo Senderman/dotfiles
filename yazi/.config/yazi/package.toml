@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "eaf6920"
-hash = "27ca02f49fd236b5cc7bf03c243859fe"
+rev = "e07bf41"
+hash = "270915fa8282a19908449530ff66f7e2"
 
 [[plugin.deps]]
 use = "dedukun/bookmarks"
@@ -10,13 +10,13 @@ hash = "92fbb5483657fa7976cdf4e0104e18e0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "eaf6920"
-hash = "5b2eb0cc2050cec1e4de83cfa51a5b90"
+rev = "e07bf41"
+hash = "8da0b15a97b5dfd13941d1ecc617ac7c"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "eaf6920"
-hash = "4fccaaf10c36dc2466e2438a386ff017"
+rev = "e07bf41"
+hash = "563e4068979d1466d3dfc2e70a296947"
 
 [[plugin.deps]]
 use = "DreamMaoMao/clipboard"
@@ -30,5 +30,5 @@ hash = "d849ad596b8a77902e62a42403aeba40"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:dracula"
-rev = "3edeb49"
-hash = "c5e49b9e877ca29a3622ec2e35af0b2a"
+rev = "ca61658"
+hash = "8589ae0231756a9daf9c072f31b1fe0"
