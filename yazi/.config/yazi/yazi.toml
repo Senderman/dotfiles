@@ -50,5 +50,12 @@ run  = "git"
 
 [[plugin.prepend_previewers]]
 mime = "application/bittorrent"
-run = "torrent-preview"
+run  = "torrent-preview"
 
+[[plugin.prepend_previewers]]
+mime = 'audio/*'
+run  = "preview-audio" 
+
+[[plugin.prepend_preloaders]]
+mime = 'audio/*'
+run  = "preview-audio" 
