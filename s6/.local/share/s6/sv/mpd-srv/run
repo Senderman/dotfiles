@@ -1,7 +1,16 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
-importas -S XDG_RUNTIME_DIR
+
+multisubstitute {
+    importas -S XDG_RUNTIME_DIR
+    importas -S XDG_CACHE_HOME
+    importas -S XDG_STATE_HOME
+}
+
 foreground { mkdir -p ${XDG_RUNTIME_DIR}/mpd }
+foreground { mkdir -p ${XDG_CACHE_HOME}/mpd }
+foreground { mkdir -p ${XDG_STATE_HOME}/mpd }
+
 mpd --no-daemon --stderr
 
