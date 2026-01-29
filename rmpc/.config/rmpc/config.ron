@@ -2,7 +2,6 @@
 #![enable(unwrap_newtypes)]
 #![enable(unwrap_variant_newtypes)]
 (
-    address: "/run/user/1000/mpd/socket",
     password: None,
     theme: Some("theme"),
     cache_dir: None,

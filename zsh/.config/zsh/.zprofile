@@ -22,6 +22,7 @@ export XCURSOR_PATH="${XDG_DATA_HOME}/icons"
 
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent"
 export SCREENDIR="${XDG_RUNTIME_DIR}/screens"
+export MPD_HOST="${XDG_RUNTIME_DIR}/mpd/socket"
 
 export CUDA_CACHE_PATH="${XDG_CACHE_HOME}/nv"
 export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
