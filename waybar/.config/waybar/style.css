@@ -24,6 +24,10 @@
 @define-color base0B #6fa8dc;
 /* tag urgent */
 @define-color base0C #bd2c40;
+/* mpris */
+@define-color base0D #38761d;
+/* mpd */
+@define-color base0E #aa6ed4;
 
 * {
   font-family: Noto Sans, JetBrainsMono Nerd Font;
@@ -86,6 +90,7 @@ button:hover {
 #network,
 #pulseaudio,
 #tray,
+#mpd,
 #mpris {
   margin: 0 4px;
   font-weight: bold;
@@ -94,6 +99,14 @@ button:hover {
 /* If tags is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #tags {
   margin-left: 0;
+}
+
+#mpris{
+  box-shadow: inset 0 3px @base0D, inset 0 -3px @base0D;
+}
+
+#mpd {
+  box-shadow: inset 0 3px @base0E, inset 0 -3px @base0E;
 }
 
 #network {
