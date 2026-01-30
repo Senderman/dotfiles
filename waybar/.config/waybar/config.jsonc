@@ -5,7 +5,8 @@
     "modules-left": [
         "dwl/tags",
         "dwl/window#layout",
-        "mpris"
+        "mpris",
+        "mpd"
     ],
     "modules-center": [
         "dwl/window"
@@ -106,15 +107,41 @@
         },
         "on-click": "pavucontrol"
     },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title}",
+        "format-stopped": "",
+        "state-icons": {
+            "paused": "▶",
+            "playing": "⏸"
+        },
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "on-click": "rmpc togglepause",
+        "on-click-right": "footclient rmpc",
+        "on-scroll-up": "rmpc prev",
+        "on-scroll-down": "rmpc next"
+    },
     "mpris": {
-      "format": "{player_icon} {artist} - {title}",
-      "format-paused": "{status_icon} <i>{artist} - {title}</i>",
-      "player-icons": {
-          "default": "⏸"
-      },
-      "status-icons": {
-          "paused": "▶"
-       }
+        "format": "{player_icon} {artist} - {title}",
+        "format-paused": "{status_icon} <i>{artist} - {title}</i>",
+        "player-icons": {
+            "default": "⏸"
+        },
+        "status-icons": {
+            "paused": "▶"
+        },
+        "on-scroll-up": "playerctl previous",
+        "on-scroll-down": "playerctl next"
     }
 }
 
