@@ -22,7 +22,7 @@ alias lg='lsd -lg'
 alias lt='lsd --tree'
 
 alias e=$EDITOR
-alias g='gitui'
+alias g='git'
 alias git-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
 alias git-find-deleted-log='git log --oneline --follow --'
 alias git-copybranch='git branch --show-current | wl-copy'
