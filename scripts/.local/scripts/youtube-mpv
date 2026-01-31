@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# TODO: replace zenity with fuzzel/rofi
 if [ -n "$1" ]; then
   URL="$1"
 else
