@@ -18,6 +18,7 @@
         "memory",
         "backlight",
         "pulseaudio",
+        "wireplumber",
         "battery",
         "clock",
         "tray"
@@ -96,6 +97,7 @@
         "format-bluetooth-muted": "󰸈 MUTED",
         "format-muted": "󰸈 MUTED",
         "format-source-muted": "",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -104,8 +106,13 @@
             "portable": "",
             "car": "",
             "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+        }
+    },
+    "wireplumber": {
+        "node-type": "Audio/Source",
+        "format": "󰍬 {volume}%",
+        "format-muted": "󰍭 MUTED",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title}",
