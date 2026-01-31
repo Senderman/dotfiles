@@ -1,5 +1,5 @@
 #!/bin/sh
 
-selection=$(printf "%s\n" tgmix tile vertical_tile right_tile center_tile deck vertical_deck grid vertical_grid scroller vertical_scroller monocle | fuzzel -d -p "Select layout: ")
-[ -n "$selection" ] && mmsg -d "setlayout,$selection"
+selection="$(mmsg -L | fuzzel -d -p "Select layout: ")"
+[ -n "$selection" ] && mmsg -l "${selection}"
 
