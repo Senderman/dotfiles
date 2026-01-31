@@ -1,11 +1,5 @@
 #!/bin/sh
 
-if [ -n "$WAYLAND_DISPLAY" ]; then
-  dmenu="fuzzel -d"
-else
-  echo "Error: No Wayland or X11 display detected" 1>&2
-  exit 1
-fi
-selection=$(printf "%s\n" tgmix tile vertical_tile right_tile center_tile deck vertical_deck grid vertical_grid scroller vertical_scroller monocle | $dmenu -p "Select layout: ")
+selection=$(printf "%s\n" tgmix tile vertical_tile right_tile center_tile deck vertical_deck grid vertical_grid scroller vertical_scroller monocle | fuzzel -d -p "Select layout: ")
 [ -n "$selection" ] && mmsg -d "setlayout,$selection"
 

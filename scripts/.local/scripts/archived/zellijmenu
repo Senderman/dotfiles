@@ -1,5 +1,0 @@
-#!/bin/sh
-
-selection="$(zellij ls -s | rofi -dmenu -p Zellij Sessions)"
-[ -n "$selection" ] && alacritty -e zellij a "$selection"
-
