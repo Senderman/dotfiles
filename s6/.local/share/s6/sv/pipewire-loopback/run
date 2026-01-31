@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec pw-loopback -i '{ stream.capture.sink=true }' -C "$(wpctl inspect @DEFAULT_AUDIO_SINK@ | rg node.nick | rg -o -r '$1' '"(.*)"')"  -o 'media.class=Audio/Source' -n wfr
+
