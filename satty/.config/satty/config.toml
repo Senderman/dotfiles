@@ -7,7 +7,7 @@ early-exit = true
 disable-notifications = true
 default-hide-toolbars = true
 default-fill-shapes = true
-primary-highlighter = ""
+primary-highlighter = "block"
 
 [keybinds]
 pointer = "p"
