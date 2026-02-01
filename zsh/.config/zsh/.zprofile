@@ -43,3 +43,7 @@ export RANDFILE="${XDG_DATA_HOME}/openssl/rnd"
 export AWS_REQUEST_CHECKSUM_CALCULATION=when_required
 export AWS_RESPONSE_CHECKSUM_VALIDATION=when_required
 
+if [ "$TTY" = "/dev/tty1" ]; then
+    usertree b
+fi
+
