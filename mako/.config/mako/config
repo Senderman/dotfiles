@@ -24,4 +24,5 @@ font=Noto Sans 14
 width=500
 height=500
 on-notify=exec makoctl menu -n "$id" fuzzel -- --dmenu -p 'Select action'
+anchor=top-center
 

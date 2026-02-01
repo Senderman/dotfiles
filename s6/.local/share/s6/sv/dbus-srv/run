@@ -1,9 +1,6 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
-multisubstitute {
-  importas -S DBUS_SESSION_BUS_ADDRESS
-  importas -S HOME
-}
+importas -S DBUS_SESSION_BUS_ADDRESS
 
 dbus-daemon --nofork --session --print-pid 4 --address=${DBUS_SESSION_BUS_ADDRESS} 
