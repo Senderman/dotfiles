@@ -1,5 +1,0 @@
-#!/bin/sh
-
-selection="$(mmsg -L | fuzzel -d -p "Select layout: ")"
-[ -n "$selection" ] && mmsg -l "${selection}"
-

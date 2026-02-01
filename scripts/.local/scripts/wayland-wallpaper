@@ -1,4 +1,0 @@
-#!/bin/sh
-
-fd -t file . ~/Pictures/Wallpapers/ | sort -R | head -n1 | xargs swww img
-
