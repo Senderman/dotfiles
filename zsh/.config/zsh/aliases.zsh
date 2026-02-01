@@ -31,9 +31,9 @@ alias bat='bat --theme=base16'
 
 which kubecolor 1>/dev/null 2>/dev/null && alias kubectl='kubecolor' && compdef kubecolor=kubectl
 
-alias wfr_silent='wf-recorder -c libx264rgb -g "$(slurp)" -f'
-alias wfr_mic='wf-recorder -c libx264rgb -a -g "$(slurp)" -f'
-alias wfr_audio='usertree u pipewire-loopback && wf-recorder -c libx264rgb -aoutput.wfr -g "$(slurp)" -f'
+alias wfr_silent='wf-recorder -c libx264rgb -F "scale=-2:720" -f'
+alias wfr_mic='wf-recorder -c libx264rgb -a -F "scale=-2:720" -f'
+alias wfr_audio='usertree u pipewire-loopback && wf-recorder -c libx264rgb -aoutput.wfr -F "scale=-2:720" -f'
 
 function f() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
