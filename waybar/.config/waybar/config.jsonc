@@ -8,9 +8,6 @@
         "mpris",
         "mpd"
     ],
-    "modules-center": [
-        "dwl/window"
-    ],
     "modules-right": [
         "network#vpn",
         "network",
@@ -39,9 +36,6 @@
         "󱅃",
         "󰜡"
       ]
-    },
-    "dwl/window": {
-      "format": "{title}"
     },
     "dwl/window#layout": {
       "format": "[{layout}]",
