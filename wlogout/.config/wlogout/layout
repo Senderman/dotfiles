@@ -5,9 +5,9 @@
     "keybind" : "l"
 }
 {
-    "label" : "logout",
+    "label" : "usertreedown",
     "action" : "usertree t",
-    "text" : "Teardown usertree",
+    "text" : "stop s6",
     "keybind" : "t"
 }
 {
