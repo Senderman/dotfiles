@@ -1,0 +1,45 @@
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 12pt;
+    font-weight: bold;
+    color: #f4dfcd; 
+	background-color: rgba(12, 12, 12, 0.9);
+}
+
+button {
+    background: none;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 40%;
+    border-radius: 50px;
+    border: none;
+    color: #C5C8C6;
+	margin: 120px 0;
+}
+
+button:focus, button:active, button:hover {
+    background-color: rgba(36, 39, 87, 0.8);
+	outline-style: none;
+}
+
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+}
+
+#usertreedown {
+    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+}
