@@ -1,7 +1,6 @@
 // -*- mode: jsonc -*-
 {
     "height": 28,
-    "spacing": 4,
     "modules-left": [
         "dwl/tags",
         "dwl/window#layout",
@@ -38,8 +37,7 @@
       ]
     },
     "dwl/window#layout": {
-      "format": "[{layout}]",
-      "on-click": "mango-layout-menu"
+      "format": "[{layout}]"
     },
     "tray": {
         "spacing": 5
