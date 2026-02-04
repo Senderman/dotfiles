@@ -40,7 +40,7 @@ app_id = swayimg
 # Window background color (auto/extend/mirror/RGBA)
 window = #000000ff
 # Background for transparent images (grid/RGBA)
-transparency = RGBA
+transparency = #ffffffff
 # Default image scale (optimal/width/height/fit/fill/real/keep)
 scale = optimal
 # Initial image position on the window (center/top/bottom/free/...)
@@ -84,7 +84,7 @@ preload = no
 # Enable/disable storing thumbnails in persistent storage (yes/no)
 pstore = no
 # Fill the entire tile with thumbnail (yes/no)
-fill = yes
+aspect = fill
 # Anti-aliasing mode for thumbnails (none/box/bilinear/bicubic/mks13)
 antialiasing = mks13
 # Background color of the window (RGBA)
@@ -94,9 +94,7 @@ background = #202020ff
 # Background color of the selected tile (RGBA)
 select = #404040ff
 # Border color of the selected tile (RGBA)
-border = #000000ff
-# Shadow color of the selected tile (RGBA)
-shadow = #000000ff
+border_color = #000000ff
 
 ################################################################################
 # Image list configuration
