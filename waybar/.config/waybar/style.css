@@ -30,7 +30,7 @@
 @define-color base0E #aa6ed4;
 
 * {
-  font-family: Noto Sans, JetBrainsMono Nerd Font;
+  font-family: Noto Sans, JetBrainsMono Nerd Font, Noto Sans CJK JP;
   font-size: 14px;
   font-style: normal;
   font-weight: normal;

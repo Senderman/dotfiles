@@ -132,7 +132,7 @@
     },
     "mpris": {
         "format": "{player_icon} {artist} - {title}",
-        "format-paused": "{status_icon} <i>{artist} - {title}</i>",
+        "format-paused": "{status_icon} {artist} - {title}",
         "player-icons": {
             "default": "⏸"
         },
