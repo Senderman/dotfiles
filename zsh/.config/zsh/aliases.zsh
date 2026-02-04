@@ -14,7 +14,7 @@ alias la='lsd -a'
 alias lla='lsd -la'
 alias lg='lsd -lg'
 alias lt='lsd --tree'
-alias cat='bat --theme=base16'
+alias cat='bat -P --theme=base16'
 alias diff='delta'
 alias cd='z'
 
@@ -22,7 +22,7 @@ alias cd='z'
 alias g='git'
 alias git-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
 alias git-find-deleted-log='git log --oneline --follow --'
-alias git-copybranch='git branch --show-current | wl-copy'
+alias git-copybranch='git branch --show-current | wl-copy -n'
 
 # Pacman aliases
 alias pacstore='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro doas pacman -S'
