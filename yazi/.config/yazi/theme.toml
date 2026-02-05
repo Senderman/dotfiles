@@ -1,3 +1,21 @@
-[flavor]
-dark = "dracula"
-
+[filetype]
+rules = [
+	# Image
+	{ mime = "image/*", fg = "yellow" },
+	# Media
+	{ mime = "{audio,video}/*", fg = "magenta" },
+	# Archive
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "red" },
+	# Document
+	{ mime = "application/{pdf,doc,rtf}", fg = "cyan" },
+	# Virtual file system
+	{ mime = "vfs/{absent,stale}", fg = "gray" },
+	# Special file
+	{ url = "*", is = "orphan", bg = "red" },
+	{ url = "*", is = "exec"  , fg = "green" },
+	# Dummy file
+	{ url = "*", is = "dummy", bg = "red" },
+	{ url = "*/", is = "dummy", bg = "red" },
+	# Fallback
+	{ url = "*/", fg = "lightcyan" }
+]
