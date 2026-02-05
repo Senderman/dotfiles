@@ -8,8 +8,14 @@
     sw = switch
     st = status
     ci = commit -S -m
-    d = diff
+    d  = diff
     ds = diff --staged
+    pso = push origin
+    plo = pull origin
+    f  = fetch origin
+    sh  = show
+    l  = log -p
+    a  = add
 
 [credential]
     helper = store
