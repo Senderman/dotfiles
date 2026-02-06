@@ -23,8 +23,8 @@ alias g='git'
 alias g-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
 alias g-file-log='git log --oneline --follow --'
 alias g-copybranch='git branch --show-current | wl-copy -n'
-alias g-remove-merged-branches='git branch --merged | fzf --multi --preview "git show {1}" | xargs git branch -d'
-alias g-remove-unmerged-branches='git branch --no-merged master | fzf --multi --preview "git show {1}" | xargs git branch -D'
+alias g-remove-merged-branches='git branch --merged | fzf --multi --preview "git show {1}" | xargs -r git branch -d'
+alias g-remove-unmerged-branches='git branch --no-merged master | fzf --multi --preview "git show {1}" | xargs -r git branch -D'
 
 # Pacman aliases
 alias pacstore='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro doas pacman -S'
