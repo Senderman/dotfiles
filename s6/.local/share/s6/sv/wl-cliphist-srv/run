@@ -4,4 +4,4 @@ fdmove -c 2 1
 
 importas -S XDG_RUNTIME_DIR
 
-wl-paste --watch cliphist -db-path ${XDG_RUNTIME_DIR}/cliphist store
+wl-paste --watch cliphist store
