@@ -14,15 +14,17 @@ alias la='lsd -a'
 alias lla='lsd -la'
 alias lg='lsd -lg'
 alias lt='lsd --tree'
-alias cat='bat -P --theme=base16'
+alias cat='bat --theme=base16'
 alias diff='delta'
 alias cd='z'
 
 # Git aliases
 alias g='git'
-alias git-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
-alias git-find-deleted-log='git log --oneline --follow --'
-alias git-copybranch='git branch --show-current | wl-copy -n'
+alias g-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
+alias g-file-log='git log --oneline --follow --'
+alias g-copybranch='git branch --show-current | wl-copy -n'
+alias g-remove-merged-branches='git branch --merged | fzf --multi --preview "git show {1}" | xargs git branch -d'
+alias g-remove-unmerged-branches='git branch --no-merged master | fzf --multi --preview "git show {1}" | xargs git branch -D'
 
 # Pacman aliases
 alias pacstore='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro doas pacman -S'
@@ -37,9 +39,9 @@ alias yain='yay -S'
 alias yaupg='yay -Sau'
 
 # Screen recording
-alias wfr_silent='wf-recorder -c libx264rgb -F "scale=-2:720" -f'
-alias wfr_mic='wf-recorder -c libx264rgb -a -F "scale=-2:720" -f'
-alias wfr_audio='usertree u pipewire-loopback && wf-recorder -c libx264rgb -aoutput.wfr -F "scale=-2:720" -f'
+alias wfr-silent='wf-recorder -c libx264rgb -F "scale=-2:720" -f'
+alias wfr-mic='wf-recorder -c libx264rgb -a -F "scale=-2:720" -f'
+alias wfr-audio='usertree u pipewire-loopback && wf-recorder -c libx264rgb -aoutput.wfr -F "scale=-2:720" -f'
 
 # Yazi with cwd update
 function f() {
