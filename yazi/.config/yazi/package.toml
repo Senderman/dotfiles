@@ -14,11 +14,6 @@ rev = "e07bf41"
 hash = "563e4068979d1466d3dfc2e70a296947"
 
 [[plugin.deps]]
-use = "DreamMaoMao/clipboard"
-rev = "f3a5da3"
-hash = "eb57bbd6329886a8b7fff886d3c72847"
-
-[[plugin.deps]]
 use = "kirasok/torrent-preview"
 rev = "f465282"
 hash = "d849ad596b8a77902e62a42403aeba40"

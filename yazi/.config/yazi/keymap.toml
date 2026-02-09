@@ -325,7 +325,7 @@ desc = "Mount menu"
 
 [[mgr.prepend_keymap]]
 on   = [ "c", "y" ]
-run  = "plugin clipboard"
+run  = 'shell -- wl-copy < "$0"'
 desc = "Copy file content to clipboard"
 
 [[mgr.prepend_keymap]]
