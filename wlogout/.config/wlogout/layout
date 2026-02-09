@@ -11,6 +11,12 @@
     "keybind" : "t"
 }
 {
+    "label" : "suspend",
+    "action" : "loginctl suspend",
+    "text" : "suspend",
+    "keybind" : "u"
+}
+{
     "label" : "reboot",
     "action" : "loginctl reboot",
     "text" : "Reboot",

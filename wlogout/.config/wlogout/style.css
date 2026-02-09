@@ -33,7 +33,11 @@ button:focus, button:active, button:hover {
 }
 
 #usertreedown {
-    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"));
+    background-image: image(url("./usertree.png"));
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
 }
 
 #shutdown {
@@ -43,3 +47,4 @@ button:focus, button:active, button:hover {
 #reboot {
     background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
 }
+
