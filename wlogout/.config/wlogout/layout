@@ -1,31 +1,31 @@
 {
     "label" : "lock",
     "action" : "loginctl lock-session",
-    "text" : "Lock",
+    "text" : "[l]ock",
     "keybind" : "l"
 }
 {
     "label" : "usertreedown",
     "action" : "usertree t",
-    "text" : "stop s6",
+    "text" : "s[t]op s6",
     "keybind" : "t"
 }
 {
     "label" : "suspend",
     "action" : "loginctl suspend",
-    "text" : "suspend",
+    "text" : "s[u]spend",
     "keybind" : "u"
 }
 {
     "label" : "reboot",
     "action" : "loginctl reboot",
-    "text" : "Reboot",
+    "text" : "[r]eboot",
     "keybind" : "r"
 }
 {
     "label" : "shutdown",
     "action" : "loginctl poweroff",
-    "text" : "Shutdown",
+    "text" : "[s]hutdown",
     "keybind" : "s"
 }
 
