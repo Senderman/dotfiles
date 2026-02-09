@@ -45,12 +45,12 @@ alias wfr-audio='usertree u pipewire-loopback && wf-recorder -c libx264rgb -aout
 
 # Yazi with cwd update
 function f() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
     cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+    fi
+    rm -f -- "$tmp"
 }
 
 # Show all terminal colors

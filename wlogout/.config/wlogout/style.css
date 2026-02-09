@@ -1,6 +1,6 @@
 * {
-	background-image: none;
-	box-shadow: none;
+    background-image: none;
+    box-shadow: none;
 }
 
 window {
@@ -8,23 +8,23 @@ window {
     font-size: 12pt;
     font-weight: bold;
     color: #f4dfcd; 
-	background-color: rgba(12, 12, 12, 0.9);
+    background-color: rgba(12, 12, 12, 0.9);
 }
 
 button {
     background: none;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
     border-radius: 50px;
     border: none;
     color: #C5C8C6;
-	margin: 120px 0;
+    margin: 120px 0;
 }
 
 button:focus, button:active, button:hover {
     background-color: rgba(36, 39, 87, 0.8);
-	outline-style: none;
+    outline-style: none;
 }
 
 
