@@ -25,6 +25,9 @@ highlight = "h"
 [font]
 family="Noto Sans"
 style="Regular"
+fallback = [
+    "Noto Sans CJK JP"
+]
 
 [color-palette]
 palette = [
