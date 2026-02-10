@@ -43,6 +43,9 @@ alias wfr-silent='wf-recorder -c libx264rgb -F "scale=-2:720" -f'
 alias wfr-mic='wf-recorder -c libx264rgb -a -F "scale=-2:720" -f'
 alias wfr-audio='usertree u pipewire-loopback && wf-recorder -c libx264rgb -aoutput.wfr -F "scale=-2:720" -f'
 
+# Zellij
+alias za='zellij a -c'
+
 # Yazi with cwd update
 function f() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
