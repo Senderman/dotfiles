@@ -9,5 +9,5 @@ layout: oneline
 sorting:
   dir-grouping: first
 
-hyperlink: auto
+hyperlink: never
 
