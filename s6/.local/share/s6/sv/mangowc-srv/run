@@ -4,4 +4,4 @@ fdmove -c 2 1
 unexport WAYLAND_DISPLAY
 importas -S HOME
 cd $HOME
-mango -s "usertree u xdg-desktop-portal fcitx"
+mango -s "usertree u portals fcitx"
