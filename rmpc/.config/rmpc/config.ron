@@ -2,31 +2,10 @@
 #![enable(unwrap_newtypes)]
 #![enable(unwrap_variant_newtypes)]
 (
-    password: None,
     theme: Some("theme"),
-    cache_dir: None,
-    on_song_change: None,
-    volume_step: 5,
-    max_fps: 30,
-    scrolloff: 0,
-    wrap_navigation: false,
     enable_mouse: false,
-    enable_config_hot_reload: true,
-    status_update_interval_ms: 1000,
-    rewind_to_start_sec: None,
-    keep_state_on_song_change: true,
-    reflect_changes_to_playlist: false,
-    select_current_song_on_change: false,
-    ignore_leading_the: false,
-    browser_song_sort: [Disc, Track, Artist, Title],
-    directories_sort: SortFormat(group_by_type: true, reverse: false),
-    album_art: (
-        method: Auto,
-        max_size_px: (width: 1200, height: 1200),
-        disabled_protocols: ["http://", "https://"],
-        vertical_align: Center,
-        horizontal_align: Center,
-    ),
+    ignore_leading_the: true,
+    browser_song_sort: [Artist, Title],
     keybinds: (
         global: {
             ":":       CommandMode,
@@ -38,10 +17,9 @@
             "1":       SwitchToTab("Queue"),
             "2":       SwitchToTab("Directories"),
             "3":       SwitchToTab("Artists"),
-            "4":       SwitchToTab("Album Artists"),
-            "5":       SwitchToTab("Albums"),
-            "6":       SwitchToTab("Playlists"),
-            "7":       SwitchToTab("Search"),
+            "4":       SwitchToTab("Albums"),
+            "5":       SwitchToTab("Playlists"),
+            "6":       SwitchToTab("Search"),
             "q":       Quit,
             ">":       NextTrack,
             "p":       TogglePause,
@@ -114,16 +92,9 @@
             (value: "any",         label: "Any Tag"),
             (value: "artist",      label: "Artist"),
             (value: "album",       label: "Album"),
-            (value: "albumartist", label: "Album Artist"),
             (value: "title",       label: "Title"),
             (value: "filename",    label: "Filename"),
-            (value: "genre",       label: "Genre"),
         ],
-    ),
-    artists: (
-        album_display_mode: SplitByDate,
-        album_sort_by: Date,
-        album_date_tags: [Date],
     ),
     tabs: [
         (
@@ -137,10 +108,6 @@
         (
             name: "Artists",
             pane: Pane(Artists),
-        ),
-        (
-            name: "Album Artists",
-            pane: Pane(AlbumArtists),
         ),
         (
             name: "Albums",

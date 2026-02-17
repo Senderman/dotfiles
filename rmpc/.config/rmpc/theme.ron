@@ -172,7 +172,6 @@
     browser_song_format: [
         (
             kind: Group([
-                (kind: Property(Track)),
                 (kind: Text(" ")),
             ])
         ),
