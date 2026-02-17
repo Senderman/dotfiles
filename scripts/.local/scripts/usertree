@@ -252,7 +252,7 @@ case "$1" in
         service_down "$@"
     ;;
     *)
-        printf "Usage: %s [command] <args>\n\n  u <svc1> <svc2> <svc3> - start service(s)\n  d <svc1> <svc2> <svc3> - stop service(s)\n  b - boot usertree\n  t - teardown usertree\n  r - recompile database and switch to it if usertree is running\n  s <bundle> <d> - show services status in bundle. If not specifided, 'default' bundle is used. add 'd' as second argument to show services dependencies\n\n" "$(basename "${0}")"
+        printf "Usage: %s [command] <args>\n\n  u <svc1> <svc2> <svc3> - start service(s)\n  d <svc1> <svc2> <svc3> - stop service(s)\n  b - boot usertree\n  t - teardown usertree\n  r - recompile database and switch to it if usertree is running\n  s <bundle> <d> - show services status in bundle. If not specified, 'default' bundle is used. add 'd' as second argument to show services dependencies\n\n" "$(basename "${0}")"
     ;;
 esac
 
