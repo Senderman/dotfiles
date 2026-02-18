@@ -11,11 +11,11 @@
 /* battery */
 @define-color base05 #ffb52a;
 /* clock */
-@define-color base06 #90619e;
+@define-color base06  #90619e;
 /* cpu */
 @define-color base07 #38761d;
 /* memory */
-@define-color base08 #aa6ed4;
+@define-color base08 #AE8BFF;
 /* tag empty */
 @define-color base09 #afa8ff;
 /* tag focused */
