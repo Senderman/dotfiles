@@ -37,7 +37,7 @@
       ]
     },
     "dwl/window#layout": {
-      "format": "[{layout}]"
+      "format": "{layout}"
     },
     "tray": {
         "spacing": 5
