@@ -11,7 +11,7 @@
 /* battery */
 @define-color base05 #ffb52a;
 /* clock */
-@define-color base06  #90619e;
+@define-color base06 #90619e;
 /* cpu */
 @define-color base07 #38761d;
 /* memory */
@@ -33,14 +33,21 @@
   font-family: Noto Sans, JetBrainsMono Nerd Font, Noto Sans CJK JP;
   font-size: 14px;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
 }
 
+/* Bar itself */
 window#waybar {
   background-color: @base00;
   color: @base01;
   transition-property: background-color;
   transition-duration: .5s;
+}
+
+/* dwl#window module */
+#window {
+  margin-right: 5px;
+  color: @base09;
 }
 
 button {
@@ -56,13 +63,16 @@ button:hover {
   background: inherit;
 }
 
+/* since tag is the first module, remove left margin */
 #tags {
-  margin: 0 5px;
+  margin-left: 0px;
+  margin-right: 5px;
 }
 
 #tags button {
   padding: 0 5px;
   color: @base09;
+  margin-left: 0;
 }
 
 #tags button:hover {
@@ -93,24 +103,18 @@ button:hover {
 #tray,
 #mpd,
 #mpris {
-  margin: 0 5px;
-  font-weight: bold;
+  margin: 0 3px;
+  padding: 0 5px;
 }
 
-/* If tags is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #tags {
-  margin-left: 0;
-}
-
+/* visually merge audio modules */
 #pulseaudio {
   margin-right: 0;
 }
 
 #wireplumber {
   margin-left: 0;
-  padding-left: 5px;
 }
-
 
 #mpris{
   box-shadow: inset 0 3px @base0D, inset 0 -3px @base0D;
@@ -143,7 +147,6 @@ button:hover {
 #wireplumber{
   box-shadow: inset 0 3px @base04, inset 0 -3px @base04;
 }
-
 
 #battery {
   box-shadow: inset 0 3px @base05, inset 0 -3px @base05;
