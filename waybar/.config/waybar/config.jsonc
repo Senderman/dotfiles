@@ -48,15 +48,16 @@
     },
     "cpu": {
         "format": "  {usage}%",
-        "tooltip": false,
         "on-click": "footclient btm"
     },
     "memory": {
         "format": "R {percentage}% / S {swapPercentage}%",
-        "on-click": "footclient btm"
+        "on-click": "footclient btm",
+        "tooltip-format": "R {used}GiB / S {swapUsed}GiB"
     },
     "backlight": {
-        "format": "󰖨  {percent}%"
+        "format": "󰖨  {percent}%",
+        "tooltip": false
     },
     "battery": {
         "states": {
@@ -67,7 +68,8 @@
         "format-full": "{icon}  {capacity}%",
         "format-plugged": " {capacity}%",
         "format-charging": " {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false
     },
     "network": {
         "format-wifi": "   {ifname} ({signalStrength}%)",
