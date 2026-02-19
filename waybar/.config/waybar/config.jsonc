@@ -142,7 +142,8 @@
             "paused": "▶"
         },
         "on-scroll-up": "playerctl previous",
-        "on-scroll-down": "playerctl next"
+        "on-scroll-down": "playerctl next",
+        "on-click-right": "playerctl stop"
     }
 }
 
