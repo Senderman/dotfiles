@@ -128,7 +128,7 @@
             "on": "1 "
         },
         "on-click": "rmpc togglepause",
-        "on-click-right": "footclient rmpc",
+        "on-click-right": "rmpc stop",
         "on-scroll-up": "rmpc prev",
         "on-scroll-down": "rmpc next"
     },
