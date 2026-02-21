@@ -42,6 +42,9 @@
 [merge]
     conflictStyle = zdiff3
 
+[push]
+    autoSetupRemote = true
+
 [pull]
     rebase = false
 
