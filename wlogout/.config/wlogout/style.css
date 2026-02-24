@@ -29,7 +29,7 @@ button:focus, button:active, button:hover {
 
 
 #lock {
-    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+    background-image: image(url("./lock.png"));
 }
 
 #usertreedown {
@@ -37,14 +37,14 @@ button:focus, button:active, button:hover {
 }
 
 #suspend {
-    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+    background-image: image(url("./suspend.png"));
 }
 
 #shutdown {
-    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+    background-image: image(url("./shutdown.png"));
 }
 
 #reboot {
-    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+    background-image: image(url("./reboot.png"));
 }
 
