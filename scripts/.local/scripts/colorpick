@@ -1,5 +1,5 @@
 #!/bin/sh
 
-grim -g "$(slurp -b '#00000000' -p)" -t ppm - | magick - -format "%[pixel:p{0,0}]" txt:- | rg -o "#\w+" | wl-copy
+grim -g "$(slurp -b '#00000000' -p)" -t ppm - | magick - -format "%[pixel:p{0,0}]" txt:- | rg -o "#\w+" | wl-copy -n
 notify-send "Selected color copied to clipboard!"
 
