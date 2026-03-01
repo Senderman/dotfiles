@@ -54,7 +54,6 @@ keymap = [
     { on = "D",         run = "remove --permanently",        desc = "Permanently delete selected files" },
     { on = "a",         run = "create",                      desc = "Create a file (ends with / for directories)" },
     { on = "r",         run = "rename --cursor=before_ext",  desc = "Rename selected file(s)" },
-    { on = ";",         run = "shell --interactive",         desc = "Run a shell command" },
     { on = ":",         run = "shell --block --interactive", desc = "Run a shell command (block until finishes)" },
     { on = ".",         run = "hidden toggle",               desc = "Toggle the visibility of hidden files" },
     { on = "s",         run = "search --via=fd",             desc = "Search files by name via fd" },
@@ -65,7 +64,6 @@ keymap = [
     { on = ["c", "m"],  run = "plugin chmod",                desc = "Chmod selected file" },
     { on = "<C-m>",     run = "plugin mount",                desc = "Mount menu" },
 
-    { on = ["c", "y"],  run = 'shell -- wl-copy < "$0"',                                desc = "Copy file content to clipboard" },
     { on = "<C-d>",     run = 'shell -- dragon-drop -x -i -T "$0"'                    , desc = "Dragon: drag and drop selected file" },
     { on = ["g", "r"],  run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = "Go to the root of current git repo"},
 
@@ -79,15 +77,13 @@ keymap = [
     { on = [ "m", "n" ], run = "linemode none",        desc = "Linemode: none" },
 
     # Copy
-    { on = [ "c", "c" ], run = "copy path",             desc = "Copy the file path" },
-    { on = [ "c", "d" ], run = "copy dirname",          desc = "Copy the directory path" },
-    { on = [ "c", "f" ], run = "copy filename",         desc = "Copy the filename" },
-    { on = [ "c", "n" ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
+    { on = [ "c", "p" ], run = "copy path",               desc = "Copy the file path" },
+    { on = [ "c", "d" ], run = "copy dirname",            desc = "Copy the directory path" },
+    { on = [ "c", "f" ], run = "copy filename",           desc = "Copy the filename" },
+    { on = [ "c", "y"],  run = 'shell -- wl-copy < "$0"', desc = "Copy file content to clipboard" },
 
     # Filter
-    { on = "f", run = "filter --smart", desc = "Filter files" },
-
-    # Find
+    { on = "f", run = "filter --smart",          desc = "Filter files" },
     { on = "n", run = "find_arrow",              desc = "Next found" },
     { on = "N", run = "find_arrow --previous",   desc = "Previous found" },
 
@@ -108,8 +104,6 @@ keymap = [
 
     # Goto
     { on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
-    { on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go ~/.config" },
-    { on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go ~/Downloads" },
     { on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
     { on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
 
@@ -142,10 +136,7 @@ keymap = [
     { on = "E", run = 'shell --orphan -- ${TERMCMD:-foot} $EDITOR "$0"', desc = "Open in $EDITOR" },
 
     # Open terminal
-    { on = "!", run = 'shell --orphan -- ${TERMCMD:-foot}', desc = "Open $TERMCMD terminal in CWD" },
-
-    # Open gitui 
-    { on = "<C-g>", run = 'shell --orphan -- ${TERMCMD:-foot} gitui', desc = "Open gitui in CWD" }
+    { on = "!", run = 'shell --orphan -- ${TERMCMD:-foot}', desc = "Open $TERMCMD terminal in CWD" }
 ]
 
 [tasks]
@@ -161,7 +152,7 @@ keymap = [
     { on = "x",       run = "cancel",  desc = "Cancel the task" },
 
     # Help
-    { on = "<F1>", run = "help", desc = "Open help" },
+    { on = "?", run = "help", desc = "Open help" },
 ]
 
 [spot]
@@ -179,7 +170,7 @@ keymap = [
     { on = [ "c", "c" ], run = "copy cell", desc = "Copy selected cell" },
 
     # Help
-    { on = "<F1>", run = "help", desc = "Open help" },
+    { on = "?", run = "help", desc = "Open help" },
 ]
 
 [pick]
@@ -192,7 +183,7 @@ keymap = [
     { on = "j", run = "arrow next", desc = "Next option" },
 
     # Help
-    { on = "<F1>", run = "help", desc = "Open help" },
+    { on = "?", run = "help", desc = "Open help" },
 ]
 
 [input]
@@ -268,7 +259,7 @@ keymap = [
     { on = "<C-r>", run = "redo", desc = "Redo the last operation" },
 
     # Help
-    { on = "<F1>", run = "help", desc = "Open help" },
+    { on = "?", run = "help", desc = "Open help" },
 ]
 
 [confirm]
@@ -284,7 +275,7 @@ keymap = [
     { on = "j", run = "arrow next", desc = "Next line" },
 
     # Help
-    { on = "<F1>", run = "help", desc = "Open help" },
+    { on = "?", run = "help", desc = "Open help" },
 ]
 
 [cmp]
@@ -304,7 +295,7 @@ keymap = [
     { on = "<C-n>", run = "arrow next", desc = "Next item" },
 
     # Help
-    { on = "<F1>", run = "help", desc = "Open help" },
+    { on = "?", run = "help", desc = "Open help" },
 ]
 
 [help]

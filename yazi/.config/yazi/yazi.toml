@@ -32,10 +32,15 @@ torrent = [
     { run = 'transmission-remote -a --start-paused "$1"', desc = "Add torrent to transmission, do not start", for = "linux" },
 ]
 
+bulk-rename = [
+    { run = '${EDITOR:-vi} "%s"', block = true }
+]
+
 [open]
 prepend_rules = [
     { mime = "application/bittorrent", use = [ "torrent", "reveal" ] },
-    { mime = "image/*", use = [ "image", "reveal" ] }
+    { mime = "image/*", use = [ "image", "reveal" ] },
+    { mime = "text/plain", url = "bulk-rename.txt", use = ["bulk-rename"] }
 ]
 
 [[plugin.prepend_fetchers]]
