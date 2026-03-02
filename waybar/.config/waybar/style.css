@@ -33,7 +33,10 @@
   font-family: Noto Sans, JetBrainsMono Nerd Font, Noto Sans CJK JP;
   font-size: 14px;
   font-style: normal;
-  font-weight: bold;
+}
+
+tooltip label {
+  font-weight: normal;
 }
 
 /* Bar itself */
@@ -48,6 +51,7 @@ window#waybar {
 #window {
   margin-right: 5px;
   color: @base09;
+  font-weight: bold;
 }
 
 button {
@@ -100,11 +104,11 @@ button:hover {
 #network,
 #pulseaudio,
 #wireplumber,
-#tray,
 #mpd,
 #mpris {
   margin: 0 3px;
   padding: 0 5px;
+  font-weight: bold;
 }
 
 /* visually merge audio modules */
@@ -157,6 +161,8 @@ button:hover {
 }
 
 #tray {
+  margin: 0 3px;
+  padding: 0 5px;
   box-shadow: inset 0 3px @base07, inset 0 -3px @base07;
 }
 
