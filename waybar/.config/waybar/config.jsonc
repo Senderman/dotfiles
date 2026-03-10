@@ -43,7 +43,7 @@
         "spacing": 5
     },
     "clock": {
-        "format": "{:%a %d.%m %I:%M %p}",
+        "format": "{:%d   %I:%M %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
@@ -51,9 +51,9 @@
         "on-click": "footclient btm"
     },
     "memory": {
-        "format": "R {percentage}% / S {swapPercentage}%",
+        "format": "  {percentage}%    {swapPercentage}%",
         "on-click": "footclient btm",
-        "tooltip-format": "R {used}GiB / S {swapUsed}GiB"
+        "tooltip-format": "RAM {used}GiB / Swap {swapUsed}GiB"
     },
     "backlight": {
         "format": "󰖨  {percent}%",
@@ -72,7 +72,7 @@
         "tooltip": false
     },
     "network": {
-        "format-wifi": "   {ifname} ({signalStrength}%)",
+        "format-wifi": "   ({signalStrength}%)",
         "format-ethernet": " {ifname}",
         "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
         "format-linked": " {ifname} (No IP)",
@@ -81,15 +81,15 @@
     },
     "network#vpn": {
         "interface": "tun0",
-        "format-ethernet": "󰖂  TUN0",
+        "format-ethernet": "󰖂 ",
         "tooltip-format": "{ipaddr}/{cidr}",
         "format-disconnected": ""
     },
     "pulseaudio": {
         "format": "{icon}  {volume}%",
         "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": "󰸈 MUTED",
-        "format-muted": "󰸈 MUTED",
+        "format-bluetooth-muted": "󰸈 M",
+        "format-muted": "󰸈 M",
         "format-source-muted": "",
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "format-icons": {
@@ -105,7 +105,7 @@
     "wireplumber": {
         "node-type": "Audio/Source",
         "format": "󰍬 {volume}%",
-        "format-muted": "󰍭 MUTED",
+        "format-muted": "󰍭 M",
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     },
     "mpd": {
