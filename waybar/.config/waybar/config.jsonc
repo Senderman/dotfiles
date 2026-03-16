@@ -109,7 +109,7 @@
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     },
     "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title}",
+        "format": "{stateIcon} {repeatIcon}{randomIcon}{consumeIcon}{singleIcon} {artist} - {title}",
         "format-stopped": "",
         "state-icons": {
             "paused": "▶",
