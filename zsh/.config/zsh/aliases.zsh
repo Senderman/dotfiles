@@ -2,6 +2,7 @@
 alias df='df -h -x tmpfs -x devtmpfs -x efivarfs'
 alias free='free -h'
 alias wget="wget --hsts-file="${XDG_CACHE_HOME}/wget-hsts""
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
 alias s3cmd="s3cmd -c "${XDG_CONFIG_HOME}/s3/s3cfg""
 alias fuseiso='fuseiso -n'
 alias trr='transmission-remote'
