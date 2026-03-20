@@ -40,9 +40,9 @@ alias yain='yay -S'
 alias yaupg='yay -Sau'
 
 # Screen recording
-alias wfr-silent='wf-recorder -c libx264rgb -F "scale=-2:720" -f'
-alias wfr-mic='wf-recorder -c libx264rgb -a -F "scale=-2:720" -f'
-alias wfr-audio='usertree u pipewire-loopback && wf-recorder -c libx264rgb -aoutput.wfr -F "scale=-2:720" -f'
+alias record-silent='gpu-screen-recorder -w portal -o'
+alias record-mic='gpu-screen-recorder -w portal -a default_input -o'
+alias record-audio='gpu-screen-recorder -w portal -a default_output -o'
 
 # Zellij
 alias za='zellij a -c'
