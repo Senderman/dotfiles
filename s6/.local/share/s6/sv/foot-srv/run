@@ -3,4 +3,4 @@
 fdmove -c 2 1
 # Be able to run XWayland apps in terminal
 export DISPLAY :0
-foot --server
+foot -Ss -lnever -p4
