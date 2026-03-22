@@ -60,16 +60,6 @@ swayimg.viewer.on_key('KP_Subtract', function()
     swayimg.viewer.set_abs_scale(scale - 0.1)
 end)
 
-swayimg.viewer.on_key('KP_Add', function()
-    local scale = swayimg.viewer.get_scale()
-    swayimg.viewer.set_abs_scale(scale + 0.1)
-end)
-
-swayimg.viewer.on_key('KP_Subtract', function()
-    local scale = swayimg.viewer.get_scale()
-    swayimg.viewer.set_abs_scale(scale - 0.1)
-end)
-
 -- h/j/k/l to move image
 swayimg.viewer.on_key('h', function()
     local wnd = swayimg.get_window_size()
