@@ -34,9 +34,10 @@ export CUDA_CACHE_PATH="${XDG_CACHE_HOME}/nv"
 export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
 
 # Apps runtime paths
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent"
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.sock"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/dbus.sock"
 export SCREENDIR="${XDG_RUNTIME_DIR}/screens"
-export MPD_HOST="${XDG_RUNTIME_DIR}/mpd/socket"
+export MPD_HOST="${XDG_RUNTIME_DIR}/mpd.sock"
 export CLIPHIST_DB_PATH="${XDG_RUNTIME_DIR}/cliphist"
 
 # User preferences
