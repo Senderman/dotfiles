@@ -5,7 +5,7 @@ importas -SD ${HOME}/.local/share XDG_DATA_HOME
 envfile -I ${XDG_DATA_HOME}/s6/config/logger.conf
 
 multisubstitute {
-  define svc mangowc # change this to the name of the pipeline
+  define svc mangowm # change this to the name of the pipeline
   importas -S XDG_RUNTIME_DIR
   importas -SsCuD "n3 s2000000 T" DIRECTIVES
 }
