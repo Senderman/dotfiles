@@ -1,10 +1,16 @@
+s6/.local/share/s6/svnogit/*
 s6/.local/share/s6/rc/*
 !s6/.local/share/s6/rc/.gitkeep
+
 mpd/.config/mpd/playlists/*
 !mpd/.config/mpd/playlists/.gitkeep
-s6/.local/share/s6/svnogit/*
+
 zellij/.config/zellij/config.kdl.bak*
+
 zsh/.config/zsh/.zcompdump
 zsh/.config/zsh/aliases-nogit.zsh
 zsh/.config/zsh/plugins.zsh
+
+cheat/.config/cheat/cheatsheets/work/*
+!cheat/.config/cheat/cheatsheets/work/.gitkeep
 

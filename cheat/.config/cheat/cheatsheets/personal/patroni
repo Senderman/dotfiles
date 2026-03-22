@@ -1,0 +1,16 @@
+---
+tags: [database]
+---
+
+# Show etcd cluster status
+etcdctl endpoint status -w=table --cluster
+
+# List nodes and cluster name
+patronictl -c /etc/patroni/patroni.yml list
+
+# Switch leader
+patronictl -c /etc/patroni/patroni.yml switchover
+
+# Re-init REPLICA
+patronictl -c /etc/patroni/patroni.yml reinit CLUSTERNAME NODENAME
+
