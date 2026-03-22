@@ -116,6 +116,7 @@ end)
 
 -- Gallery mode
 swayimg.gallery.bind_reset()
+swayimg.gallery.set_window_color(0)
 
 swayimg.gallery.on_key('q', function()
     swayimg.exit(0)
