@@ -184,6 +184,11 @@ is_bundle() {
 
 # $1 - bundle $2 show deps
 show_bundle() {
+    if ! s6-svscanctl -z "${s6_scandir}" 2>/dev/null; then
+        echo "s6-svscan is not running on ${s6_scandir}, doing nothing"
+        exit 1;
+    fi
+
     BUNDLE="$1"
     DEPS="$2"
 

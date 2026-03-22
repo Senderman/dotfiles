@@ -4,4 +4,4 @@ fdmove -c 2 1
 unexport WAYLAND_DISPLAY
 importas -S HOME
 cd $HOME
-/home/senderman/Projects/linux/mango/build/mango -r 4
+mango -r 4
