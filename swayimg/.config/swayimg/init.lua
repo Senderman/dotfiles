@@ -6,6 +6,7 @@ swayimg.text.set_font('JetBrainsMono Nerd Font')
 swayimg.text.set_size(20)
 
 -- Viewer mode
+swayimg.viewer.bind_reset()
 swayimg.viewer.set_default_scale('optimal')
 swayimg.viewer.set_default_position('center')
 swayimg.viewer.set_window_background(0xff000000)
@@ -114,6 +115,8 @@ end)
 
 
 -- Gallery mode
+swayimg.gallery.bind_reset()
+
 swayimg.gallery.on_key('q', function()
     swayimg.exit(0)
 end)
