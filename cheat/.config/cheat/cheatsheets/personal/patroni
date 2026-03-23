@@ -1,5 +1,6 @@
 ---
 tags: [database]
+syntax: bash
 ---
 
 # Show etcd cluster status

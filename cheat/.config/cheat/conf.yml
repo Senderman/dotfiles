@@ -8,11 +8,11 @@ colorize: true
 # Which 'chroma' colorscheme should be applied to the output?
 # Options are available here:
 #   https://github.com/alecthomas/chroma/tree/master/styles
-style: monokai
+style: darcula
 
 # Which 'chroma' "formatter" should be applied?
 # One of: "terminal", "terminal256", "terminal16m"
-formatter: terminal256
+formatter: terminal
 
 # Through which pager should output be piped?
 # 'less -FRX' is recommended on Unix systems
@@ -41,7 +41,7 @@ pager: bat -p
 cheatpaths:
 
   # Community cheatsheets (https://github.com/cheat/cheatsheets):
-  # To install: git clone https://github.com/cheat/cheatsheets /home/senderman/.config/cheat/cheatsheets/community
+  # To install: git clone https://github.com/cheat/cheatsheets ~/.config/cheat/cheatsheets/community
   - name: community
     path: /home/senderman/.config/cheat/cheatsheets/community
     tags: [ community ]
@@ -67,3 +67,4 @@ cheatpaths:
   #  path: ~/src/github.com/example/**/.cheat
   #  tags: [ example ]
   #  readonly: true
+
