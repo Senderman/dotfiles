@@ -1,0 +1,30 @@
+# Add PV to VG, PV must be created before
+vgextend vgname /dev/sdb
+
+# Remove PV from VG
+pvmove /dev/sdb         # Move data from PV
+vgreduce vgname /dev/sdb
+
+# Deactivate VG, do this when you want to physically remove device
+vgchange --activate n vg0
+
+# Create LV
+lvcreate -L 10G -n name vgname
+
+# Create LV with the rest of VG's capacity
+lvcreate -l 100%FREE -n name vgname
+
+# Create snapshot
+lvcreate -s -L 10G -n snapshotname vgname/lvname
+
+# Rollback LV to the snapshot
+# Can be done online, but would need reboot after
+lvconvert --merge /dev/vgname/lvname
+
+# Resize LV
+# -r (--resizefs) only for ext2/3/4 and xfs
+lvresize -L +10G -r vgname/lvname
+
+# Reduce LV size, FS must be resized first!
+lvresize -L -10G vgname/lvname
+
