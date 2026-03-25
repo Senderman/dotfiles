@@ -1,3 +1,8 @@
+---
+tags: [ lvm, disk ]
+syntax: bash
+---
+
 # Add PV to VG, PV must be created before
 vgextend vgname /dev/sdb
 

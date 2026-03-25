@@ -1,0 +1,41 @@
+---
+tags: [ database ]
+syntax: text
+---
+# Connection options:
+# -U username (if not specified current OS user is used).
+# -p port. Typically 5432, but 15432 on patroni clusters
+# -h server hostname/address, localhost by default
+# -d database
+
+# Connect to postgres
+sudo -u postgres psql
+sudo -u postgres psql -d database
+
+# PSQL: List databases inside psql shell
+\l
+\l+ # to view sizes
+
+# PSQL: Select a specific database
+\c dbname
+
+# PSQL: List database tables
+\dt
+
+# Create user
+CREATE USER 'dbuser' WITH PASSWORD 'xxxx-yyyy-zzzz';
+
+# Backup a database
+sudo -u postgres pg_dump -d <database> > backup.sql
+
+# Close all connections to the database (e.g. to drop it)
+SELECT pid, pg_terminate_backend(pid) 
+FROM pg_stat_activity 
+WHERE datname = 'dbname' AND pid <> pg_backend_pid();
+
+# Restore a database
+DROP DATABASE <dbname>;
+CREATE DATABASE <dbname> with owner <dbuser>;
+
+sudo -u postgres psql -d <dbname> < backup.sql
+
