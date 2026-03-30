@@ -1,6 +1,6 @@
 #!/bin/sh
 
-data="$(mmsg -g -x)"
+data="$(mmsg -x)"
 
 x="$(printf %s "${data}" | rg x      | cut -d' ' -f3)"
 y="$(printf %s "${data}" | rg y      | cut -d' ' -f3)"
