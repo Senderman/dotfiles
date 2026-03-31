@@ -11,8 +11,7 @@
         "group/network",
         "group/load",
         "group/sound",
-        "backlight",
-        "battery",
+        "group/power",
         "clock",
         "tray"
     ],
@@ -67,7 +66,14 @@
         ],
         "drawer": {}
     },
-
+    "group/power": {
+        "orientation": "horizontal",
+        "modules": [
+            "battery",
+            "backlight"
+        ],
+        "drawer": {}
+    },
     "cpu": {
         "format": "  {usage}%",
         "on-click": "footclient btm"
