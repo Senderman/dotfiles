@@ -23,13 +23,9 @@ if [ -e "${zsh_config_dir}/aliases-nogit.zsh" ]; then
   . "${zsh_config_dir}/aliases-nogit.zsh"
 fi
 
-if [ -d /usr/share/fzf ]; then
-. /usr/share/fzf/key-bindings.zsh
-. /usr/share/fzf/completion.zsh
-fi
+eval "$(zoxide init zsh)"
+eval "$(tv init zsh)"
 
 autoload -Uz compinit
 compinit
-
-eval "$(zoxide init zsh)"
 
