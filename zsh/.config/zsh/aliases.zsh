@@ -40,9 +40,8 @@ alias yain='yay -S'
 alias yaupg='yay -Sau'
 
 # Screen recording
-alias record-silent='gpu-screen-recorder -w portal -o'
-alias record-mic='gpu-screen-recorder -w portal -a default_input -o'
-alias record-audio='gpu-screen-recorder -w portal -a default_output -o'
+alias gsr='gpu-screen-recorder -w portal'
+alias gsr-slurp='gpu-screen-recorder -w $(slurp -f "%wx%h+%x+%y")'
 
 # Zellij
 alias za='zellij a -c'
