@@ -8,13 +8,10 @@
         "mpd"
     ],
     "modules-right": [
-        "network#vpn",
-        "network",
-        "cpu",
-        "memory",
+        "group/network",
+        "group/load",
+        "group/sound",
         "backlight",
-        "pulseaudio",
-        "wireplumber",
         "battery",
         "clock",
         "tray"
@@ -46,6 +43,31 @@
         "format": "{:%d   %I:%M %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
+    "group/network":{
+        "orientation": "horizontal",
+        "modules": [
+            "network",
+            "network#vpn"
+        ],
+        "drawer": {}
+    },
+    "group/load": {
+        "orientation": "horizontal",
+        "modules": [
+            "memory",
+            "cpu"
+        ],
+        "drawer": {}
+    },
+    "group/sound": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "wireplumber"
+        ],
+        "drawer": {}
+    },
+
     "cpu": {
         "format": "  {usage}%",
         "on-click": "footclient btm"
