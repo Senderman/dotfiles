@@ -21,21 +21,16 @@ alias cd='z'
 
 # Git aliases
 alias g='git'
-alias g-find-deleted-paths='git log --diff-filter=D --summary | grep delete | grep'
-alias g-file-log='git log --oneline --follow --'
 alias g-copybranch='git branch --show-current | wl-copy -n'
 alias g-remove-merged-branches='git branch --merged | fzf --multi --preview "git show {1}" | xargs -r git branch -d'
 alias g-remove-unmerged-branches='git branch --no-merged master | fzf --multi --preview "git show {1}" | xargs -r git branch -D'
 
 # Pacman aliases
-alias pacstore='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro doas pacman -S'
 alias pacin='doas pacman -S'
 alias pacrem='doas pacman -Rns'
-alias pacrmdeps='doas pacman -Rns $(pacman -Qdtq)'
 alias pacupg='doas pacman -Syu'
 
 # Yay aliases
-alias aurstore='yay -Salq | fzf --multi --preview "yay -Sai {1}" | xargs -ro yay -S'
 alias yain='yay -S'
 alias yaupg='yay -Sau'
 
