@@ -22,8 +22,6 @@ alias cd='z'
 # Git aliases
 alias g='git'
 alias g-copybranch='git branch --show-current | wl-copy -n'
-alias g-remove-merged-branches='git branch --merged | fzf --multi --preview "git show {1}" | xargs -r git branch -d'
-alias g-remove-unmerged-branches='git branch --no-merged master | fzf --multi --preview "git show {1}" | xargs -r git branch -D'
 
 # Pacman aliases
 alias pacin='doas pacman -S'
