@@ -7,7 +7,7 @@ requirements = ["git", "rg", "bat"]
 command = "git log --diff-filter=D --summary | rg 'delete mode \\d+' -r '' --trim"
 
 [preview]
-command = ["git show \"$(git rev-list -n1 HEAD -- '{}')^:{}\" | bat -n --color always", "git show --summary $(git rev-list -n1 HEAD -- {})"]
+command = ["git show \"$(git rev-list -n1 HEAD -- '{}')^:{}\" | bat -n --color always --file-name '{}'", "git show --summary $(git rev-list -n1 HEAD -- {})"]
 
 [keybindings]
 enter = "actions:print_commit"
