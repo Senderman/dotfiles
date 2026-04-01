@@ -1,0 +1,21 @@
+[metadata]
+name = "git-delete-branches"
+description = "A channel to delete merged branches from the Git repository"
+requirements = ["git", "rg"]
+
+[source]
+command = ["git branch --merged | rg -v '\\*'", "git branch --no-merged"]
+display = "{trim}"
+output  = "{trim}"
+
+[preview]
+command = "git show --color=always '{trim}'"
+
+[keybindings]
+ctrl-d = "actions:delete_branch"
+
+[actions.delete_branch]
+description = "Delete selected branches"
+command = "git branch -D {trim}"
+mode = "execute"
+
