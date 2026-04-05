@@ -25,6 +25,7 @@ fi
 
 eval "$(zoxide init zsh)"
 eval "$(tv init zsh)"
+eval "$(kubie generate-completion)"
 
 autoload -Uz compinit
 compinit
