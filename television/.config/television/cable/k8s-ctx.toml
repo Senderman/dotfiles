@@ -1,5 +1,5 @@
 [metadata]
-name = "k8s-contexts"
+name = "k8s-ctx"
 description = "List and switch kubectl contexts"
 requirements = ["kubectl"]
 
