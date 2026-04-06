@@ -1,17 +1,20 @@
 [metadata]
 name = "s6"
 description = "A channel to control s6 usertree bundles"
-requirements = ["s6-rc", "s6-rc-db"]
+requirements = ["s6-rc", "s6-rc-db", "usertree"]
 
 [source]
 command = "s6-rc-db -c ~/.local/share/s6/rc/compiled list bundles"
 
 [preview]
-command = "s6-rc-db -c ~/.local/share/s6/rc/compiled contents '{}'"
+command = "usertree s '{}'"
 
 [keybindings]
 ctrl-u = "actions:start_bundle"
 ctrl-d = "actions:stop_bundle"
+
+[ui]
+layout = "portrait"
 
 [actions.start_bundle]
 description = "Start services in the selected bundles"
