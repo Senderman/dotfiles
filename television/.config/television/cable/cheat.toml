@@ -1,0 +1,19 @@
+[metadata]
+name = "cheat"
+description = "A channel to view cheatsheets"
+requirements = ["cheat"]
+
+[source]
+command = "cheat -b | tail -n +2"
+
+[preview]
+command = "cheat -c -t '{strip_ansi|split: :1..|join: |trim}' '{0}'"
+
+[keybindings]
+enter = "actions:print"
+
+[actions.print]
+description = "Print the selected cheatsheet"
+command = "cheat -c -t '{strip_ansi|split: :1..|join: |trim}' '{0}'"
+mode = "execute"
+
