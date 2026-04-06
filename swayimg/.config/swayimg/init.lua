@@ -102,7 +102,7 @@ end)
 
 -- Gallery mode
 swayimg.gallery.bind_reset()
-swayimg.gallery.set_window_color(0)
+swayimg.gallery.set_window_color(0xaa000000)
 swayimg.gallery.set_aspect('keep')
 swayimg.gallery.set_border_color(0xff9b98ff)
 
