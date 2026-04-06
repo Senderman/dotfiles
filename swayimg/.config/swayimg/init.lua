@@ -36,7 +36,7 @@ end)
 -- set current image as wallapper
 swayimg.viewer.on_key('w', function()
     local img = swayimg.viewer.get_image()
-    os.execute('swww img "'..img.path..'"')
+    os.execute('awww img "'..img.path..'"')
 end)
 
 -- delete current image
@@ -133,6 +133,6 @@ end)
 -- set current image as wallapper
 swayimg.gallery.on_key('w', function()
     local img = swayimg.gallery.get_image()
-    os.execute('swww img "'..img.path..'"')
+    os.execute('awww img "'..img.path..'"')
 end)
 
