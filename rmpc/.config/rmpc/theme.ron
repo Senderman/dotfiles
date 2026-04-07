@@ -15,12 +15,12 @@
     preview_label_style: (fg: "yellow"),
     preview_metadata_group_style: (fg: "yellow", modifiers: "Bold"),
     tab_bar: (
-        active_style: (fg: "black", bg: "blue", modifiers: "Bold"),
+        active_style: (fg: "black", bg: "cyan", modifiers: "Bold"),
         inactive_style: (),
     ),
     highlighted_item_style: (fg: "blue", modifiers: "Bold"),
-    current_item_style: (fg: "black", bg: "blue", modifiers: "Bold"),
-    borders_style: (fg: "blue"),
+    current_item_style: (fg: "black", bg: "cyan", modifiers: "Bold"),
+    borders_style: (fg: "cyan"),
     highlight_border_style: (fg: "blue"),
     symbols: (
         song: " ", 
@@ -40,10 +40,10 @@
         trace: (fg: "magenta", bg: "black"),
     ),
     progress_bar: (
-        symbols: ["[", "-", ">", " ", "]"],
-        track_style: (fg: "#1e2030"),
-        elapsed_style: (fg: "blue"),
-        thumb_style: (fg: "blue", bg: "#1e2030"),
+        symbols: ["|", "─", ">", " ", "|"],
+        track_style: (fg: "yellow"),
+        elapsed_style: (fg: "yellow"),
+        thumb_style: (fg: "yellow"),
         use_track_when_empty: false,
     ),
     scrollbar: (
@@ -99,6 +99,7 @@
                                 panes: [
                                     (
                                         size: "5",
+                                        borders: "ALL",
                                         pane: Pane(Header),
                                     ),
                                     (
@@ -125,18 +126,18 @@
         rows: [
             (
                 left: [
-                    (kind: Text("["), style: (fg: "yellow", modifiers: "Bold")),
-                    (kind: Property(Status(StateV2(playing_label: "Playing", paused_label: "Paused", stopped_label: "Stopped"))), style: (fg: "yellow", modifiers: "Bold")),
-                    (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold"))
+                    (kind: Text("["), style: (fg: "magenta", modifiers: "Bold")),
+                    (kind: Property(Status(StateV2(playing_label: "Playing", paused_label: "Paused", stopped_label: "Stopped"))), style: (fg: "magenta", modifiers: "Bold")),
+                    (kind: Text("]"), style: (fg: "magenta", modifiers: "Bold"))
                 ],
                 center: [
-                    (kind: Property(Song(Title)), style: (modifiers: "Bold"),
+                    (kind: Property(Song(Title)), style: (fg: "yellow", modifiers: "Bold"),
                         default: (kind: Text("No Song"), style: (modifiers: "Bold"))
                     )
                 ],
                 right: [
                     (kind: Property(Widget(ScanStatus)), style: (fg: "blue")),
-                    (kind: Property(Widget(Volume)), style: (fg: "blue"))
+                    (kind: Property(Widget(Volume)), style: (fg: "green"))
                 ]
             ),
             (
@@ -149,8 +150,8 @@
                     (kind: Text(" kbps)"))
                 ],
                 center: [
-                    (kind: Property(Song(Artist)), style: (fg: "yellow", modifiers: "Bold"),
-                        default: (kind: Text("Unknown"), style: (fg: "yellow", modifiers: "Bold"))
+                    (kind: Property(Song(Artist)), style: (modifiers: "Bold"),
+                        default: (kind: Text("Unknown"), style: (modifiers: "Bold"))
                     ),
                     (kind: Text(" - ")),
                     (kind: Property(Song(Album)),
@@ -160,7 +161,7 @@
                 right: [
                     (
                         kind: Property(Widget(States(
-                            active_style: (fg: "white", modifiers: "Bold"),
+                            active_style: (fg: "yellow", modifiers: "Bold"),
                             separator_style: (fg: "white")))
                         ),
                         style: (fg: "dark_gray")
