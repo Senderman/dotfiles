@@ -1,0 +1,23 @@
+---
+tags: [ proxy, vpn ]
+syntax: bash
+---
+
+# Create interface
+ip tuntap add dev tun0 mode tun user <your_local_user>
+ip addr replace 10.0.0.1/24 dev tun0
+
+# Connect interface to your proxy
+badvpn-tun2socks --tundev tun0 --netif-ipaddr 10.0.0.2 --netif-netmask 255.255.255.0 --socks-server-addr proxyhost:proxyport
+
+# Set up routes
+
+# Route that goes to the SSH server that we use for the tunnel with a low metric
+ip route add <IP_of_SSH_server> via <IP_of_original_gateway> metric 5
+
+# Route for DNS server (because tun2socks does not do UDP which is necessary for DNS) with a low metric
+ip route add <IP_of_DNS_server> via <IP_of_original_gateway> metric 5
+
+# Default route for all other traffic with a higher metric than the other routes
+ip route add default via 10.0.0.2 metric 6
+
