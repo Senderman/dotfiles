@@ -1,0 +1,27 @@
+[metadata]
+name = "transmission"
+description = "A channel to control transmission torrents"
+requirements = ["transmission-remote"]
+
+[source]
+command = "transmission-remote -l | tail -n +2 | head -n -1"
+watch = 1.0
+
+[preview]
+command = ["transmission-remote -t '{trim|split: :0}' -i", "transmission-remote -t '{trim|split: :0}' -f", "transmission-remote -t '{trim|split: :0}' -ip", "transmission-remote -t '{trim|split: :0}' -it"]
+
+[keybindings]
+ctrl-u = "actions:start"
+ctrl-d = "actions:stop"
+
+[ui]
+layout = "portrait"
+
+[actions.start]
+description = "Start torrent"
+command = "transmission-remote -t '{trim|split: :0}' --start"
+
+[actions.stop]
+description = "Stop torrent"
+command = "transmission-remote -t '{trim|split: :0}' --stop"
+
