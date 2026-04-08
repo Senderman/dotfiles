@@ -13,6 +13,7 @@ command = ["transmission-remote -t '{trim|split: :0}' -i", "transmission-remote 
 [keybindings]
 ctrl-u = "actions:start"
 ctrl-d = "actions:stop"
+ctrl-x = "actions:delete"
 
 [ui]
 layout = "portrait"
@@ -25,3 +26,6 @@ command = "transmission-remote -t '{trim|split: :0}' --start"
 description = "Stop torrent"
 command = "transmission-remote -t '{trim|split: :0}' --stop"
 
+[actions.delete]
+description = "Delete torrent (not data)"
+command = "transmission-remote -t '{trim|split: :0}' --remove"
