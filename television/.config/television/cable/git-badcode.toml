@@ -1,0 +1,9 @@
+# From https://piechowski.io/post/git-commands-before-reading-code/
+[metadata]
+name = "git-badcode"
+description = "A channel to list various repo churn hotspots and crisis factors"
+requirements = ["git", "sort", "uniq", "head"]
+
+[source]
+command = ["git log --format=format: --name-only --since='1 year ago' | sort | uniq -c | sort -nr | head -20", "git shortlog -sn --no-merges", "git log -i -E --grep='fix|bug|broken' --name-only --format='' | sort | uniq -c | sort -nr | head -20", "git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c", "git log --oneline --since='1 year ago' | grep -iE 'revert|hotfix|emergency|rollback'"]
+
