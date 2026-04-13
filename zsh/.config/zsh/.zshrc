@@ -23,9 +23,11 @@ if [ -e "${zsh_config_dir}/aliases-nogit.zsh" ]; then
   . "${zsh_config_dir}/aliases-nogit.zsh"
 fi
 
+# Completions
 eval "$(zoxide init zsh)"
 eval "$(tv init zsh)"
 eval "$(kubie generate-completion)"
+eval "$(gowall completion zsh)"
 
 autoload -Uz compinit
 compinit
