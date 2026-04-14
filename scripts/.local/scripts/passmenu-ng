@@ -39,7 +39,7 @@ password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | $dmenu -p "${menu_name}: ")
+password=$(printf '%s\n' "${password_files[@]}" | $dmenu --mesg "${menu_name}")
 
 [[ -n $password ]] || exit
 
