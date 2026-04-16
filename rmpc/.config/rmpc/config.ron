@@ -134,8 +134,7 @@
             source: "/tmp/mpd-cava.fifo"
         ),
         smoothing: (
-            noise_reduction: 40,
-            waves: true,
+            noise_reduction: 40
         ),
     )
 )
