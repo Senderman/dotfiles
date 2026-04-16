@@ -99,7 +99,13 @@
     tabs: [
         (
             name: "Queue",
-            pane: Pane(Queue),
+            pane: Split(
+                direction: Vertical,
+                panes: [
+                    (size: "60%", pane: Pane(Queue)),
+                    (size: "40%", pane: Pane(Cava)),
+                ],
+            ),
         ),
         (
             name: "Directories",
@@ -122,5 +128,15 @@
             pane: Pane(Search),
         ),
     ],
+    cava: (
+        input: (
+            method: Fifo,
+            source: "/tmp/mpd-cava.fifo"
+        ),
+        smoothing: (
+            noise_reduction: 40,
+            waves: true,
+        ),
+    )
 )
 
