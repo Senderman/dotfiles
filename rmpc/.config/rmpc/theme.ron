@@ -18,7 +18,7 @@
         active_style: (fg: "black", bg: "cyan", modifiers: "Bold"),
         inactive_style: (),
     ),
-    highlighted_item_style: (fg: "blue", modifiers: "Bold"),
+    highlighted_item_style: (fg: "red", modifiers: "Bold"),
     current_item_style: (fg: "black", bg: "cyan", modifiers: "Bold"),
     borders_style: (fg: "cyan"),
     highlight_border_style: (fg: "blue"),
@@ -54,20 +54,20 @@
     ),
     song_table_format: [
         (
-            prop: (kind: Property(Artist),
-                default: (kind: Text("Unknown"))
+            prop: (kind: Property(Artist), style: (fg: "blue"),
+                default: (kind: Text("Unknown"), style: (fg: "blue"))
             ),
             width: "20%",
         ),
         (
-            prop: (kind: Property(Title),
-                default: (kind: Text("Unknown"))
+            prop: (kind: Property(Title), style: (fg: "yellow"),
+                default: (kind: Text("Unknown"), style: (fg: "yellow"))
             ),
             width: "35%",
         ),
         (
-            prop: (kind: Property(Album), style: (fg: "white"),
-                default: (kind: Text("Unknown Album"), style: (fg: "white"))
+            prop: (kind: Property(Album), style: (fg: "magenta"),
+                default: (kind: Text("Unknown Album"), style: (fg: "magenta"))
             ),
             width: "30%",
         ),
@@ -150,12 +150,12 @@
                     (kind: Text(" kbps)"))
                 ],
                 center: [
-                    (kind: Property(Song(Artist)), style: (modifiers: "Bold"),
-                        default: (kind: Text("Unknown"), style: (modifiers: "Bold"))
+                    (kind: Property(Song(Artist)), style: (modifiers: "Bold", fg: "blue"),
+                        default: (kind: Text("Unknown"), style: (modifiers: "Bold", fg: "blue"))
                     ),
                     (kind: Text(" - ")),
-                    (kind: Property(Song(Album)),
-                        default: (kind: Text("Unknown Album"))
+                    (kind: Property(Song(Album)), style: (fg: "magenta"),
+                        default: (kind: Text("Unknown Album"), style: (fg: "magenta"))
                     )
                 ],
                 right: [
