@@ -1,0 +1,13 @@
+[general]
+framerate = 60
+autosens = 1
+sensitivity = 100
+[input]
+method = pipewire 
+source = auto
+[color]
+gradient = 1
+gradient_color_1 = '#AE8BFF'
+gradient_color_2 = '#E7BC63'
+gradient_color_3 = '#ff6b6b'
+

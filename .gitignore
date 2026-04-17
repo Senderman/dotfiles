@@ -14,3 +14,6 @@ zsh/.config/zsh/plugins.zsh
 cheat/.config/cheat/cheatsheets/work/*
 !cheat/.config/cheat/cheatsheets/work/.gitkeep
 
+cava/.config/cava/shaders
+cava/.config/cava/themes
+

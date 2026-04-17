@@ -192,8 +192,8 @@
         bar_width: 2,
         bar_color: Gradient({
             0: "#AE8BFF",
-            50: "#6FA8DC",
-            100: "#25B8A4",
+            50: "#E7BC63",
+            100: "#ff6b6b",
         })
     )
 )
