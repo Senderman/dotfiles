@@ -102,8 +102,15 @@
             pane: Split(
                 direction: Vertical,
                 panes: [
-                    (size: "60%", pane: Pane(Queue)),
-                    (size: "40%", pane: Pane(Cava)),
+                    (
+                        size: "60%",
+                        borders: "BOTTOM",
+                        pane: Pane(Queue)
+                    ),
+                    (
+                        size: "40%",
+                        pane: Pane(Cava)
+                    ),
                 ],
             ),
         ),

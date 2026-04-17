@@ -99,15 +99,26 @@
                                 panes: [
                                     (
                                         size: "5",
-                                        borders: "ALL",
+                                        borders: "TOP | LEFT | RIGHT",
+                                        border_symbols: Rounded,
                                         pane: Pane(Header),
                                     ),
                                     (
                                         size: "1",
+                                        borders: "LEFT | RIGHT",
+                                        border_symbols: Rounded,
                                         pane: Pane(ProgressBar),
+                                                                            ),
+                                    (
+                                        size: "1", 
+                                        borders: "BOTTOM | LEFT | RIGHT",
+                                        border_symbols: Rounded,
+                                        pane: Pane(Empty())
                                     ),
                                     (
                                         size: "3",
+                                        borders: "ALL",
+                                        border_symbols: Rounded,
                                         pane: Pane(Tabs),
                                     ),
                                 ]
@@ -118,6 +129,8 @@
             ),
             (
                 size: "100%",
+                borders: "ALL",
+                border_symbols: Rounded,
                 pane: Pane(TabContent),
             ),
         ],
@@ -137,7 +150,14 @@
                 ],
                 right: [
                     (kind: Property(Widget(ScanStatus)), style: (fg: "blue")),
-                    (kind: Property(Widget(Volume)), style: (fg: "green"))
+                    (
+                        kind: Property(Widget(States(
+                            active_style: (fg: "yellow", modifiers: "Bold"),
+                            separator_style: (fg: "white")))
+                        ),
+                        style: (fg: "dark_gray")
+                    ),
+
                 ]
             ),
             (
@@ -159,13 +179,7 @@
                     )
                 ],
                 right: [
-                    (
-                        kind: Property(Widget(States(
-                            active_style: (fg: "yellow", modifiers: "Bold"),
-                            separator_style: (fg: "white")))
-                        ),
-                        style: (fg: "dark_gray")
-                    ),
+                    (kind: Property(Widget(Volume)), style: (fg: "green")),
                 ]
             ),
         ],
