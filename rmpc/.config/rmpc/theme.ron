@@ -291,7 +291,7 @@
             direction: Horizontal,
             panes: [
                 (
-                    size: "35",
+                    size: "22",
                     pane: Component("header_left")
                 ),
                 (
@@ -299,7 +299,7 @@
                     pane: Component("header_center")
                 ),
                 (
-                    size: "35",
+                    size: "12",
                     pane: Component("header_right")
                 ),
             ]
