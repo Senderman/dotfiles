@@ -2,14 +2,7 @@
 #![enable(unwrap_newtypes)]
 #![enable(unwrap_variant_newtypes)]
 (
-    default_album_art_path: None,
-    format_tag_separator: " | ",
     browser_column_widths: [20, 50, 30],
-    background_color: None,
-    text_color: None,
-    header_background_color: None,
-    modal_background_color: None,
-    modal_backdrop: false,
     preview_label_style: (fg: "yellow"),
     preview_metadata_group_style: (fg: "yellow", modifiers: "Bold"),
     tab_bar: (
@@ -168,10 +161,7 @@
         "volume": Split(
             direction: Horizontal,
             panes: [
-                (
-                    size: "1",
-                    pane: Pane(Empty())
-                ),
+                (size: "1", pane: Pane(Empty())),
                 (
                     size: "100%",
                     pane: Pane(Property(content: [(kind: Property(Status(InputBuffer())), style: (fg: "blue"), align: Left)]))
@@ -211,14 +201,8 @@
         "states": Split(
             direction: Horizontal,
             panes: [
-                (
-                    size: "1",
-                    pane: Pane(Empty())
-                ),
-                (
-                    size: "100%",
-                    pane: Pane(Property(content: [(kind: Property(Status(InputBuffer())), style: (fg: "blue"), align: Left)]))
-                ),
+                (size: "1", pane: Pane(Empty())),
+                (size: "100%", pane: Pane(Property(content: [(kind: Property(Status(InputBuffer())), style: (fg: "blue"), align: Left)]))),
                 (
                     size: "6",
                     pane: Pane(Property(content: [
@@ -258,14 +242,6 @@
                 ),
             ]
         ),
-        "input_mode": Pane(Property(
-            content: [
-                (kind: Transform(Replace(content: (kind: Property(Status(InputMode()))), replacements: [
-                    (match: "Normal", replace: (kind: Text(" NORMAL "), style: (fg: "black", bg: "blue"))),
-                    (match: "Insert", replace: (kind: Text(" INSERT "), style: (fg: "black", bg: "green"))),
-                ])))
-            ], align: Center
-        )),
         "header_left": Split(
             direction: Vertical,
             panes: [
@@ -290,18 +266,9 @@
         "header": Split(
             direction: Horizontal,
             panes: [
-                (
-                    size: "22",
-                    pane: Component("header_left")
-                ),
-                (
-                    size: "100%",
-                    pane: Component("header_center")
-                ),
-                (
-                    size: "12",
-                    pane: Component("header_right")
-                ),
+                (size: "22", pane: Component("header_left")),
+                (size: "100%", pane: Component("header_center")),
+                (size: "12", pane: Component("header_right")),
             ]
         ),
     },
