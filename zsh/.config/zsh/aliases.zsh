@@ -4,6 +4,7 @@ alias free='free -h'
 alias wget="wget --hsts-file="${XDG_CACHE_HOME}/wget-hsts""
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 alias s3cmd="s3cmd -c "${XDG_CONFIG_HOME}/s3/s3cfg""
+alias pc="proxychains -f "${XDG_CONFIG_HOME}/proxychains.conf""
 alias fuseiso='fuseiso -n'
 alias trr='transmission-remote'
 which kubecolor 1>/dev/null 2>/dev/null && alias kubectl='kubecolor' && compdef kubecolor=kubectl
