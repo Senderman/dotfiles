@@ -166,24 +166,18 @@ is_bundle() {
     return 1
 }
 
-# $1 - bundle $2 show deps
-show_bundle() {
+# $1 - show deps
+show_status() {
     if ! s6-svscanctl -z "${s6_scandir}" 2>/dev/null; then
         echo "s6-svscan is not running on ${s6_scandir}, doing nothing"
         exit 1;
     fi
 
-    BUNDLE="$1"
-    DEPS="$2"
+    DEPS="$1"
 
-    if ! is_bundle; then
-        error "Bundle (%s) does not exist!" "$BUNDLE"
-    fi
-
-    msg "Bundle: %s" "$BUNDLE"
     row_header "$table" "service" "type" "pid" "time" "up"
 
-    for sv in $(s6-rc-db -c "${s6_compdir}" contents "$BUNDLE"); do
+    for sv in $(s6-rc-db -c "${s6_compdir}" list services); do
         _type=''
         _type=$(s6-rc-db -c "${s6_compdir}" type "${sv}")
         if [ "$_type" = 'longrun' ]; then
@@ -225,12 +219,11 @@ case "$1" in
         recompile
     ;;
     s)
-        BUNDLE="${2:-default}"
         SHOW_DEPS=0
-        if [ "$3" == "d" ]; then
+        if [ "$2" == "d" ]; then
             SHOW_DEPS=1
         fi
-        show_bundle "$BUNDLE" "$SHOW_DEPS"
+        show_status "$SHOW_DEPS"
     ;;
     u)
         shift
@@ -241,7 +234,7 @@ case "$1" in
         service_down "$@"
     ;;
     *)
-        printf "Usage: %s [command] <args>\n\n  u <svc1> <svc2> <svc3> - start service(s)\n  d <svc1> <svc2> <svc3> - stop service(s)\n  b - boot usertree\n  t - teardown usertree\n  r - recompile database and switch to it if usertree is running\n  s <bundle> <d> - show services status in bundle. If not specified, 'default' bundle is used. add 'd' as second argument to show services dependencies\n\n" "$(basename "${0}")"
+        printf "Usage: %s [command] <args>\n\n  u <svc1> <svc2> <svc3> - start service(s)\n  d <svc1> <svc2> <svc3> - stop service(s)\n  b - boot usertree\n  t - teardown usertree\n  r - recompile database and switch to it if usertree is running\n s <d> - show services status Add 'd' argument to show services dependencies\n\n" "$(basename "${0}")"
     ;;
 esac
 
