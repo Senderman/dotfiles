@@ -23,5 +23,10 @@ use = "AminurAlam/yazi-plugins:preview-audio"
 rev = "688d133"
 hash = "e8a166503389d5a2165762daedb54821"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:mime-ext"
+rev = "ac82af3"
+hash = "2678c84a0b3a0b22504e918ccaf99011"
+
 [flavor]
 deps = []
