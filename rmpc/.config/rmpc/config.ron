@@ -104,59 +104,31 @@
                         pane: Split(
                             direction: Vertical,
                             panes: [
-                                (
-                                    size: "48%",
-                                    pane: Pane(AlbumArt),
-                                ),
-                                (
-                                    size: "4%",
-                                    pane: Pane(Empty()),
-                                ),
-                                (
-                                    size: "48%",
-                                    pane: Pane(Cava)
-                                ),
+                                (size: "48%", pane: Pane(AlbumArt)),
+                                (size: "4%",  pane: Pane(Empty())),
+                                (size: "48%", pane: Pane(Cava)),
                             ]
                         )
                     ),
                     (
                         size: "70%",
-                        borders: "BOTTOM",
+                        borders: "TOP | LEFT",
+                        border_symbols: Rounded,
                         pane: Pane(Queue)
                     ),
 
                 ],
             ),
         ),
-        (
-            name: "Directories",
-            pane: Pane(Directories),
-        ),
-        (
-            name: "Artists",
-            pane: Pane(Artists),
-        ),
-        (
-            name: "Albums",
-            pane: Pane(Albums),
-        ),
-        (
-            name: "Playlists",
-            pane: Pane(Playlists),
-        ),
-        (
-            name: "Search",
-            pane: Pane(Search),
-        ),
+        (name: "Directories", pane: Pane(Directories)),
+        (name: "Artists",     pane: Pane(Artists)),
+        (name: "Albums",      pane: Pane(Albums)),
+        (name: "Playlists",   pane: Pane(Playlists)),
+        (name: "Search", pane: Pane(Search)),
     ],
     cava: (
-        input: (
-            method: Fifo,
-            source: "/tmp/mpd-cava.fifo"
-        ),
-        smoothing: (
-            noise_reduction: 77
-        ),
+        input: (method: Fifo, source: "/tmp/mpd-cava.fifo"),
+        smoothing: (noise_reduction: 77),
     )
 )
 
