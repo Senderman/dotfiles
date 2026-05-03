@@ -74,7 +74,7 @@
                         ),
                         (
                             size: "2",
-                            borders: "BOTTOM |LEFT | RIGHT",
+                            borders: "BOTTOM | LEFT | RIGHT",
                             border_symbols: Rounded,
                             pane: Pane(ProgressBar),
                         ),
@@ -87,8 +87,6 @@
             ),
             (
                 size: "100%",
-                borders: "ALL",
-                border_symbols: Rounded,
                 pane: Pane(TabContent),
             ),
         ],
