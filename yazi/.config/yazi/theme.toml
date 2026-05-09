@@ -19,3 +19,12 @@ rules = [
     # Fallback
     { url = "*/", fg = "lightcyan" }
 ]
+
+[mode]
+normal_main = { fg = "black", bg = "cyan",   bold = true}
+normal_alt  = { fg = "black", bg = "blue",   bold = true}
+select_main = { fg = "black", bg = "red" ,   bold = true}
+select_alt =  { fg = "black", bg = "yellow", bold = true}
+unset_main = { fg = "black", bg = "red" ,   bold = true}
+unset_alt =  { fg = "black", bg = "yellow", bold = true}
+
