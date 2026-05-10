@@ -1,6 +1,14 @@
 -- Init for yazi-git plugin
 require("git"):setup()
 
+-- Show username@hostname in header
+Header:children_add(function()
+	if ya.target_family() ~= "unix" then
+		return ""
+	end
+	return ui.Span(ya.user_name() .. "@" .. ya.host_name() .. ":"):fg("blue")
+end, 500, Header.LEFT)
+
 -- Add uid:gid and mtime to status line
 Status:children_add(function()
     local h = cx.active.current.hovered
