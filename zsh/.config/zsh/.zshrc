@@ -26,8 +26,9 @@ fi
 # Completions
 eval "$(zoxide init zsh)"
 eval "$(tv init zsh)"
-eval "$(kubie generate-completion)"
+eval "$(kubie generate-completion zsh)"
 eval "$(gowall completion zsh)"
+eval "$(dua completions zsh)"
 
 autoload -Uz compinit
 compinit
