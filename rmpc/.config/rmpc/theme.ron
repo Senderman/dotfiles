@@ -87,7 +87,28 @@
             ),
             (
                 size: "100%",
-                pane: Pane(TabContent),
+                pane: Split(
+                    direction: Horizontal,
+                    panes: [
+                        (
+                            size: "30%",
+                            pane: Split(
+                                direction: Vertical,
+                                panes: [
+                                    (size: "48%", pane: Pane(AlbumArt)),
+                                    (size: "4%",  pane: Pane(Empty())),
+                                    (size: "48%", pane: Pane(Cava)),
+                                ]
+                            ),
+                        ),
+                        (
+                            size: "70%",
+                            borders: "TOP | LEFT",
+                            border_symbols: Rounded,
+                            pane: Pane(TabContent)
+                        )
+                    ]
+                )
             ),
         ],
     ),
