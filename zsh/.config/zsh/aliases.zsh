@@ -23,6 +23,7 @@ alias cd='z'
 # Git aliases
 alias g='git'
 alias g-copybranch='git branch --show-current | wl-copy -n'
+alias ggr='cd "$(git rev-parse --show-toplevel)"'
 
 # Pacman aliases
 alias pacin='doas pacman -S'
