@@ -34,8 +34,39 @@ FROM pg_stat_activity
 WHERE datname = 'dbname' AND pid <> pg_backend_pid();
 
 # Restore a database
+
+sudo -u postgres pg_restore -d <database> --clean --if-exists backup.sql
+
+# Or if the user "postgres" cannot access dump file:
+
 DROP DATABASE <dbname>;
 CREATE DATABASE <dbname> with owner <dbuser>;
 
 sudo -u postgres psql -d <dbname> < backup.sql
+
+# The following commands generate all the required ALTER TABLE / ALTER SEQUENCE / ALTER VIEW statements, copy these and paste them back into plsql to run them.
+
+# Change owner of all tables of the current database to another user
+
+SELECT 'ALTER TABLE '|| schemaname || '."' || tablename ||'" OWNER TO my_new_owner;'
+FROM pg_tables WHERE NOT schemaname IN ('pg_catalog', 'information_schema')
+ORDER BY schemaname, tablename;
+
+# Same but for sequences
+
+SELECT 'ALTER SEQUENCE '|| sequence_schema || '."' || sequence_name ||'" OWNER TO my_new_owner;'
+FROM information_schema.sequences WHERE NOT sequence_schema IN ('pg_catalog', 'information_schema')
+ORDER BY sequence_schema, sequence_name;
+
+# For views
+
+SELECT 'ALTER VIEW '|| table_schema || '."' || table_name ||'" OWNER TO my_new_owner;'
+FROM information_schema.views WHERE NOT table_schema IN ('pg_catalog', 'information_schema')
+ORDER BY table_schema, table_name;
+
+# For materialized views
+
+SELECT 'ALTER TABLE '|| oid::regclass::text ||' OWNER TO my_new_owner;'
+FROM pg_class WHERE relkind = 'm'
+ORDER BY oid;
 
