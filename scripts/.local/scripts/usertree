@@ -80,6 +80,10 @@ repo_init(){
     else
         echo "${s6_compdir} exists and s6-rc is alive, installing s6-rc database and calling s6-rc-update"
         echo "WARNING!!! It will affect the current s6 state and MAY stop some of your services!!!"
+        echo "Displaying what services will be stopped, and what services will be started"
+        echo
+        s6-rc-update -n -l "$s6_livedir" "${s6_repodir}/compiled/current"
+        echo
         echo "Enter YES in uppercase to confirm, enter anything else to decline"
         read -r apply
         if [ "${apply}" != "YES" ]; then
@@ -94,6 +98,7 @@ repo_init(){
     cat << EOF
 alias s6='s6 -v 2 --color=auto -s "${XDG_RUNTIME_DIR}/s6/service" -l "${XDG_RUNTIME_DIR}/s6/s6-rc" -r "${XDG_DATA_HOME}/s6/repository" -c "${XDG_DATA_HOME}/s6/rc/compiled" --stmpdir="${XDG_RUNTIME_DIR}/s6/s6-frontend" --storelist="${XDG_DATA_HOME}/s6/sv:${XDG_DATA_HOME}/s6/bundles"
 EOF
+   echo
 }
 
 case "$1" in
