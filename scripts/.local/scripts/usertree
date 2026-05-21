@@ -75,7 +75,6 @@ repo_init(){
         echo "${s6_repodir} already exists!"
         exit 1
     fi
-    generate_s6_frontend_config
     echo "Creating repository at ${s6_repodir}"
     echo
     s6 repository init
