@@ -6,7 +6,7 @@
 }
 {
     "label" : "usertreedown",
-    "action" : "usertree t",
+    "action" : "usertree tear",
     "text" : "s[t]op s6",
     "keybind" : "t"
 }
