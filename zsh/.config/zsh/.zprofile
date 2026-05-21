@@ -6,6 +6,9 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_CACHE_HOME="${HOME}/.cache"
 
+# s6-frontend config
+export S6_FRONTEND_CONF="$XDG_DATA_HOME/s6/s6-frontend.conf"
+
 # Config paths
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 export GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"
@@ -54,6 +57,6 @@ export AWS_REQUEST_CHECKSUM_CALCULATION=when_required
 export AWS_RESPONSE_CHECKSUM_VALIDATION=when_required
 
 if [ "$TTY" = "/dev/tty1" ]; then
-    usertree b
+    usertree boot
 fi
 
