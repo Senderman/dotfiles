@@ -18,7 +18,7 @@ s6_logger_dir="$s6_scandir/s6-svscan-log" # servicedir of catch-all logger
 s6_logger_fifo="$s6_logger_dir/fifo" # fifo where all uncaught logs will go
 
 if [ -z "$S6_FRONTEND_CONF" ]; then
-    echo "S6_FRONTEND_CONF environement variable is empty. Please add to your environement:"
+    echo "S6_FRONTEND_CONF environment variable is empty. Please add to your environment:"
     echo
     echo 'export S6_FRONTEND_CONF="$XDG_DATA_HOME/s6/s6-frontend.conf"'
     echo
