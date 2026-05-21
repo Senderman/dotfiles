@@ -41,6 +41,9 @@ alias gsr-slurp='gpu-screen-recorder -w $(slurp -f "%wx%h+%x+%y")'
 # Zellij
 alias za='zellij a -c'
 
+# s6-frontend
+alias s6='s6 -v 2 --color=auto -s "${XDG_RUNTIME_DIR}/s6/service" -l "${XDG_RUNTIME_DIR}/s6/s6-rc" -r "${XDG_DATA_HOME}/s6/repository" -c "${XDG_DATA_HOME}/s6/rc/compiled" --stmpdir="${XDG_RUNTIME_DIR}/s6/s6-frontend" --storelist="${XDG_DATA_HOME}/s6/sv:${XDG_DATA_HOME}/s6/bundles"'
+
 # Yazi with cwd update
 function f() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
