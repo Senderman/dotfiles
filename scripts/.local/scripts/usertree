@@ -8,6 +8,7 @@ s6_srcdir="$xdg_data/s6" # directory with inital s6 configs, svcs, and databases
 s6_storelist="${s6_srcdir}/sv:${s6_srcdir}/bundles" # list of sources (services and bundles) separated by colon
 s6_compdir="$s6_srcdir/rc/compiled" # compiled database directory
 s6_repodir="$s6_srcdir/repository" # s6-rc-repo* commands repository
+s6_frontend_conf="$s6_srcdir/s6-frontend.conf" # path to s6-frontend configuration file
 s6_dir="$XDG_RUNTIME_DIR/s6" # s6 data folder (scandir, livedir, logs, etc)
 s6_scandir="$s6_dir/service" # s6 scandir
 s6_livedir="$s6_dir/s6-rc" # s6-rc livedir
@@ -16,9 +17,15 @@ s6_stmpdir="$s6_dir/stmp" # s6-frontend runtime data and temp files
 s6_logger_dir="$s6_scandir/s6-svscan-log" # servicedir of catch-all logger
 s6_logger_fifo="$s6_logger_dir/fifo" # fifo where all uncaught logs will go
 
-s6_user() {
-    s6 -v 2 --color=auto -s "$s6_scandir" -l "$s6_livedir" -r "$s6_repodir" -c "$s6_compdir" --stmpdir="$s6_stmpdir" --storelist="${s6_storelist}" "$@"
-}
+if [ -z "$S6_FRONTEND_CONF" ]; then
+    echo "S6_FRONTEND_CONF environement variable is empty. Please add to your environement:"
+    echo
+    echo 'export S6_FRONTEND_CONF="$XDG_DATA_HOME/s6/s6-frontend.conf"'
+    echo
+    exit 1
+fi
+
+export S6_FRONTEND_CONF="$s6_frontend_conf"
 
 boot_tree() {
     if s6-svscanctl -z "${s6_scandir}" 2>/dev/null; then
@@ -40,16 +47,28 @@ boot_tree() {
     envfile -I "$s6_srcdir/config/global.conf" \
     s6-svscan -d 4 "$s6_scandir" | read -r _
 
-    # TODO replace  the following 2 lines with s6_user system boot once s6-rc-init -b is fixed
+    # TODO replace  the following 2 lines with s6 system boot once s6-rc-init -b is fixed
     s6-rc-init -c "$s6_compdir" -l "$s6_livedir" "$s6_scandir"
-    s6_user live start-everything
+    s6 live start-everything
 }
 
 tear_tree(){
-    s6-svc -d "$s6_logger_dir" # stop the catch-all logger first, or else it will ignore s6 shutdown and continue to run
+    s6 live stop-everything
+    s6 process stop s6-svscan-log # stop the catch-all logger first, or else it will ignore s6 shutdown and continue to run
     s6-svscanctl -t "$s6_scandir" # shut down the s6 tree
     rm -f "${s6_livedir}"
     rm -rf "${s6_scandir}"
+}
+
+generate_s6_frontend_config(){
+    echo "Saving s6-frontend config to $s6_frontend_conf"
+    echo
+    echo "scandir = $s6_scandir" > "$s6_frontend_conf"
+    echo "livedir = $s6_livedir" >> "$s6_frontend_conf"
+    echo "repodir = $s6_repodir" >> "$s6_frontend_conf"
+    echo "bootdb = $s6_compdir" >> "$s6_frontend_conf"
+    echo "stmpdir = $s6_stmpdir" >> "$s6_frontend_conf"
+    echo "storelist = $s6_storelist" >> "$s6_frontend_conf"
 }
 
 repo_init(){
@@ -57,26 +76,27 @@ repo_init(){
         echo "${s6_repodir} already exists!"
         exit 1
     fi
+    generate_s6_frontend_config
     echo "Creating repository at ${s6_repodir}"
     echo
-    s6_user repository init
+    s6 repository init
     echo
     echo "Adding all services from 'current-set-init' bundle to 'enabled' rx (it's ok to fail here if the bundle does not exist)"
     echo
-    s6_user set enable -I pull current-set-init
+    s6 set enable -I pull current-set-init
     echo
     echo "Committing changes"
     echo
-    s6_user set commit
+    s6 set commit
     echo
     if [ ! -d "$s6_compdir" ]; then
         echo "${s6_compdir} does not exist, installing s6-rc database without calling s6-rc-update"
         echo
-        s6_user live install --init
+        s6 live install --init
     elif  ! s6-rc -l "$s6_livedir" diff; then
         echo "s6-rc is not live, installing s6-rc database without calling s6-rc-update"
         echo
-        s6_user live install --init
+        s6 live install --init
     else
         echo "${s6_compdir} exists and s6-rc is alive, installing s6-rc database and calling s6-rc-update"
         echo "WARNING!!! It will affect the current s6 state and MAY stop some of your services!!!"
@@ -90,16 +110,19 @@ repo_init(){
           echo "No changes were made to the s6-rc database. Please run s6 live install manually to finish the repo initialization"
           exit 1
         fi
-        s6_user live install
+        s6 live install
     fi
     echo
-    echo "Repo initialization finished without errors, add the following alias to your shell and you are good to go:"
+    echo "Repo initialization finished without errors"
     echo
-    cat << EOF
-alias s6='s6 -v 2 --color=auto -s "${XDG_RUNTIME_DIR}/s6/service" -l "${XDG_RUNTIME_DIR}/s6/s6-rc" -r "${XDG_DATA_HOME}/s6/repository" -c "${XDG_DATA_HOME}/s6/rc/compiled" --stmpdir="${XDG_RUNTIME_DIR}/s6/s6-frontend" --storelist="${XDG_DATA_HOME}/s6/sv:${XDG_DATA_HOME}/s6/bundles"
-EOF
-   echo
 }
+
+if [ "$1" != "genconfig" ]; then
+    if [ ! -e "$s6_frontend_conf" ]; then
+        echo "File $s6_frontend_conf is missing. Please run 'usertree genconfig' first"
+        exit 1
+    fi
+fi
 
 case "$1" in
     boot)
@@ -111,10 +134,14 @@ case "$1" in
     repoinit)
         repo_init
     ;;
+    genconfig)
+        generate_s6_frontend_config
+    ;;
     *)
         cat << EOF
 
 Usage: usertree [command] <args>
+  genconfig - generate s6-frontend config
   boot - boot usertree
   tear - teardown usertree
   repoinit - init s6-rc repository

@@ -1,6 +1,7 @@
 s6/.local/share/s6/svnogit/*
 s6/.local/share/s6/rc/*
 s6/.local/share/s6/repository/*
+s6/.local/share/s6/s6-frontend.conf
 !s6/.local/share/s6/rc/.gitkeep
 
 mpd/.config/mpd/playlists/*
