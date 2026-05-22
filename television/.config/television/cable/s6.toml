@@ -1,26 +1,31 @@
 [metadata]
 name = "s6"
 description = "A channel to control s6 usertree bundles"
-requirements = ["s6-rc", "s6-rc-db", "usertree"]
+requirements = ["s6", "s6-rc-db"]
 
 [source]
 command = "s6-rc-db -c ~/.local/share/s6/rc/compiled list bundles"
 
 [preview]
-command = "usertree s '{}'"
+command = "s6 live status {}"
 
 [keybindings]
 ctrl-u = "actions:start_bundle"
 ctrl-d = "actions:stop_bundle"
+ctrl-r = "actions:restart_bundle"
 
 [ui]
 layout = "portrait"
 
 [actions.start_bundle]
 description = "Start services in the selected bundles"
-command = "s6-rc -l $XDG_RUNTIME_DIR/s6/s6-rc start {}"
+command = "s6 live start {}"
 
 [actions.stop_bundle]
 description = "Stop services in the selected bundles"
-command = "s6-rc -l $XDG_RUNTIME_DIR/s6/s6-rc stop {}"
+command = "s6 live stop {}"
+
+[actions.restart_bundle]
+description = "Restart all services in the selected bundle"
+command = "s6 live restart {}"
 
