@@ -1,8 +1,5 @@
 #!/bin/sh
 
-readonly table="%-70s %-10s %-10s %-14s %-5s"
-readonly dtable="%-67s %-10s %-10s %-14s %-5s"
-
 xdg_data="${XDG_DATA_HOME:-${HOME}/.local/share}"
 s6_srcdir="$xdg_data/s6" # directory with inital s6 configs, svcs, and databases
 s6_storelist="${s6_srcdir}/sv:${s6_srcdir}/bundles" # list of sources (services and bundles) separated by colon
@@ -53,21 +50,31 @@ boot_tree() {
 }
 
 tear_tree(){
-    s6 process stop s6-svscan-log # stop the catch-all logger first, or else it will ignore s6 shutdown and continue to run
+    s6 process stop -w s6-svscan-log # stop the catch-all logger, or else it will ignore s6 shutdown and continue to run
     s6-svscanctl -t "$s6_scandir" # shut down the s6 tree
-    rm -f "${s6_livedir}"
-    rm -rf "${s6_scandir}"
 }
 
 generate_s6_frontend_config(){
-    echo "Saving s6-frontend config to $s6_frontend_conf"
+    echo "Writing s6-frontend config to $s6_frontend_conf"
+    {
+        echo "scandir = $s6_scandir"
+        echo "livedir = $s6_livedir"
+        echo "repodir = $s6_repodir"
+        echo "bootdb = $s6_compdir"
+        echo "stmpdir = $s6_stmpdir"
+        echo "storelist = $s6_storelist"
+    } > "$s6_frontend_conf"
+}
+
+db_diff(){
+    if ! s6-rc -l "$s6_livedir" diff; then
+        echo "s6-rc is not alive in $s6_livedir directory!"
+        exit 1
+    fi
+    echo "Displaying what services will be stopped, and what services will be started"
     echo
-    echo "scandir = $s6_scandir" > "$s6_frontend_conf"
-    echo "livedir = $s6_livedir" >> "$s6_frontend_conf"
-    echo "repodir = $s6_repodir" >> "$s6_frontend_conf"
-    echo "bootdb = $s6_compdir" >> "$s6_frontend_conf"
-    echo "stmpdir = $s6_stmpdir" >> "$s6_frontend_conf"
-    echo "storelist = $s6_storelist" >> "$s6_frontend_conf"
+    s6-rc-update -n -l "$s6_livedir" "${s6_repodir}/compiled/current"
+    echo
 }
 
 repo_init(){
@@ -77,63 +84,61 @@ repo_init(){
     fi
     echo "Creating repository at ${s6_repodir}"
     echo
-    s6 repository init
+    s6 -v2 repository init
     echo
     echo "Adding all services from 'current-set-init' bundle to 'enabled' rx (it's ok to fail here if the bundle does not exist)"
     echo
-    s6 set enable -I pull current-set-init
+    s6 -v2 set enable -I pull current-set-init
     echo
     echo "Committing changes"
     echo
-    s6 set commit
+    s6 -v2 set commit
     echo
     if [ ! -d "$s6_compdir" ]; then
         echo "${s6_compdir} does not exist, installing s6-rc database without calling s6-rc-update"
         echo
-        s6 live install --init
+        s6 -v2 live install --init
     elif  ! s6-rc -l "$s6_livedir" diff; then
         echo "s6-rc is not live, installing s6-rc database without calling s6-rc-update"
         echo
-        s6 live install --init
+        s6 -v2 live install --init
     else
         echo "${s6_compdir} exists and s6-rc is alive, installing s6-rc database and calling s6-rc-update"
         echo "WARNING!!! It will affect the current s6 state and MAY stop some of your services!!!"
-        echo "Displaying what services will be stopped, and what services will be started"
-        echo
-        s6-rc-update -n -l "$s6_livedir" "${s6_repodir}/compiled/current"
-        echo
+        db_diff
         echo "Enter YES in uppercase to confirm, enter anything else to decline"
         read -r apply
         if [ "${apply}" != "YES" ]; then
           echo "No changes were made to the s6-rc database. Please run s6 live install manually to finish the repo initialization"
           exit 1
         fi
-        s6 live install
+        s6 -v2 live install
     fi
     echo
     echo "Repo initialization finished without errors"
     echo
 }
 
-if [ "$1" != "genconfig" ]; then
-    if [ ! -e "$s6_frontend_conf" ]; then
-        echo "File $s6_frontend_conf is missing. Please run 'usertree genconfig' first"
-        exit 1
-    fi
+if [ "$1" != "genconfig" ] && [ ! -e "$s6_frontend_conf" ]; then
+    echo "File $s6_frontend_conf is missing. Please run 'usertree genconfig' first"
+    exit 1
 fi
 
 case "$1" in
+    genconfig)
+        generate_s6_frontend_config
+    ;;
     boot)
         boot_tree 
     ;;
     tear)
         tear_tree
     ;;
+    diff)
+        db_diff
+    ;;
     repoinit)
         repo_init
-    ;;
-    genconfig)
-        generate_s6_frontend_config
     ;;
     *)
         cat << EOF
@@ -142,6 +147,7 @@ Usage: usertree [command] <args>
   genconfig - generate s6-frontend config
   boot - boot usertree
   tear - teardown usertree
+  diff - show what services will be stopped/started if you install the current set
   repoinit - init s6-rc repository
 
 EOF
