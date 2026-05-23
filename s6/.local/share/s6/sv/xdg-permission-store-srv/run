@@ -1,5 +1,6 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
-gammastep
+
+/usr/lib/xdg-permission-store -r
 
