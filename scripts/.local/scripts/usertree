@@ -2,15 +2,15 @@
 
 xdg_data="${XDG_DATA_HOME:-${HOME}/.local/share}"
 s6_srcdir="$xdg_data/s6" # directory with inital s6 configs, svcs, and databases
-s6_storelist="${s6_srcdir}/sv:${s6_srcdir}/bundles" # list of sources (services and bundles) separated by colon
+s6_storelist="${s6_srcdir}/sv:${s6_srcdir}/bundles:${s6_srcdir}/sv-nogit" # list of sources (services and bundles) separated by colon
 s6_compdir="$s6_srcdir/rc/compiled" # compiled database directory
 s6_repodir="$s6_srcdir/repository" # s6-rc-repo* commands repository
 s6_frontend_conf="$s6_srcdir/s6-frontend.conf" # path to s6-frontend configuration file
-s6_dir="$XDG_RUNTIME_DIR/s6" # s6 data folder (scandir, livedir, logs, etc)
-s6_scandir="$s6_dir/service" # s6 scandir
-s6_livedir="$s6_dir/s6-rc" # s6-rc livedir
+s6_runtime_dir="$XDG_RUNTIME_DIR/s6" # s6 data folder (scandir, livedir, logs, etc)
+s6_scandir="$s6_runtime_dir/service" # s6 scandir
+s6_livedir="$s6_runtime_dir/s6-rc" # s6-rc livedir
 s6_svdirs="$s6_livedir/servicedirs" # s6-rc servicedir
-s6_stmpdir="$s6_dir/stmp" # s6-frontend runtime data and temp files
+s6_stmpdir="$s6_runtime_dir/stmp" # s6-frontend runtime data and temp files
 s6_logger_dir="$s6_scandir/s6-svscan-log" # servicedir of catch-all logger
 s6_logger_fifo="$s6_logger_dir/fifo" # fifo where all uncaught logs will go
 
@@ -33,7 +33,7 @@ boot_tree() {
     rm -rf "${s6_scandir}"
 
     mkdir -p "$s6_scandir"
-    mkdir -p "$s6_dir/log"
+    mkdir -p "$s6_runtime_dir/log"
     cp -rL "$s6_srcdir/s6-svscan-log" "$s6_scandir"
     mkfifo "$s6_logger_fifo"
     
