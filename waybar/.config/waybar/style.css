@@ -68,31 +68,31 @@ button:hover {
 }
 
 /* since tag is the first module, remove left margin */
-#tags {
+#workspaces {
   margin-left: 0px;
   margin-right: 5px;
 }
 
-#tags button {
+#workspaces button {
   padding: 0 5px;
   color: @base09;
   margin-left: 0;
 }
 
-#tags button:hover {
+#workspaces button:hover {
   background: rgba(0, 0, 0, 0.4);
 }
 
-#tags button.focused {
+#workspaces button.active {
   color: @base0A;
   box-shadow: inset 0 3px @base0A;
 }
 
-#tags button.occupied {
+#workspaces button:not(.hidden) {
   color: @base0B;
 }
 
-#tags button.urgent {
+#workspaces button.urgent {
   color: @base0C;
 }
 

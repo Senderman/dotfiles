@@ -2,7 +2,7 @@
 {
     "height": 28,
     "modules-left": [
-        "dwl/tags",
+        "ext/workspaces",
         "dwl/window#layout",
         "mpris",
         "mpd"
@@ -15,22 +15,23 @@
         "clock",
         "tray"
     ],
-    "dwl/tags": {
+    "ext/workspaces": {
       "format": "{icon}",
-      "num-tags": 9,
-      "on-scroll-up": "mmsg -d viewtoleft",
-      "on-scroll-down": "mmsg -d viewtoright",
-      "tag-labels": [
-        "󰈹",
-        "󰍡",
-        "󰞷",
-        "󰌠",
-        "󰊗",
-        "󰅆",
-        "󰖳",
-        "󱅃",
-        "󰜡"
-      ]
+      "ignore-hidden": false,
+      "on-click": "activate",
+      "on-click-right": "deactivate",
+      "sort-by-number": "true",
+      "format-icons": {
+        "1": "󰈹",
+        "2": "󰍡",
+        "3": "󰞷",
+        "4": "󰌠",
+        "5": "󰊗",
+        "6": "󰅆",
+        "7": "󰖳",
+        "8": "󱅃",
+        "9": "󰜡"
+      }
     },
     "dwl/window#layout": {
       "format": "{layout}"
