@@ -2,4 +2,8 @@
 
 fdmove -c 2 1
 
+importas -S XDG_RUNTIME_DIR
+elglob MANGO_INSTANCE_SIGNATURE ${XDG_RUNTIME_DIR}/mango-*.sock
+export MANGO_INSTANCE_SIGNATURE $MANGO_INSTANCE_SIGNATURE
+
 foot -Ss -lnever -p4
