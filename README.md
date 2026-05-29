@@ -9,7 +9,7 @@ To learn how to manage dotfiles using stow, read https://alexpearce.me/2016/02/m
 But here's quick start:
 
 ```
-cd ~ # you NEED to clone the repo to the $HOME directory
+cd ~ # you should clone the repo to the $HOME directory because this is how stow works
 git clone https://github.com/Senderman/dotfiles.git
 cd dotfiles
 stow openbox
@@ -20,15 +20,15 @@ This will symlink `~/dotfiles/openbox/*` to `$HOME` . Since you probably have `~
   ../dotfiles/openbox/.config/openbox
 ```
 
-if you want to uninstall symlink, run `stow -D openbox`
+if you want to uninstall symlink, run `stow -D waybar`
 
 You're welcome to fork this repo, edit the dotfiles and add your own and create PR :)
 
 ## Move your config files to the dotfiles repository
 
-This repository contains a script called [stowlink](scripts/scripts/stowlink) which helps to move your configuration files to the dotfiles repository in one command.
+This repository contains a script called [stowlink](scripts/.local/scripts/stowlink) which can help you to move your configuration files to the dotfiles repository in one command.
 
-E.g. if you want to move and symlink your polybar config to the dotfiles repository, all you need to do is simply run `stowlink .config/polybar polybar`
+E.g. if you want to move and symlink your waybar config to the dotfiles repository, all you need to do is simply run `stowlink .config/polybar waybar`
 
 Many thanks to [Vezono](https://github.com/vezono) for this script!
 
