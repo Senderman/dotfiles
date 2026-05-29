@@ -1,0 +1,8 @@
+---
+tags: [ kid3, media, music ]
+syntax: bash
+---
+
+# Set album art from local file
+set picture:'/path/to/folder.jpg' 'Cover (front)'
+
