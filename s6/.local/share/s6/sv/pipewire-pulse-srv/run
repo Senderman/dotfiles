@@ -1,4 +1,6 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
+export PIPEWIRE_PULSE_NOTIFICATION_FD 4
+
 pipewire-pulse
