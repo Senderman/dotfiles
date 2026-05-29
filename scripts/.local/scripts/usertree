@@ -67,7 +67,7 @@ generate_s6_frontend_config(){
 }
 
 db_diff(){
-    if ! s6-rc -l "$s6_livedir" diff; then
+    if ! s6-rc -l "$s6_livedir" diff 2>&1 > /dev/null; then
         echo "s6-rc is not alive in $s6_livedir directory!"
         exit 1
     fi
