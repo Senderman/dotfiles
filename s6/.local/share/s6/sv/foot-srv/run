@@ -1,6 +1,5 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
-# Be able to run XWayland apps in terminal
-export DISPLAY :0
+
 foot -Ss -lnever -p4
