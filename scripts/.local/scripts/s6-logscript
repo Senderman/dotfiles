@@ -1,11 +1,14 @@
 #!/bin/execlineb -S1
 
-importas -S HOME
-importas -SD ${HOME}/.local/share XDG_DATA_HOME
-envfile -I ${XDG_DATA_HOME}/s6/config/logger.conf
-
 multisubstitute {
   define svc $1
+  importas -S HOME
+}
+
+importas -SD ${HOME}/.local/share XDG_DATA_HOME
+envfile -I ${XDG_DATA_HOME}/s6/config/${svc}.conf
+
+multisubstitute {
   importas -S XDG_RUNTIME_DIR
   importas -SsCuD "n3 s2000000 T" DIRECTIVES
 }
