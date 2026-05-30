@@ -1,6 +1,8 @@
 # dotfiles
 My personal dotfiles and configs for different software
 
+![Preview](./screenshot.png)
+
 ## Installation
 This repo is designed to be used with [GNU Stow](https://www.gnu.org/software/stow/).
 
