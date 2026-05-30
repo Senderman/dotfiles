@@ -5,5 +5,5 @@ pass init -p <path-to-directory> <gpg-id-1> <gpg-id-2>
 pass -c <n> <path-to-data>
 
 # Add OTP to an existing secret from the clipboard
-zbarimg -q --raw - | pass otp append <path-to-data>
+wl-paste | qrtool decode | pass otp append <path-to-data>
 
