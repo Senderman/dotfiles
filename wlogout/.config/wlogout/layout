@@ -1,10 +1,4 @@
 {
-    "label" : "lock",
-    "action" : "swaylock -f",
-    "text" : "[l]ock",
-    "keybind" : "l"
-}
-{
     "label" : "usertreedown",
     "action" : "usertree tear",
     "text" : "s[t]op s6",
