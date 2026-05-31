@@ -24,6 +24,7 @@ fi
 export S6_FRONTEND_CONF="$s6_frontend_conf"
 
 generate_catch_all_logger() {
+    mkdir -p "${s6_runtime_dir}/log"
     mkdir -p "${s6_logger_dir}"
     printf 3 > "${s6_logger_dir}/notification-fd"
     printf 1 > "${s6_logger_dir}/down-signal"
