@@ -9,7 +9,6 @@ s6_frontend_conf="$s6_srcdir/s6-frontend.conf" # path to s6-frontend configurati
 s6_runtime_dir="$XDG_RUNTIME_DIR/s6" # s6 data folder (scandir, livedir, logs, etc)
 s6_scandir="$s6_runtime_dir/service" # s6 scandir
 s6_livedir="$s6_runtime_dir/s6-rc" # s6-rc livedir
-s6_svdirs="$s6_livedir/servicedirs" # s6-rc servicedir
 s6_stmpdir="$s6_runtime_dir/stmp" # s6-frontend runtime data and temp files
 s6_logger_dir="$s6_scandir/s6-svscan-log" # servicedir of catch-all logger
 s6_logger_fifo="$s6_logger_dir/fifo" # fifo where all uncaught logs will go
@@ -24,6 +23,23 @@ fi
 
 export S6_FRONTEND_CONF="$s6_frontend_conf"
 
+generate_catch_all_logger() {
+    mkdir -p "${s6_logger_dir}"
+    printf 3 > "${s6_logger_dir}/notification-fd"
+    printf 1 > "${s6_logger_dir}/down-signal"
+    mkfifo "${s6_logger_fifo}"
+    cat > "${s6_logger_dir}/run" << EOF
+#!/usr/bin/execlineb -P
+
+fdmove -c 1 2
+redirfd -rnb 0 fifo
+importas -S XDG_RUNTIME_DIR
+
+s6-log -bpd3 -- n3 s2000000 T ${XDG_RUNTIME_DIR}/s6/log/uncaught-logs
+EOF
+    chmod +x "${s6_logger_dir}/run"
+}
+
 boot_tree() {
     if s6-svscanctl -z "${s6_scandir}" 2>/dev/null; then
         echo "s6-svscan is already running on ${s6_scandir}, doing nothing"
@@ -32,10 +48,7 @@ boot_tree() {
     rm -f "${s6_livedir}"
     rm -rf "${s6_scandir}"
 
-    mkdir -p "$s6_scandir"
-    mkdir -p "$s6_runtime_dir/log"
-    cp -rL "$s6_srcdir/s6-svscan-log" "$s6_scandir"
-    mkfifo "$s6_logger_fifo"
+    generate_catch_all_logger
     
     setsid -f \
     fdmove -c 4 1 \
@@ -67,7 +80,7 @@ generate_s6_frontend_config(){
 }
 
 db_diff(){
-    if ! s6-rc -l "$s6_livedir" diff 2>&1 > /dev/null; then
+    if ! s6-rc -l "$s6_livedir" diff > /dev/null 2>&1; then
         echo "s6-rc is not alive in $s6_livedir directory!"
         exit 1
     fi
