@@ -41,6 +41,9 @@ alias gsr-slurp='gpu-screen-recorder -w $(slurp -f "%wx%h+%x+%y")'
 # Zellij
 alias za='zellij a -c'
 
+# Neovim is too long
+alias e=$EDITOR
+
 # Yazi with cwd update
 function f() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
