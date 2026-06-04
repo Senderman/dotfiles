@@ -71,6 +71,7 @@ button:hover {
 #workspaces {
   margin-left: 0px;
   margin-right: 5px;
+  font-weight: bold;
 }
 
 #workspaces button {
