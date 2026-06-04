@@ -4,15 +4,13 @@
 @define-color base01 #c5c8c6;
 /* network */
 @define-color base02 #e362c5;
-/* backlight */
-@define-color base03 #e3e90a;
 /* pulseaudio */
 @define-color base04 #6fa8dc;
 /* battery */
 @define-color base05 #ffb52a;
 /* clock */
 @define-color base06 #90619e;
-/* cpu */
+/* tray */
 @define-color base07 #38761d;
 /* memory */
 @define-color base08 #AE8BFF;
@@ -30,140 +28,156 @@
 @define-color base0E #aa6ed4;
 
 * {
-  font-family: Noto Sans, JetBrainsMono Nerd Font, Noto Sans CJK JP;
-  font-size: 14px;
-  font-style: normal;
+    font-family: Noto Sans, JetBrainsMono Nerd Font, Noto Sans CJK JP;
+    font-size: 14px;
+    font-style: normal;
 }
 
 tooltip label {
-  font-weight: normal;
+    font-weight: normal;
 }
 
 /* Bar itself */
 window#waybar {
-  background-color: @base00;
-  color: @base01;
-  transition-property: background-color;
-  transition-duration: .5s;
+    background-color: @base00;
+    color: @base01;
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
 /* dwl#window module */
 #window {
-  margin-right: 5px;
-  color: @base09;
-  font-weight: bold;
+    margin-right: 5px;
+    color: @base09;
+    font-weight: bold;
 }
 
 button {
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 3px transparent;
-  /* Avoid rounded borders under each button name */
-  border: none;
-  border-radius: 0;
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
-  background: inherit;
+    background: inherit;
 }
 
 /* since tag is the first module, remove left margin */
 #workspaces {
-  margin-left: 0px;
-  margin-right: 5px;
-  font-weight: bold;
+    margin-left: 0px;
+    margin-right: 5px;
+    font-weight: bold;
 }
 
 #workspaces button {
-  padding: 0 5px;
-  color: @base09;
-  margin-left: 0;
+    padding: 0 5px;
+    color: @base09;
+    margin-left: 0;
 }
 
 #workspaces button:hover {
-  background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.4);
 }
 
 #workspaces button.active {
-  color: @base0A;
-  box-shadow: inset 0 3px @base0A;
+    color: @base0A;
+    box-shadow: inset 0 3px @base0A;
 }
 
 #workspaces button:not(.hidden) {
-  color: @base0B;
+    color: @base0B;
 }
 
 #workspaces button.urgent {
-  color: @base0C;
+    color: @base0C;
 }
 
 #clock,
-#battery,
-#cpu,
-#memory,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
+#loadgroup,
+#powergroup,
+#networkgroup,
+#soundgroup,
 #mpd,
 #mpris {
-  margin: 0 3px;
-  padding: 0 5px;
-  font-weight: bold;
-}
-
-/*visually merge audio modules*/
-#pulseaudio {
-  margin-right: 0;
-}
-
-#wireplumber {
-  margin-left: 0;
+    margin: 0 3px;
+    padding: 0 5px;
+    font-weight: bold;
 }
 
 #mpris{
-  box-shadow: inset 0 3px @base0D, inset 0 -3px @base0D;
+    box-shadow: inset 0 3px @base0D, inset 0 -3px @base0D;
 }
 
 #mpd {
-  box-shadow: inset 0 3px @base0E, inset 0 -3px @base0E;
+    box-shadow: inset 0 3px @base0E, inset 0 -3px @base0E;
 }
 
-#network {
-  box-shadow: inset 0 3px @base02, inset 0 -3px @base02;
+#networkgroup {
+    box-shadow: inset 0 3px @base02, inset 0 -3px @base02;
 }
 
-#cpu {
-  box-shadow: inset 0 3px @base07, inset 0 -3px @base07;
+#network.main {
+    margin-right: 5px;
+}
+
+#network.vpn {
+    margin-left: 5px;
+}
+
+#loadgroup {
+    box-shadow: inset 0 3px @base08, inset 0 -3px @base08;
 }
 
 #memory {
-  box-shadow: inset 0 3px @base08, inset 0 -3px @base08;
+    margin-right: 5px;
 }
 
-#backlight {
-  box-shadow: inset 0 3px @base03, inset 0 -3px @base03;
+#cpu {
+    margin-left: 5px;
+}
+
+#soundgroup {
+    box-shadow: inset 0 3px @base04, inset 0 -3px @base04;
 }
 
 #pulseaudio {
-  box-shadow: inset 0 3px @base04, inset 0 -3px @base04;
+    margin-right: 5px;
 }
 
 #wireplumber{
-  box-shadow: inset 0 3px @base04, inset 0 -3px @base04;
+    margin-left: 5px;
+}
+
+#powergroup {
+    box-shadow: inset 0 3px @base05, inset 0 -3px @base05;
 }
 
 #battery {
-  box-shadow: inset 0 3px @base05, inset 0 -3px @base05;
+    margin-right: 5px;
+}
+
+#backlight {
+    margin-left: 5px;
 }
 
 #clock {
-  box-shadow: inset 0 3px @base06, inset 0 -3px @base06;
+    box-shadow: inset 0 3px @base06, inset 0 -3px @base06;
 }
 
 #tray {
-  margin: 0 3px;
-  padding: 0 5px;
-  box-shadow: inset 0 3px @base07, inset 0 -3px @base07;
+    margin-left: 3px;
+    margin-right: 0;
+    padding: 0 5px;
+    box-shadow: inset 0 3px @base07, inset 0 -3px @base07;
+}
+
+#custom-language {
+    margin-right: 3px;
+    margin-left: 0;
+    padding: 0 5px;
+    box-shadow: inset 0 3px @base07, inset 0 -3px @base07;
 }
 

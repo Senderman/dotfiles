@@ -8,12 +8,13 @@
         "mpd"
     ],
     "modules-right": [
-        "group/network",
-        "group/load",
-        "group/sound",
-        "group/power",
+        "group/networkgroup",
+        "group/loadgroup",
+        "group/soundgroup",
+        "group/powergroup",
         "clock",
-        "tray"
+        "tray",
+        "custom/language"
     ],
     "ext/workspaces": {
       "format": "{icon}",
@@ -50,19 +51,24 @@
     "tray": {
         "spacing": 5
     },
+    "custom/language": {
+        "exec": "sh -c 'mmsg get keyboardlayout | jq -r .layout'",
+        "interval": 1,
+        "on-click": "mmsg dispatch switch_keyboard_layout"
+    },
     "clock": {
         "format": "{:%d   %I:%M %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
-    "group/network":{
+    "group/networkgroup":{
         "orientation": "horizontal",
         "modules": [
-            "network",
+            "network#main",
             "network#vpn"
         ],
         "drawer": {}
     },
-    "group/load": {
+    "group/loadgroup": {
         "orientation": "horizontal",
         "modules": [
             "memory",
@@ -70,7 +76,7 @@
         ],
         "drawer": {}
     },
-    "group/sound": {
+    "group/soundgroup": {
         "orientation": "horizontal",
         "modules": [
             "pulseaudio",
@@ -78,7 +84,7 @@
         ],
         "drawer": {}
     },
-    "group/power": {
+    "group/powergroup": {
         "orientation": "horizontal",
         "modules": [
             "battery",
@@ -111,7 +117,7 @@
         "format-icons": ["", "", "", "", ""],
         "tooltip": false
     },
-    "network": {
+    "network#main": {
         "format-wifi": "   ({signalStrength}%)",
         "format-ethernet": " {ifname}",
         "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
