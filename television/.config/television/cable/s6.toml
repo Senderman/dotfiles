@@ -7,7 +7,7 @@ requirements = ["s6", "s6-rc-db"]
 command = "s6-rc-db -c ~/.local/share/s6/rc/compiled list bundles"
 
 [preview]
-command = "s6 live status {}"
+command = "s6 --color=yes live status {}"
 
 [keybindings]
 ctrl-u = "actions:start_bundle"
