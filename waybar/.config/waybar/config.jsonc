@@ -52,8 +52,7 @@
         "spacing": 5
     },
     "custom/language": {
-        "exec": "sh -c 'mmsg get keyboardlayout | jq -r .layout'",
-        "interval": 1,
+        "exec": "sh -c 'mmsg watch keyboardlayout | jq --unbuffered --compact-output -r .layout'",
         "on-click": "mmsg dispatch switch_keyboard_layout"
     },
     "clock": {
