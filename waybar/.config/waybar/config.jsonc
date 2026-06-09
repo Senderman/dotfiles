@@ -206,9 +206,17 @@
     "group/traygroup": {
         "orientation": "horizontal",
         "modules": [
+            "idle_inhibitor",
             "tray",
             "custom/language"
         ]
+    },
+    "idle_inhibitor": {
+        "format": "{icon} ",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
     "tray": {
         "spacing": 5
