@@ -8,6 +8,7 @@
         "mpd"
     ],
     "modules-right": [
+        "privacy",
         "group/networkgroup",
         "group/loadgroup",
         "group/soundgroup",
@@ -58,6 +59,17 @@
     "clock": {
         "format": "{:%d   %I:%M %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "privacy": {
+        "icon-size": 14,
+        "modules": [
+            {
+                "type": "screenshare"
+            },
+            {
+                "type": "audio-in"
+            }
+        ]
     },
     "group/networkgroup":{
         "orientation": "horizontal",

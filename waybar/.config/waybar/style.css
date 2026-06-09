@@ -98,6 +98,7 @@ button:hover {
 #clock,
 #loadgroup,
 #powergroup,
+#privacy,
 #networkgroup,
 #soundgroup,
 #mpd,
@@ -113,6 +114,10 @@ button:hover {
 
 #mpd {
     box-shadow: inset 0 3px @base0E, inset 0 -3px @base0E;
+}
+
+#privacy {
+    box-shadow: inset 0 3px @base05, inset 0 -3px @base05;
 }
 
 #networkgroup {
