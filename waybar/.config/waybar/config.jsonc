@@ -4,8 +4,8 @@
     "modules-left": [
         "ext/workspaces",
         "dwl/window#layout",
-        "mpris",
-        "mpd"
+        "mpd",
+        "mpris"
     ],
     "modules-right": [
         "privacy",
@@ -14,8 +14,7 @@
         "group/soundgroup",
         "group/powergroup",
         "clock",
-        "tray",
-        "custom/language"
+        "group/traygroup"
     ],
     "ext/workspaces": {
       "format": "{icon}",
@@ -49,122 +48,7 @@
     "dwl/window#layout": {
       "format": "{layout}"
     },
-    "tray": {
-        "spacing": 5
-    },
-    "custom/language": {
-        "exec": "sh -c 'mmsg watch keyboardlayout | jq --unbuffered --compact-output -r .layout'",
-        "on-click": "mmsg dispatch switch_keyboard_layout"
-    },
-    "clock": {
-        "format": "{:%d   %I:%M %p}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-    "privacy": {
-        "icon-size": 14,
-        "modules": [
-            {
-                "type": "screenshare"
-            },
-            {
-                "type": "audio-in"
-            }
-        ]
-    },
-    "group/networkgroup":{
-        "orientation": "horizontal",
-        "modules": [
-            "network#main",
-            "network#vpn"
-        ],
-        "drawer": {}
-    },
-    "group/loadgroup": {
-        "orientation": "horizontal",
-        "modules": [
-            "memory",
-            "cpu"
-        ],
-        "drawer": {}
-    },
-    "group/soundgroup": {
-        "orientation": "horizontal",
-        "modules": [
-            "pulseaudio",
-            "wireplumber"
-        ],
-        "drawer": {}
-    },
-    "group/powergroup": {
-        "orientation": "horizontal",
-        "modules": [
-            "battery",
-            "backlight"
-        ],
-        "drawer": {}
-    },
-    "cpu": {
-        "format": "  {usage}%",
-        "on-click": "footclient btm"
-    },
-    "memory": {
-        "format": "  {percentage}%    {swapPercentage}%",
-        "on-click": "footclient btm",
-        "tooltip-format": "RAM {used}GiB / Swap {swapUsed}GiB"
-    },
-    "backlight": {
-        "format": "󰖨  {percent}%",
-        "tooltip": false
-    },
-    "battery": {
-        "states": {
-            "warning": 40,
-            "critical": 30
-        },
-        "format": "{icon}  {capacity}%",
-        "format-full": "{icon}  {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-icons": ["", "", "", "", ""],
-        "tooltip": false
-    },
-    "network#main": {
-        "format-wifi": "   ({signalStrength}%)",
-        "format-ethernet": " {ifname}",
-        "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
-        "format-linked": " {ifname} (No IP)",
-        "format-disconnected": "⚠ Disconnected",
-        "on-click": "footclient iwctl"
-    },
-    "network#vpn": {
-        "interface": "tun0",
-        "format-ethernet": "󰖂 ",
-        "tooltip-format": "{ipaddr}/{cidr}",
-        "format-disconnected": ""
-    },
-    "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": "󰸈 M",
-        "format-muted": "󰸈 M",
-        "format-source-muted": "",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        }
-    },
-    "wireplumber": {
-        "node-type": "Audio/Source",
-        "format": "󰍬 {volume}%",
-        "format-muted": "󰍭 M",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-    },
+
     "mpd": {
         "format": "{stateIcon} {repeatIcon}{randomIcon}{consumeIcon}{singleIcon} {artist} - {title}",
         "format-stopped": "",
@@ -189,6 +73,7 @@
         "on-scroll-up": "rmpc prev",
         "on-scroll-down": "rmpc next"
     },
+
     "mpris": {
         "format": "{player_icon} {artist} - {title}",
         "format-paused": "{status_icon} {artist} - {title}",
@@ -201,6 +86,137 @@
         "on-scroll-up": "playerctl previous",
         "on-scroll-down": "playerctl next",
         "on-click-right": "playerctl stop"
+    },
+
+    "privacy": {
+        "icon-size": 14,
+        "modules": [
+            {
+                "type": "screenshare"
+            },
+            {
+                "type": "audio-in"
+            }
+        ]
+    },
+
+    "group/networkgroup":{
+        "orientation": "horizontal",
+        "modules": [
+            "network#main",
+            "network#vpn"
+        ],
+        "drawer": {}
+    },
+    "network#main": {
+        "format-wifi": "   ({signalStrength}%)",
+        "format-ethernet": " {ifname}",
+        "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
+        "format-linked": " {ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "on-click": "footclient iwctl"
+    },
+    "network#vpn": {
+        "interface": "tun0",
+        "format-ethernet": "󰖂  {ifname}",
+        "tooltip-format": "{ipaddr}/{cidr}",
+        "format-disconnected": ""
+    },
+
+    "group/loadgroup": {
+        "orientation": "horizontal",
+        "modules": [
+            "memory",
+            "cpu"
+        ],
+        "drawer": {}
+    },
+    "cpu": {
+        "format": "  {usage}%",
+        "on-click": "footclient btm"
+    },
+    "memory": {
+        "format": "  {percentage}%    {swapPercentage}%",
+        "on-click": "footclient btm",
+        "tooltip-format": "RAM {used}GiB / Swap {swapUsed}GiB"
+    },
+
+    "group/soundgroup": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "wireplumber"
+        ],
+        "drawer": {}
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "󰸈 M",
+        "format-muted": "󰸈 M",
+        "format-source-muted": "",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+    "wireplumber": {
+        "node-type": "Audio/Source",
+        "format": "󰍬 {volume}%",
+        "format-muted": "󰍭 M",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    },
+
+    "group/powergroup": {
+        "orientation": "horizontal",
+        "modules": [
+            "battery",
+            "backlight"
+        ],
+        "drawer": {}
+    },
+    "backlight": {
+        "format": "󰖨  {percent}%",
+        "tooltip": false
+    },
+    "battery": {
+        "states": {
+            "warning": 40,
+            "critical": 30
+        },
+        "format": "{icon}  {capacity}%",
+        "format-full": "{icon}  {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "{:%d   %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "group/traygroup": {
+        "orientation": "horizontal",
+        "modules": [
+            "tray",
+            "custom/language"
+        ]
+    },
+    "tray": {
+        "spacing": 5
+    },
+    "custom/language": {
+        "exec": "sh -c 'mmsg watch keyboardlayout | jq --unbuffered --compact-output -r .layout'",
+        "on-click": "mmsg dispatch switch_keyboard_layout",
+        "tooltip": false
     }
 }
 

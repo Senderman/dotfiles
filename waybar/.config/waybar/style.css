@@ -1,31 +1,13 @@
-/* background */
-@define-color base00 #242757;
-/* foreground */
-@define-color base01 #c5c8c6;
-/* network */
-@define-color base02 #e362c5;
-/* pulseaudio */
-@define-color base04 #6fa8dc;
-/* battery */
-@define-color base05 #ffb52a;
-/* clock */
-@define-color base06 #90619e;
-/* tray */
-@define-color base07 #38761d;
-/* memory */
-@define-color base08 #AE8BFF;
-/* tag empty */
-@define-color base09 #afa8ff;
-/* tag focused */
-@define-color base0A #6fa8dc;
-/* tag occupied */
-@define-color base0B #6fa8dc;
-/* tag urgent */
-@define-color base0C #bd2c40;
-/* mpris */
-@define-color base0D #38761d;
-/* mpd */
-@define-color base0E #aa6ed4;
+@define-color background #242757;
+@define-color foreground #c5c8c6;
+@define-color red #bd2c40;
+@define-color orange #ffb52a;
+@define-color green #38761d;
+@define-color blue #6fa8dc;
+@define-color light_purple #afa8ff;
+@define-color purple #ae8bff;
+@define-color dark_purple #90619e;
+@define-color pink #e362c5;
 
 * {
     font-family: Noto Sans, JetBrainsMono Nerd Font, Noto Sans CJK JP;
@@ -39,17 +21,10 @@ tooltip label {
 
 /* Bar itself */
 window#waybar {
-    background-color: @base00;
-    color: @base01;
+    background-color: @background;
+    color: @foreground;
     transition-property: background-color;
     transition-duration: .5s;
-}
-
-/* dwl#window module */
-#window {
-    margin-right: 5px;
-    color: @base09;
-    font-weight: bold;
 }
 
 button {
@@ -65,16 +40,14 @@ button:hover {
     background: inherit;
 }
 
-/* since tag is the first module, remove left margin */
 #workspaces {
-    margin-left: 0px;
     margin-right: 5px;
     font-weight: bold;
 }
 
 #workspaces button {
     padding: 0 5px;
-    color: @base09;
+    color: @light_purple;
     margin-left: 0;
 }
 
@@ -83,45 +56,51 @@ button:hover {
 }
 
 #workspaces button.active {
-    color: @base0A;
-    box-shadow: inset 0 3px @base0A;
+    color: @blue;
+    box-shadow: inset 0 3px @blue;
 }
 
 #workspaces button:not(.hidden) {
-    color: @base0B;
+    color: @blue;
 }
 
 #workspaces button.urgent {
-    color: @base0C;
+    color: @red;
 }
 
-#clock,
-#loadgroup,
-#powergroup,
+/* dwl#window module */
+#window {
+    margin-right: 10px;
+    color: @light_purple;
+    font-weight: bold;
+}
+
+#mpd,
+#mpris,
 #privacy,
 #networkgroup,
+#loadgroup,
 #soundgroup,
-#mpd,
-#mpris {
-    margin: 0 3px;
+#powergroup,
+#clock {
     padding: 0 5px;
     font-weight: bold;
 }
 
-#mpris{
-    box-shadow: inset 0 3px @base0D, inset 0 -3px @base0D;
+#mpd {
+    box-shadow: inset 0 3px @dark_purple, inset 0 -3px @dark_purple;
 }
 
-#mpd {
-    box-shadow: inset 0 3px @base0E, inset 0 -3px @base0E;
+#mpris {
+    box-shadow: inset 0 3px @green, inset 0 -3px @green;
 }
 
 #privacy {
-    box-shadow: inset 0 3px @base05, inset 0 -3px @base05;
+    box-shadow: inset 0 3px @orange, inset 0 -3px @orange;
 }
 
 #networkgroup {
-    box-shadow: inset 0 3px @base02, inset 0 -3px @base02;
+    box-shadow: inset 0 3px @pink, inset 0 -3px @pink;
 }
 
 #network.main {
@@ -133,7 +112,7 @@ button:hover {
 }
 
 #loadgroup {
-    box-shadow: inset 0 3px @base08, inset 0 -3px @base08;
+    box-shadow: inset 0 3px @purple, inset 0 -3px @purple;
 }
 
 #memory {
@@ -145,19 +124,19 @@ button:hover {
 }
 
 #soundgroup {
-    box-shadow: inset 0 3px @base04, inset 0 -3px @base04;
+    box-shadow: inset 0 3px @blue, inset 0 -3px @blue;
 }
 
 #pulseaudio {
     margin-right: 5px;
 }
 
-#wireplumber{
+#wireplumber {
     margin-left: 5px;
 }
 
 #powergroup {
-    box-shadow: inset 0 3px @base05, inset 0 -3px @base05;
+    box-shadow: inset 0 3px @orange, inset 0 -3px @orange;
 }
 
 #battery {
@@ -169,20 +148,20 @@ button:hover {
 }
 
 #clock {
-    box-shadow: inset 0 3px @base06, inset 0 -3px @base06;
+    box-shadow: inset 0 3px @dark_purple, inset 0 -3px @dark_purple;
+}
+
+#traygroup {
+    padding: 0 5px;
+    box-shadow: inset 0 3px @green, inset 0 -3px @green;
 }
 
 #tray {
-    margin-left: 3px;
-    margin-right: 0;
-    padding: 0 5px;
-    box-shadow: inset 0 3px @base07, inset 0 -3px @base07;
+    margin-right: 5px;
 }
 
 #custom-language {
-    margin-right: 3px;
-    margin-left: 0;
-    padding: 0 5px;
-    box-shadow: inset 0 3px @base07, inset 0 -3px @base07;
+    margin-left: 5px;
+    font-weight: normal;
 }
 
