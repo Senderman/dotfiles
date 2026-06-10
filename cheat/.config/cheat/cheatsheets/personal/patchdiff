@@ -1,0 +1,24 @@
+---
+tags: [ git, patch, diff ]
+syntax: bash
+---
+
+# Generate diff via git
+git diff REVISION > file.diff
+
+# Generate diff via git for email
+git format-patch --stdout REVISION > file.diff
+
+# Generate diff via diff
+cd modified-program-directory/..
+diff -up original-program-directory modified-program-directory > file.diff
+
+# Apply patch
+patch -p1 < file.diff
+
+# Apply patch via git
+git apply file.diff
+
+# Apply patch generated via git format-patch
+git am file.diff
+

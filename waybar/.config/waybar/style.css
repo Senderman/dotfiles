@@ -77,7 +77,6 @@ button:hover {
 
 #mpd,
 #mpris,
-#privacy,
 #networkgroup,
 #loadgroup,
 #soundgroup,
@@ -93,10 +92,6 @@ button:hover {
 
 #mpris {
     box-shadow: inset 0 3px @green, inset 0 -3px @green;
-}
-
-#privacy {
-    box-shadow: inset 0 3px @orange, inset 0 -3px @orange;
 }
 
 #networkgroup {
@@ -156,8 +151,13 @@ button:hover {
     box-shadow: inset 0 3px @green, inset 0 -3px @green;
 }
 
-#idle_inhibitor {
+#privacy {
     margin-right: 5px;
+    color: @orange;
+}
+
+#idle_inhibitor {
+    margin: 0 5px;
 }
 
 #idle_inhibitor.activated {

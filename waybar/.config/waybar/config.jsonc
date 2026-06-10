@@ -8,7 +8,6 @@
         "mpris"
     ],
     "modules-right": [
-        "privacy",
         "group/networkgroup",
         "group/loadgroup",
         "group/soundgroup",
@@ -88,18 +87,6 @@
         "on-click-right": "playerctl stop"
     },
 
-    "privacy": {
-        "icon-size": 14,
-        "modules": [
-            {
-                "type": "screenshare"
-            },
-            {
-                "type": "audio-in"
-            }
-        ]
-    },
-
     "group/networkgroup":{
         "orientation": "horizontal",
         "modules": [
@@ -114,7 +101,7 @@
         "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
-        "on-click": "footclient iwctl"
+        "on-click": "footclient impala"
     },
     "network#vpn": {
         "interface": "tun0",
@@ -200,15 +187,44 @@
 
     "clock": {
         "format": "{:%d   %I:%M %p}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode-mon-col": 3,
+            "iso8601": true,
+            "format": {
+                "months":     "<span color='#ffb52a' size='14pt'><b>{}</b></span>",
+                "days":       "<span color='#c5c8c6' size='12pt'>{}</span>",
+                "weeks":      "<span color='#6fa8dc'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ae8bff' size='12pt'><b>{}</b></span>",
+                "today":      "<span color='#e362c5' size='12pt'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click": "shift_reset",
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_down",
+            "on-scroll-down": "shift_up"
+        }
     },
 
     "group/traygroup": {
         "orientation": "horizontal",
         "modules": [
+            "privacy",
             "idle_inhibitor",
             "tray",
             "custom/language"
+        ]
+    },
+    "privacy": {
+        "icon-size": 14,
+        "modules": [
+            {
+                "type": "screenshare"
+            },
+            {
+                "type": "audio-in"
+            }
         ]
     },
     "idle_inhibitor": {
@@ -222,7 +238,7 @@
         "spacing": 5
     },
     "custom/language": {
-        "exec": "sh -c 'mmsg watch keyboardlayout | jq --unbuffered --compact-output -r .layout'",
+        "exec": "sh -c 'mmsg watch keyboardlayout | jq --unbuffered -cr \".layout[0:2] | ascii_downcase\"'",
         "on-click": "mmsg dispatch switch_keyboard_layout",
         "tooltip": false
     }
