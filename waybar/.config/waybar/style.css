@@ -161,7 +161,7 @@ button:hover {
 }
 
 #idle_inhibitor.activated {
-    color: @red;
+    color: @orange;
 }
 
 #idle_inhibitor.deactivated {
