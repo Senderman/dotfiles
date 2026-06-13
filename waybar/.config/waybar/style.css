@@ -78,6 +78,7 @@ button:hover {
 #mpd,
 #mpris,
 #networkgroup,
+#bluetooth,
 #loadgroup,
 #soundgroup,
 #powergroup,
@@ -104,6 +105,10 @@ button:hover {
 
 #network.vpn {
     margin-left: 5px;
+}
+
+#bluetooth {
+    box-shadow: inset 0 3px @pink, inset 0 -3px @pink;
 }
 
 #loadgroup {

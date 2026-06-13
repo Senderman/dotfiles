@@ -9,6 +9,7 @@
     ],
     "modules-right": [
         "group/networkgroup",
+        "bluetooth",
         "group/loadgroup",
         "group/soundgroup",
         "group/powergroup",
@@ -108,6 +109,21 @@
         "format-ethernet": "󰖂  {ifname}",
         "tooltip-format": "{ipaddr}/{cidr}",
         "format-disconnected": ""
+    },
+
+    "bluetooth": {
+        "format": "󰂯  {num_connections}",
+        "format-disabled": "󰂲  D",
+        "format-off": "󰂲  off",
+        "format-on": "󰂯  on",
+        "on-click": "footclient bluetui",
+        "on-scroll-up": "bluetoothctl power on",
+        "on-scroll-down": "bluetoothctl power off",
+        "tooltip-format-disabled": "",
+        "tooltip-format-off": "",
+        "tooltip-format-on": "",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias} ({device_battery_percentage}%) - {device_address}"
     },
 
     "group/loadgroup": {
