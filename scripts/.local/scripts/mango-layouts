@@ -1,21 +1,4 @@
 #!/bin/sh
 
-layout="$(fuzzel -d --mesg "Select layout" --nth-delimiter=, --with-nth=1 --accept-nth=2 << EOF
-T   Tile,tile
-S   Scroller,scroller
-M   Monocle,monocle
-G   Grid,grid
-K   Deck,deck
-CT  Center Tile,center_tile
-CT  Vertical Tile,vertical_tile
-RT  Right Tile,right_tile
-VS  Vertical Scroller,vertical_scroller
-VG  Vertical Grid,vertical_grid
-VK  Vertical Deck,vertical_deck
-D   Dwindle,Dwindle
-F   Fair,fair
-VF  Vertical Fair,vertical_fair
-EOF
-)"
-
+layout="$(mmsg get layouts | jq -r '.layouts[] | .symbol + "\t" + .name' | fuzzel -d --mesg 'Select layout' --accept-nth=2)"
 mmsg dispatch "setlayout,${layout}"
