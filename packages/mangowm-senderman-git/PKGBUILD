@@ -30,8 +30,8 @@ provides=(mangowm wayland-compositor)
 conflicts=(mangowm mangowm-wlonly-git)
 source=("$pkgname::git+https://github.com/mangowm/mango.git" "mango-readiness-notification.diff" "mmsg-get-layouts.diff")
 md5sums=('SKIP'
-         '71e97246196646b3d4fb1b6c95d7558a'
-         '0c024e9ecde2ab16cbf5e3452730913f')
+         '18efcd8e98167538b67d1dc0fded2d75'
+         'f8a43231fa26f8b8058513c834958887')
 options=('!strip' '!lto')
 
 

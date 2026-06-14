@@ -43,10 +43,4 @@ index 1694eb8..1263f6b 100644
  	} else if (strncmp(cmd, "dispatch ", 9) == 0) {
  		char *dispatch_copy = strdup(cmd_raw + 9);
  		char *out = dispatch_copy, *ptr = dispatch_copy;
-@@ -1048,4 +1063,4 @@ void ipc_cleanup(void) {
- 	struct ipc_watch_client *wc, *tmp;
- 	wl_list_for_each_safe(wc, tmp, &watch_clients, link)
- 		ipc_remove_watch_client(wc);
--}
-\ No newline at end of file
-+}
+
