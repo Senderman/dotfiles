@@ -1,0 +1,52 @@
+diff --git a/mmsg/mmsg.c b/mmsg/mmsg.c
+index adb0b53..1fd17eb 100644
+--- a/mmsg/mmsg.c
++++ b/mmsg/mmsg.c
+@@ -28,6 +28,7 @@ static void usage(void) {
+ 	printf("  get all-monitors                         List all monitors\n");
+ 	printf("  get all-tags                             List all tags (all "
+ 		   "monitors)\n");
++	printf("  get layouts                              List all available layouts\n");
+ 	printf(
+ 		"  get tags <monitor>                       List tags for a monitor\n");
+ 	printf("  dispatch <func>[,arg...] [client,<id>]   Call a compositor "
+diff --git a/src/ipc/ipc.h b/src/ipc/ipc.h
+index 1694eb8..1263f6b 100644
+--- a/src/ipc/ipc.h
++++ b/src/ipc/ipc.h
+@@ -215,6 +215,19 @@ static cJSON *build_monitor_tags_response(Monitor *m) {
+ 	return resp;
+ }
+ 
++static cJSON *build_layouts_response(void) {
++	cJSON *arr = cJSON_CreateArray();
++	for (size_t i = 0; i < LENGTH(layouts); i++) {
++		cJSON *entry = cJSON_CreateObject();
++		cJSON_AddStringToObject(entry, "symbol", layouts[i].symbol);
++		cJSON_AddStringToObject(entry, "name", layouts[i].name);
++		cJSON_AddItemToArray(arr, entry);
++	}
++	cJSON *resp = cJSON_CreateObject();
++	cJSON_AddItemToObject(resp, "layouts", arr);
++	return resp;
++}
++
+ static void send_static_json(int fd, const char *json_str) {
+ 	size_t len = strlen(json_str);
+ 	send(fd, json_str, len, 0);
+@@ -340,6 +353,8 @@ static void handle_command(int client_fd, const char *cmd_raw) {
+ 			return;
+ 		}
+ 		resp = build_monitor_tags_response(m);
++	} else if (strcmp(cmd, "get layouts") == 0) {
++		resp = build_layouts_response();
+ 	} else if (strncmp(cmd, "dispatch ", 9) == 0) {
+ 		char *dispatch_copy = strdup(cmd_raw + 9);
+ 		char *out = dispatch_copy, *ptr = dispatch_copy;
+@@ -1048,4 +1063,4 @@ void ipc_cleanup(void) {
+ 	struct ipc_watch_client *wc, *tmp;
+ 	wl_list_for_each_safe(wc, tmp, &watch_clients, link)
+ 		ipc_remove_watch_client(wc);
+-}
+\ No newline at end of file
++}

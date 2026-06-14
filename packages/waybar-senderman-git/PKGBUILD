@@ -1,0 +1,83 @@
+# Maintainer: Alexis Rouillard <contact@arouillard.fr>
+
+_pkgname="waybar"
+pkgname="$_pkgname-senderman"
+pkgver=0.15.0.r173.g0594574
+pkgrel=1
+pkgdesc="Highly customizable Wayland bar for Sway and Wlroots based compositors (patched by Senderman)"
+url='https://github.com/Alexays/Waybar'
+license=('MIT')
+arch=('x86_64')
+
+depends=(
+  'fmt'
+  'gtk-layer-shell'
+  'gtkmm3'
+  'jack'
+  'jsoncpp'
+  'libdbusmenu-gtk3'
+  'libmpdclient'
+  'libnl'
+  'libpulse'
+  'libsigc++'
+  'libwireplumber'
+  'libxkbcommon'
+  'playerctl'
+  'spdlog'
+  'wayland'
+)
+makedepends=(
+  'cmake'
+  'git'
+  'glib2-devel' # gdbus-codegen
+  'meson'
+  'python-setuptools'
+  'scdoc' # to generate manpages
+  'wayland-protocols'
+)
+
+provides=("$_pkgname=${pkgver%.g*}")
+conflicts=("$_pkgname")
+
+backup=(
+  'etc/xdg/waybar/config.jsonc'
+  'etc/xdg/waybar/style.css'
+)
+
+_pkgsrc="$_pkgname"
+source=("$_pkgsrc"::"git+$url.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$_pkgsrc"
+  git describe --long --tags --abbrev=7 --exclude='*[a-zA-Z][a-zA-Z]*' \
+    | sed -E 's/^[^0-9]*//;s/([^-]*-g)/r\1/;s/-/./g'
+}
+
+build() {
+  local _meson_args=(
+    -Dlibinput=disabled
+    -Dlibevdev=disabled
+    -Dupower_glib=disabled
+    -Dsystemd=disabled
+    -Dsndio=disabled
+    -Dtests=disabled
+    -Dexperimental=true
+    -Djack=disabled
+    -Dcava=disabled
+    -Dgps=disabled
+  )
+
+  arch-meson "${_meson_args[@]}" "$_pkgsrc" build
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs --no-rebuild --suite waybar
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+  install -Dm644 "$_pkgsrc/LICENSE" -t "$pkgdir/usr/share/licenses/$pkgname/"
+}
+
