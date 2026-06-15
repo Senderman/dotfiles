@@ -100,6 +100,7 @@
         "format-wifi": "   ({signalStrength}%)",
         "format-ethernet": " {ifname}",
         "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
+        "tooltip-format-wifi": "{essid} {ifname} {ipaddr}/{cidr} via {gwaddr}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
         "on-click": "footclient impala"
