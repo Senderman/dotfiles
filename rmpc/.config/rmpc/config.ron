@@ -94,7 +94,16 @@
         ],
     ),
     tabs: [
-        (name: "Queue",       pane: Pane(Queue)),
+        (
+            name: "Queue",
+            pane: Split(
+                direction: Vertical,
+                panes: [
+                    (size: "1", pane: Pane(QueueHeader())),
+                    (size: "100%", pane: Pane(Queue)),
+                ],
+            ),
+        ),
         (name: "Directories", pane: Pane(Directories)),
         (name: "Artists",     pane: Pane(Artists)),
         (name: "Albums",      pane: Pane(Albums)),

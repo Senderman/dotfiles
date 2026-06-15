@@ -45,16 +45,24 @@
     ),
     song_table_format: [
         (
-            prop: (kind: Property(Artist), style: (fg: "blue"), default: (kind: Text("Unknown"), style: (fg: "blue"))),
-            width: "45%",
+            prop: (kind: Property(Title), style: (fg: "yellow", modifiers: "Bold"), default: (kind: Text("Unknown"), style: (fg: "yellow", modifiers: "Bold"))),
+            label_prop: (kind: Text("Title")),
+            width: "35%",
         ),
         (
-            prop: (kind: Property(Title), style: (fg: "yellow"), default: (kind: Text("Unknown"), style: (fg: "yellow"))),
-            width: "40%",
+            prop: (kind: Property(Artist), style: (fg: "blue", modifiers: "Bold"), default: (kind: Text("Unknown"), style: (fg: "blue", modifiers: "Bold"))),
+            label_prop: (kind: Text("Artist")),
+            width: "20%",
+        ),
+        (
+            prop: (kind: Property(Album), style: (fg: "magenta"), default: (kind: Text("Unknown"), style: (fg: "magenta"))),
+            label_prop: (kind: Text("Album")),
+            width: "50%"
         ),
         (
             prop: (kind: Property(Duration), default: (kind: Text("-"))),
             width: "15%",
+            label_prop: (kind: Text("Duration")),
             alignment: Right,
         ),
     ],
@@ -113,11 +121,6 @@
         ],
     ),
     browser_song_format: [
-        (
-            kind: Group([
-                (kind: Text(" ")),
-            ])
-        ),
         (
             kind: Group([
                 (kind: Property(Artist)),
