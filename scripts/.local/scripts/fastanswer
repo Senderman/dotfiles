@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
 prefix=${FASTANSWER_STORE_DIR-~/.local/share/fastanswer}
-answer_files=( "$prefix"/**/*.txt )
+answer_files=( "$prefix"/**/* )
 answer_files=( "${answer_files[@]#"$prefix"/}" )
-answer_files=( "${answer_files[@]%.txt}" )
 
 answer=$(printf '%s\n' "${answer_files[@]}" | fuzzel -d --mesg "Fast answer")
 
 [[ -n "$answer" ]] || exit
 
-cat "${prefix}/${answer}.txt" | wl-copy -n
+cat "${prefix}/${answer}" | wl-copy -n
 
