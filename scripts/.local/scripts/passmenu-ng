@@ -21,7 +21,6 @@ if [[ $1 == "user" ]]; then
   menu_name="Get username"
   extraction_cmd='sed 2p;d'
 fi
-echo "${extraction_cmd}"
 
 if [[ -n $WAYLAND_DISPLAY ]]; then
   xdotool="wtype -"
