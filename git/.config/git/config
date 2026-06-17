@@ -7,7 +7,7 @@
     co = checkout
     sw = switch
     st = status
-    ci = commit -S -m
+    ci = commit -a -S -m
     d  = diff
     ds = diff --staged
     pso = push origin
