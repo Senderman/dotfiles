@@ -14,6 +14,7 @@ regen_plugins(){
 [ $zsh_plugins_src -nt $zsh_plugins ] && regen_plugins
 
 zstyle ':omz:update' mode disabled
+zstyle ':vcs_info:*' enable git
 
 . $zsh_plugins
 if [ -e "${zsh_config_dir}/aliases.zsh" ]; then
@@ -23,13 +24,10 @@ if [ -e "${zsh_config_dir}/aliases-nogit.zsh" ]; then
   . "${zsh_config_dir}/aliases-nogit.zsh"
 fi
 
-# Completions
-eval "$(zoxide init zsh)"
-eval "$(tv init zsh)"
-eval "$(kubie generate-completion zsh)"
-eval "$(gowall completion zsh)"
-eval "$(dua completions zsh)"
-
 autoload -Uz compinit
 compinit
+
+autoload -Uz promptinit
+promptinit
+prompt adhde
 

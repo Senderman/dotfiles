@@ -6,7 +6,7 @@
     br = branch
     co = checkout
     sw = switch
-    st = status
+    st = status -s
     ci = commit -a -S -m
     d  = diff
     ds = diff --staged

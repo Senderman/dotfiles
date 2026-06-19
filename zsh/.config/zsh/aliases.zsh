@@ -20,10 +20,26 @@ alias cat='bat --theme=base16'
 alias diff='delta'
 alias cd='z'
 
-# Git aliases
+# Git aliases and hotkeys
 alias g='git'
-alias g-copybranch='git branch --show-current | wl-copy -n'
-alias ggr='cd "$(git rev-parse --show-toplevel)"'
+bindkey -s '^Xgc' "git ci ''\C-b"
+
+_git_status() {
+    zle kill-whole-line
+    echo
+    git status -s
+    zle accept-line
+}
+zle -N _git_status
+bindkey '^Xgs' _git_status
+
+_git_go_reporoot() {
+    zle kill-whole-line
+    cd "$(git rev-parse --show-toplevel)"
+    zle accept-line
+}
+zle -N _git_go_reporoot
+bindkey '^Xgr' _git_go_reporoot
 
 # Pacman aliases
 alias pacin='doas pacman -S'
@@ -62,4 +78,17 @@ function termcolors() {
     done
     printf "\e[0m"
 }
+
+# Completions
+eval "$(zoxide init zsh)"
+eval "$(tv init zsh)"
+eval "$(kubie generate-completion zsh)"
+eval "$(gowall completion zsh)"
+eval "$(dua completions zsh)"
+
+# By default run-help is an alias to man
+# This makes it work on shell builtins and other shell features
+autoload -Uz run-help
+(( ${+aliases[run-help]} )) && unalias run-help
+alias help=run-help
 
