@@ -22,16 +22,10 @@ alias cd='z'
 
 # Git aliases and hotkeys
 alias g='git'
-bindkey -s '^Xgc' "git ci ''\C-b"
+alias gmc='glab mr create --fill'
+alias gma='glab mr approve'
 
-_git_status() {
-    zle kill-whole-line
-    echo
-    git status -s
-    zle accept-line
-}
-zle -N _git_status
-bindkey '^Xgs' _git_status
+bindkey -s '^Xgc' "git ci ''\C-b"
 
 _git_go_reporoot() {
     zle kill-whole-line
@@ -85,6 +79,7 @@ eval "$(tv init zsh)"
 eval "$(kubie generate-completion zsh)"
 eval "$(gowall completion zsh)"
 eval "$(dua completions zsh)"
+eval "$(glab completion -s zsh)"
 
 # By default run-help is an alias to man
 # This makes it work on shell builtins and other shell features
