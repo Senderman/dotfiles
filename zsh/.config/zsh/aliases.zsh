@@ -28,10 +28,30 @@ autoload -Uz run-help
 (( ${+aliases[run-help]} )) && unalias run-help
 alias help=run-help
 
-# Multiline editor
+# [Ctrl-x] Multiline editor
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey '^X^E' edit-command-line
+bindkey -M emacs '^X^E' edit-command-line
+bindkey -M viins '^X^E' edit-command-line
+bindkey -M vicmd '^X^E' edit-command-line
+
+# [Ctrl-RightArrow] - move forward one word
+bindkey -M emacs '^[[1;5C' forward-word
+bindkey -M viins '^[[1;5C' forward-word
+bindkey -M vicmd '^[[1;5C' forward-word
+
+# [Ctrl-LeftArrow] - move backward one word
+bindkey -M emacs '^[[1;5D' backward-word
+bindkey -M viins '^[[1;5D' backward-word
+bindkey -M vicmd '^[[1;5D' backward-word
+
+# [Delete] - delete forward
+bindkey -M emacs "^[[3~" delete-char
+bindkey -M viins "^[[3~" delete-char
+bindkey -M vicmd "^[[3~" delete-char
+bindkey -M emacs "^[3;5~" delete-char
+bindkey -M viins "^[3;5~" delete-char
+bindkey -M vicmd "^[3;5~" delete-char
 
 # Completions
 eval "$(zoxide init zsh)"
@@ -46,7 +66,9 @@ alias g='git'
 alias gmc='glab mr create --fill'
 alias gma='glab mr approve'
 
-bindkey -s '^Xc' "git commit -S -m ''^[[D"
+bindkey -M emacs -s '^Xc' "git commit -S -m ''^[[D"
+bindkey -M viins -s '^Xc' "git commit -S -m ''^[[D"
+bindkey -M vicmd -s '^Xc' "git commit -S -m ''^[[D"
 
 _git_status() {
     zle kill-whole-line
@@ -55,7 +77,9 @@ _git_status() {
     zle accept-line
 }
 zle -N _git_status
-bindkey '^Xs' _git_status
+bindkey -M emacs '^Xs' _git_status
+bindkey -M viins '^Xs' _git_status
+bindkey -M vicmd  '^Xs' _git_status
 
 _git_addall() {
     zle kill-whole-line
@@ -65,7 +89,9 @@ _git_addall() {
     zle accept-line
 }
 zle -N _git_addall
-bindkey '^Xa' _git_addall
+bindkey -M emacs '^Xa' _git_addall
+bindkey -M viins '^Xa' _git_addall
+bindkey -M vicmd '^Xa' _git_addall
 
 _git_push(){
     zle kill-whole-line
@@ -74,7 +100,9 @@ _git_push(){
     zle accept-line
 }
 zle -N _git_push
-bindkey '^Xp' _git_push
+bindkey -M emacs '^Xp' _git_push
+bindkey -M viins '^Xp' _git_push
+bindkey -M vicmd '^Xp' _git_push
 
 _git_diff(){
     zle kill-whole-line
@@ -83,7 +111,9 @@ _git_diff(){
     zle accept-line
 }
 zle -N _git_diff
-bindkey '^Xd' _git_diff
+bindkey -M emacs '^Xd' _git_diff
+bindkey -M viins '^Xd' _git_diff
+bindkey -M vicmd '^Xd' _git_diff
 
 _git_diff_staged() {
     zle kill-whole-line
@@ -92,7 +122,9 @@ _git_diff_staged() {
     zle accept-line
 }
 zle -N _git_diff_staged
-bindkey '^Xg' _git_diff_staged
+bindkey -M emacs '^Xg' _git_diff_staged
+bindkey -M viins '^Xg' _git_diff_staged
+bindkey -M vicmd '^Xg' _git_diff_staged
 
 _git_go_reporoot() {
     zle kill-whole-line
@@ -100,7 +132,9 @@ _git_go_reporoot() {
     zle accept-line
 }
 zle -N _git_go_reporoot
-bindkey '^Xr' _git_go_reporoot
+bindkey -M emacs '^Xr' _git_go_reporoot
+bindkey -M viins  '^Xr' _git_go_reporoot
+bindkey -M vicmd '^Xr' _git_go_reporoot
 
 # Pacman aliases
 alias pacin='doas pacman -S'
@@ -132,7 +166,9 @@ _copybuffer() {
     printf "%s" "$BUFFER" | wl-copy -n
 }
 zle -N _copybuffer
-bindkey '^O' _copybuffer
+bindkey -M emacs '^O' _copybuffer
+bindkey -M viins '^O' _copybuffer
+bindkey -M vicmd '^O' _copybuffer
 
 alias man="LESS_TERMCAP_ue='[00m' \
     LESS_TERMCAP_se='[00m' \
