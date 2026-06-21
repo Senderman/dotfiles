@@ -91,8 +91,7 @@
 
     "wlr/taskbar": {
         "ignore-list": [
-            "footclient",
-            "yazi"
+            "footclient"
     ],
         "on-click": "activate",
         "on-click-middle": "close",
