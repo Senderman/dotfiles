@@ -90,9 +90,6 @@
     },
 
     "wlr/taskbar": {
-        "ignore-list": [
-            "footclient"
-    ],
         "on-click": "activate",
         "on-click-middle": "close",
         "on-click-right": "minimize-raise"
