@@ -18,8 +18,10 @@ zstyle ':vcs_info:*' enable git
 . $zsh_plugins
 
 # All modifications to fpath should be done BEFORE this line
-# All calls to compdef should be done AFTER this line
 source ~/.cache/antidote/github.com/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+bindkey '^I' menu-select
+
+# All calls to compdef should be done AFTER this line
 
 if [ -e "${zsh_config_dir}/aliases.zsh" ]; then
   . "${zsh_config_dir}/aliases.zsh"
