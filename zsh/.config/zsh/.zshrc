@@ -14,6 +14,7 @@ regen_plugins(){
 [ $zsh_plugins_src -nt $zsh_plugins ] && regen_plugins
 
 zstyle ':vcs_info:*' enable git
+zstyle ':autocomplete:*' add-semicolon no
 
 . $zsh_plugins
 

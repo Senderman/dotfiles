@@ -19,13 +19,80 @@ alias lt='lsd --tree'
 alias cat='bat --theme=base16'
 alias diff='delta'
 alias cd='z'
+alias za='zellij a -c'
+alias e=$EDITOR
+
+# By default run-help is an alias to man
+# This makes it work on shell builtins and other shell features
+autoload -Uz run-help
+(( ${+aliases[run-help]} )) && unalias run-help
+alias help=run-help
+
+# Multiline editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+
+# Completions
+eval "$(zoxide init zsh)"
+eval "$(tv init zsh)"
+eval "$(kubie generate-completion zsh)"
+eval "$(gowall completion zsh)"
+eval "$(dua completions zsh)"
+eval "$(glab completion -s zsh)"
 
 # Git aliases and hotkeys
 alias g='git'
 alias gmc='glab mr create --fill'
 alias gma='glab mr approve'
 
-bindkey -s '^Xgc' "git ci ''\C-b"
+bindkey -s '^Xc' "git commit -S -m ''^[[D"
+
+_git_status() {
+    zle kill-whole-line
+    print
+    git status -s
+    zle accept-line
+}
+zle -N _git_status
+bindkey '^Xs' _git_status
+
+_git_addall() {
+    zle kill-whole-line
+    print
+    git add .
+    git status -s
+    zle accept-line
+}
+zle -N _git_addall
+bindkey '^Xa' _git_addall
+
+_git_push(){
+    zle kill-whole-line
+    print
+    git push origin
+    zle accept-line
+}
+zle -N _git_push
+bindkey '^Xp' _git_push
+
+_git_diff(){
+    zle kill-whole-line
+    print
+    git diff
+    zle accept-line
+}
+zle -N _git_diff
+bindkey '^Xd' _git_diff
+
+_git_diff_staged() {
+    zle kill-whole-line
+    print
+    git diff --staged
+    zle accept-line
+}
+zle -N _git_diff_staged
+bindkey '^Xg' _git_diff_staged
 
 _git_go_reporoot() {
     zle kill-whole-line
@@ -33,7 +100,7 @@ _git_go_reporoot() {
     zle accept-line
 }
 zle -N _git_go_reporoot
-bindkey '^Xgr' _git_go_reporoot
+bindkey '^Xr' _git_go_reporoot
 
 # Pacman aliases
 alias pacin='doas pacman -S'
@@ -47,12 +114,6 @@ alias yaupg='yay -Sau'
 # Screen recording
 alias gsr='gpu-screen-recorder -w portal'
 alias gsr-slurp='gpu-screen-recorder -w $(slurp -f "%wx%h+%x+%y")'
-
-# Zellij
-alias za='zellij a -c'
-
-# Neovim is too long
-alias e=$EDITOR
 
 # Terraform aliases
 alias tf='terraform'
@@ -102,18 +163,4 @@ function termcolors() {
     done
     printf "\e[0m"
 }
-
-# Completions
-eval "$(zoxide init zsh)"
-eval "$(tv init zsh)"
-eval "$(kubie generate-completion zsh)"
-eval "$(gowall completion zsh)"
-eval "$(dua completions zsh)"
-eval "$(glab completion -s zsh)"
-
-# By default run-help is an alias to man
-# This makes it work on shell builtins and other shell features
-autoload -Uz run-help
-(( ${+aliases[run-help]} )) && unalias run-help
-alias help=run-help
 
