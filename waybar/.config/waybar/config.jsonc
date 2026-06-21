@@ -4,6 +4,7 @@
     "modules-left": [
         "ext/workspaces",
         "dwl/window#layout",
+        "wlr/taskbar",
         "mpd",
         "mpris"
     ],
@@ -47,6 +48,11 @@
     },
     "dwl/window#layout": {
       "format": "{layout}"
+    },
+    "wlr/taskbar": {
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "minimize-raise"
     },
 
     "mpd": {

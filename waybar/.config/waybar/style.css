@@ -68,6 +68,18 @@ button:hover {
     color: @red;
 }
 
+#taskbar button.active {
+    box-shadow: inset 0 3px @blue;
+}
+
+#taskbar button.minimized {
+    box-shadow: inset 0 3px @dark_purple;
+}
+
+#taskbar button.fullscreen {
+    box-shadow: inset 0 3px @green;
+}
+
 /* dwl#window module */
 #window {
     margin-right: 10px;
