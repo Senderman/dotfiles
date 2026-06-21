@@ -44,6 +44,10 @@ eval "$(gowall completion zsh)"
 eval "$(dua completions zsh)"
 eval "$(glab completion -s zsh)"
 
+setopt auto_cd                # cd to directory without typing cd
+setopt auto_pushd             # make cd push the old directory onto the directory stack
+setopt pushd_ignore_dups      # don't push multiple copies of the same directory onto the directory stack.=
+setopt pushdminus             # exchanges the meanings of ‘+' and ‘-' when used with a number to specify a directory in the stack
 setopt interactivecomments    # recognize comments
 setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
