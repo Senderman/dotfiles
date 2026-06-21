@@ -71,6 +71,10 @@ bindkey -M emacs -s '^Xc' "git commit -S -m ''^[[D"
 bindkey -M viins -s '^Xc' "git commit -S -m ''^[[D"
 bindkey -M vicmd -s '^Xc' "git commit -S -m ''^[[D"
 
+bindkey -M emacs -s '^Xb' 'git checkout -b '
+bindkey -M viins -s '^Xb' 'git checkout -b '
+bindkey -M vicmd -s '^Xb' 'git checkout -b '
+
 _git_status() {
     zle kill-whole-line
     print
