@@ -4,9 +4,9 @@
     "modules-left": [
         "ext/workspaces",
         "dwl/window#layout",
-        "wlr/taskbar",
         "mpd",
-        "mpris"
+        "mpris",
+        "wlr/taskbar"
     ],
     "modules-right": [
         "group/networkgroup",
@@ -49,15 +49,7 @@
     "dwl/window#layout": {
       "format": "{layout}"
     },
-    "wlr/taskbar": {
-        "ignore-list": [
-            "footclient"
-        ],
-        "on-click": "activate",
-        "on-click-middle": "close",
-        "on-click-right": "minimize-raise"
-    },
-
+    
     "mpd": {
         "format": "{stateIcon} {repeatIcon}{randomIcon}{consumeIcon}{singleIcon} {artist} - {title}",
         "format-stopped": "",
@@ -95,6 +87,16 @@
         "on-scroll-up": "playerctl previous",
         "on-scroll-down": "playerctl next",
         "on-click-right": "playerctl stop"
+    },
+
+    "wlr/taskbar": {
+        "ignore-list": [
+            "footclient",
+            "yazi"
+    ],
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "minimize-raise"
     },
 
     "group/networkgroup":{
