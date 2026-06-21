@@ -2,6 +2,9 @@ Senderman/adhde-zsh-theme kind:fpath # theme
 Senderman/doas-zsh-plugin # insert doas by pressing double ESC
 
 marlonrichert/zsh-autocomplete kind:clone # real-time autosuggestions
+
+ohmyzsh/ohmyzsh kind:clone path:plugins/zsh-interactive-cd # use fzf for cd
+
 zsh-users/zsh-completions # Additional completion definitions for Zsh
 zsh-users/zsh-autosuggestions # Fish-like autosuggestions for zsh 
 zsh-users/zsh-history-substring-search # ZSH port of Fish history search
