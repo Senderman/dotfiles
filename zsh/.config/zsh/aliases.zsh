@@ -53,13 +53,14 @@ bindkey -M emacs "^[3;5~" delete-char
 bindkey -M viins "^[3;5~" delete-char
 bindkey -M vicmd "^[3;5~" delete-char
 
-# Completions
-eval "$(zoxide init zsh)"
-eval "$(tv init zsh)"
-eval "$(kubie generate-completion zsh)"
-eval "$(gowall completion zsh)"
-eval "$(dua completions zsh)"
-eval "$(glab completion -s zsh)"
+# Copy current command to clipboard
+_copybuffer() {
+    printf "%s" "$BUFFER" | wl-copy -n
+}
+zle -N _copybuffer
+bindkey -M emacs '^O' _copybuffer
+bindkey -M viins '^O' _copybuffer
+bindkey -M vicmd '^O' _copybuffer
 
 # Git aliases and hotkeys
 alias g='git'
@@ -161,15 +162,7 @@ alias tfp='terraform plan'
 alias tfv='terraform validate'
 alias tfs='terraform state'
 
-# Copy current command to clipboard
-_copybuffer() {
-    printf "%s" "$BUFFER" | wl-copy -n
-}
-zle -N _copybuffer
-bindkey -M emacs '^O' _copybuffer
-bindkey -M viins '^O' _copybuffer
-bindkey -M vicmd '^O' _copybuffer
-
+# Colored man pages
 alias man="LESS_TERMCAP_ue='[00m' \
     LESS_TERMCAP_se='[00m' \
     LESS_TERMCAP_mb='[01;31m' \

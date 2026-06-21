@@ -36,6 +36,14 @@ if [ -e "${zsh_config_dir}/aliases-nogit.zsh" ]; then
   . "${zsh_config_dir}/aliases-nogit.zsh"
 fi
 
+# Completions
+eval "$(zoxide init zsh)"
+eval "$(tv init zsh)"
+eval "$(kubie generate-completion zsh)"
+eval "$(gowall completion zsh)"
+eval "$(dua completions zsh)"
+eval "$(glab completion -s zsh)"
+
 setopt interactivecomments    # recognize comments
 setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
@@ -43,6 +51,19 @@ setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt share_history          # share command history data
+
+# Report CWD to terminal emulator via OSC-7 escape sequence
+function _osc7-pwd() {
+    emulate -L zsh # also sets localoptions for us
+    setopt extendedglob
+    local LC_ALL=C
+    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+}
+
+function _chpwd-osc7-pwd() {
+    (( ZSH_SUBSHELL )) || _osc7-pwd
+}
+add-zsh-hook -Uz chpwd _chpwd-osc7-pwd
 
 # Prevent any code from actually running after pasting (do not execute on newline)
 set zle_bracketed_paste
