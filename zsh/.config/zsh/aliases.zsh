@@ -54,6 +54,36 @@ alias za='zellij a -c'
 # Neovim is too long
 alias e=$EDITOR
 
+# Terraform aliases
+alias tf='terraform'
+alias tfa='terraform apply'
+alias tfc='terraform console'
+alias tfd='terraform destroy'
+alias tff='terraform fmt -recursive'
+alias tfi='terraform init'
+alias tfiu='terraform init -upgrade'
+alias tfp='terraform plan'
+alias tfv='terraform validate'
+alias tfs='terraform state'
+
+# Copy current command to clipboard
+_copybuffer() {
+    printf "%s" "$BUFFER" | wl-copy -n
+}
+zle -N _copybuffer
+bindkey '^O' _copybuffer
+
+alias man="LESS_TERMCAP_ue='[00m' \
+    LESS_TERMCAP_se='[00m' \
+    LESS_TERMCAP_mb='[01;31m' \
+    LESS_TERMCAP_md='[01;31m' \
+    LESS_TERMCAP_me='[00m' \
+    LESS_TERMCAP_so='[01;33m[44m' \
+    LESS_TERMCAP_us='[01;32m' \
+    PAGER=/usr/bin/less \
+    GROFF_NO_SGR=1 \
+    man"
+
 # Yazi with cwd update
 function f() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

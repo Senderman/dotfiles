@@ -13,10 +13,14 @@ regen_plugins(){
 [ ! -e $zsh_plugins_src ] && regen_plugins
 [ $zsh_plugins_src -nt $zsh_plugins ] && regen_plugins
 
-zstyle ':omz:update' mode disabled
 zstyle ':vcs_info:*' enable git
 
 . $zsh_plugins
+
+# All modifications to fpath should be done BEFORE this line
+# All calls to compdef should be done AFTER this line
+source ~/.cache/antidote/github.com/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 if [ -e "${zsh_config_dir}/aliases.zsh" ]; then
   . "${zsh_config_dir}/aliases.zsh"
 fi
@@ -24,9 +28,12 @@ if [ -e "${zsh_config_dir}/aliases-nogit.zsh" ]; then
   . "${zsh_config_dir}/aliases-nogit.zsh"
 fi
 
-autoload -Uz compinit
-compinit
+# Prevent any code from actually running after pasting (do not execute on newline)
+set zle_bracketed_paste
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
 
+# Load theme
 autoload -Uz promptinit
 promptinit
 prompt adhde
