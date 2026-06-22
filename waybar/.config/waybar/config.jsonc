@@ -236,8 +236,8 @@
         "modules": [
             "privacy",
             "idle_inhibitor",
-            "tray",
-            "custom/language"
+            "custom/language",
+            "tray"
         ]
     },
     "privacy": {
@@ -262,7 +262,7 @@
         "spacing": 5
     },
     "custom/language": {
-        "exec": "sh -c 'mmsg watch keyboardlayout | jq --unbuffered -cr \".layout[0:2] | ascii_downcase\"'",
+        "exec": "sh -c 'mmsg watch keyboardlayout | jq --unbuffered -cr \".layout[0:2] | ascii_upcase\"'",
         "on-click": "mmsg dispatch switch_keyboard_layout",
         "tooltip": false
     }
