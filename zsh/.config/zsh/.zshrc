@@ -25,13 +25,6 @@ bindkey -e
 
 # Plugins and modules settings
 zstyle ':vcs_info:*' enable git
-zstyle ':autocomplete:*' add-semicolon no
-zstyle ':autocomplete:*' delay 0.4  # seconds (float)
-
-# disable share pushd stack from zsh-autocomplete plugin
-chpwd_recent_filehandler() {
-    reply=()
-}
 
 source $zsh_plugins
 
@@ -40,6 +33,7 @@ autoload -Uz compinit
 compinit
 # All calls to compdef should be done AFTER this line
 source ~/.cache/antidote/github.com/ohmyzsh/ohmyzsh/lib/completion.zsh
+source ~/.config/television/cd-autocomplete.zsh
 source "${zsh_config_dir}/termsupport.zsh"
 
 if [ -e "${zsh_config_dir}/aliases.zsh" ]; then
@@ -51,7 +45,6 @@ fi
 
 # Completions
 eval "$(zoxide init zsh)"
-eval "$(tv init zsh)"
 eval "$(kubie generate-completion zsh)"
 eval "$(gowall completion zsh)"
 eval "$(dua completions zsh)"

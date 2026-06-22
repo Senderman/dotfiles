@@ -126,6 +126,7 @@ esc = "quit"
 # Navigation and selection
 # -----------------------
 down = "select_next_entry"
+tab = "select_next_entry"
 ctrl-j = "select_next_entry"
 up = "select_prev_entry"
 ctrl-k = "select_prev_entry"
@@ -137,8 +138,7 @@ ctrl-down = "select_next_history"
 
 # Multi-selection
 # --------------
-tab = "toggle_selection_down"
-backtab = "toggle_selection_up"
+backtab = "toggle_selection_down"
 enter = "confirm_selection"
 
 # Preview panel control
@@ -205,6 +205,7 @@ fallback_channel = "files"
 # ```
 "alias" = ["alias", "unalias"]
 "env" = ["export", "unset"]
+"cdcmp" = ["cdcmp"]
 "dirs" = ["cd", "ls", "rmdir", "z"]
 "files" = [
   "cat",

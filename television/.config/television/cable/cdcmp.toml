@@ -1,0 +1,11 @@
+[metadata]
+name = "cdcmp"
+description = "Channel for cd autocompletion"
+requirements = ["fd", "sd"]
+
+[source]
+command = ["fd --hidden -t d -t l --max-depth=1 | sd '/$' ''"]
+
+[preview]
+command = "lsd --color always --icon always '{}'"
+
