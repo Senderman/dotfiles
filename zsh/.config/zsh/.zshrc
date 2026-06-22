@@ -38,11 +38,9 @@ source $zsh_plugins
 # All modifications to fpath should be done BEFORE this line
 autoload -Uz compinit
 compinit
-source ~/.cache/antidote/github.com/ohmyzsh/ohmyzsh/lib/completion.zsh
-source ~/.cache/antidote/github.com/ohmyzsh/ohmyzsh/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
-source "${zsh_config_dir}/termsupport.zsh"
-
 # All calls to compdef should be done AFTER this line
+source ~/.cache/antidote/github.com/ohmyzsh/ohmyzsh/lib/completion.zsh
+source "${zsh_config_dir}/termsupport.zsh"
 
 if [ -e "${zsh_config_dir}/aliases.zsh" ]; then
   . "${zsh_config_dir}/aliases.zsh"
