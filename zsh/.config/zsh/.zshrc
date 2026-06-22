@@ -1,5 +1,10 @@
 tput cnorm
 
+## History file configuration
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=10000
+
 zsh_config_dir="${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}"
 zsh_plugins="${zsh_config_dir}/plugins.zsh"
 zsh_plugins_src="${zsh_config_dir}/plugins.txt"
