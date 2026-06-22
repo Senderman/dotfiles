@@ -19,6 +19,7 @@ bindkey -e
 # Plugins and modules settings
 zstyle ':vcs_info:*' enable git
 zstyle ':autocomplete:*' add-semicolon no
+zstyle ':autocomplete:*' delay 0.4  # seconds (float)
 # disable share pushd stack from zsh-autocomplete plugin
 chpwd_recent_filehandler() {
     reply=()
@@ -28,6 +29,7 @@ chpwd_recent_filehandler() {
 
 # All modifications to fpath should be done BEFORE this line
 source ~/.cache/antidote/github.com/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh # this also calls  compinit
+bindkey '^I' menu-select
 source ~/.cache/antidote/github.com/ohmyzsh/ohmyzsh/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 
 # All calls to compdef should be done AFTER this line
