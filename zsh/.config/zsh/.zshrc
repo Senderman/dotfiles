@@ -33,12 +33,14 @@ chpwd_recent_filehandler() {
     reply=()
 }
 
-. $zsh_plugins
+source $zsh_plugins
 
 # All modifications to fpath should be done BEFORE this line
-source ~/.cache/antidote/github.com/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh # this also calls  compinit
-bindkey '^I' menu-select
+autoload -Uz compinit
+compinit
+source ~/.cache/antidote/github.com/ohmyzsh/ohmyzsh/lib/completion.zsh
 source ~/.cache/antidote/github.com/ohmyzsh/ohmyzsh/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
+source "${zsh_config_dir}/termsupport.zsh"
 
 # All calls to compdef should be done AFTER this line
 
@@ -68,24 +70,6 @@ setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt share_history          # share command history data
-
-# Report CWD to terminal emulator via OSC-7 escape sequence
-function _osc7-pwd() {
-    emulate -L zsh # also sets localoptions for us
-    setopt extendedglob
-    local LC_ALL=C
-    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
-}
-
-function _chpwd-osc7-pwd() {
-    (( ZSH_SUBSHELL )) || _osc7-pwd
-}
-add-zsh-hook -Uz chpwd _chpwd-osc7-pwd
-
-# Prevent any code from actually running after pasting (do not execute on newline)
-set zle_bracketed_paste
-autoload -Uz bracketed-paste-magic
-zle -N bracketed-paste bracketed-paste-magic
 
 # Load theme
 autoload -Uz promptinit
