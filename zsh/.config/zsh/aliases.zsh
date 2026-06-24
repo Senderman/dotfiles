@@ -64,8 +64,6 @@ bindkey -M vicmd '^O' _copybuffer
 
 # Git aliases and hotkeys
 alias g='git'
-alias gmc='glab mr create --fill'
-alias gma='glab mr approve'
 
 bindkey -M emacs -s '^Xc' "git commit -S -m ''^[[D"
 bindkey -M viins -s '^Xc' "git commit -S -m ''^[[D"

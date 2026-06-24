@@ -1,5 +1,5 @@
 [metadata]
-name = "s6"
+name = "s6-bundles"
 description = "A channel to control s6 usertree bundles"
 requirements = ["s6", "s6-rc-db"]
 

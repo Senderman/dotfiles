@@ -30,6 +30,9 @@ lvconvert --merge /dev/vgname/lvname
 # -r (--resizefs) only for ext2/3/4 and xfs
 lvresize -L +10G -r vgname/lvname
 
+# Same but fill all the free space on a volume group
+lvresize -l +10G%FREE -r vgname/lvname
+
 # Reduce LV size, FS must be resized first!
 lvresize -L -10G vgname/lvname
 

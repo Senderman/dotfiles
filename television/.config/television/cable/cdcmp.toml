@@ -1,7 +1,7 @@
 [metadata]
 name = "cdcmp"
 description = "Channel for cd autocompletion"
-requirements = ["fd", "sd"]
+requirements = ["fd", "sd", "lsd"]
 
 [source]
 command = ["fd --hidden -t d -t l --max-depth=1 | sd '/$' ''"]

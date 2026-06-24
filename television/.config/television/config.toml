@@ -242,6 +242,7 @@ fallback_channel = "files"
 ]
 "git-log" = ["git log", "git show"]
 "docker-images" = ["docker run"]
+"s6-bundles" = ["s6 live"]
 
 [shell_integration.keybindings]
 # controls which key binding should trigger tv
