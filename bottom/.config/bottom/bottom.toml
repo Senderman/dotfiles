@@ -1,10 +1,16 @@
 [flags]
-hide_avg_cpu = true
 dot_marker = true
 disable_click = true
 process_memory_as_value = true
 battery = true
+get_threads = true
+
+[processes]
 process_command = true
 hide_k_threads = true
-get_threads = true
+default_memory_value = true
+columns = ["pid", "state", "user", "priority", "mem", "cpu%", "time", "name"]
+
+[cpu]
+hide_avg_cpu = true
 
