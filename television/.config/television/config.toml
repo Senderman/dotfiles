@@ -205,7 +205,6 @@ fallback_channel = "files"
 # ```
 "alias" = ["alias", "unalias"]
 "env" = ["export", "unset"]
-"cdcmp" = ["cdcmp"]
 "dirs" = ["cd", "ls", "rmdir", "z"]
 "files" = [
   "cat",
