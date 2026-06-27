@@ -10,12 +10,11 @@ alias trr='transmission-remote'
 which kubecolor 1>/dev/null 2>/dev/null && alias kubectl='kubecolor' && compdef kubecolor=kubectl
 
 # Use modern utils
-alias ls='lsd'
-alias l='lsd -l'
-alias la='lsd -a'
-alias lla='lsd -la'
-alias lg='lsd -lg'
-alias lt='lsd --tree'
+alias ls='eza -1 --icons=auto --group-directories-first'
+alias l='eza -1 --icons=auto --group-directories-first -lg'
+alias la='eza -1 --icons=auto --group-directories-first -a'
+alias lla='eza -1 --icons=auto --group-directories-first -lga'
+alias lt='exa --icons=auto --tree --group-directories-last'
 alias cat='bat -p --theme=base16'
 alias diff='delta'
 alias cd='z'
