@@ -1,6 +1,11 @@
 # Parts of this file is copied from https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 # Set terminal window and tab/icon title, also current dir via OSC-7 escape sequence
-#
+
+# Prevent any code from actually running after pasting (do not execute on newline)
+set zle_bracketed_paste
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+
 # usage: title short_tab_title [long_window_title]
 #
 # See: http://www.faqs.org/docs/Linux-mini/Xterm-Title.html#ss3.1
@@ -48,14 +53,11 @@ fi
 
 # Runs before showing the prompt
 function omz_termsupport_precmd {
-  [[ "${DISABLE_AUTO_TITLE:-}" != true ]] || return 0
   title "$ZSH_THEME_TERM_TAB_TITLE_IDLE" "$ZSH_THEME_TERM_TITLE_IDLE"
 }
 
 # Runs before executing the command
 function omz_termsupport_preexec {
-  [[ "${DISABLE_AUTO_TITLE:-}" != true ]] || return 0
-
   emulate -L zsh
   setopt extended_glob
 
@@ -97,7 +99,7 @@ function omz_termsupport_preexec {
   fi
 
   # cmd name only, or if this is sudo or ssh, the next cmd
-  local CMD="${1[(wr)^(*=*|sudo|ssh|mosh|rake|-*)]:gs/%/%%}"
+  local CMD="${1[(wr)^(*=*|sudo|doas|ssh|mosh|rake|-*)]:gs/%/%%}"
   local LINE="${2:gs/%/%%}"
 
   title "$CMD" "%100>...>${LINE}%<<"
@@ -152,9 +154,4 @@ function _chpwd-osc7-pwd() {
     (( ZSH_SUBSHELL )) || _osc7-pwd
 }
 add-zsh-hook -Uz chpwd _chpwd-osc7-pwd
-
-# Prevent any code from actually running after pasting (do not execute on newline)
-set zle_bracketed_paste
-autoload -Uz bracketed-paste-magic
-zle -N bracketed-paste bracketed-paste-magic
 

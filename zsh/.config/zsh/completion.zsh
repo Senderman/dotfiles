@@ -3,7 +3,7 @@ zmodload -i zsh/complist
 zstyle ':completion:*' completer _extensions _complete _approximate
 # Enable cache
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/.zcompcache"
 # Enable interactive  menu and fuzzy search
 zstyle ':completion:*' menu select search
 # Completion description
