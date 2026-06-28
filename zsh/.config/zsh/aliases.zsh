@@ -21,37 +21,6 @@ alias cd='z'
 alias za='zellij a -c'
 alias e=$EDITOR
 
-# By default run-help is an alias to man
-# This makes it work on shell builtins and other shell features
-autoload -Uz run-help
-(( ${+aliases[run-help]} )) && unalias run-help
-alias help=run-help
-
-# [Ctrl-x] Multiline editor
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey -M emacs '^X^E' edit-command-line
-bindkey -M viins '^X^E' edit-command-line
-bindkey -M vicmd '^X^E' edit-command-line
-
-# [Ctrl-RightArrow] - move forward one word
-bindkey -M emacs '^[[1;5C' forward-word
-bindkey -M viins '^[[1;5C' forward-word
-bindkey -M vicmd '^[[1;5C' forward-word
-
-# [Ctrl-LeftArrow] - move backward one word
-bindkey -M emacs '^[[1;5D' backward-word
-bindkey -M viins '^[[1;5D' backward-word
-bindkey -M vicmd '^[[1;5D' backward-word
-
-# [Delete] - delete forward
-bindkey -M emacs "^[[3~" delete-char
-bindkey -M viins "^[[3~" delete-char
-bindkey -M vicmd "^[[3~" delete-char
-bindkey -M emacs "^[3;5~" delete-char
-bindkey -M viins "^[3;5~" delete-char
-bindkey -M vicmd "^[3;5~" delete-char
-
 # Copy current command to clipboard
 _copybuffer() {
     printf "%s" "$BUFFER" | wl-copy -n
@@ -163,17 +132,6 @@ alias tfp='terraform plan'
 alias tfv='terraform validate'
 alias tfs='terraform state'
 
-# Colored man pages
-alias man="LESS_TERMCAP_ue='[00m' \
-    LESS_TERMCAP_se='[00m' \
-    LESS_TERMCAP_mb='[01;31m' \
-    LESS_TERMCAP_md='[01;31m' \
-    LESS_TERMCAP_me='[00m' \
-    LESS_TERMCAP_so='[01;33m[44m' \
-    LESS_TERMCAP_us='[01;32m' \
-    PAGER=/usr/bin/less \
-    GROFF_NO_SGR=1 \
-    man"
 
 # Yazi with cwd update
 function f() {
@@ -183,14 +141,5 @@ function f() {
     cd -- "$cwd"
     fi
     rm -f -- "$tmp"
-}
-
-# Show all terminal colors
-function termcolors() {
-    fg='\e[38;5;';bg='\e[48;5;'
-    for ix in {1..256}; do
-        printf "fg \"%s\e[38;5;%sm%s\e[0mm\"\tbg \"%s\e[48;5;%sm%s\e[0mm\"\n" ${fg} ${ix} ${ix} ${bg} ${ix} ${ix}
-    done
-    printf "\e[0m"
 }
 

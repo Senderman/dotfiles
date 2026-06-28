@@ -1,10 +1,5 @@
 tput cnorm
 
-## History file configuration
-[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
-HISTSIZE=50000
-SAVEHIST=10000
-
 # Antodote config
 local zsh_config_dir="${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}"
 local zsh_plugins="${zsh_config_dir}/plugins.zsh"
@@ -32,11 +27,15 @@ source $zsh_plugins
 autoload -Uz compinit
 compinit
 # All calls to compdef should be done AFTER this line
-source "${zsh_config_dir}/options.zsh"
-source "${zsh_config_dir}/termsupport.zsh"
 source "${zsh_config_dir}/aliases.zsh"
-source "${zsh_config_dir}/completion.zsh"
 [ -e "${zsh_config_dir}/aliases-nogit.zsh" ] && source "${zsh_config_dir}/aliases-nogit.zsh"
+
+# Command completions
+eval "$(zoxide init zsh)"
+eval "$(tv init zsh)"
+eval "$(kubie generate-completion zsh)"
+eval "$(gowall completion zsh)"
+eval "$(dua completions zsh)"
 
 # Load theme
 autoload -Uz promptinit

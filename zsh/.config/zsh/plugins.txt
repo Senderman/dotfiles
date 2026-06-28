@@ -1,5 +1,6 @@
 Senderman/adhde-zsh-theme kind:fpath # theme
 Senderman/doas-zsh-plugin # insert doas by pressing double ESC
+Senderman/adhde-zsh-settings
 
 zsh-users/zsh-completions # Additional completion definitions for Zsh
 zsh-users/zsh-autosuggestions # Fish-like autosuggestions for zsh 
