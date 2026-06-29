@@ -100,8 +100,7 @@
         "modules": [
             "network#main",
             "network#vpn"
-        ],
-        "drawer": {}
+        ]
     },
     "network#main": {
         "format-wifi": "   ({signalStrength}%)",
@@ -139,8 +138,7 @@
         "modules": [
             "memory",
             "cpu"
-        ],
-        "drawer": {}
+        ]
     },
     "cpu": {
         "format": "  {usage}%",
@@ -157,8 +155,7 @@
         "modules": [
             "pulseaudio",
             "wireplumber"
-        ],
-        "drawer": {}
+        ]
     },
     "pulseaudio": {
         "format": "{icon}  {volume}%",
@@ -189,8 +186,7 @@
         "modules": [
             "battery",
             "backlight"
-        ],
-        "drawer": {}
+        ]
     },
     "backlight": {
         "format": "󰖨  {percent}%",
