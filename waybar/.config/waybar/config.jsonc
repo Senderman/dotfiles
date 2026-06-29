@@ -159,15 +159,15 @@
     },
     "pulseaudio": {
         "format": "{icon}  {volume}%",
-        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon} ",
         "format-bluetooth-muted": "󰸈 M",
         "format-muted": "󰸈 M",
         "format-source-muted": "",
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "󰋎",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": "",
