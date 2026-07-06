@@ -40,5 +40,6 @@ eval "$(dua completions zsh)"
 # Load theme
 autoload -Uz promptinit
 promptinit
-prompt adhde
+prompt adhde cyan noclock
+
 
