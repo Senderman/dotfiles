@@ -5,7 +5,7 @@ copy-command = "wl-copy"
 output-filename = "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 early-exit = true
 disable-notifications = true
-default-hide-toolbars = true
+default-hide-toolbars = false
 default-fill-shapes = false
 primary-highlighter = "block"
 
