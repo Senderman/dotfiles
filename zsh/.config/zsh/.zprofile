@@ -1,3 +1,6 @@
+# zsh
+export HISTFILE="${XDG_STATE_HOME}/zsh/history"
+
 export PATH="${PATH}:${HOME}/.local/scripts:${HOME}/.local/bin"
 
 # XDG base dirs
@@ -7,7 +10,7 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_CACHE_HOME="${HOME}/.cache"
 
 # s6-frontend config
-export S6_FRONTEND_CONF="$XDG_DATA_HOME/s6/s6-frontend.conf"
+export S6_FRONTEND_CONF="${XDG_DATA_HOME}/s6/s6-frontend.conf"
 
 # Config paths
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
@@ -46,14 +49,14 @@ export CLIPHIST_DB_PATH="${XDG_RUNTIME_DIR}/cliphist"
 # User preferences
 export EDITOR=nvim
 export LANG=en_US.UTF-8
-export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt # for python
 
-# zsh
-export HISTFILE="${XDG_STATE_HOME}/zsh/history"
+# Python trust system certs
+export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
 # terraform
 export AWS_REQUEST_CHECKSUM_CALCULATION=when_required
 export AWS_RESPONSE_CHECKSUM_VALIDATION=when_required
+export CHECKPOINT_DISABLE=1
 
 if [ "$TTY" = "/dev/tty1" ]; then
     usertree boot
