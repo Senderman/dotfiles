@@ -20,12 +20,12 @@ The table is incomplete
 
 |                           |                                                                             |
 | ------------------------- | --------------------------------------------------------------------------- |
-| **OS**                    | Artix Linux                                                                 |
+| **OS**                    | [Artix Linux](https://artixlinux.org)                                       |
 | **WM**                    | [MangoWM](https://mangowm.github.io)                                        |
 | **Status bar**            | [Waybar](https://github.com/Alexays/Waybar)                                 |
-| **Shell**                 | Zsh                                                                         |
+| **Shell**                 | [Zsh](https://www.zsh.org)                                                  |
 | **Terminal**              | [Foot](https://codeberg.org/dnkl/foot)                                      |
-| **Text Editor**           | nvim                                                                        |
+| **Text Editor**           | [Neovim](https://neovim.io)                                                 |
 | **Fonts**                 | [JetBrainsMono Nerd Font](https://www.nerdfonts.com), Noto Sans CJK JP      |
 | **File manager**          | [Yazi](https://yazi-rs.github.io)                                           |
 | **Launcher**              | [Fuzzel](https://codeberg.org/dnkl/fuzzel)                                  |
