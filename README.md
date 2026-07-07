@@ -18,19 +18,20 @@ My personal dotfiles and configs for various linux software that together form [
 
 The table is incomplete
 
-|                           |                                                |
-| ------------------------- | ---------------------------------------------- |
-| **OS**                    | Artix Linux                                    |
-| **WM**                    | [MangoWM](https://mangowm.github.io)           |
-| **Status bar**            | [Waybar](https://github.com/Alexays/Waybar)    |
-| **Shell**                 | Zsh                                            |
-| **Terminal**              | [Foot](https://codeberg.org/dnkl/foot)         |
-| **Text Editor**           | nvim                                           |
-| **File manager**          | [Yazi](https://yazi-rs.github.io)              |
-| **Launcher**              | [Fuzzel](https://codeberg.org/dnkl/fuzzel)     |
-| **Music Player**          | MPD+[RMPC](https://rmpc.mierak.dev)            |
-| **Screenshot annotation** | [Satty](https://github.com/Satty-org/Satty)    |
-| **Process supervision**   | [s6/s6-rc stack](https://skarnet.org/software) |
+|                           |                                                                             |
+| ------------------------- | --------------------------------------------------------------------------- |
+| **OS**                    | Artix Linux                                                                 |
+| **WM**                    | [MangoWM](https://mangowm.github.io)                                        |
+| **Status bar**            | [Waybar](https://github.com/Alexays/Waybar)                                 |
+| **Shell**                 | Zsh                                                                         |
+| **Terminal**              | [Foot](https://codeberg.org/dnkl/foot)                                      |
+| **Text Editor**           | nvim                                                                        |
+| **Fonts**                 | [JetBrainsMono Nerd Font](https://www.nerdfonts.com), Noto Sans CJK JP      |
+| **File manager**          | [Yazi](https://yazi-rs.github.io)                                           |
+| **Launcher**              | [Fuzzel](https://codeberg.org/dnkl/fuzzel)                                  |
+| **Music Player**          | MPD+[RMPC](https://rmpc.mierak.dev)                                         |
+| **Screenshot annotation** | [Satty](https://github.com/Satty-org/Satty)                                 |
+| **Process supervision**   | [s6/s6-rc stack](https://skarnet.org/software)                              |
 
 # Installation
 This repo is designed to be used with [GNU Stow](https://www.gnu.org/software/stow/).
