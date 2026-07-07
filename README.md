@@ -6,15 +6,15 @@ _Attention Deficit Hyperactivity Desktop Environment_
 
 </div>
 
----
+My personal dotfiles and configs for various linux software that together form [ADHDE](https://github.com/Senderman/adhde) - **Attention Deficit Hyperactivity Desktop Environment** (the manual is currently a WIP and has not yet been translated).
 
-My personal dotfiles and configs for various linux software that together form ADHDE - Attention Deficit Hyperactivity Desktop Environment (the manual is currently a WIP and not translated yet).
+---
 
 ![Preview](./showcase/image.png)
 
 ---
 
-# Software being used
+# Software used
 
 The table is incomplete
 
@@ -46,7 +46,7 @@ cd dotfiles
 stow mangowm
 ```
 
-This will symlink `~/dotfiles/mangowm/*` to `$HOME` . Since you probably have `~/.config` directory, you will get `~/.config/mangowm` directory which is symlink to `~/dotfiles/mangowm/.config/mango`:
+This will symlink `~/dotfiles/mangowm/*` to `$HOME` . Since you probably already have `~/.config` directory, you will get `~/.config/mangowm` directory which is symlink to `~/dotfiles/mangowm/.config/mango`:
 
 ```bash
 ~ $ readlink ~/.config/mango
@@ -55,7 +55,7 @@ This will symlink `~/dotfiles/mangowm/*` to `$HOME` . Since you probably have `~
 
 if you want to uninstall symlink, run `stow -D mangowm`. Don't worry, this will never delete files that don't belong to this repository.
 
-You're welcome to fork this repo, edit the dotfiles and add your own and create PR :)
+You're welcome to fork this repo, edit the dotfiles and add your own and create PR if you want to make ADHDE better or to suggest a new software and its configs :)
 
 # Move your config files to the dotfiles repository
 
