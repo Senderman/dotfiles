@@ -1,5 +1,5 @@
 pkgname=mangowm-senderman-git
-pkgver=r1668.24fb167a
+pkgver=r1798.bcb4f12e
 pkgrel=1
 pkgdesc="A Wayland compositor with smooth animation (patched by Senderman)"
 url="https://github.com/mangowm/mango"
@@ -12,11 +12,12 @@ depends=(
   pixman
   libxkbcommon
   pcre2
+  pango
   cjson
   libxcb
   xorg-xwayland
-  'libwlroots-0.19.so'
-  'scenefx0.4'
+  'libwlroots-0.20.so'
+  'scenefx0.5'
 )
 
 makedepends=(
