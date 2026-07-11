@@ -4,9 +4,10 @@ tput cnorm
 local zsh_config_dir="${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}"
 local zsh_plugins="${zsh_config_dir}/plugins.zsh"
 local zsh_plugins_src="${zsh_config_dir}/plugins.txt"
+export ANTIDOTE_HOME="${HOME}/.local/share/antidote_bundles"
 
 regen_plugins(){
-    ANTIDOTE_HOME="${HOME}/.local/share/antidote_bundles" antidote bundle < $zsh_plugins_src > $zsh_plugins
+    antidote bundle < $zsh_plugins_src > $zsh_plugins
     echo "Antidote plugins file was updated"
 }
 
