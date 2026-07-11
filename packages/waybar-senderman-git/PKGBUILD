@@ -66,6 +66,8 @@ build() {
     -Djack=disabled
     -Dcava=disabled
     -Dgps=disabled
+    -Dniri=false
+    -Dwwan=disabled
   )
 
   arch-meson "${_meson_args[@]}" "$_pkgsrc" build
