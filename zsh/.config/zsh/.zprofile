@@ -1,6 +1,3 @@
-# zsh
-export HISTFILE="${XDG_STATE_HOME}/zsh/history"
-
 export PATH="${PATH}:${HOME}/.local/scripts:${HOME}/.local/bin"
 
 # XDG base dirs
@@ -8,6 +5,9 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_CACHE_HOME="${HOME}/.cache"
+
+# zsh
+export HISTFILE="${XDG_STATE_HOME}/zsh/history"
 
 # s6-frontend config
 export S6_FRONTEND_CONF="${XDG_DATA_HOME}/s6/s6-frontend.conf"
