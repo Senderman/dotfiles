@@ -2,7 +2,7 @@
 
 _pkgname="waybar"
 pkgname="$_pkgname-senderman-git"
-pkgver=0.15.0.r173.g0594574
+pkgver=0.15.0.r932.g98b2a56
 pkgrel=1
 pkgdesc="Highly customizable Wayland bar for Sway and Wlroots based compositors (patched by Senderman)"
 url='https://github.com/Alexays/Waybar'

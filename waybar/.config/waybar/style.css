@@ -60,7 +60,7 @@ button:hover {
     box-shadow: inset 0 3px @blue;
 }
 
-#workspaces button:not(.hidden) {
+#workspaces button:not(.empty) {
     color: @blue;
 }
 
@@ -68,10 +68,19 @@ button:hover {
     color: @red;
 }
 
-/* dwl#window module */
-#window {
+/* mango/layout module */
+#layout {
     margin-right: 10px;
     color: @light_purple;
+    font-weight: bold;
+}
+
+#layout:not(.F) {
+    color: @blue;
+}
+
+/* mango/window module */
+#window {
     font-weight: bold;
 }
 
@@ -198,7 +207,7 @@ button:hover {
     margin: 0 5px;
 }
 
-#custom-language {
+#language {
     margin-right: 5px;
     font-weight: bold;
 }
