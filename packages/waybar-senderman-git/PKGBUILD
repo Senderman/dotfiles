@@ -2,7 +2,7 @@
 
 _pkgname="waybar"
 pkgname="$_pkgname-senderman-git"
-pkgver=0.15.0.r932.g98b2a56
+pkgver=0.15.0.r934.gcf19c83
 pkgrel=1
 pkgdesc="Highly customizable Wayland bar for Sway and Wlroots based compositors (patched by Senderman)"
 url='https://github.com/Alexays/Waybar'
@@ -45,13 +45,19 @@ backup=(
 )
 
 _pkgsrc="$_pkgname"
-source=("$_pkgsrc"::"git+$url.git")
-sha256sums=('SKIP')
+source=("$_pkgsrc"::"git+$url.git" "patch.diff")
+sha256sums=('SKIP'
+            'febd37de6100de47943f98b2b8e975442b8a846e2bbd9e280549b0779bdb5e21')
 
 pkgver() {
   cd "$_pkgsrc"
   git describe --long --tags --abbrev=7 --exclude='*[a-zA-Z][a-zA-Z]*' \
     | sed -E 's/^[^0-9]*//;s/([^-]*-g)/r\1/;s/-/./g'
+}
+
+prepare() {
+    cd "$_pkgsrc"
+    patch -p1 < ../patch.diff
 }
 
 build() {
@@ -68,6 +74,11 @@ build() {
     -Dgps=disabled
     -Dniri=false
     -Dwwan=disabled
+    -Dsway=false
+    -Driver=false
+    -Ddwl=false
+    -Dhyprland=false
+    -Dwayfire=false
   )
 
   arch-meson "${_meson_args[@]}" "$_pkgsrc" build
