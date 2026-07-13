@@ -107,7 +107,8 @@
         "modules": [
             "network#main",
             "network#vpn"
-        ]
+        ],
+        "drawer": {}
     },
     "network#main": {
         "format-wifi": "   ({signalStrength}%)",
@@ -152,7 +153,7 @@
         "on-click": "footclient btm"
     },
     "memory": {
-        "format": "  {percentage}%    {swapPercentage}%",
+        "format": "  {percentage}% / {swapPercentage}%",
         "on-click": "footclient btm",
         "tooltip-format": "RAM {used}GiB / Swap {swapUsed}GiB"
     },
@@ -193,7 +194,8 @@
         "modules": [
             "battery",
             "backlight"
-        ]
+        ],
+        "drawer": {}
     },
     "backlight": {
         "format": "󰖨  {percent}%",
