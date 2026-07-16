@@ -3,6 +3,14 @@
     "display": {
           "separator": " ➜  "
     },
+    "logo": {
+        "source": "~/.config/fastfetch/adhde_logo.sixel",
+        "type": "raw",
+        "padding": {
+            "top": 5,
+            "right": 35
+        }
+    },
     "modules": [
         "break",
          {
