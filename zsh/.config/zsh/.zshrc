@@ -31,6 +31,9 @@ compinit
 source "${zsh_config_dir}/aliases.zsh"
 [ -e "${zsh_config_dir}/aliases-nogit.zsh" ] && source "${zsh_config_dir}/aliases-nogit.zsh"
 
+# Additional modules
+autoload -Uz zcalc
+
 # Command completions
 eval "$(zoxide init zsh)"
 eval "$(tv init zsh)"
