@@ -111,6 +111,7 @@ bindkey -M vicmd '^Xr' _git_go_reporoot
 alias pacin='doas pacman -S'
 alias pacrem='doas pacman -Rns'
 alias pacupg='doas pacman -Syu'
+alias pacopts='comm -23 <(pacman -Qdttq | sort) <(pacman -Qdtq | sort)'
 
 # Yay aliases
 alias yain='yay -S'
