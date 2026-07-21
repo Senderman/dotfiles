@@ -4,14 +4,14 @@
     "modules-left": [
         "mango/workspaces",
         "mango/layout",
-        "mpd",
-        "mpris",
         "wlr/taskbar"
     ],
     "modules-center": [
         "mango/window"
     ],
     "modules-right": [
+        "mpd",
+        "mpris",
         "group/networkgroup",
         "bluetooth",
         "group/loadgroup",
@@ -50,7 +50,8 @@
       }
     },
     "mango/layout": {
-      "format": "{}"
+      "format": "{}",
+      "on-click": "mango-layouts"
     },
     
     "mpd": {
