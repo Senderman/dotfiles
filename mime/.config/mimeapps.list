@@ -30,4 +30,5 @@ video/quicktime=mpv.desktop;
 video/mp4=mpv.desktop;
 video/x-matroska=mpv.desktop;
 x-scheme-handler/jetbrains=jetbrainsd.desktop
+x-scheme-handler/throne=throne-url-handler.desktop
 
