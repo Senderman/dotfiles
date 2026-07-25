@@ -18,36 +18,50 @@
     a  = add
 
 [credential]
-    helper = store
+    # Store credentials temporarily in memory
+    helper = cache
 
 [commit]
+    # Sign all commits
     gpgsign = true
 
 [core]
     autocrlf = input
+    # Use delta as external pager
     pager = delta
 
+# Settings for https://dandavison.github.io/delta
 [delta]
     dark = true
+    # Enable hyperlinks in terminal
     hyperlinks = true
+    # Navigate via n/N
     navigate = true
+    # Display diff side by side
     side-by-side = true
 
 [init]
     defaultBranch = master
 
 [interactive]
+    # Pipe diffs to delta
     diffFilter = delta --color-only
 
 [merge]
+    # Delta shows zdiff3-styled conflicts better
+    # https://dandavison.github.io/delta/merge-conflicts.html?highlight=zdiff#merge-conflicts
     conflictStyle = zdiff3
 
 [push]
+    # Add --set-upstream (-u) on git push
+    # Also allow to not to specify remote branch on git push command
     autoSetupRemote = true
 
 [pull]
+    # If the remote branch differs from local, rebase the local branch on top of fetched remote
     rebase = false
 
+# Default LFS settings
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
