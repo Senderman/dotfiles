@@ -1,4 +1,3 @@
-@define-color background #171925;
 @define-color foreground #c5c8c6;
 @define-color red #bd2c40;
 @define-color orange #ffb52a;
@@ -21,7 +20,7 @@ tooltip label {
 
 /* Bar itself */
 window#waybar {
-    background-color: @background;
+    background-color: rgba(24, 31, 43, 0.9);
     color: @foreground;
     transition-property: background-color;
     transition-duration: .5s;
