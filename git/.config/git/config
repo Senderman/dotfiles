@@ -39,6 +39,11 @@
     navigate = true
     # Display diff side by side
     side-by-side = true
+    map-styles = bold purple => bold magenta, bold cyan => bold blue
+
+# Detect moved code blocks
+[diff]
+    colorMoved = default
 
 [init]
     defaultBranch = master
