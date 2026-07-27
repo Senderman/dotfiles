@@ -1,0 +1,7 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+
+importas -S HOME
+
+${HOME}/.local/share/s6/sv/docker-srv/dockerd-rootless.sh
