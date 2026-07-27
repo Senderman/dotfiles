@@ -10,7 +10,7 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export HISTFILE="${XDG_STATE_HOME}/zsh/history"
 
 # s6-frontend config
-export S6_FRONTEND_CONF="${XDG_DATA_HOME}/s6/s6-frontend.conf"
+export S6_CONF="${XDG_DATA_HOME}/s6/s6-frontend.conf"
 
 # Config paths
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"

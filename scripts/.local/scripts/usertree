@@ -13,33 +13,15 @@ s6_stmpdir="$s6_runtime_dir/stmp" # s6-frontend runtime data and temp files
 s6_logger_dir="$s6_scandir/s6-svscan-log" # servicedir of catch-all logger
 s6_logger_fifo="$s6_logger_dir/fifo" # fifo where all uncaught logs will go
 
-if [ -z "$S6_FRONTEND_CONF" ]; then
-    echo "S6_FRONTEND_CONF environment variable is empty. Please add to your environment:"
+if [ -z "$S6_CONF" ]; then
+    echo "S6_CONF environment variable is empty. Please add to your environment:"
     echo
-    echo 'export S6_FRONTEND_CONF="$XDG_DATA_HOME/s6/s6-frontend.conf"'
+    echo 'export S6_CONF="$XDG_DATA_HOME/s6/s6-frontend.conf"'
     echo
     exit 1
 fi
 
-export S6_FRONTEND_CONF="$s6_frontend_conf"
-
-generate_catch_all_logger() {
-    mkdir -p "${s6_runtime_dir}/log"
-    mkdir -p "${s6_logger_dir}"
-    printf 3 > "${s6_logger_dir}/notification-fd"
-    printf 1 > "${s6_logger_dir}/down-signal"
-    mkfifo "${s6_logger_fifo}"
-    cat > "${s6_logger_dir}/run" << EOF
-#!/usr/bin/execlineb -P
-
-fdmove -c 1 2
-redirfd -rnb 0 fifo
-importas -S XDG_RUNTIME_DIR
-
-s6-log -bpd3 -- n3 s2000000 T ${XDG_RUNTIME_DIR}/s6/log/uncaught-logs
-EOF
-    chmod +x "${s6_logger_dir}/run"
-}
+export S6_CONF="$s6_frontend_conf"
 
 boot_tree() {
     if s6-svscanctl -z "${s6_scandir}" 2>/dev/null; then
@@ -49,22 +31,19 @@ boot_tree() {
     rm -f "${s6_livedir}"
     rm -rf "${s6_scandir}"
 
-    generate_catch_all_logger
-    
     setsid -f \
     fdmove -c 4 1 \
-    redirfd -wnb 1 "$s6_logger_fifo" \
-    fdmove -c 2 1 \
     envfile -I "$s6_srcdir/config/global.conf" \
-    s6-svscan -d 4 "$s6_scandir" | read -r _
+    s6-svscanboot \
+      -D ${XDG_RUNTIME_DIR}/s6/log/uncaught-logs \
+      -o 'n3 s2000000 T' \
+      -d 4 "${s6_scandir}"  | read -r _
 
-    # TODO replace  the following 2 lines with s6 system boot once s6-rc-init -b is fixed
-    s6-rc-init -c "$s6_compdir" -l "$s6_livedir" "$s6_scandir"
-    s6 live start-everything
+    s6 system boot
 }
 
 tear_tree(){
-    s6 process stop -w s6-svscan-log # stop the catch-all logger, or else it will ignore s6 shutdown and continue to run
+    s6 process stop -W s6-svscan-log # stop the catch-all logger, or else it will ignore s6 shutdown and continue to run
     s6-svscanctl -t "$s6_scandir" # shut down the s6 tree
 }
 
@@ -102,7 +81,7 @@ repo_init(){
     echo
     echo "Adding all services from 'current-set-init' bundle to 'enabled' rx (it's ok to fail here if the bundle does not exist)"
     echo
-    s6 -v2 set enable -I pull current-set-init
+    s6 -v2 set enable -p current-set-init
     echo
     echo "Committing changes"
     echo
