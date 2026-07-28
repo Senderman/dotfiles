@@ -43,8 +43,7 @@ boot_tree() {
 }
 
 tear_tree(){
-    s6 process stop -W s6-svscan-log # stop the catch-all logger, or else it will ignore s6 shutdown and continue to run
-    s6-svscanctl -t "$s6_scandir" # shut down the s6 tree
+    s6-svscanctl -t "$s6_scandir"
 }
 
 generate_s6_frontend_config(){
