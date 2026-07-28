@@ -1,0 +1,32 @@
+---
+tags: [ redhat ]
+---
+# Remove package
+dnf remove nginx
+
+# Search remote
+dnf search nginx
+dnf list available '*nginx*'
+dnf info nginx
+
+# Search installed
+dnf list installed '*nginx*'
+rpm -qa | grep nginx
+rpm -q nginx
+
+# Info about installed
+rpm -qi nginx
+
+# List package files
+rpm -ql nginx
+
+# Query which local package owns the file
+rpm -qf /path/to/file
+
+# Query which remove package owns the file
+dnf provides '*/file'
+
+# Update cache
+dnf makecache
+dnf -c search/info/list
+
