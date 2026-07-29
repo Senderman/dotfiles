@@ -208,5 +208,7 @@ button:hover {
 #language {
     margin-right: 5px;
     font-weight: bold;
+    /* Without Mono font, module's width depeds on language name */
+    font-family: Noto Sans Mono
 }
 
