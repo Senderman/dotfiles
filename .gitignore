@@ -22,3 +22,6 @@ cheat/.config/cheat/cheatsheets/work/*
 cava/.config/cava/shaders
 cava/.config/cava/themes
 
+copyparty/.config/copyparty/*
+!copyparty/.config/copyparty/copyparty.conf
+

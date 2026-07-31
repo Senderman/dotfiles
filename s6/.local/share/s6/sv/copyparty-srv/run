@@ -1,0 +1,5 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+importas -S XDG_CONFIG_HOME
+copyparty -c ${XDG_CONFIG_HOME}/copyparty/copyparty.conf --deps
