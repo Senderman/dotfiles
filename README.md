@@ -67,5 +67,7 @@ E.g. if you want to move and symlink your waybar config to the dotfiles reposito
 stowlink .config/waybar waybar
 ```
 
+Also check out [lnko](https://github.com/luanvil/lnko) for slightly more advanced dotfile management (compatible with this repo)
+
 Many thanks to my dear friend [Vezono](https://github.com/vezono) for this script!
 
