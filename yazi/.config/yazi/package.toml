@@ -1,16 +1,16 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "bb758e2"
+rev = "9014ed2"
 hash = "88e56a64b7ce7c4314427452343fef17"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "bb758e2"
+rev = "9014ed2"
 hash = "5b1c276b75cae91cbbdbe7863f39a540"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "bb758e2"
+rev = "9014ed2"
 hash = "e3260d0b1feded8c8e3ae3afa1169e30"
 
 [[plugin.deps]]
@@ -25,12 +25,12 @@ hash = "fdb9c99b81d675a3098ba8e380048b00"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "bb758e2"
-hash = "b32d06923a619e353fca3cacf2ebe9cd"
+rev = "9014ed2"
+hash = "b33b8b5e45cb10ffd31d3cccb93c6fd7"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "bb758e2"
+rev = "9014ed2"
 hash = "e0d59bd47866a6a574c74574097e5070"
 
 [flavor]
