@@ -1,0 +1,10 @@
+---
+tags: [ archlinux, pacman ]
+syntax: bash
+---
+# Remove orphans
+pacman -Rns $(pacman -Qdtq)
+
+# Find packages installed as deps, but only needed as optional deps
+comm -23 <(pacman -Qdttq | sort) <(pacman -Qdtq | sort)
+
