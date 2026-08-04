@@ -4,7 +4,12 @@ tput cnorm
 local zsh_config_dir="${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}"
 local zsh_plugins="${zsh_config_dir}/plugins.zsh"
 local zsh_plugins_src="${zsh_config_dir}/plugins.txt"
+local antidote_location="${XDG_DATA_DIR:-${HOME}/.local/share}/antidote"
 export ANTIDOTE_HOME="${HOME}/.local/share/antidote_bundles"
+
+get_antidote() {
+    git clone --depth=1 https://github.com/mattmc3/antidote.git "${antidote_location}"
+}
 
 regen_plugins(){
     . ${XDG_DATA_DIR:-~/.local/share}/antidote/antidote.zsh
@@ -12,8 +17,11 @@ regen_plugins(){
     echo "Antidote plugins file was updated"
 }
 
+# download antidote if not exist
+[ ! -d "${antidote_location}" ] && get_antidote
+
 # Generate antidote.zsh when absent or when antidote.txt is newer than antidote.zsh
-[ ! -e $zsh_plugins_src ] && regen_plugins
+[ ! -e $zsh_plugins ] && regen_plugins
 [ $zsh_plugins_src -nt $zsh_plugins ] && regen_plugins
 
 # Emacs mode
@@ -35,11 +43,11 @@ source "${zsh_config_dir}/aliases.zsh"
 autoload -Uz zcalc
 
 # Command completions
-eval "$(zoxide init zsh)"
-eval "$(tv init zsh)"
-eval "$(kubie generate-completion zsh)"
-eval "$(gowall completion zsh)"
-eval "$(dua completions zsh)"
+command -v zoxide > /dev/null && eval "$(zoxide init zsh)"
+command -v tv > /dev/null && eval "$(tv init zsh)"
+command -v kubie > /dev/null && eval "$(kubie generate-completion zsh)"
+command -v gowall > /dev/null && eval "$(gowall completion zsh)"
+command -v dua > /dev/null && eval "$(dua completions zsh)"
 
 # Load theme
 autoload -Uz promptinit
