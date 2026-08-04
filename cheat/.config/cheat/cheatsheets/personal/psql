@@ -1,7 +1,3 @@
----
-tags: [ database ]
-syntax: text
----
 # Connection options:
 # -U username (if not specified current OS user is used).
 # -p port. Typically 5432, but 15432 on patroni clusters

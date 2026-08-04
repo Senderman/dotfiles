@@ -1,6 +1,3 @@
----
-tags: [ redhat ]
----
 # Remove package
 dnf remove nginx
 

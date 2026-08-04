@@ -1,8 +1,3 @@
----
-tags: [ git, patch, diff ]
-syntax: bash
----
-
 # Generate diff via git
 git diff REVISION > file.diff
 

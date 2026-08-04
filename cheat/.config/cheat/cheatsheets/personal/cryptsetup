@@ -1,7 +1,3 @@
----
-tags: [ cryptsetup, disk ]
-syntax: bash
----
 # Create a key file
 dd bs=512 count=4 if=/dev/random iflag=fullblock | install -m 0600 /dev/stdin /etc/cryptsetup-keys.d/cryptlvm.key
 

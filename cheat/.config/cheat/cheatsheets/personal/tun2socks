@@ -1,8 +1,3 @@
----
-tags: [ proxy, vpn ]
-syntax: bash
----
-
 # Create interface
 ip tuntap add dev tun0 mode tun user <your_local_user>
 ip addr replace 10.0.0.1/24 dev tun0

@@ -1,7 +1,3 @@
----
-tags: [ archlinux, pacman ]
-syntax: bash
----
 # Remove orphans
 pacman -Rns $(pacman -Qdtq)
 
