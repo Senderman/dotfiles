@@ -7,12 +7,12 @@ local zsh_plugins_src="${zsh_config_dir}/plugins.txt"
 export ANTIDOTE_HOME="${HOME}/.local/share/antidote_bundles"
 
 regen_plugins(){
+    . ${XDG_DATA_DIR:-~/.local/share}/antidote/antidote.zsh
     antidote bundle < $zsh_plugins_src > $zsh_plugins
     echo "Antidote plugins file was updated"
 }
 
 # Generate antidote.zsh when absent or when antidote.txt is newer than antidote.zsh
-. ${XDG_DATA_DIR:-~/.local/share}/antidote/antidote.zsh
 [ ! -e $zsh_plugins_src ] && regen_plugins
 [ $zsh_plugins_src -nt $zsh_plugins ] && regen_plugins
 
