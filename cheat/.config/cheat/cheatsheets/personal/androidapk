@@ -1,3 +1,6 @@
+# Generate keystore
+keytool -genkey -v -keystore my-release-key.jks -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+
 # Align apk file
 zipalign -P 16 -f -v 4 infile.apk outfile.apk
 
