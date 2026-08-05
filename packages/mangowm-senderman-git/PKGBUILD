@@ -1,5 +1,5 @@
 pkgname=mangowm-senderman-git
-pkgver=r1846.5547244d
+pkgver=r1869.1acfc00c
 pkgrel=1
 pkgdesc="A Wayland compositor with smooth animation (patched by Senderman)"
 url="https://github.com/mangowm/mango"
