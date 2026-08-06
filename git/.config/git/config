@@ -1,6 +1,9 @@
-[user]
-    name = Fyodor Doletov
-    email = doletov.fyodor@yandex.ru
+# Create a file named ~/.config/git/account with the following content:
+# [user]
+#   name = Name Surname
+#   email = email@domain
+[include]
+    path = account
 
 [alias]
     br = branch
