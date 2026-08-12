@@ -1,4 +1,4 @@
-swayimg.text.set_font('JetBrainsMono Nerd Font')
+swayimg.text.font = 'JetBrainsMono Nerd Font'
 
 -- Viewer mode
 swayimg.viewer.bind_reset()
@@ -6,7 +6,9 @@ swayimg.viewer.set_window_background(0xff000000)
 swayimg.viewer.set_image_background(0xffffffff)
 
 swayimg.on_window_resize(function()
-    swayimg.viewer.set_fix_scale('optimal')
+    if swayimg.mode == 'viewer' then
+        swayimg.viewer.set_fix_scale('optimal')
+    end
 end)
 
 swayimg.viewer.on_key('q', function()
@@ -14,19 +16,19 @@ swayimg.viewer.on_key('q', function()
 end)
 
 swayimg.viewer.on_key('Return', function()
-    swayimg.set_mode('gallery')
+    swayimg.mode = 'gallery'
 end)
 
 swayimg.viewer.on_key('n', function()
-    swayimg.viewer.switch_image('next')
+    swayimg.viewer.open('next')
 end)
 
 swayimg.viewer.on_key('p', function()
-    swayimg.viewer.switch_image('prev')
+    swayimg.viewer.open('prev')
 end)
 
 swayimg.viewer.on_key('f', function()
-    swayimg.toggle_fullscreen()
+    swayimg.fullscreen = !swayimg.fullscreen
 end)
 
 swayimg.viewer.on_key('z', function()
@@ -46,13 +48,13 @@ swayimg.viewer.on_key('Shift-d', function()
 end)
 
 -- zoom image
-swayimg.viewer.on_key('KP_Add', function()
-    local scale = swayimg.viewer.get_scale()
+swayimg.viewer.on_key('Shift-plus', function()
+    local scale = swayimg.viewer.scale
     swayimg.viewer.set_abs_scale(scale + 0.1)
 end)
 
-swayimg.viewer.on_key('KP_Subtract', function()
-    local scale = swayimg.viewer.get_scale()
+swayimg.viewer.on_key('Shift-underscore', function()
+    local scale = swayimg.viewer.scale
     swayimg.viewer.set_abs_scale(scale - 0.1)
 end)
 
@@ -102,32 +104,32 @@ end)
 
 -- Gallery mode
 swayimg.gallery.bind_reset()
-swayimg.gallery.set_window_color(0xaa000000)
-swayimg.gallery.set_aspect('keep')
-swayimg.gallery.set_border_color(0xff9b98ff)
+swayimg.gallery.window_color = 0xaa000000
+swayimg.gallery.aspect = 'keep'
+swayimg.gallery.border_color = 0xff9b98ff
 
 swayimg.gallery.on_key('q', function()
     swayimg.exit(0)
 end)
 
 swayimg.gallery.on_key('Return', function()
-    swayimg.set_mode('viewer')
+    swayimg.mode = 'viewer'
 end)
 
 swayimg.gallery.on_key('h', function()
-    swayimg.gallery.switch_image('left')
+    swayimg.gallery.select('left')
 end)
 
 swayimg.gallery.on_key('l', function()
-    swayimg.gallery.switch_image('right')
+    swayimg.gallery.select('right')
 end)
 
 swayimg.gallery.on_key('j', function()
-    swayimg.gallery.switch_image('down')
+    swayimg.gallery.select('down')
 end)
 
 swayimg.gallery.on_key('k', function()
-    swayimg.gallery.switch_image('up')
+    swayimg.gallery.select('up')
 end)
 
 -- set current image as wallapper
