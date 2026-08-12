@@ -100,7 +100,10 @@
     },
 
     "mango/window": {
-        "format": "{title}"
+        "format": "{title}",
+        "rewrite": {
+            ".* Mozilla Firefox": "Mozilla Firefox"
+        }
     },
 
     "group/networkgroup":{
