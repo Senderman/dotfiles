@@ -55,6 +55,8 @@ This will symlink `~/dotfiles/mangowm/*` to `$HOME` . Since you probably already
 
 if you want to uninstall symlink, run `stow -D mangowm`. Don't worry, this will never delete files that don't belong to this repository.
 
+Also check out [lnko](https://github.com/luanvil/lnko) for slightly more advanced dotfile management (compatible with this repo)
+
 You're welcome to fork this repo, edit the dotfiles and add your own and create PR if you want to make ADHDE better or to suggest a new software and its configs :)
 
 # Move your config files to the dotfiles repository
@@ -66,8 +68,6 @@ E.g. if you want to move and symlink your waybar config to the dotfiles reposito
 ```bash
 stowlink .config/waybar waybar
 ```
-
-Also check out [lnko](https://github.com/luanvil/lnko) for slightly more advanced dotfile management (compatible with this repo)
 
 Many thanks to my dear friend [Vezono](https://github.com/vezono) for this script!
 
