@@ -4,7 +4,7 @@ description = "A channel to list files which were deleted from the Git repositor
 requirements = ["git", "rg", "bat"]
 
 [source]
-command = "git log --diff-filter=D --summary | rg 'delete mode \\d+' -r '' --trim"
+command = "git log --diff-filter=D --summary | rg 'delete mode \\d+' -r '' --trim | sort | uniq"
 
 [preview]
 command = ["git show \"$(git rev-list -n1 HEAD -- '{}')^:{}\" | bat -n --color always --file-name '{}'", "git show --summary \"$(git rev-list -n1 HEAD -- '{}')\""]

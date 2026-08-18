@@ -13,7 +13,6 @@
     ],
     "modules-right": [
         "group/networkgroup",
-        "bluetooth",
         "group/loadgroup",
         "group/soundgroup",
         "group/powergroup",
@@ -110,7 +109,8 @@
         "orientation": "horizontal",
         "modules": [
             "network#main",
-            "network#vpn"
+            "network#vpn",
+            "bluetooth"
         ],
         "drawer": {}
     },

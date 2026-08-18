@@ -48,14 +48,24 @@ swayimg.viewer.on_key('Shift-d', function()
 end)
 
 -- zoom image
-swayimg.viewer.on_key('Shift-plus', function()
+swayimg.viewer.on_key('equal', function()
     local scale = swayimg.viewer.scale
-    swayimg.viewer.set_abs_scale(scale + 0.1)
+    swayimg.viewer.set_abs_scale(scale + 0.5)
 end)
 
-swayimg.viewer.on_key('Shift-underscore', function()
+swayimg.viewer.on_key('minus', function()
     local scale = swayimg.viewer.scale
-    swayimg.viewer.set_abs_scale(scale - 0.1)
+    swayimg.viewer.set_abs_scale(scale - 0.5)
+end)
+
+swayimg.viewer.on_mouse('ScrollUp', function()
+    local scale = swayimg.viewer.scale
+    swayimg.viewer.set_abs_scale(scale + 0.5)
+end)
+
+swayimg.viewer.on_mouse('ScrollDown', function()
+    local scale = swayimg.viewer.scale
+    swayimg.viewer.set_abs_scale(scale - 0.5)
 end)
 
 -- h/j/k/l to move image
