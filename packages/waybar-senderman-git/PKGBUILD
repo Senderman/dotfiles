@@ -2,7 +2,7 @@
 
 _pkgname="waybar"
 pkgname="$_pkgname-senderman-git"
-pkgver=0.15.0.r934.gcf19c83
+pkgver=0.15.0.r972.gd561b9d
 pkgrel=1
 pkgdesc="Highly customizable Wayland bar for Sway and Wlroots based compositors (patched by Senderman)"
 url='https://github.com/Alexays/Waybar'
@@ -13,7 +13,6 @@ depends=(
   'fmt'
   'gtk-layer-shell'
   'gtkmm3'
-  'jack'
   'jsoncpp'
   'libdbusmenu-gtk3'
   'libmpdclient'
@@ -25,6 +24,19 @@ depends=(
   'playerctl'
   'spdlog'
   'wayland'
+  'libatkmm-1.6.so'
+  'libcairomm-1.0.so'
+  'libfmt.so'
+  'libgtk-3.so'
+  'libjsoncpp.so'
+  'libpipewire-0.3.so'
+  'libspdlog.so'
+  'libudev.so'
+  'glibc'
+  'glib2'
+  'glibmm'
+  'libstdc++'
+  'libgcc'
 )
 makedepends=(
   'cmake'
