@@ -1,0 +1,31 @@
+# Maintainer: Doletov Fyodor <doletov.fyodor@yandex.ru>
+pkgname=openshift-client-git
+pkgver=4.21.0.202601121715.r215.g2902632
+pkgrel=1
+pkgdesc="Client tools for OpenShift"
+arch=("x86_64")
+provides=("oc")
+conflicts=("okd-client-bin" "origin-client" "origin-client-bin" "openshift-client-bin")
+url="https://github.com/openshift/oc"
+license=("Apache-2.0")
+depends=("glibc")
+
+source=("$pkgname"::"git+$url.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/$pkgname"
+  git describe --long --tags --abbrev=7 | sed 's/\([^-]*-g\)/r\1/;s/-/./g;s/openshift.clients.//'
+}
+
+build() {
+    cd "$srcdir/$pkgname"
+    make oc
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+  install -Dm644 <(./oc completion zsh) $pkgdir/usr/share/zsh/site-functions/_oc
+  install -Dm755 "./oc" "${pkgdir}/usr/bin/oc"
+}
+
