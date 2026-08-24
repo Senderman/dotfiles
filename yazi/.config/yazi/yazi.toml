@@ -8,7 +8,7 @@ linemode = "size"
 
 [opener]
 edit = [
-    { run = '${TERMCMD:-foot} ${EDITOR:-vi} "$@"', desc = "Open in $EDITOR", for = "linux" },
+    { run = '${TERMCMD:-foot} ${EDITOR:-vi} %s', desc = "Open in $EDITOR", for = "linux" },
 ]
 open = [
     { run = 'xdg-open %s', orphan = true, desc = "Open", for = "linux" },

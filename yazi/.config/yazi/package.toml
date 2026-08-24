@@ -1,37 +1,37 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "9014ed2"
-hash = "88e56a64b7ce7c4314427452343fef17"
+rev = "044c3cc"
+hash = "5bb0bfab901d3601c370eafdd66edd31"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "9014ed2"
-hash = "5b1c276b75cae91cbbdbe7863f39a540"
+rev = "044c3cc"
+hash = "87472b05a8c420100f6a2b9cde1e7746"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "9014ed2"
-hash = "e3260d0b1feded8c8e3ae3afa1169e30"
+rev = "044c3cc"
+hash = "46cbdc05596a3ecd730b288e28c7079d"
 
 [[plugin.deps]]
 use = "kirasok/torrent-preview"
-rev = "f465282"
-hash = "d849ad596b8a77902e62a42403aeba40"
+rev = "d745df6"
+hash = "cf91ea69fa7626160d7246dbda0ea545"
 
 [[plugin.deps]]
 use = "AminurAlam/yazi-plugins:preview-audio"
-rev = "ce325af"
+rev = "8c2ce96"
 hash = "fdb9c99b81d675a3098ba8e380048b00"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "9014ed2"
-hash = "b33b8b5e45cb10ffd31d3cccb93c6fd7"
+rev = "044c3cc"
+hash = "3bcc00df11efc3ae5d15f2dba860be7"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "9014ed2"
-hash = "e0d59bd47866a6a574c74574097e5070"
+rev = "044c3cc"
+hash = "45a533508a9840cc5a10cf6129f63e6a"
 
 [flavor]
 deps = []
