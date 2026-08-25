@@ -25,3 +25,8 @@ cava/.config/cava/themes
 copyparty/.config/copyparty/*
 !copyparty/.config/copyparty/copyparty.conf
 
+sunshine/.config/sunshine/*
+!sunshine/.config/sunshine/sunshine.conf
+!sunshine/.config/sunshine/apps.json
+!sunshine/.config/sunshine/sunshine_adhde_cover.png
+

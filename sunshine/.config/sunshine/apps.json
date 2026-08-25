@@ -1,0 +1,15 @@
+{
+    "apps": [
+        {
+            "auto-detach": true,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "/home/senderman/.config/sunshine/sunshine_adhde_cover.png",
+            "name": "Desktop",
+            "wait-all": true
+        }
+    ],
+    "env": {
+        "PATH": "$(PATH):$(HOME)/.local/bin"
+    }
+}

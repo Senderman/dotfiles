@@ -60,17 +60,17 @@
             "paused": "▶",
             "playing": "⏸"
         },
-        "consume-icons": {
-            "on": " "
+        "repeat-icons": {
+            "on": " "
         },
         "random-icons": {
             "on": " "
         },
-        "repeat-icons": {
-            "on": " "
+        "consume-icons": {
+            "on": " "
         },
         "single-icons": {
-            "on": "1 "
+            "on": " 1 "
         },
         "on-click": "rmpc togglepause",
         "on-click-right": "rmpc stop",
