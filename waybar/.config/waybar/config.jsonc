@@ -2,6 +2,7 @@
 {
     "height": 28,
     "modules-left": [
+        "image",
         "mango/workspaces",
         "mango/layout",
         "mpd",
@@ -19,6 +20,9 @@
         "clock",
         "group/traygroup"
     ],
+    "image": {
+        "path": "~/.config/waybar/adhde.png"
+    },
     "mango/workspaces": {
       "format": "{icon}",
       "hide-empty": false,

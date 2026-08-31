@@ -39,6 +39,10 @@ button:hover {
     background: inherit;
 }
 
+#image {
+    padding: 0 5px;
+}
+
 #workspaces {
     margin-right: 5px;
     font-weight: bold;
