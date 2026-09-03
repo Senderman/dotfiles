@@ -59,6 +59,10 @@ export AWS_RESPONSE_CHECKSUM_VALIDATION=when_required
 export CHECKPOINT_DISABLE=1
 
 if [ "$TTY" = "/dev/tty1" ]; then
-    usertree boot
+    printf "Press enter to run usertree, type anything and press enter to not to\n"
+    read -r ut_answer
+    if [ -z "${ut_answer}" ]; then
+        usertree boot
+    fi
 fi
 
