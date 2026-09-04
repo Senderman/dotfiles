@@ -78,7 +78,7 @@ keymap = [
 
     # Copy
     { on = [ "c", "p" ], run = "copy path",               desc = "Copy the file path" },
-    { on = [ "c", "d" ], run = "copy dirname",            desc = "Copy the directory path" },
+    { on = [ "c", "d" ], run = "copy dirpath",            desc = "Copy the directory path" },
     { on = [ "c", "f" ], run = "copy filename",           desc = "Copy the filename" },
     { on = [ "c", "y"],  run = 'shell -- wl-copy < "%s"', desc = "Copy file content to clipboard" },
 
