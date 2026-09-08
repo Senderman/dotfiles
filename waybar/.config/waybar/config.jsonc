@@ -158,11 +158,11 @@
     },
     "cpu": {
         "format": "  {usage}%",
-        "on-click": "footclient btm"
+        "on-click": "footclient btop"
     },
     "memory": {
         "format": "  {percentage}% / {swapPercentage}%",
-        "on-click": "footclient btm",
+        "on-click": "footclient btop",
         "tooltip-format": "RAM {used}GiB / Swap {swapUsed}GiB"
     },
 
