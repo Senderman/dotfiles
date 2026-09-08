@@ -1,9 +1,19 @@
 swayimg.text.font = 'JetBrainsMono Nerd Font'
 
+swayimg.format_conf = {
+    ttf = {
+        enable = true,
+        text = "The quick brown fox jumps over the lazy dog 0123456789",
+        color = 0xffffffff,
+        background=0xff000000
+    }
+}
+
 -- Viewer mode
 swayimg.viewer.bind_reset()
 swayimg.viewer.set_window_background(0xff000000)
 swayimg.viewer.set_image_background(0xffffffff)
+swayimg.viewer.drag_button = "MouseLeft"
 
 swayimg.on_window_resize(function()
     if swayimg.mode == 'viewer' then
@@ -45,6 +55,12 @@ end)
 swayimg.viewer.on_key('Shift-d', function()
     local img = swayimg.viewer.get_image()
     os.execute('rm -- "'..img.path..'"')
+end)
+
+--- open in mpv
+swayimg.viewer.on_key('e', function()
+    local img = swayimg.viewer.get_image()
+    os.execute('mpv -- "'..img.path..'"')
 end)
 
 -- zoom image
@@ -146,5 +162,11 @@ end)
 swayimg.gallery.on_key('w', function()
     local img = swayimg.gallery.get_image()
     os.execute('awww img "'..img.path..'"')
+end)
+
+--- open in mpv
+swayimg.gallery.on_key('e', function()
+    local img = swayimg.gallery.get_image()
+    os.execute('mpv -- "'..img.path..'"')
 end)
 
