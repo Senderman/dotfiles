@@ -2,9 +2,10 @@
 
 xdg_data="${XDG_DATA_HOME:-${HOME}/.local/share}"
 s6_srcdir="$xdg_data/s6" # directory with inital s6 configs, svcs, and databases
-s6_storelist="${s6_srcdir}/sv:${s6_srcdir}/bundles:${s6_srcdir}/sv-nogit" # list of sources (services and bundles) separated by colon
+s6_storelist="${s6_srcdir}/sv:${s6_srcdir}/sv-nogit" # list of sources (services and bundles) separated by colon
 s6_compdir="$s6_srcdir/rc/compiled" # compiled database directory
 s6_repodir="$s6_srcdir/repository" # s6-rc-repo* commands repository
+s6_repoinit_enable_file="$s6_srcdir/repoinit_enable_svcs.txt" # file with services to enable on repoinit command
 s6_frontend_conf="$s6_srcdir/s6-frontend.conf" # path to s6-frontend configuration file
 s6_runtime_dir="$XDG_RUNTIME_DIR/s6" # s6 data folder (scandir, livedir, logs, etc)
 s6_scandir="$s6_runtime_dir/service" # s6 scandir
@@ -75,26 +76,37 @@ repo_init(){
     fi
     echo "Creating repository at ${s6_repodir}"
     echo
-    s6 -v2 repository init
+    s6 repository init
     echo
-    echo "Adding all services from 'current-set-init' bundle to 'enabled' rx (it's ok to fail here if the bundle does not exist)"
-    echo
-    s6 -v2 set enable -p current-set-init
+    if [ -e "$s6_repoinit_enable_file" ]; then
+        echo "Found $s6_repoinit_enable_file file"
+        echo "Adding all services from '$s6_repoinit_enable_file' to 'enabled' rx"
+        echo 'Please ignore "...also need to be changed to "active"" warnings'
+        echo
+        while IFS= read -r sv; do
+            s6 set enable "$sv"
+        done < $s6_repoinit_enable_file
+        echo
+        echo "Enabling dependencies, fixing warnings above, if any"
+        s6 set check -u
+    else
+        echo "WARNING: File $s6_repoinit_enable_file not found. No services are enabled by default"
+    fi
     echo
     echo "Committing changes"
     echo
-    s6 -v2 set commit
+    s6  set commit
     echo
     echo "Checking s6-rc state"
     echo
     if [ ! -d "$s6_compdir" ]; then
         echo "${s6_compdir} does not exist, installing s6-rc database without calling s6-rc-update"
         echo
-        s6 -v2 live install --init
+        s6 live install --init
     elif  ! s6-rc -l "$s6_livedir" diff >/dev/null 2>&1; then
         echo "s6-rc is not live, installing s6-rc database without calling s6-rc-update"
         echo
-        s6 -v2 live install --init
+        s6 live install --init
     else
         echo "${s6_compdir} exists and s6-rc is alive, installing s6-rc database and calling s6-rc-update"
         echo "WARNING!!! It will affect the current s6 state and MAY stop some of your services!!!"
@@ -105,9 +117,8 @@ repo_init(){
           echo "No changes were made to the s6-rc database. Please run s6 live install manually to finish the repo initialization"
           exit 1
         fi
-        s6 -v2 live install
+        s6 live install
     fi
-    echo
     echo "Repo initialization finished without errors"
     echo
 }
