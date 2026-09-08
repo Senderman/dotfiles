@@ -16,10 +16,10 @@ theme[title]="#D0D2D0"
 theme[hi_fg]="#8A6EDE"
 
 # Background color of selected items
-theme[selected_bg]="#282b37"
+theme[selected_bg]="#6A99FF"
 
 # Foreground color of selected items
-theme[selected_fg]="#E7BC63"
+theme[selected_fg]="#222222"
 
 # Color of inactive/disabled text
 theme[inactive_fg]="#222222"
