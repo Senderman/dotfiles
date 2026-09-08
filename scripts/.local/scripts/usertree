@@ -42,6 +42,7 @@ boot_tree() {
 
 tear_tree(){
     s6-svscanctl -t "$s6_scandir"
+    s6-svc -k "$s6_scandir/s6-svscan-log"
 }
 
 generate_s6_frontend_config(){
