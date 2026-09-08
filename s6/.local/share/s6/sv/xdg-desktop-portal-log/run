@@ -1,4 +1,0 @@
-#!/usr/bin/execlineb -P
-
-s6-logscript
-xdg-desktop-portal

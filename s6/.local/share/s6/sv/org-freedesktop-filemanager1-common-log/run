@@ -1,4 +1,0 @@
-#!/usr/bin/execlineb -P
-
-s6-logscript
-org-freedesktop-filemanager1-common
