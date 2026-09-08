@@ -5,7 +5,6 @@ s6_srcdir="$xdg_data/s6" # directory with inital s6 configs, svcs, and databases
 s6_storelist="${s6_srcdir}/sv:${s6_srcdir}/sv-nogit" # list of sources (services and bundles) separated by colon
 s6_compdir="$s6_srcdir/rc/compiled" # compiled database directory
 s6_repodir="$s6_srcdir/repository" # s6-rc-repo* commands repository
-s6_repoinit_enable_file="$s6_srcdir/repoinit_enable_svcs.txt" # file with services to enable on repoinit command
 s6_frontend_conf="$s6_srcdir/s6-frontend.conf" # path to s6-frontend configuration file
 s6_runtime_dir="$XDG_RUNTIME_DIR/s6" # s6 data folder (scandir, livedir, logs, etc)
 s6_scandir="$s6_runtime_dir/service" # s6 scandir
@@ -78,24 +77,13 @@ repo_init(){
     echo
     s6 repository init
     echo
-    if [ -e "$s6_repoinit_enable_file" ]; then
-        echo "Found $s6_repoinit_enable_file file"
-        echo "Adding all services from '$s6_repoinit_enable_file' to 'enabled' rx"
-        echo 'Please ignore "...also need to be changed to "active"" warnings'
-        echo
-        while IFS= read -r sv; do
-            s6 set enable "$sv"
-        done < $s6_repoinit_enable_file
-        echo
-        echo "Enabling dependencies, fixing warnings above, if any"
-        s6 set check -u
-    else
-        echo "WARNING: File $s6_repoinit_enable_file not found. No services are enabled by default"
-    fi
+    echo "Fixing service dependencies"
+    echo
+    s6 -v2 set check -F -u
     echo
     echo "Committing changes"
     echo
-    s6  set commit
+    s6 set commit
     echo
     echo "Checking s6-rc state"
     echo
