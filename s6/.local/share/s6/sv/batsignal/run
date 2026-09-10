@@ -1,0 +1,13 @@
+#!/usr/bin/execlineb -P
+
+fdmove -c 2 1
+importas -S HOME
+importas -SD ${HOME}/.local/share XDG_DATA_HOME
+envfile ${XDG_DATA_HOME}/s6/config/batsignal.conf
+
+multisubstitute {
+    importas -Su WARN_LEVEL
+    importas -Su CRIT_LEVEL
+}
+
+batsignal -w ${WARN_LEVEL} -c ${CRIT_LEVEL}

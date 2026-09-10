@@ -41,12 +41,7 @@ boot_tree() {
 }
 
 tear_tree(){
-    # wait for all services to stop
-    s6 live stop-everything
-    # tear s6 tree
     s6-svscanctl -t "$s6_scandir"
-    # sometimes, s6-log for uncaught logs does not finish. All services are be stopped now, so no logs would be lost on SIGKILL
-    s6-svc -k "$s6_scandir/s6-svscan-log"
 }
 
 generate_s6_frontend_config(){
