@@ -5,7 +5,6 @@ s6_srcdir="$xdg_data/s6" # directory with inital s6 configs, svcs, and databases
 s6_storelist="${s6_srcdir}/sv:${s6_srcdir}/sv-nogit" # list of sources (services and bundles) separated by colon
 s6_compdir="$s6_srcdir/rc/compiled" # compiled database directory
 s6_repodir="$s6_srcdir/repository" # s6-rc-repo* commands repository
-s6_frontend_conf="$s6_srcdir/s6-frontend.conf" # path to s6-frontend configuration file
 s6_runtime_dir="$XDG_RUNTIME_DIR/s6" # s6 data folder (scandir, livedir, logs, etc)
 s6_scandir="$s6_runtime_dir/service" # s6 scandir
 s6_livedir="$s6_runtime_dir/s6-rc" # s6-rc livedir
@@ -19,14 +18,23 @@ if [ -z "$S6_CONF" ]; then
     exit 1
 fi
 
-export S6_CONF="$s6_frontend_conf"
-
 boot_tree() {
     if s6-svscanctl -z "${s6_scandir}" 2>/dev/null; then
         echo "s6-svscan is already running on ${s6_scandir}, doing nothing"
         exit 1;
     fi
-    rm -f "${s6_livedir}"
+
+    if [ ! -d "${s6_repodir}" ]; then
+        echo "No repository found. Please run 'usertree repoinit' first"
+        exit 1
+    fi
+
+    if [ ! -d "${s6_compdir}" ]; then
+        echo "Repository found, but no database compiled. Please run 's6 repo sync && s6 set commit && s6 live install --init' first"
+        exit 1
+    fi
+
+    rm -rf "${s6_livedir}"
     rm -rf "${s6_scandir}"
 
     setsid -f \
@@ -45,7 +53,7 @@ tear_tree(){
 }
 
 generate_s6_frontend_config(){
-    echo "Writing s6-frontend config to $s6_frontend_conf"
+    echo "Writing s6-frontend config to $S6_CONF"
     {
         echo "scandir = $s6_scandir"
         echo "livedir = $s6_livedir"
@@ -54,7 +62,7 @@ generate_s6_frontend_config(){
         echo "stmpdir = $s6_stmpdir"
         echo "storelist = $s6_storelist"
         echo 'verbosity = 1'
-    } > "$s6_frontend_conf"
+    } > "$S6_CONF"
 }
 
 db_diff(){
@@ -111,8 +119,8 @@ repo_init(){
     echo
 }
 
-if [ "$1" != "genconfig" ] && [ ! -e "$s6_frontend_conf" ]; then
-    echo "File $s6_frontend_conf is missing. Please run 'usertree genconfig' first"
+if [ "$1" != "genconfig" ] && [ ! -e "$S6_CONF" ]; then
+    echo "File $S6_CONF is missing. Please run 'usertree genconfig' first"
     exit 1
 fi
 
