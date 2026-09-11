@@ -146,7 +146,7 @@ case "$1" in
     *)
         cat << EOF
 
-Usage: usertree [command] <args>
+Usage: usertree [command]
   genconfig - generate s6-frontend config
   boot - boot usertree
   tear - teardown usertree
