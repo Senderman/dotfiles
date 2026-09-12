@@ -19,7 +19,6 @@ ctrl-r = "actions:open_xdg"
 [actions.open_chawan]
 description = "Open in chawan"
 command = "cha '{}'"
-mode = "execute"
 
 [actions.open_xdg]
 description = "Open in default html viewer (browser)"

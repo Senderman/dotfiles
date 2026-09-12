@@ -1,19 +1,19 @@
 [metadata]
 name = "cheat"
 description = "A channel to view cheatsheets"
-requirements = ["cheat"]
+requirements = ["bat", "fd"]
 
 [source]
-command = "cheat -b | tail -n +2"
+command = "fd -t f . ~/.config/cheat/cheatsheets"
 
 [preview]
-command = "cheat -c -t '{strip_ansi|split: :1..|join: |trim}' '{0}'"
+command = "bat --color=always -l bash '{}'"
 
 [keybindings]
 enter = "actions:print"
 
 [actions.print]
 description = "Print the selected cheatsheet"
-command = "cheat -c -t '{strip_ansi|split: :1..|join: |trim}' '{0}'"
+command = "bat --color=always -l bash '{}'"
 mode = "execute"
 
