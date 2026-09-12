@@ -1,6 +1,6 @@
 [metadata]
 name = "archwiki"
-description = "A channel to control view arch wiki"
+description = "A channel to view arch wiki pages"
 requirements = ["pacman", "rg", "cha"]
 
 [source]

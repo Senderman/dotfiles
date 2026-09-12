@@ -48,6 +48,7 @@ command -v tv > /dev/null && eval "$(tv init zsh)"
 command -v kubie > /dev/null && eval "$(kubie generate-completion zsh)"
 command -v gowall > /dev/null && eval "$(gowall completion zsh)"
 command -v dua > /dev/null && eval "$(dua completions zsh)"
+command -v dive > /dev/null && eval "$(dive completion zsh)"
 
 # Load theme
 autoload -Uz promptinit
