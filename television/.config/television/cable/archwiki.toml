@@ -1,0 +1,26 @@
+[metadata]
+name = "archwiki"
+description = "A channel to control view arch wiki"
+requirements = ["pacman", "rg", "cha"]
+
+[source]
+command = "pacman -Qql arch-wiki-docs  | rg '/en/' | rg '.html$'"
+
+[preview]
+command = "cha {}"
+
+[ui]
+layout = "landscape"
+
+[keybindings]
+enter = "actions:open_chawan"
+ctrl-r = "actions:open_xdg"
+
+[actions.open_chawan]
+description = "Open in chawan"
+command = "cha '{}'"
+mode = "execute"
+
+[actions.open_xdg]
+description = "Open in default html viewer (browser)"
+command = "xdg-open '{}'"
