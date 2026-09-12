@@ -132,9 +132,6 @@ alias tfp='terraform plan'
 alias tfv='terraform validate'
 alias tfs='terraform state'
 
-alias dna='dig +noall +answer'
-
-
 # Yazi with cwd update
 function f() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
