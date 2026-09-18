@@ -84,6 +84,15 @@ swayimg.viewer.on_mouse('ScrollDown', function()
     swayimg.viewer.set_abs_scale(scale - 0.5)
 end)
 
+swayimg.viewer.on_mouse('MouseSide', function()
+    swayimg.viewer.open('next')
+end)
+
+swayimg.viewer.on_mouse('MouseExtra', function()
+    swayimg.viewer.open('prev')
+end)
+
+
 -- h/j/k/l to move image
 swayimg.viewer.on_key('h', function()
     local wnd = swayimg.get_window_size()
