@@ -5,7 +5,7 @@ local zsh_config_dir="${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}"
 local zsh_plugins="${zsh_config_dir}/plugins.zsh"
 local zsh_plugins_src="${zsh_config_dir}/plugins.txt"
 local antidote_location="${XDG_DATA_DIR:-${HOME}/.local/share}/antidote"
-export ANTIDOTE_HOME="${HOME}/.local/share/antidote_bundles"
+export ANTIDOTE_HOME="${XDG_DATA_DIR:-${HOME}/.local/share}/antidote_bundles"
 
 get_antidote() {
     git clone --depth=1 https://github.com/mattmc3/antidote.git "${antidote_location}"
@@ -32,6 +32,12 @@ zstyle ':vcs_info:*' enable git
 
 source $zsh_plugins
 
+# Enable zsh-users/zsh-history-substring-search
+HISTORY_SUBSTRING_SEARCH_FUZZY=true
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=true
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 # All modifications to fpath should be done BEFORE this line
 autoload -Uz compinit
 compinit
@@ -54,5 +60,4 @@ command -v dive > /dev/null && eval "$(dive completion zsh)"
 autoload -Uz promptinit
 promptinit
 prompt adhde cyan noclock
-
 

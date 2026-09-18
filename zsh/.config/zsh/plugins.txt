@@ -2,11 +2,12 @@ Senderman/adhde-zsh-theme kind:fpath # theme
 Senderman/doas-zsh-plugin # insert doas by pressing double ESC
 Senderman/adhde-zsh-settings
 
+zdharma-continuum/fast-syntax-highlighting
+
 zsh-users/zsh-completions # Additional completion definitions for Zsh
 zsh-users/zsh-autosuggestions # Fish-like autosuggestions for zsh 
 zsh-users/zsh-history-substring-search # ZSH port of Fish history search
 
 djui/alias-tips # show alias if full command was entered
 
-zdharma-continuum/fast-syntax-highlighting
 
