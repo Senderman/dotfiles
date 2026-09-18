@@ -1,0 +1,51 @@
+# Maintainer: Doletov Fyodor <doletov.fyodor@yandex.ru>
+pkgname=adhde-scripts
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Scripts for ADHDE"
+arch=("any")
+url="https://github.com/Senderman/dotfiles"
+license=("MIT")
+depends=("fuzzel" "s6" "execline" "s6-rc" "s6-frontend" "libnotify")
+optdepends=(
+    'mangowm: mango-layouts command'
+    'cliphist: cliphist-fuzzel-img command'
+    'translate-shell: translate command'
+    'pass: passmenu-ng command'
+    'pass-otp: passmenu-ng command'
+    'transmission-cli: transmission-torrent-complete command'
+)
+
+source=(
+    'LICENSE'
+    'cliphist-fuzzel-img.sh'
+    'fastanswer.sh'
+    'mango-layouts.sh'
+    'passmenu-ng.sh'
+    'powermenu.sh'
+    's6-logscript.sh'
+    'stowlink.sh'
+    'translate.sh'
+    'transmission-torrent-complete.sh'
+    'usertree.sh'
+)
+sha256sums=('6618d0d1c861704ed929a091094b9fdf86be5fcc6cd937f4a9e7de229a50dac8'
+            'd87007fc0e8ebf94d295e273d69d211b1edc3990d65c096aae3b3274afd8668f'
+            '7f8fd1637f370b57a02eba73f19de3d56b7e924ec94db26476c46fee32e6f98a'
+            'ec1ced4cf163484a3a5a983a4e2c2ae641356de6e408a7cd5dfa09e5e787fa18'
+            '969ea6280d568ec435b33d443fbe871d2bb60be85af430fdac8aa5d2e521d916'
+            'fb082d34e6b0140a984464f597f5928f532b9a4633943000dbcafc31562b7dac'
+            '452a2a9db9847c2a1d38f330e9e96fe9ede99c8b90af172aa4e4170bdfcaad58'
+            '104241b032b16ca84ba48727cef0162f89e3a5f320e74bf3018d764326065d19'
+            'b7b59306a2e279cde41ef915ebdb11b885316cf3e09f6ddff81f8123de90ecc2'
+            'f0f623fe47b55f8bfc962b4e3501e5a247bd97190d4a48bab5dc20b88b6e20b3'
+            '1d6b1e0a1b07b44220571505e0676fde2fea6a64b8563dfc9d261f7e13373172')
+
+package() {
+    cd "${srcdir}"
+    for i in *.sh; do
+      install -Dm755 "$i" "${pkgdir}/usr/bin/${i%.sh}"
+    done
+    install -Dm644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}/"
+}
+
