@@ -1,0 +1,4 @@
+show = ["Uptime", "Machine", "Kernel", "Distribution", "Packages", "Resolution", "WindowManager", "Terminal", "Shell", "Memory", "Processor", "GPU"]
+
+theme = "ADHDE"
+

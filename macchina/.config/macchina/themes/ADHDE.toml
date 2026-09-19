@@ -1,0 +1,36 @@
+spacing            = 3
+separator          = "➜"
+key_color          = 'cyan'
+
+[palette]
+type               = "Dark"
+glyph              = "狐 "
+visible            = true
+
+[bar]
+glyph             = ""
+visible            = true
+hide_delimiters    = true
+
+[box]
+title              = "Attention Deficit Hyperactivity Desktop Environment"
+border             = "rounded"
+visible            = true
+
+[custom_ascii]
+path = "~/.config/macchina/adhde_logo"
+
+[keys]
+uptime     = "󰾩"
+machine    = ""
+kernel     = ""
+distro     = "󰻀"
+packages   = "󰏖"
+resolution = ""
+wm         = ""
+terminal   = ""
+shell      = ""
+memory     = ""
+cpu        = ""
+gpu        = "󰢮"
+
