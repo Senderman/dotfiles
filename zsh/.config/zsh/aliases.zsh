@@ -29,6 +29,11 @@ bindkey -M emacs '^O' _copybuffer
 bindkey -M viins '^O' _copybuffer
 bindkey -M vicmd '^O' _copybuffer
 
+# type single quotes ( ' ) and place the cursor in between
+bindkey -M emacs -s '^Q' "''^[[D"
+bindkey -M viins -s '^Q' "''^[[D"
+bindkey -M vicmd -s '^Q' "''^[[D"
+
 # Git aliases and hotkeys
 alias g='git'
 
