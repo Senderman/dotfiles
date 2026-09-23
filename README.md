@@ -61,7 +61,7 @@ You're welcome to fork this repo, edit the dotfiles and add your own and create 
 
 # Move your config files to the dotfiles repository
 
-This repository contains a script called [stowlink](scripts/.local/scripts/stowlink) which can help you to move your configuration files to the dotfiles repository in one command.
+This repository contains a script called [stowlink](packages/adhde-scripts/stowlink.sh) which can help you to move your configuration files to the dotfiles repository in one command.
 
 E.g. if you want to move and symlink your waybar config to the dotfiles repository, all you need to do is simply run 
 

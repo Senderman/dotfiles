@@ -1,12 +1,12 @@
 # Maintainer: Doletov Fyodor <doletov.fyodor@yandex.ru>
 pkgname=adhde-scripts
-pkgver=1.0.0
+pkgver=1.0.1
 pkgrel=1
 pkgdesc="Scripts for ADHDE"
 arch=("any")
 url="https://github.com/Senderman/dotfiles"
 license=("MIT")
-depends=("fuzzel" "s6" "execline" "s6-rc" "s6-frontend" "libnotify")
+depends=("fuzzel" "s6" "execline" "s6-rc" "s6-frontend")
 optdepends=(
     'mangowm: mango-layouts command'
     'cliphist: cliphist-fuzzel-img command'
@@ -14,6 +14,7 @@ optdepends=(
     'pass: passmenu-ng command'
     'pass-otp: passmenu-ng command'
     'transmission-cli: transmission-torrent-complete command'
+    'libnotify: transmission-torrent-complete, translate commands'
 )
 
 source=(
@@ -39,7 +40,7 @@ sha256sums=('6618d0d1c861704ed929a091094b9fdf86be5fcc6cd937f4a9e7de229a50dac8'
             '104241b032b16ca84ba48727cef0162f89e3a5f320e74bf3018d764326065d19'
             'b7b59306a2e279cde41ef915ebdb11b885316cf3e09f6ddff81f8123de90ecc2'
             'f0f623fe47b55f8bfc962b4e3501e5a247bd97190d4a48bab5dc20b88b6e20b3'
-            '1d6b1e0a1b07b44220571505e0676fde2fea6a64b8563dfc9d261f7e13373172')
+            '44c8ef006010cdc121aee97dc9185186506b1699d5b56583ba5da508b5c20fc0')
 
 package() {
     cd "${srcdir}"

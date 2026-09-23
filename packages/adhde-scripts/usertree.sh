@@ -47,7 +47,37 @@ boot_tree() {
       -o 'n3 s2000000 T' \
       -d 4 "${s6_scandir}"  | read -r _
 
+    if [ "$1" = 'bootscan' ]; then
+        echo "s6-svscan is up and running, but s6-rc was not initialized"
+        echo "If you want to continue the process, (init s6-rc and start the default services), run manually:"
+        echo
+        echo "s6 system boot"
+        echo
+        echo "To init the s6-rc state, but do not start the default services:"
+        echo
+        echo "usertree rcinit"
+        exit 0
+    fi
+
     s6 system boot
+}
+
+rc_init() {
+    if ! s6-svscanctl -z "${s6_scandir}" 2>/dev/null; then
+        echo "s6-svscan is not running on ${s6_scandir}, please run 'usertree bootscan'"
+        exit 1;
+    fi
+
+    if s6-rc -l "$s6_livedir" diff >/dev/null 2>&1; then
+        echo "s6-rc is already online on ${s6_livedir}, doing nothing"
+        exit 1
+    fi
+
+    s6-rc-init -c "${s6_compdir}" -l "${s6_livedir}" "${s6_scandir}" || exit 1
+
+    echo "s6-rc is online. Now you can start your services via 's6 start' command"
+    echo "To start the default services, run 's6 live start-everything'"
+
 }
 
 tear_tree(){
@@ -134,6 +164,12 @@ case "$1" in
     boot)
         boot_tree 
     ;;
+    bootscan)
+        boot_tree bootscan
+    ;;
+    rcinit)
+        rc_init
+    ;;
     tear)
         tear_tree
     ;;
@@ -149,6 +185,8 @@ case "$1" in
 Usage: usertree [command]
   genconfig - generate s6-frontend config
   boot - boot usertree
+  bootscan - run s6-svscan, do not initialize s6-rc stack
+  rcinit - init s6-rc for the running s6-svscan instance
   tear - teardown usertree
   diff - show what services will be stopped/started if you install the current set
   repoinit - init s6-rc repository
