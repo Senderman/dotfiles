@@ -1,0 +1,22 @@
+font=Noto Sans 14
+text-alignment=center
+width=500
+height=300
+border-radius=10
+history=0
+default-timeout=10000
+text-color=#ffffffff
+border-color=#9b93ffff
+layer=overlay
+format=<i>%a</i>\n\n<b>%s</b>\n%b
+
+[urgency=low]
+background-color=#171925ee
+
+[urgency=normal]
+background-color=#171925ee
+
+[urgency=critical]
+background-color=#bb0000ee
+border-color=#ff0000ff
+
