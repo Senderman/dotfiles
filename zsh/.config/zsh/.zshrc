@@ -51,6 +51,7 @@ autoload -Uz zcalc
 # Command completions
 command -v zoxide > /dev/null && eval "$(zoxide init zsh)"
 command -v tv > /dev/null && eval "$(tv init zsh)"
+command -v atuin > /dev/null && eval "$(atuin init --disable-up-arrow --disable-ai zsh)"
 command -v kubie > /dev/null && eval "$(kubie generate-completion zsh)"
 command -v gowall > /dev/null && eval "$(gowall completion zsh)"
 command -v dua > /dev/null && eval "$(dua completions zsh)"
