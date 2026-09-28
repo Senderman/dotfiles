@@ -309,6 +309,9 @@ exit_past_line_start = false
 ## starts once.
 # enabled = false
 
+[logs]
+enabled = false
+
 # [theme]
 ## Color theme to use for rendering in the terminal.
 ## There are some built-in themes, including the base theme ("default"),
