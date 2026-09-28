@@ -32,11 +32,11 @@ zstyle ':vcs_info:*' enable git
 
 source $zsh_plugins
 
-# Enable zsh-users/zsh-history-substring-search
-HISTORY_SUBSTRING_SEARCH_FUZZY=true
-HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=true
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+# disable built-in history since we are using atuin
+unset HISTFILE
+# zsh-users/zsh-history-substring-search is disabled too
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
 
 # All modifications to fpath should be done BEFORE this line
 autoload -Uz compinit

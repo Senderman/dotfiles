@@ -6,7 +6,8 @@ zdharma-continuum/fast-syntax-highlighting
 
 zsh-users/zsh-completions # Additional completion definitions for Zsh
 zsh-users/zsh-autosuggestions # Fish-like autosuggestions for zsh 
-zsh-users/zsh-history-substring-search # ZSH port of Fish history search
+# Disabled in favor of atuin
+# zsh-users/zsh-history-substring-search # ZSH port of Fish history search
 
 djui/alias-tips # show alias if full command was entered
 

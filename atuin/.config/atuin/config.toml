@@ -108,7 +108,7 @@ workspaces = true
 
 ## Show numeric shortcuts (1..9) beside list items in the TUI
 ## set to false to hide the moving numbers if you find them distracting
-# show_numeric_shortcuts = true
+show_numeric_shortcuts = false
 
 ## default history list format - can also be specified with the --format arg
 # history_format = "{time}\t{command}\t{duration}"
@@ -123,10 +123,12 @@ workspaces = true
 ## with ^ or end with $, they'll match anywhere in the command.
 ## For details on the supported regular expression syntax, see
 ## https://docs.rs/regex/latest/regex/#syntax
-# history_filter = [
-#   "^secret-cmd",
-#   "^innocuous-cmd .*--secret=.+",
-# ]
+history_filter = [
+    "curl.*client_secret",
+    "(?i)authorization",
+    "VAULT_TOKEN=",
+    "(?i)x-vault-token"
+]
 
 ## prevent commands run with cwd matching any of these regexes from being written
 ## to history. Note that these regular expressions are unanchored, i.e. if they don't
@@ -172,7 +174,7 @@ show_help = true
 enter_accept = false
 
 ## Defaults to false. If enabled, when triggered after &&, || or |, Atuin will complete commands to chain rather than replace the current line.
-command_chaining = true
+command_chaining = false
 
 ## This specifies the keymap on the startup of `atuin search`. If this is set
 ## to "auto", the startup keymap mode in the Atuin search is automatically
@@ -378,7 +380,7 @@ filters = ["workspace", "global", "session"]
 ## column fill remaining space. Only one column should have expand = true.
 ##
 ## Default:
-columns = ["duration", "time", "directory", "exit", "command"]
+columns = ["time", "directory", "exit", "duration", "command"]
 ##
 ## Examples:
 ##
