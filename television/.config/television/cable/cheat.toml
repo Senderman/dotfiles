@@ -4,16 +4,16 @@ description = "A channel to view cheatsheets"
 requirements = ["bat", "fd"]
 
 [source]
-command = "fd -t f . ~/.config/cheat/cheatsheets"
+command = "fd -t f . ~/.local/share/cheatsheets"
 
 [preview]
-command = "bat --color=always -l bash '{}'"
+command = "bat --color=always -l bash -pp '{}'"
 
 [keybindings]
 enter = "actions:print"
 
 [actions.print]
 description = "Print the selected cheatsheet"
-command = "bat --color=always -l bash '{}'"
+command = "bat --color=always -l bash -pp '{}'"
 mode = "execute"
 

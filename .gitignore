@@ -15,9 +15,6 @@ zsh/.config/zsh/aliases-nogit.zsh
 zsh/.config/zsh/plugins.zsh
 zsh/.config/zsh/.zcalc_history
 
-cheat/.config/cheat/cheatsheets/work/*
-!cheat/.config/cheat/cheatsheets/work/.gitkeep
-
 cava/.config/cava/shaders
 cava/.config/cava/themes
 
