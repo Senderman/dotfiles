@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Generate terraform variables from yaml files
+if [ "$#" -lt 2 ]; then
+  printf "Usage: %s variable_name FILE...\n" "$(basename "${0}")"
+  exit 1
+fi
+
+varname="${1}"
+shift
+
+tempfile="$(mktemp)"
+while [ "$#" -gt 0 ]; do
+  cat "${1}" >> "${tempfile}"
+  printf '\n' >> "${tempfile}"
+  shift
+done
+yq -o json "{\"${varname}\": .}" < "${tempfile}" > "${varname}.auto.tfvars.json"
+rm "${tempfile}"
+

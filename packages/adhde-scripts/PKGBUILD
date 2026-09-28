@@ -1,6 +1,6 @@
 # Maintainer: Doletov Fyodor <doletov.fyodor@yandex.ru>
 pkgname=adhde-scripts
-pkgver=1.0.1
+pkgver=1.0.2
 pkgrel=1
 pkgdesc="Scripts for ADHDE"
 arch=("any")
@@ -15,6 +15,7 @@ optdepends=(
     'pass-otp: passmenu-ng command'
     'transmission-cli: transmission-torrent-complete command'
     'libnotify: transmission-torrent-complete, translate commands'
+    'go-yq: tvfars script'
 )
 
 source=(
@@ -29,6 +30,7 @@ source=(
     'translate.sh'
     'transmission-torrent-complete.sh'
     'usertree.sh'
+    'tfvars.sh'
 )
 sha256sums=('6618d0d1c861704ed929a091094b9fdf86be5fcc6cd937f4a9e7de229a50dac8'
             'd87007fc0e8ebf94d295e273d69d211b1edc3990d65c096aae3b3274afd8668f'
@@ -40,7 +42,8 @@ sha256sums=('6618d0d1c861704ed929a091094b9fdf86be5fcc6cd937f4a9e7de229a50dac8'
             '104241b032b16ca84ba48727cef0162f89e3a5f320e74bf3018d764326065d19'
             'b7b59306a2e279cde41ef915ebdb11b885316cf3e09f6ddff81f8123de90ecc2'
             'f0f623fe47b55f8bfc962b4e3501e5a247bd97190d4a48bab5dc20b88b6e20b3'
-            '44c8ef006010cdc121aee97dc9185186506b1699d5b56583ba5da508b5c20fc0')
+            '44c8ef006010cdc121aee97dc9185186506b1699d5b56583ba5da508b5c20fc0'
+            'f6e38ed57e2e4cbd0adcc0cc11b139833f5b253c6b3b6a8a4d3cf17f44f433a1')
 
 package() {
     cd "${srcdir}"
