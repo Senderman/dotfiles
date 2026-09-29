@@ -68,7 +68,7 @@
     "script-torrent-added-enabled": false,
     "script-torrent-added-filename": "",
     "script-torrent-done-enabled": true,
-    "script-torrent-done-filename": "/home/senderman/.local/scripts/transmission-torrent-complete",
+    "script-torrent-done-filename": "/usr/bin/transmission-torrent-complete",
     "script-torrent-done-seeding-enabled": false,
     "script-torrent-done-seeding-filename": "",
     "seed-queue-enabled": false,
