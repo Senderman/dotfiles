@@ -1,0 +1,8 @@
+[theme]
+name = "adhde"
+parent = "default"
+
+[colors]
+AlertInfo = "@dark_cyan"
+AlertError = "@dark_red"
+SyntaxCommand = "@dark_green"

@@ -312,7 +312,7 @@ exit_past_line_start = false
 [logs]
 enabled = false
 
-# [theme]
+[theme]
 ## Color theme to use for rendering in the terminal.
 ## There are some built-in themes, including the base theme ("default"),
 ## "autumn" and "marine". You can add your own themes to the "./themes" subdirectory of your
@@ -322,11 +322,11 @@ enabled = false
 ##    https://ogeon.github.io/docs/palette/master/palette/named/index.html
 ## If you provide a custom theme file, it should be  called "NAME.toml" and the theme below
 ## should be the stem, i.e. `theme = "NAME"` for your chosen NAME.
-# name = "autumn"
+name = "adhde"
 
 ## Whether the theme manager should output normal or extra information to help fix themes.
 ## Boolean, true or false. If unset, left up to the theme manager.
-# debug = true
+debug = true
 
 [search]
 ## The list of enabled filter modes, in order of priority.
@@ -383,7 +383,7 @@ filters = ["global", "workspace", "session"]
 ## column fill remaining space. Only one column should have expand = true.
 ##
 ## Default:
-columns = ["time", "directory", "exit", "duration", "command"]
+columns = ["directory", "time", "exit", "duration", "command"]
 ##
 ## Examples:
 ##
