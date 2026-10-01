@@ -6,8 +6,8 @@
         "mango/workspaces",
         "mango/layout",
         "mpd",
-        "mpris",
-        "wlr/taskbar"
+        "mpris"
+        //"wlr/taskbar"
     ],
     "modules-center": [
         "mango/window"
