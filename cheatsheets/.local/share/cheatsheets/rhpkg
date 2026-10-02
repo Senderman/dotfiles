@@ -20,7 +20,7 @@ rpm -ql nginx
 # Query which local package owns the file
 rpm -qf /path/to/file
 
-# Query which remove package owns the file
+# Query which remote package owns the file
 dnf provides '*/file'
 
 # Update cache
