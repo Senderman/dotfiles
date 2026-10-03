@@ -26,3 +26,5 @@ sunshine/.config/sunshine/*
 !sunshine/.config/sunshine/apps.json
 !sunshine/.config/sunshine/sunshine_adhde_cover.png
 
+packages/*/*.pkg.tar.zst
+packages/*/*/
