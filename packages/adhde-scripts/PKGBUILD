@@ -1,6 +1,6 @@
 # Maintainer: Doletov Fyodor <doletov.fyodor@yandex.ru>
 pkgname=adhde-scripts
-pkgver=1.0.3
+pkgver=1.0.4
 pkgrel=1
 pkgdesc="Scripts for ADHDE"
 arch=("any")
@@ -33,7 +33,7 @@ source=(
     'tfvars.sh'
 )
 sha256sums=('6618d0d1c861704ed929a091094b9fdf86be5fcc6cd937f4a9e7de229a50dac8'
-            'd87007fc0e8ebf94d295e273d69d211b1edc3990d65c096aae3b3274afd8668f'
+            '94bf0922f5d3288527feba34fa9243023ec9abfd8cbf1f840aeb9aa9f8bb632e'
             '7f8fd1637f370b57a02eba73f19de3d56b7e924ec94db26476c46fee32e6f98a'
             'ec1ced4cf163484a3a5a983a4e2c2ae641356de6e408a7cd5dfa09e5e787fa18'
             '969ea6280d568ec435b33d443fbe871d2bb60be85af430fdac8aa5d2e521d916'

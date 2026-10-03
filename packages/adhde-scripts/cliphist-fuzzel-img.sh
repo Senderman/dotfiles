@@ -5,7 +5,7 @@ thumbnail_dir="${XDG_RUNTIME_DIR}/cliphist_thumbnails"
 
 cliphist_list=$(cliphist list)
 if [ -z "$cliphist_list" ]; then
-  fuzzel -d --prompt-only "cliphist: please store something first "
+  fuzzel -d --prompt-only "cliphist: history is empty "
   rm -rf "$thumbnail_dir"
   exit
 fi
