@@ -1,0 +1,7 @@
+hotKeys:
+  q:
+    shortCut: q
+    override: true
+    description: Quit K9S
+    command: 'quit'
+
