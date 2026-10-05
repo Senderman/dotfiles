@@ -229,10 +229,10 @@
             "mode-mon-col": 3,
             "iso8601": true,
             "format": {
-                "months":     "<span color='#ffb52a' size='14pt'><b>{}</b></span>",
+                "months":     "<span color='#e7bc63' size='14pt'><b>{}</b></span>",
                 "days":       "<span color='#c5c8c6' size='12pt'>{}</span>",
-                "weeks":      "<span color='#6fa8dc'><b>W{}</b></span>",
-                "weekdays":   "<span color='#ae8bff' size='12pt'><b>{}</b></span>",
+                "weeks":      "<span color='#6a99ff'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ad8cff' size='12pt'><b>{}</b></span>",
                 "today":      "<span color='#e362c5' size='12pt'><b><u>{}</u></b></span>"
             }
         },

@@ -4,13 +4,13 @@
 # Use "start", "mid" and "end" for three color gradient
 
 # Main background, empty for terminal default, need to be empty if you want transparent background
-theme[main_bg]="#1C1E26"
+theme[main_bg]="#181f2b"
 
 # Main text color
-theme[main_fg]="#D0D2D0"
+theme[main_fg]="#c5c8c6"
 
 # Title color for boxes
-theme[title]="#D0D2D0"
+theme[title]="#c5c8c6"
 
 # Highlight color for keyboard shortcuts
 theme[hi_fg]="#8A6EDE"
@@ -46,42 +46,42 @@ theme[proc_box]="#6A99FF"
 theme[div_line]="#222222"
 
 # Temperature graph colors
-theme[temp_start]="#AE8BFF"
+theme[temp_start]="#AD8CFF"
 theme[temp_mid]="#E7BC63"
 theme[temp_end]="#ff6b6b"
 
 # CPU graph colors
-theme[cpu_start]="#AE8BFF"
+theme[cpu_start]="#AD8CFF"
 theme[cpu_mid]="#E7BC63"
 theme[cpu_end]="#ff6b6b"
 
 # Mem/Disk free meter
-theme[free_start]="#AE8BFF"
+theme[free_start]="#AD8CFF"
 theme[free_mid]="#E7BC63"
 theme[free_end]="#ff6b6b"
 
 # Mem/Disk cached meter
-theme[cached_start]="#AE8BFF"
+theme[cached_start]="#AD8CFF"
 theme[cached_mid]="#E7BC63"
 theme[cached_end]="#ff6b6b"
 
 # Mem/Disk available meter
-theme[available_start]="#AE8BFF"
+theme[available_start]="#AD8CFF"
 theme[available_mid]="#E7BC63"
 theme[available_end]="#ff6b6b"
 
 # Mem/Disk used meter
-theme[used_start]="#AE8BFF"
+theme[used_start]="#AD8CFF"
 theme[used_mid]="#E7BC63"
 theme[used_end]="#ff6b6b"
 
 # Download graph colors
-theme[download_start]="#AE8BFF"
+theme[download_start]="#AD8CFF"
 theme[download_mid]="#E7BC63"
 theme[download_end]="#ff6b6b"
 
 # Upload graph colors
-theme[upload_start]="#AE8BFF"
+theme[upload_start]="#AD8CFF"
 theme[upload_mid]="#E7BC63"
 theme[upload_end]="#ff6b6b"
 
