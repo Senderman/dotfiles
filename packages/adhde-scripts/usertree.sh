@@ -1,11 +1,14 @@
 #!/bin/sh
 
 xdg_data="${XDG_DATA_HOME:-${HOME}/.local/share}"
-s6_srcdir="$xdg_data/s6" # directory with inital s6 configs, svcs, and databases
-s6_storelist="${s6_srcdir}/sv:${s6_srcdir}/sv-nogit" # list of sources (services and bundles) separated by colon
-s6_compdir_parentdir="$s6_srcdir/rc"
-s6_compdir="$s6_compdir_parentdir/compiled" # compiled database directory
-s6_repodir="$s6_srcdir/repository" # s6-rc-repo* commands repository
+xdg_config="${XDG_CONFIG_HOME:-${HOME}/.config}"
+
+s6_global_env_config="${xdg_config}/s6/config/global.conf" # file with environment variables to apply to the whole tree
+s6_storelist="${xdg_config}/s6/sv:${xdg_config}/s6/sv-nogit" # list of sources (services and bundles) separated by colon
+
+s6_compdir="${xdg_data}/s6/compiled" # compiled database directory
+s6_repodir="${xdg_data}/s6/repository" # s6-rc-repo* commands repository
+
 s6_runtime_dir="$XDG_RUNTIME_DIR/s6" # s6 data folder (scandir, livedir, logs, etc)
 s6_scandir="$s6_runtime_dir/service" # s6 scandir
 s6_livedir="$s6_runtime_dir/s6-rc" # s6-rc livedir
@@ -31,7 +34,6 @@ boot_tree() {
     fi
 
     if [ ! -d "${s6_compdir}" ]; then
-        mkdir -p "$s6_compdir_parentdir"
         echo "Repository found, but no database compiled. Please run 's6 repo sync && s6 set commit && s6 live install --init' first"
         exit 1
     fi
@@ -41,7 +43,7 @@ boot_tree() {
 
     setsid -f \
     fdmove -c 4 1 \
-    envfile -I "$s6_srcdir/config/global.conf" \
+    envfile -I "$s6_global_env_config"  \
     s6-svscanboot \
       -D "${XDG_RUNTIME_DIR}/s6/log/uncaught-logs" \
       -o 'n3 s2000000 T' \
@@ -85,6 +87,7 @@ tear_tree(){
 }
 
 generate_s6_frontend_config(){
+    mkdir -p "$(dirname "$S6_CONF")"
     echo "Writing s6-frontend config to $S6_CONF"
     {
         echo "scandir = $s6_scandir"
@@ -124,7 +127,7 @@ repo_init(){
     echo "Committing changes"
     echo
     s6 set commit
-    mkdir -p "$s6_compdir_parentdir"
+    mkdir -p "$(dirname "$s6_compdir")"
     echo
     echo "Checking s6-rc state"
     echo

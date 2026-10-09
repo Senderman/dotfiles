@@ -5,8 +5,8 @@ multisubstitute {
   importas -S HOME
 }
 
-importas -SD ${HOME}/.local/share XDG_DATA_HOME
-envfile -I ${XDG_DATA_HOME}/s6/config/${svc}.conf
+importas -SD ${HOME}/.config XDG_CONFIG_HOME
+envfile -I ${XDG_CONFIG_HOME}/s6/config/${svc}.conf
 
 multisubstitute {
   importas -S XDG_RUNTIME_DIR

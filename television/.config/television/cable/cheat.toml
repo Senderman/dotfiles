@@ -4,7 +4,7 @@ description = "A channel to view cheatsheets"
 requirements = ["bat", "fd"]
 
 [source]
-command = "fd -t f . ~/.local/share/cheatsheets"
+command = "fd -t f . ~/.config/cheatsheets"
 
 [preview]
 command = "bat --color=always -l bash -pp '{}'"

@@ -1,6 +1,6 @@
 # Maintainer: Doletov Fyodor <doletov.fyodor@yandex.ru>
 pkgname=adhde-scripts
-pkgver=1.0.4
+pkgver=1.0.5
 pkgrel=1
 pkgdesc="Scripts for ADHDE"
 arch=("any")
@@ -38,11 +38,11 @@ sha256sums=('6618d0d1c861704ed929a091094b9fdf86be5fcc6cd937f4a9e7de229a50dac8'
             'ec1ced4cf163484a3a5a983a4e2c2ae641356de6e408a7cd5dfa09e5e787fa18'
             '969ea6280d568ec435b33d443fbe871d2bb60be85af430fdac8aa5d2e521d916'
             'fb082d34e6b0140a984464f597f5928f532b9a4633943000dbcafc31562b7dac'
-            '452a2a9db9847c2a1d38f330e9e96fe9ede99c8b90af172aa4e4170bdfcaad58'
+            '6b6e3fbadf88b41dcc213ea1457915fb4cf71fc7779ab9f1d20abd7a3c965b09'
             '104241b032b16ca84ba48727cef0162f89e3a5f320e74bf3018d764326065d19'
             'b7b59306a2e279cde41ef915ebdb11b885316cf3e09f6ddff81f8123de90ecc2'
             '497f0a40ae232e52e25793a4fa0e88c32dd79715b069066b01838d6b0bc75edd'
-            '44c8ef006010cdc121aee97dc9185186506b1699d5b56583ba5da508b5c20fc0'
+            'bde56249b4216f409bd24bd4e405438c3a67f9bfb1e33300cee803cce1c428a4'
             'f6e38ed57e2e4cbd0adcc0cc11b139833f5b253c6b3b6a8a4d3cf17f44f433a1')
 
 package() {

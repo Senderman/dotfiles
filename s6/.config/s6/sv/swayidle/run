@@ -2,8 +2,8 @@
 
 fdmove -c 2 1
 importas -S HOME
-importas -SD ${HOME}/.local/share XDG_DATA_HOME
-envfile ${XDG_DATA_HOME}/s6/config/swayidle.conf
+importas -SD ${HOME}/.config XDG_CONFIG_HOME
+envfile ${XDG_CONFIG_HOME}/s6/config/swayidle.conf
 
 multisubstitute {
     importas -Su SCREENSAVER_TIMEOUT
