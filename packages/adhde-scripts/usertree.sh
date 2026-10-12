@@ -87,7 +87,7 @@ tear_tree(){
 }
 
 generate_s6_frontend_config(){
-    mkdir -p "$(dirname "$S6_CONF")"
+    mkdir -p "$(dirname "$S6_CONF")" || exit 1
     echo "Writing s6-frontend config to $S6_CONF"
     {
         echo "scandir = $s6_scandir"
@@ -118,27 +118,27 @@ repo_init(){
     fi
     echo "Creating repository at ${s6_repodir}"
     echo
-    s6 repository init
+    s6 repository init || exit 1
     echo
     echo "Fixing service dependencies"
     echo
-    s6 -v2 set check -F -u
+    s6 -v2 set check -F -u || exit 1
     echo
     echo "Committing changes"
     echo
-    s6 set commit
-    mkdir -p "$(dirname "$s6_compdir")"
+    s6 set commit || exit 1
+    mkdir -p "$(dirname "$s6_compdir")" || exit 1
     echo
-    echo "Checking s6-rc state"
+    echo "Checking s6-rc state" || exit 1
     echo
     if [ ! -d "$s6_compdir" ]; then
         echo "${s6_compdir} does not exist, installing s6-rc database without calling s6-rc-update"
         echo
-        s6 live install --init
+        s6 live install --init || exit 1
     elif  ! s6-rc -l "$s6_livedir" diff >/dev/null 2>&1; then
         echo "s6-rc is not live, installing s6-rc database without calling s6-rc-update"
         echo
-        s6 live install --init
+        s6 live install --init || exit 1
     else
         echo "${s6_compdir} exists and s6-rc is alive, installing s6-rc database and calling s6-rc-update"
         echo "WARNING!!! It will affect the current s6 state and MAY stop some of your services!!!"
@@ -149,7 +149,7 @@ repo_init(){
           echo "No changes were made to the s6-rc database. Please run s6 live install manually to finish the repo initialization"
           exit 1
         fi
-        s6 live install
+        s6 live install || exit 1
     fi
     echo "Repo initialization finished without errors"
     echo
