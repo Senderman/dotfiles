@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-prefix=${FASTANSWER_STORE_DIR-~/.local/share/fastanswer}
+prefix=${FASTANSWER_STORE_DIR-~/.config/fastanswer}
 answer_files=( "$prefix"/**/* )
 answer_files=( "${answer_files[@]#"$prefix"/}" )
 
