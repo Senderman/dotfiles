@@ -1,6 +1,6 @@
 # Maintainer: Doletov Fyodor <doletov.fyodor@yandex.ru>
 pkgname=adhde-scripts
-pkgver=1.0.7
+pkgver=1.0.8
 pkgrel=1
 pkgdesc="Scripts for ADHDE"
 arch=("any")
@@ -21,7 +21,6 @@ optdepends=(
 source=(
     'LICENSE'
     'cliphist-fuzzel-img.sh'
-    'fastanswer.sh'
     'mango-layouts.sh'
     'passmenu-ng.sh'
     'powermenu.sh'
@@ -34,7 +33,6 @@ source=(
 )
 sha256sums=('6618d0d1c861704ed929a091094b9fdf86be5fcc6cd937f4a9e7de229a50dac8'
             '94bf0922f5d3288527feba34fa9243023ec9abfd8cbf1f840aeb9aa9f8bb632e'
-            'cbfd5f33b8283af78a1a8fabf8a7568426e708e4f295d00c7ff581e18be4006a'
             'ec1ced4cf163484a3a5a983a4e2c2ae641356de6e408a7cd5dfa09e5e787fa18'
             '969ea6280d568ec435b33d443fbe871d2bb60be85af430fdac8aa5d2e521d916'
             'fb082d34e6b0140a984464f597f5928f532b9a4633943000dbcafc31562b7dac'

@@ -5,6 +5,7 @@ requirements = ["pacman", "rg", "cha"]
 
 [source]
 command = "pacman -Qql arch-wiki-docs  | rg '/en/' | rg '.html$'"
+display = "{replace:s/.*arch-wiki.html.en.//|replace:s/.html//}"
 
 [preview]
 command = "cha {}"

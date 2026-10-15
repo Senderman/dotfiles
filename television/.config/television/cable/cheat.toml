@@ -5,6 +5,7 @@ requirements = ["bat", "fd"]
 
 [source]
 command = "fd -t f . ~/.config/cheatsheets"
+display = "{replace:s/.*cheatsheets.//}"
 
 [preview]
 command = "bat --color=always -l bash -pp '{}'"

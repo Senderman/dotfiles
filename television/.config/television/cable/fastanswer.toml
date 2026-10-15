@@ -1,0 +1,23 @@
+[metadata]
+name = "fastanswer"
+description = "A channel to copy fast answer to the clipboard"
+requirements = ["fd", "wl-copy", "bat"]
+
+[source]
+command = "fd -t f . ~/.config/fastanswer"
+display = "{replace:s/.*fastanswer.//}"
+
+[preview]
+command = "bat -pp '{}'"
+
+[ui]
+layout = "landscape"
+
+[keybindings]
+enter = "actions:copy"
+
+[actions.copy]
+description = "Open in chawan"
+command = "bat '{}' | wl-copy"
+mode = "execute"
+
