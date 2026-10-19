@@ -193,6 +193,10 @@ button:hover {
     color: @orange;
 }
 
+#gamemode.running {
+    margin-right: 5px;
+}
+
 #idle_inhibitor {
     margin: 0 5px;
 }

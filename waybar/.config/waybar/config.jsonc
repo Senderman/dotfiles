@@ -248,6 +248,7 @@
         "orientation": "horizontal",
         "modules": [
             "privacy",
+            "gamemode",
             "idle_inhibitor",
             "mango/language",
             "tray"
@@ -263,6 +264,12 @@
                 "type": "audio-in"
             }
         ]
+    },
+    "gamemode": {
+        "format": "{glyph}",
+        "hide-not-running": true,
+        "use-icon": false,
+        "tooltip": false
     },
     "idle_inhibitor": {
         "format": "{icon} ",
