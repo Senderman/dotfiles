@@ -11,7 +11,7 @@ display = "{replace:s/.*fastanswer.//}"
 command = "bat -pp '{}'"
 
 [ui]
-layout = "landscape"
+layout = "portrait"
 
 [keybindings]
 enter = "actions:copy"

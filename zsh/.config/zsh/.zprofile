@@ -50,6 +50,7 @@ export CLIPHIST_DB_PATH="${XDG_RUNTIME_DIR}/cliphist"
 # User preferences
 export EDITOR=nvim
 export LANG=en_US.UTF-8
+export BAT_THEME=base16
 
 # Python trust system certs
 export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
