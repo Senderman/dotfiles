@@ -1,14 +1,14 @@
 [metadata]
 name = "cheat"
 description = "A channel to view cheatsheets"
-requirements = ["bat", "fd"]
+requirements = ["bat", "cha", "fd"]
 
 [source]
 command = "fd -t f . ~/.config/cheatsheets"
 display = "{replace:s/.*cheatsheets.//}"
 
 [preview]
-command = "bat --color=always -l bash -pp '{}'"
+command = "cha '{}'"
 
 [keybindings]
 enter = "actions:print"

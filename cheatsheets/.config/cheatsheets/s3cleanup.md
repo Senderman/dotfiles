@@ -1,9 +1,12 @@
 # Cleanup s3 bucket before deletion
-  lifecycle_rule:
+
+```yaml
+lifecycle_rule:
     - enabled: true
       expiration:
         - days: 1
       abort_fragments:
         - days: 1
       name: cleanup
+```
 

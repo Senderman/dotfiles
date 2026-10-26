@@ -1,3 +1,7 @@
 # Download from apache/nginx/s3 content tree website recursively
+
+```bash
 wget -r -np -nH --cut-dirs=1 -R 'index.html*' https://example.com/public/
+```
+
 

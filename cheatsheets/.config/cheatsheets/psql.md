@@ -1,68 +1,105 @@
 # Connection options:
-# -U username (if not specified current OS user is used).
-# -p port. Typically 5432, but 15432 on patroni clusters
-# -h server hostname/address, localhost by default
-# -d database
+```
+-U username (if not specified current OS user is used).
+-p port. Typically 5432, but 15432 on patroni clusters
+-h server hostname/address, localhost by default
+-d database
+```
 
 # Connect to postgres
+
+```bash
 sudo -u postgres psql
 sudo -u postgres psql -d database
+```
 
 # PSQL: List databases inside psql shell
+
+```
 \l
 \l+ # to view sizes
+```
 
 # PSQL: Select a specific database
+
+```bash
 \c dbname
+```
 
 # PSQL: List database tables
+
+```bash
 \dt
+```
 
 # Create user
+
+```sql
 CREATE USER 'dbuser' WITH PASSWORD 'xxxx-yyyy-zzzz';
+```
 
 # Backup a database
+
+```bash
 sudo -u postgres pg_dump -d <database> > backup.sql
+```
 
 # Close all connections to the database (e.g. to drop it)
+
+```sql
 SELECT pid, pg_terminate_backend(pid) 
 FROM pg_stat_activity 
 WHERE datname = 'dbname' AND pid <> pg_backend_pid();
+```
 
 # Restore a database
 
+```bash
 sudo -u postgres pg_restore -d <database> --clean --if-exists backup.sql
+```
 
-# Or if the user "postgres" cannot access dump file:
+Or if the user "postgres" cannot access dump file:
 
+```sql
 DROP DATABASE <dbname>;
 CREATE DATABASE <dbname> with owner <dbuser>;
+```
 
+```bash
 sudo -u postgres psql -d <dbname> < backup.sql
+```
 
 # The following commands generate all the required ALTER TABLE / ALTER SEQUENCE / ALTER VIEW statements, copy these and paste them back into plsql to run them.
 
-# Change owner of all tables of the current database to another user
+## Change owner of all tables of the current database to another user
 
+```sql
 SELECT 'ALTER TABLE '|| schemaname || '."' || tablename ||'" OWNER TO my_new_owner;'
 FROM pg_tables WHERE NOT schemaname IN ('pg_catalog', 'information_schema')
 ORDER BY schemaname, tablename;
+```
 
-# Same but for sequences
+## Same but for sequences
 
+```sql
 SELECT 'ALTER SEQUENCE '|| sequence_schema || '."' || sequence_name ||'" OWNER TO my_new_owner;'
 FROM information_schema.sequences WHERE NOT sequence_schema IN ('pg_catalog', 'information_schema')
 ORDER BY sequence_schema, sequence_name;
+```
 
-# For views
+## For views
 
+```sql
 SELECT 'ALTER VIEW '|| table_schema || '."' || table_name ||'" OWNER TO my_new_owner;'
 FROM information_schema.views WHERE NOT table_schema IN ('pg_catalog', 'information_schema')
 ORDER BY table_schema, table_name;
+```
 
-# For materialized views
+## For materialized views
 
+```sql
 SELECT 'ALTER TABLE '|| oid::regclass::text ||' OWNER TO my_new_owner;'
 FROM pg_class WHERE relkind = 'm'
 ORDER BY oid;
+```
 
