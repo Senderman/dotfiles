@@ -52,9 +52,9 @@ enum OtpType {
 
 TOTP is often 6 digits, uses SHA1 algorithm, and this is the default parameters for 99% OTP apps, so we only need the secret.
 
-If the parameters are different, we can extract them from the protobuf message
+If the parameters are different, we can extract them from the protobuf message.
 
-The secret is base32 (not base64!) encoded arbitrary data (private key)
+The secret is base32 (not base64!) encoded arbitrary data (private key).
 
 So, we need to
 
@@ -88,9 +88,9 @@ The output would look something like this:
 5: 4242
 ```
 
-Here 1.1 is the secret key, 1.2 is subject, 1.3 is issuer, 1.4 = 1 means the algo is SHA1, 1.5 = 1 means the OTP value is 6 digits, 1.6 = 2 means it is TOTP
+Here 1.1 is the secret key, 1.2 is subject, 1.3 is issuer, 1.4 = 1 means the algo is SHA1, 1.5 = 1 means the OTP value is 6 digits, 1.6 = 2 means it is TOTP.
 
-Now our task is extract secret (in many cases, it would be written as bytes, for example, `\'8U\234...`) and encode it to base32
+Our next task is to extract secret (in many cases, it would be written as bytes, for example, `\'8U\234...`) and to encode it to base32.
 
 **WARNING**: If you use dash/zsh or any other shell where `printf` is **not** built-in command, you **must** remove all slashes (`\`) before any symbol which does not have to be escaped.
 In this example, remove `\` before the `'` character, so `shaw\'arma` becomes `shaw'arma`:
@@ -111,6 +111,6 @@ If you need to form `otpauth://` string (do not forget to urlencode):
 otpauth://totp/Label:subject?secret=BASE32SECRET&period=30&digits=6&issuer=neko.com&algorithm=SHA1
 ```
 
-`digits`=6, `algorithm`=SHA1, `period`=30 are defaults. `issuer` is optional
+`digits`=6, `algorithm`=SHA1, `period`=30 are defaults. `issuer` is optional.
 
 

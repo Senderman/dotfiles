@@ -6,7 +6,7 @@
 | -------------------- | ----------------------------------------------------------------------------- |
 | H M L                | move cursor top/middle/bottom of the screen                                   |
 | %                    | move cursor to matching character (default supported pairs: '()', '{}', '[]') |
-| ^                    | jump to the first non-blank character of the line                             |
+| ^ or I               | jump to the first non-blank character of the line                             |
 | g_                   | jump to the last  non-blank character of the line                             |
 | 5gg 5G :5            | jump to line 5                                                                |
 | zt zz zb             | move the screen so the cursor would be on top/middle/bottom of it             |
@@ -15,29 +15,29 @@
 | Ctrl+b               | pgUp                                                                          |
 | Ctrl+f               | pgDown                                                                        |
 
-## Insert mode
+## Open insert mode
 
 | Key      | Definition                                      |
 | -------- | ----------------------------------------------- |
 | o        | append (open) a new line below the current line |
 | O        | append (open) a new line above the current line |
-| Ctrl+n/p | next/previous item in the autocompletion menu   |
-| Ctrl+j   | add a line break at the current cursor position |
 
 ## Editing
 
-| Key    | Definition                                                    |
-| ------ | ------------------------------------------------------------- |
-| .      | repeat the last command                                       |
-| gu     | lowercase from the cursor to motion (0/$/w/e/etc)             |
-| gU     | uppercase from the cursor to motion (0/$/w/e/etc)             |
-| R      | replace more than one character, until ESC is pressed         |
-| J      | join  line below to the current one with one space in between |
-| gJ     | Join  line below to THe current one without  space in between |
-| Ctrl+t | add indent (Insert mode)                                      |
-| Ctrl+d | unindent (Insert mode)                                        |
-| >>     | add indent (Normal mode)                                      |
-| <<     | unindent (Normal mode)                                        |
+| Key    | Definition                                                      |
+| ------ | --------------------------------------------------------------- |
+| .        | repeat the last command                                       |
+| Ctrl+n/p | next/previous item in the autocompletion menu                 |
+| Ctrl+j   | add a line break at the current cursor position               |
+| gu       | lowercase from the cursor to motion (0/$/w/e/etc)             |
+| gU       | uppercase from the cursor to motion (0/$/w/e/etc)             |
+| R        | replace more than one character, until ESC is pressed         |
+| J        | join  line below to the current one with one space in between |
+| gJ       | Join  line below to THe current one without  space in between |
+| Ctrl+t   | add indent (Insert mode)                                      |
+| Ctrl+d   | unindent (Insert mode)                                        |
+| >>       | add indent (Normal mode)                                      |
+| <<       | unindent (Normal mode)                                        |
 
 
 ## Visual mode
