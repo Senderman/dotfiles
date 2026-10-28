@@ -74,14 +74,12 @@ swayimg.viewer.on_key('minus', function()
     swayimg.viewer.set_abs_scale(scale - 0.5)
 end)
 
-swayimg.viewer.on_mouse('ScrollUp', function()
-    local scale = swayimg.viewer.scale
-    swayimg.viewer.set_abs_scale(scale + 0.5)
-end)
-
-swayimg.viewer.on_mouse('ScrollDown', function()
-    local scale = swayimg.viewer.scale
-    swayimg.viewer.set_abs_scale(scale - 0.5)
+swayimg.viewer.on_scroll(function(kmods, horizontal, vertical)
+    if vertical then
+        local scale = swayimg.viewer.scale
+        local mouse = swayimg.get_mouse_pos()
+        swayimg.viewer.set_abs_scale(scale - scale * vertical / 10.0, mouse.x, mouse.y)
+    end
 end)
 
 swayimg.viewer.on_mouse('MouseSide', function()
