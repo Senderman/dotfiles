@@ -8,6 +8,7 @@ bindkey -e
 # Plugins and modules settings
 zstyle ':vcs_info:*' enable git
 
+# Load antidote and plugins
 source "${zsh_config_dir}/antidote.zsh"
 
 # disable built-in history since we are using atuin
