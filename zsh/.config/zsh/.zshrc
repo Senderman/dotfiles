@@ -1,7 +1,7 @@
 tput cnorm
 
 # Antodote config
-local zsh_config_dir="${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}"
+local zsh_config_dir="${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}"
 local zsh_plugins="${zsh_config_dir}/plugins.zsh"
 local zsh_plugins_src="${zsh_config_dir}/plugins.txt"
 local antidote_location="${XDG_DATA_DIR:-${HOME}/.local/share}/antidote"
