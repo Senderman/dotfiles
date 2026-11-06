@@ -7,8 +7,7 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_CACHE_HOME="${HOME}/.cache"
 
 # zsh
-# commented out since we use atuin, no need to save history twice
-# export HISTFILE="${XDG_STATE_HOME}/zsh/history"
+export HISTFILE="${XDG_STATE_HOME}/zsh/history"
 
 # s6-frontend config
 export S6_CONF="${XDG_DATA_HOME}/s6/s6-frontend.conf"
