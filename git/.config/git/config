@@ -2,6 +2,7 @@
 # [user]
 #   name = Name Surname
 #   email = email@domain
+#   signingkey = yourkey
 [include]
     path = account
 
@@ -27,6 +28,10 @@
 [commit]
     # Sign all commits
     gpgsign = true
+
+[tag]
+    # Sign all tags
+    gpgSign = true
 
 [core]
     autocrlf = input
