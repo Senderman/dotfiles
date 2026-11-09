@@ -1,0 +1,93 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "display": {
+          "separator": "  "
+    },
+    "logo": {
+        "source": "~/.config/fastfetch/adhde_logo.png",
+        "type": "sixel"
+    },
+    "modules": [
+        "break",
+         {
+            "type": "os",
+            "key": " OS  ",
+            "keyColor": "31"  // = color1
+        },
+        {
+            "type": "kernel",
+            "key": " ├  ",
+            "keyColor": "31"
+        },
+        {
+            "type": "initsystem",
+            "key": " ├  ",
+            "keyColor": "31"
+        },
+        {
+            "type": "packages",
+            "key": " ├ 󰏖 ",
+            "keyColor": "31"
+        },
+        {
+            "type": "shell",
+            "key": " └  ",
+            "keyColor": "31"
+        },
+        "break",
+        {
+            "type": "wm",
+            "key": " WM  ",
+            "keyColor": "32"
+        },
+        {
+            "type": "terminal",
+            "format": "{pretty-name} {version} {#31}狐{#32}狐{#33}狐{#34}狐{#35}狐{#36}狐{#37}狐",
+            "key": " └  ",
+            "keyColor": "32"
+        },
+        "break",
+        {
+            "type": "host",
+            "format": "{5} {2}",
+            "key": " PC  ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "monitor",
+            "format": "{2}x{3}",
+            "key": " ├  ",
+            "keyColor": "magenta"
+        },
+
+        {
+            "type": "cpu",
+            "key": " ├  ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "gpu",
+            "key": " ├ 󰢮 ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "memory",
+            "key": " ├  ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "swap",
+            "key": " ├ 󰓡 ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "disk",
+            "format": "{1} / {2} ({3}) - {9} on {20}",
+            "key": " ├ 󰋊 ",
+            "keyColor": "magenta"
+        },
+        "break",
+        "break"
+    ]
+}
+
