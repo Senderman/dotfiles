@@ -10,9 +10,9 @@ which kubecolor 1>/dev/null 2>/dev/null && alias kubectl='kubecolor' && compdef 
 
 # Use modern utils
 alias ls='eza -1 --icons=auto --group-directories-first'
-alias l='eza -1 --icons=auto --group-directories-first -lg'
+alias l='eza -1 --icons=auto --group-directories-first --time-style=long-iso -lg'
 alias la='eza -1 --icons=auto --group-directories-first -a'
-alias lla='eza -1 --icons=auto --group-directories-first -lga'
+alias lla='eza -1 --icons=auto --group-directories-first --time-style=long-iso -lga'
 alias lt='eza --icons=auto --tree --group-directories-last'
 alias cat='bat -p'
 alias diff='delta'
