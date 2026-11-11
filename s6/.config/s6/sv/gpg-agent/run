@@ -1,6 +1,19 @@
 #!/usr/bin/execlineb -P
 
 fdmove -c 2 1
-gpg-agent --daemon
+
+importas -S HOME
+importas -SD ${HOME}/.config XDG_CONFIG_HOME
+envfile ${XDG_CONFIG_HOME}/s6/config/gpg-agent.conf
+
+multisubstitute {
+    importas -Su DEFAULT_CACHE_TTL
+    importas -Su MAX_CACHE_TTL
+}
+
+gpg-agent
+--default-cache-ttl ${DEFAULT_CACHE_TTL}
+--max-cache-ttl ${MAX_CACHE_TTL}
+--daemon
 sleep infinity
 
