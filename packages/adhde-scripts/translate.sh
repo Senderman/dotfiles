@@ -8,6 +8,7 @@ elif [ -n "$DISPLAY" ]; then
   copycmd="xsel -ib"
 else
   echo "Error: No Wayland or X11 display detected" 1>&2
+  exit 1
 fi
 translated="$(trans -b :ru "$text")"
 
