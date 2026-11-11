@@ -14,6 +14,7 @@ multisubstitute {
 gpg-agent
 --default-cache-ttl ${DEFAULT_CACHE_TTL}
 --max-cache-ttl ${MAX_CACHE_TTL}
+--disable-scdaemon
 --daemon
 sleep infinity
 
