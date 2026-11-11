@@ -2,6 +2,7 @@
 
 fdmove -c 2 1
 unexport WAYLAND_DISPLAY
+unexport DISPLAY
 importas -S HOME
 cd $HOME
 mango -r 4
