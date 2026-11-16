@@ -276,7 +276,8 @@
         "format-icons": {
             "activated": "",
             "deactivated": ""
-        }
+        },
+        "signal": 1
     },
     "tray": {
         "spacing": 5
