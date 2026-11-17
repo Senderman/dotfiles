@@ -29,7 +29,7 @@ export {https,ftp,rsync,all}_proxy=$http_proxy
 
 export HTTP_PROXY=$http_proxy \
 HTTPS_PROXY=$http_proxy \
-FTP_PROXY=$http_proxy \ 
+FTP_PROXY=$http_proxy \
 RSYNC_PROXY=$http_proxy \
 ALL_PROXY=$http_proxy \
 NO_PROXY=$no_proxy

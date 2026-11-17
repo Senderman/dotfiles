@@ -4,7 +4,6 @@ It keeps track of currently logged-in users.
 
 To see the content, run the `w` or the `who` command
 
-
 # /var/log/wtmp
 
 It keeps track of historical data of every log-in and logout activity.
