@@ -124,7 +124,7 @@ alias yaupg='yay -Sau'
 alias gsr='gpu-screen-recorder -w portal'
 alias gsr-slurp='gpu-screen-recorder -w $(slurp -f "%wx%h+%x+%y")'
 
-# Terraform aliases
+# Terraform/Terragrunt aliases
 alias tf='terraform'
 alias tfa='terraform apply'
 alias tfc='terraform console'
@@ -135,6 +135,11 @@ alias tfiu='terraform init -upgrade'
 alias tfp='terraform plan'
 alias tfv='terraform validate'
 alias tfs='terraform state'
+
+alias tg='terragrunt'
+alias tga='terragrunt apply'
+alias tgd='terragrunt destroy'
+alias tgp='terragrunt plan'
 
 # Yazi with cwd update
 function f() {

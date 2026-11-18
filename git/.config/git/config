@@ -9,6 +9,7 @@
 [alias]
     br = branch
     co = checkout
+    c1 = clone --depth=1
     sw = switch
     st = status -s
     ci = commit -S -m
