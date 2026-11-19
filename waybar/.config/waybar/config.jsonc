@@ -272,10 +272,10 @@
         "tooltip": false
     },
     "idle_inhibitor": {
-        "format": "{icon} ",
+        "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": " ",
+            "deactivated": ""
         },
         "signal": 1
     },
