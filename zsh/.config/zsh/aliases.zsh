@@ -135,6 +135,7 @@ alias tfiu='terraform init -upgrade'
 alias tfp='terraform plan'
 alias tfv='terraform validate'
 alias tfs='terraform state'
+alias tfut='terraform untaint'
 
 alias tg='terragrunt'
 alias tga='terragrunt apply'
