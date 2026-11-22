@@ -1,6 +1,6 @@
 # Maintainer: Doletov Fyodor <doletov.fyodor@yandex.ru>
 pkgname=openshift-client-git
-pkgver=4.21.0.202601121715.r215.g2902632
+pkgver=5.0.0.202610271435.r69.g4bd0239
 pkgrel=1
 pkgdesc="Client tools for OpenShift"
 arch=("x86_64")
