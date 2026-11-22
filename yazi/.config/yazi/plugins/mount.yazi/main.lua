@@ -96,7 +96,11 @@ function M:entry(job)
 	function producer()
 		self.permit[1]:send(true)
 		while true do
-			self.permit[2]:recv()
+			if ya.iter then -- TODO: remove
+				self.permit[2]()
+			else
+				self.permit[2]:recv()
+			end
 			local idx = ya.which { cands = self.keys, silent = true }
 			self.permit[1]:send(true)
 
@@ -113,7 +117,12 @@ function M:entry(job)
 
 	function consumer1()
 		repeat
-			local run = rx1:recv()
+			local run
+			if ya.iter then -- TODO: remove
+				run = rx1()
+			else
+				run = rx1:recv()
+			end
 			if run == "quit" then
 				tx2:send(run)
 				break
@@ -134,7 +143,12 @@ function M:entry(job)
 
 	function consumer2()
 		repeat
-			local run = rx2:recv()
+			local run
+			if ya.iter then -- TODO: remove
+				run = rx2()
+			else
+				run = rx2:recv()
+			end
 			if run == "quit" then
 				break
 			elseif run == "mount" then
@@ -164,13 +178,24 @@ function M:redraw()
 		end
 	end
 
+	-- TODO: remove
+	local function rounded(b)
+		if th.input.border_set then
+			b:set("rounded")
+		else
+			b:type(ui.Border.ROUNDED)
+		end
+		return b
+	end
+
 	return {
 		ui.Clear(self._area),
-		ui.Border(ui.Edge.ALL)
-			:area(self._area)
-			:type(ui.Border.ROUNDED)
-			:style(ui.Style():fg("blue"))
-			:title(ui.Line("Mount"):align(ui.Align.CENTER)),
+		rounded(
+			ui.Border(ui.Edge.ALL)
+				:area(self._area)
+				:style(ui.Style():fg("blue"))
+				:title(ui.Line("Mount"):align(ui.Align.CENTER))
+		),
 		ui.Table(rows)
 			:area(self._area:pad(ui.Pad(1, 2, 1, 2)))
 			:header(ui.Row({ "Src", "Label", "Dist", "FSType" }):style(ui.Style():bold()))
@@ -186,9 +211,15 @@ function M:redraw()
 end
 
 function M.obtain()
+	local partitions, err = fs.partitions()
+	if not partitions then
+		require(".cross").fail("%s", err)
+		return {}
+	end
+
 	local tbl = {}
 	local last
-	for _, p in ipairs(fs.partitions()) do
+	for _, p in ipairs(partitions) do
 		local main, sub = M.split(p.src)
 		if main and last ~= main then
 			if p.src == main then

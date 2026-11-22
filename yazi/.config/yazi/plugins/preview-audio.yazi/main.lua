@@ -17,8 +17,6 @@ local function add_line(lines, key, value)
   table.insert(lines, string.format('%s: %s', key, value))
 end
 
--- sep
-
 ---@param items table
 ---@return string?
 local function first(items)
@@ -102,6 +100,11 @@ function M:peek(job)
     ya.dbg(tostring(err)) -- TODO: fix random Failed to rename error
   end
 
+  if job.mime == 'application/apple.mpegurl' or job.mime == 'audio/mpegurl' then
+    require('code'):peek(job)
+    return
+  end
+
   ya.sleep(math.max(0, rt.preview.image_delay / 1000 + start - os.clock()))
   local img_area, err = ya.image_show(cache, job.area)
   if err then
@@ -137,6 +140,10 @@ function M:preload(job)
     return
   end
 
+  if job.mime == 'application/apple.mpegurl' or job.mime == 'audio/mpegurl' then
+    return
+  end
+
   -- stylua: ignore
   local output, err = Command('ffmpeg')
       :arg({
@@ -162,6 +169,19 @@ function M:preload(job)
     return
   else
     return Err('Failed to rename: %s', err)
+  end
+end
+
+---@param mu { mimes: string[], urls: string[] }
+function M:setup(mu)
+  mu = mu or { mimes = { 'audio/*' }, urls = {} }
+  for _, mime in ipairs(mu.mimes or {}) do
+    rt.plugin.previewers:insert(1, { mime = mime, run = 'preview-audio' })
+    rt.plugin.preloaders:insert(1, { mime = mime, run = 'preview-audio' })
+  end
+  for _, url in ipairs(mu.urls or {}) do
+    rt.plugin.previewers:insert(1, { url = url, run = 'preview-audio' })
+    rt.plugin.preloaders:insert(1, { url = url, run = 'preview-audio' })
   end
 end
 
