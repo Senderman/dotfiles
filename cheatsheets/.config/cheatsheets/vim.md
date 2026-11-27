@@ -14,6 +14,7 @@
 | Ctrl+y          <br> | move screen (not cursor) up one line                                          |
 | Ctrl+b               | pgUp                                                                          |
 | Ctrl+f               | pgDown                                                                        |
+| * #                  | Go to the next/prev word under the cursor                                     |
 
 ## Open insert mode
 
@@ -38,6 +39,8 @@
 | Ctrl+d   | unindent (Insert mode)                                        |
 | >>       | add indent (Normal mode)                                      |
 | <<       | unindent (Normal mode)                                        |
+| S        | clear the current line and enter Insert mode                  |
+| D        | Delete to the end of the line                                 |
 
 
 ## Visual mode
